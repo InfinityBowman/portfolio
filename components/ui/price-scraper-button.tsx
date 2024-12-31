@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useState } from "react";
 
 const PriceScraperButton = () => {
@@ -10,7 +11,15 @@ const PriceScraperButton = () => {
     setLoading(true);
     setError(null);
     try {
-      const response = await fetch("/api/scrape-price");
+      const response = await fetch("/api/send-to-supabase", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: "Tokyo Scoring Strings",
+        }),
+      });
       const data = await response.json();
       if (response.ok) {
         setPrice(data.price);
@@ -29,13 +38,19 @@ const PriceScraperButton = () => {
   };
 
   return (
-    <div>
-      <button onClick={handleClick} disabled={loading}>
+    <>
+      <button
+        onClick={handleClick}
+        disabled={loading}
+        className={`px-2 py-1 text-sm text-white font-normal rounded-md ${
+          loading ? "bg-gray-400 cursor-not-allowed" : "bg-blue-500 hover:bg-blue-600 focus:ring-2 focus:ring-blue-300"
+        }`}
+      >
         {loading ? "Refreshing..." : "Refresh Price"}
       </button>
-      {price && <p>Current Price: {price}</p>}
-      {error && <p>Error: {error}</p>}
-    </div>
+      {price && <p className="text-sm font-normal">Current Price: {price}</p>}
+      {error && <p className="text-sm text-red-500 font-normal">Error: {error}</p>}
+    </>
   );
 };
 

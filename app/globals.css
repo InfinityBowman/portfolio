@@ -30,6 +30,7 @@
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
     --link-hover: hsl(311, 71%, 63%);
+    --icon: 0 0% 9%;
   }
 
   .dark {
@@ -58,6 +59,7 @@
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
     --link-hover: hsl(311, 71%, 63%);
+    --icon: 0 0% 98%;
   }
 }
 
@@ -72,6 +74,9 @@
     color: var(--link-hover);
   }
   .link-active {
-    border-bottom: 2px solid var(--link-hover);
+    border-bottom: 1px solid var(--link-hover);
+  }
+  .icon {
+    color: hsl(var(--icon));
   }
 }

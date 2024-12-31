@@ -11,22 +11,22 @@ export default function NavBar() {
         {/* TODO replace with name logo */}
         Jacob Maynard
       </Link>
-      <div className="flex gap-5 mx-auto h-full">
+      <div className="flex gap-5 -mb-[2px] mx-auto h-full">
         <Link
           href="/kontakt-guide"
-          className={`navbar-link h-full flex items-center ${pathname === "/kontakt-guide" ? "link-active" : ""}`}
+          className={`navbar-link h-full flex items-center ${pathname === "/kontakt-guide" ? "link-active" : "border-b border-transparent"}`}
         >
           Kontakt Guide
         </Link>
         <Link
           href="/services"
-          className={`navbar-link h-full flex items-center ${pathname === "/services" ? "link-active" : ""}`}
+          className={`navbar-link h-full flex items-center ${pathname === "/services" ? "link-active" : "border-b border-transparent"}`}
         >
           Services
         </Link>
         <Link
           href="/contact"
-          className={`navbar-link h-full flex items-center ${pathname === "/contact" ? "link-active" : ""}`}
+          className={`navbar-link h-full flex items-center ${pathname === "/contact" ? "link-active" : "border-b border-transparent"}`}
         >
           Contact
         </Link>
