@@ -23,7 +23,9 @@ export default async function Page() {
   return (
     <>
       <div className="flex flex-col gap-8 w-full">
-        <div className="flex justify-center text-5xl">Sampled Instrument Guide</div>
+        <div className="flex justify-center text-5xl font-thin tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-green-500 drop-shadow-sm">
+          Sampled Instrument Guide
+        </div>
         <GuideTabs />
         <div className="text-xl">
           {prices.map((item) => (

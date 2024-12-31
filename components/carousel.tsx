@@ -8,26 +8,31 @@ const items = [
     title: "Spitfire Audio BBCSO Discover",
     description:
       "Discover the world of orchestral music with Spitfire Audio's BBC Symphony Orchestra Discover edition.",
+    link: "https://impactsoundworks.com/product/tokyo-scoring-strings/",
   },
   {
     image: "/library-guide-images/SA-Discover.png",
     title: "Another Title",
     description: "Another description for the second item.",
+    link: "https://impactsoundworks.com/product/tokyo-scoring-strings/",
   },
   {
     image: "/library-guide-images/SA-Discover.png",
     title: "Another Title 2",
     description: "Another description for the second item but different this time.",
+    link: "https://impactsoundworks.com/product/tokyo-scoring-strings/",
   },
   {
     image: "/library-guide-images/SA-Discover.png",
     title: "The title 3",
     description: "Another description for the third item this time.",
+    link: "https://impactsoundworks.com/product/tokyo-scoring-strings/",
   },
   {
     image: "/library-guide-images/SA-Discover.png",
     title: "TITLE 4",
     description: "This is for the fourth item but different this time.",
+    link: "https://impactsoundworks.com/product/tokyo-scoring-strings/",
   },
   // Add more items as needed
 ];
@@ -48,7 +53,7 @@ function SwipeToSlide() {
       <Slider {...settings}>
         {items.map((item, index) => (
           <div key={index} className="p-2">
-            <FreeStuff image={item.image} title={item.title} description={item.description} />
+            <FreeStuff image={item.image} title={item.title} description={item.description} link={item.link} />
           </div>
         ))}
       </Slider>

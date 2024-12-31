@@ -11,7 +11,7 @@ const PriceScraperButton = () => {
     setLoading(true);
     setError(null);
     try {
-      const response = await fetch("/api/send-to-supabase", {
+      const response = await fetch("/api/query-library-db", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
