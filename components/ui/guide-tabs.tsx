@@ -2,20 +2,19 @@
 
 import React, { useState } from "react";
 import KontaktFLTips from "./kontakt-fl-tips";
+import Carousel from "@/components/carousel";
 
 const GuideTabs: React.FC = () => {
-  const [activeTab, setActiveTab] = useState("tips");
+  const [activeTab, setActiveTab] = useState("free");
 
   const renderContent = () => {
     switch (activeTab) {
       case "free":
         return (
-          <div className="flex justify-center border rounded-lg p-4">
-            <div>
-              Here is some free stuff... this is a long sentence for testing to see length, it is still not long enough
-              so we will keep going
+          <div className="flex justify-center p-4">
+            <div className="w-full">
+              <Carousel />
             </div>
-            ;
           </div>
         );
       case "tips":

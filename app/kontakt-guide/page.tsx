@@ -22,7 +22,7 @@ export default async function Page() {
 
   return (
     <>
-      <div className="flex flex-col gap-8 mx-auto">
+      <div className="flex flex-col gap-8 w-full">
         <div className="flex justify-center text-5xl">Sampled Instrument Guide</div>
         <GuideTabs />
         <div className="text-xl">
