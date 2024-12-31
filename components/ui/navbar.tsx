@@ -14,19 +14,19 @@ export default function NavBar() {
       <div className="flex gap-5 mx-auto h-full">
         <Link
           href="/kontakt-guide"
-          className={`link-hover h-full flex items-center ${pathname === "/kontakt-guide" ? "link-active" : ""}`}
+          className={`navbar-link h-full flex items-center ${pathname === "/kontakt-guide" ? "link-active" : ""}`}
         >
           Kontakt Guide
         </Link>
         <Link
           href="/services"
-          className={`link-hover h-full flex items-center ${pathname === "/services" ? "link-active" : ""}`}
+          className={`navbar-link h-full flex items-center ${pathname === "/services" ? "link-active" : ""}`}
         >
           Services
         </Link>
         <Link
           href="/contact"
-          className={`link-hover h-full flex items-center ${pathname === "/contact" ? "link-active" : ""}`}
+          className={`navbar-link h-full flex items-center ${pathname === "/contact" ? "link-active" : ""}`}
         >
           Contact
         </Link>
