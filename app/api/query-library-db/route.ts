@@ -6,7 +6,7 @@ import { log } from "console";
 const supabaseUrl: string = process.env.NEXT_PUBLIC_SUPABASE_URL as string;
 const supabaseKey: string = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY as string;
 
-export const supabase: SupabaseClient = createClient(supabaseUrl, supabaseKey);
+const supabase: SupabaseClient = createClient(supabaseUrl, supabaseKey);
 
 async function scrapePrice(): Promise<string> {
   const browser = await puppeteer.launch();
