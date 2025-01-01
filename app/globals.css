@@ -33,6 +33,7 @@
     --chart-5: 27 87% 67%;
     --link-hover: hsl(311, 71%, 63%);
     --icon: 0 0% 9%;
+    --bullet: 217 91% 60%;
   }
 
   .dark {
@@ -62,6 +63,7 @@
     --chart-5: 340 75% 55%;
     --link-hover: hsl(311, 71%, 63%);
     --icon: 0 0% 98%;
+    --bullet: 0 0% 98%;
   }
 }
 
@@ -81,4 +83,9 @@
   .icon {
     color: hsl(var(--icon));
   }
+}
+
+.swiper-pagination-bullet,
+swiper-pagination-bullet-active {
+  background-color: hsl(var(--bullet)) !important;
 }

@@ -1,38 +1,18 @@
-import Image from "next/image";
-import Link from "next/link";
-import { FaExternalLinkAlt } from "react-icons/fa";
+import { FaExclamationTriangle } from "react-icons/fa";
+import Carousel from "@/components/carousel";
 
-interface FreeStuffProps {
-  image: string;
-  title: string;
-  description: string;
-  link: string;
-}
-
-const FreeStuff: React.FC<FreeStuffProps> = ({ image, title, description, link }) => {
+const FreeStuff: React.FC = () => {
   return (
-    <div className="w-full max-w-xs bg-secondary shadow-lg rounded-lg overflow-hidden relative block">
-      <Link href={link}>
-        <div className="flex justify-center group overflow-hidden relative">
-          <Image
-            src={image}
-            alt={title}
-            width={1770}
-            height={1314}
-            className="object-cover object-center w-full h-50"
-            style={{ transform: "scale(1.01)" }}
-          />
-          <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <span className="flex justify-center items-center gap-1 text-lg font-normal">
-              Visit
-              <FaExternalLinkAlt className="inline ml-1" />
-            </span>
-          </div>
-        </div>
-      </Link>
-      <div className="p-4">
-        <h2 className="text-xl font-semibold mb-2">{title}</h2>
-        <p className="text-primary">{description}</p>
+    <div className="flex flex-col items-center gap-4">
+      <div className="flex text-sm max-w-2xl items-center p-4 bg-red-800 bg-opacity-25 border border-red-800 rounded-lg text-primary">
+        <FaExclamationTriangle className="mr-4 text-5xl" />
+        <span>
+          <span className="font-semibold">IMPORTANT:</span> All libraries here are 100% free. However, not all 'free'
+          libraries you find elsewhere are made for and run in Kontakt Player. Some may require Kontakt Full to work.
+        </span>
+      </div>
+      <div className="w-full">
+        <Carousel />
       </div>
     </div>
   );

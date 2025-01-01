@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import KontaktFLTips from "./kontakt-fl-tips";
 import Carousel from "@/components/carousel";
+import FreeStuff from "./free-stuff";
 
 const GuideTabs: React.FC = () => {
   const [activeTab, setActiveTab] = useState("free");
@@ -10,13 +11,7 @@ const GuideTabs: React.FC = () => {
   const renderContent = () => {
     switch (activeTab) {
       case "free":
-        return (
-          <div className="flex justify-center p-4">
-            <div className="w-full">
-              <Carousel />
-            </div>
-          </div>
-        );
+        return <FreeStuff />;
       case "tips":
         return <KontaktFLTips />;
       default:

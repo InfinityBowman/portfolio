@@ -1,112 +1,92 @@
-import React, { Component } from "react";
-import Slider from "react-slick";
-import FreeStuff from "@/components/ui/free-stuff";
+import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination } from "swiper/modules";
+import "swiper/css/pagination";
+import "swiper/css";
+
+import CarouselCard from "@/components/ui/carousel-card";
 
 const items = [
   {
     image: "/library-guide-images/SA-Discover.png",
-    title: "Spitfire Audio BBCSO Discover",
+    title: "BBCSO Discover",
+    description: "Limited full orchestra library that works as its own plugin.",
+    link: "https://www.spitfireaudio.com/bbc-symphony-orchestra-discover",
+  },
+  {
+    image: "/library-guide-images/SA-Labs.png",
+    title: "Spitfire Audio Labs",
+    description: "A vast collection of instruments and sounds in its own plugin.",
+    link: "https://labs.spitfireaudio.com/",
+  },
+  {
+    image: "/library-guide-images/Komplete-Start.png",
+    title: "Komplete Start",
     description:
-      "Discover the world of orchestral music with Spitfire Audio's BBC Symphony Orchestra Discover edition.",
-    link: "https://impactsoundworks.com/product/tokyo-scoring-strings/",
+      "Komplete start is a free collection on instruments and sounds that you can get by downloading Kontakt Player.",
+    link: "https://www.native-instruments.com/en/products/komplete/bundles/komplete-start/",
   },
   {
-    image: "/library-guide-images/SA-Discover.png",
-    title: "Another Title",
-    description: "Another description for the second item.",
-    link: "https://impactsoundworks.com/product/tokyo-scoring-strings/",
+    image: "/library-guide-images/Heavyocity-Foundations.jpg",
+    title: "Heavyocity Foundations",
+    description: "Heavyocity is so good. One of the rare free good choirs.",
+    link: "https://heavyocity.com/product-category/foundations/",
   },
   {
-    image: "/library-guide-images/SA-Discover.png",
-    title: "Another Title 2",
-    description: "Another description for the second item but different this time.",
-    link: "https://impactsoundworks.com/product/tokyo-scoring-strings/",
+    image: "/library-guide-images/OT-Sinefactory.jpg",
+    title: "SINE Factory",
+    description: "An amazing suite of free instruments similar to Labs and doesn't use Kontakt at all.",
+    link: "https://www.orchestraltools.com/sinefactory",
   },
   {
-    image: "/library-guide-images/SA-Discover.png",
-    title: "The title 3",
-    description: "Another description for the third item this time.",
-    link: "https://impactsoundworks.com/product/tokyo-scoring-strings/",
+    image: "/library-guide-images/Impact-Soundworks.png",
+    title: "Impact Soundworks Free",
+    description: "Guitars, strings, sketching tools, and more.",
+    link: "https://impactsoundworks.com/products/category/free-instruments/",
   },
   {
-    image: "/library-guide-images/SA-Discover.png",
-    title: "TITLE 4",
-    description: "This is for the fourth item but different this time.",
-    link: "https://impactsoundworks.com/product/tokyo-scoring-strings/",
+    image: "/library-guide-images/Fracture-Sounds-Blueprints.webp",
+    title: "Fracture Sounds' Blueprint Series",
+    description: "Another huge suite of free Kontakt libraries.",
+    link: "https://fracturesounds.com/product-category/free/",
   },
-  // Add more items as needed
+  {
+    image: "/library-guide-images/Westwood-Roots.jpg",
+    title: "Westwood Instruments' Roots",
+    description: "Westwood has a very unique and raw sound.",
+    link: "https://www.westwoodinstruments.com/roots/",
+  },
+  {
+    image: "/library-guide-images/Project-Sam-Free.png",
+    title: "Project Sam Free Orchestra",
+    description: "Project Sam makes the most user friendly Kontakt libraries.",
+    link: "https://projectsam.com/series/the-free-orchestra",
+  },
 ];
 
-function SwipeToSlide() {
-  const settings = {
-    className: "center",
-    infinite: true,
-    centerPadding: "60px",
-    slidesToShow: 4,
-    swipeToSlide: true,
-    afterChange: function (index: number) {
-      console.log(`Slider Changed to: ${index + 1}, background: #222; color: #bada55`);
-    },
-  };
+const SwipeToSlide: React.FC = () => {
   return (
-    <div className="slider-container">
-      <Slider {...settings}>
+    <>
+      <Swiper
+        slidesPerView={4}
+        spaceBetween={20}
+        pagination={{
+          clickable: true,
+        }}
+        loop={true}
+        modules={[Pagination]}
+        className="mySwiper"
+      >
         {items.map((item, index) => (
-          <div key={index} className="p-2">
-            <FreeStuff image={item.image} title={item.title} description={item.description} link={item.link} />
-          </div>
+          <SwiperSlide key={index}>
+            <div className="pb-5">
+              <CarouselCard image={item.image} title={item.title} description={item.description} link={item.link} />
+            </div>
+          </SwiperSlide>
         ))}
-      </Slider>
-    </div>
+      </Swiper>
+    </>
   );
-}
-
-// export default SwipeToSlide;
-
-function SwipeToSlide1() {
-  const settings = {
-    className: "center",
-    infinite: true,
-    centerPadding: "60px",
-    slidesToShow: 5,
-    swipeToSlide: true,
-    afterChange: function (index: number) {
-      console.log(`Slider Changed to: ${index + 1}, background: #222; color: #bada55`);
-    },
-  };
-  return (
-    <div className="slider-container">
-      <Slider {...settings}>
-        <div>
-          <h3>1</h3>
-        </div>
-        <div>
-          <h3>2</h3>
-        </div>
-        <div>
-          <h3>3</h3>
-        </div>
-        <div>
-          <h3>4</h3>
-        </div>
-        <div>
-          <h3>5</h3>
-        </div>
-        <div>
-          <h3>6</h3>
-        </div>
-        <div>
-          <h3>7</h3>
-        </div>
-        <div>
-          <h3>8</h3>
-        </div>
-        <div>
-          <h3>9</h3>
-        </div>
-      </Slider>
-    </div>
-  );
-}
+};
 
 export default SwipeToSlide;
