@@ -13,22 +13,22 @@ export default function NavBar() {
       </Link>
       <div className="flex gap-5 -mb-[2px] mx-auto h-full">
         <Link
+          href="/projects"
+          className={`navbar-link h-full flex items-center ${pathname === "/projects" ? "link-active" : "border-b border-transparent"}`}
+        >
+          Projects
+        </Link>
+        <Link
           href="/kontakt-guide"
           className={`navbar-link h-full flex items-center ${pathname === "/kontakt-guide" ? "link-active" : "border-b border-transparent"}`}
         >
           Kontakt Guide
         </Link>
         <Link
-          href="/services"
-          className={`navbar-link h-full flex items-center ${pathname === "/services" ? "link-active" : "border-b border-transparent"}`}
+          href="/hobbies"
+          className={`navbar-link h-full flex items-center ${pathname === "/hobbies" ? "link-active" : "border-b border-transparent"}`}
         >
-          Services
-        </Link>
-        <Link
-          href="/contact"
-          className={`navbar-link h-full flex items-center ${pathname === "/contact" ? "link-active" : "border-b border-transparent"}`}
-        >
-          Contact
+          Hobbies
         </Link>
       </div>
     </>
