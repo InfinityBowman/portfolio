@@ -1,7 +1,7 @@
 import LibraryPriceItem from "@/components/ui/library-price-item";
 import { createClient } from "@/utils/supabase/server";
 import { PriceItem } from "@/lib/definitions";
-import GuideTabs from "@/components/ui/guide-tabs";
+import GuideTabs from "@/components/ui/kontakt-guide/guide-tabs";
 import AOS from "aos";
 import "aos/dist/aos.css";
 

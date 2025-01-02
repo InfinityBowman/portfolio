@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import KontaktFLTips from "./kontakt-fl-tips";
-import Carousel from "@/components/carousel";
+import Carousel from "@/components/ui/kontakt-guide/carousel";
 import FreeStuff from "./free-stuff";
 
 const GuideTabs: React.FC = () => {

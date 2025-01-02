@@ -1,5 +1,5 @@
 import { FaExclamationTriangle } from "react-icons/fa";
-import Carousel from "@/components/carousel";
+import Carousel from "@/components/ui/kontakt-guide/carousel";
 
 const FreeStuff: React.FC = () => {
   return (

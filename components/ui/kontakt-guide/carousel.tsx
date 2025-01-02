@@ -4,7 +4,7 @@ import { Pagination } from "swiper/modules";
 import "swiper/css/pagination";
 import "swiper/css";
 
-import CarouselCard from "@/components/ui/carousel-card";
+import CarouselCard from "@/components/ui/kontakt-guide/carousel-card";
 
 const items = [
   {
