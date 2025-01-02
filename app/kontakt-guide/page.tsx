@@ -1,4 +1,3 @@
-import Link from "next/link";
 import LibraryPriceItem from "@/components/ui/library-price-item";
 import { createClient } from "@/utils/supabase/server";
 import { PriceItem } from "@/lib/definitions";

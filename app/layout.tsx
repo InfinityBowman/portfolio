@@ -1,10 +1,10 @@
-import GetAppButton from "@/components/get-app-button";
 import { ThemeSwitcher } from "@/components/theme-switcher";
 import { Geist } from "next/font/google";
 import { Roboto } from "next/font/google";
 import BeThereLogo from "@/components/bethere-logo";
 import NavBar from "@/components/ui/navbar";
 import HeaderAuth from "@/components/header-auth";
+import { FaGithub, FaYoutube, FaTwitter } from "react-icons/fa";
 
 import { ThemeProvider } from "next-themes";
 import "./globals.css";
@@ -43,23 +43,43 @@ export default function RootLayout({
                 <div className="w-full max-w-5xl flex justify-between items-center px-5 text-sm">
                   <NavBar />
                   <HeaderAuth />
+                  <div className="m-2">
+                    <ThemeSwitcher />
+                  </div>
                 </div>
               </nav>
               <div className="flex flex-col gap-20 max-w-6xl">{children}</div>
 
               <footer className="w-full flex items-center justify-center border-t mx-auto text-center text-xs gap-8 py-16">
                 <div className="text-left">
-                  <p>© 2024 Jacob Maynard </p>
+                  <p>© 2025 Jacob Maynard </p>
                 </div>
                 <div className="flex justify-center gap-4">
-                  <a href="/privacy-policy" className="hover:underline">
-                    Privacy Policy
+                  <a
+                    href="https://github.com/InfinityBowman"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xl hover:text-gray-500"
+                  >
+                    <FaGithub />
                   </a>
-                  <a href="/terms" className="hover:underline">
-                    Terms
+                  <a
+                    href="https://youtube.com/@infinity7585?si=g1JcDj9i_OyPNp_a"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xl hover:text-gray-500"
+                  >
+                    <FaYoutube />
+                  </a>
+                  <a
+                    href="https://twitter.com/your-twitter"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xl hover:text-gray-500"
+                  >
+                    <FaTwitter />
                   </a>
                 </div>
-                <ThemeSwitcher />
               </footer>
             </div>
           </main>
