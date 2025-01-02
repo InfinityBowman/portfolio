@@ -62,6 +62,20 @@ const items = [
     description: "Project Sam makes the most user friendly Kontakt libraries.",
     link: "https://projectsam.com/series/the-free-orchestra",
   },
+  {
+    image: "/library-guide-images/Pianobook.avif",
+    title: "pianobook",
+    description:
+      "A collection of user created sample packs/libraries for Kontakt and Decent Sampler. And almost all of them are free.",
+    link: "https://www.pianobook.co.uk/",
+  },
+  {
+    image: "/library-guide-images/Sonuscore-Elements.jpg",
+    title: "The Orchestra Elements",
+    description:
+      "A fantastic limited full orchestra library for Kontakt Player. Many available articulations and an arpeggiator tool.",
+    link: "https://www.sonuscore.com/shop/the-orchestra-elements/",
+  },
 ];
 
 const SwipeToSlide: React.FC = () => {

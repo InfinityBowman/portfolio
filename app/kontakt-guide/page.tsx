@@ -2,6 +2,8 @@ import LibraryPriceItem from "@/components/ui/library-price-item";
 import { createClient } from "@/utils/supabase/server";
 import { PriceItem } from "@/lib/definitions";
 import GuideTabs from "@/components/ui/guide-tabs";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 export default async function Page() {
   const supabase = await createClient();
@@ -21,16 +23,16 @@ export default async function Page() {
 
   return (
     <>
-      <div className="flex flex-col gap-8 w-full">
-        <div className="flex justify-center text-5xl font-thin tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-green-500 drop-shadow-sm">
+      <div className="flex flex-col gap-8 w-full" data-aos="fade">
+        <div className="flex justify-center text-5xl font-thin tracking-wide text-transparent bg-clip-text gradient-text">
           Sampled Instrument Guide
         </div>
         <GuideTabs />
-        <div className="text-xl">
+        {/* <div className="text-xl">
           {prices.map((item) => (
             <LibraryPriceItem key={item.name} item={item} user={user} />
           ))}
-        </div>
+        </div> */}
       </div>
     </>
   );
