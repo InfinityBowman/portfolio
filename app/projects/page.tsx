@@ -1,6 +1,6 @@
 "use client";
 import { FaExternalLinkAlt } from "react-icons/fa";
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { useEffect } from "react";
 import Link from "next/link";
 import AOS from "aos";
@@ -26,17 +26,17 @@ export default function Page() {
             Dashboard of visualizations built purely with D3.js that uses Express and Axios to fetch live summoner data
             from the Riot API.
           </p>
-          <Button asChild className="w-28" data-aos="fade-right" data-aos-delay="400">
-            <div className="flex justify-center gap-2 my-4">
-              <Link
-                href="https://github.com/InfinityBowman/LeagueOfLegendsDashboard"
-                target="_blank"
-                rel="noopener noreferrer"
-              ></Link>
-              GitHub
-              <FaExternalLinkAlt className="mb-1" />
-            </div>
-          </Button>
+          <Link
+            data-aos="fade-right"
+            data-aos-delay="400"
+            className={`${buttonVariants({ variant: "outline" })} my-4 w-28 flex gap-2`}
+            href="https://github.com/InfinityBowman/LeagueOfLegendsDashboard"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GitHub
+            <FaExternalLinkAlt className="mb-1" />
+          </Link>
         </div>
         <div className="flex-shrink-0 border border-white rounded-lg overflow-hidden" data-aos="fade-left">
           <video
@@ -66,17 +66,17 @@ export default function Page() {
             Dashboard of visualizations built purely with D3.js that uses Express and Axios to fetch live summoner data
             from the Riot API.
           </p>
-          <Button asChild className="w-28">
-            <div className="flex justify-center gap-2 my-4">
-              <Link
-                href="https://github.com/InfinityBowman/LeagueOfLegendsDashboard"
-                target="_blank"
-                rel="noopener noreferrer"
-              ></Link>
-              GitHub
-              <FaExternalLinkAlt className="mb-1" />
-            </div>
-          </Button>
+          <Link
+            data-aos="fade-right"
+            data-aos-delay="400"
+            className={`${buttonVariants({ variant: "outline" })} my-4 w-28 flex gap-2`}
+            href="https://github.com/InfinityBowman/LeagueOfLegendsDashboard"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GitHub
+            <FaExternalLinkAlt className="mb-1" />
+          </Link>
         </div>
       </div>
       <div className="flex flex-row items-start gap-4 border-1 border-white rounded-lg p-4">
@@ -88,17 +88,17 @@ export default function Page() {
             Dashboard of visualizations built purely with D3.js that uses Express and Axios to fetch live summoner data
             from the Riot API.
           </p>
-          <Button asChild className="w-28" data-aos="fade-right" data-aos-delay="400">
-            <div className="flex justify-center gap-2 my-4">
-              <Link
-                href="https://github.com/InfinityBowman/LeagueOfLegendsDashboard"
-                target="_blank"
-                rel="noopener noreferrer"
-              ></Link>
-              GitHub
-              <FaExternalLinkAlt className="mb-1" />
-            </div>
-          </Button>
+          <Link
+            data-aos="fade-right"
+            data-aos-delay="400"
+            className={`${buttonVariants({ variant: "outline" })} my-4 w-28 flex gap-2`}
+            href="https://github.com/InfinityBowman/LeagueOfLegendsDashboard"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GitHub
+            <FaExternalLinkAlt className="mb-1" />
+          </Link>
         </div>
         <div className="flex-shrink-0 border border-white rounded-lg overflow-hidden" data-aos="fade-left">
           <video
