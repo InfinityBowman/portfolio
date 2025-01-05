@@ -17,8 +17,8 @@ export default function LeagueDashboard() {
   }, []);
 
   return (
-    <div className="flex flex-row items-start gap-4 border-1 border-white rounded-lg p-4">
-      <div className="flex flex-col justify-center">
+    <div className="flex flex-col md:flex-row items-start border-1 border-white rounded-lg p-4">
+      <div className="flex flex-col px-2 justify-center max-w-sm md:w-auto">
         <h2 className="text-xl font-semibold mb-2" data-aos="fade-right">
           League Dashboard
         </h2>
@@ -39,7 +39,7 @@ export default function LeagueDashboard() {
         </Link>
       </div>
       <div
-        className="flex-shrink-0 w-full max-w-xl h-96 border border-white rounded-lg overflow-hidden"
+        className="flex w-full justify-center items-center md:max-w-xl max-w-xs h-60 md:h-96 border border-white rounded-lg overflow-hidden mx-auto"
         data-aos="fade-left"
       >
         <video
@@ -48,7 +48,7 @@ export default function LeagueDashboard() {
           loop
           muted
           playsInline
-          className="max-w-xl h-auto rounded-lg shadow-lg"
+          className="w-full h-full object-cover rounded-lg shadow-lg"
         />
       </div>
     </div>

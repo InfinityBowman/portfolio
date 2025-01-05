@@ -1,9 +1,7 @@
-import { ThemeSwitcher } from "@/components/theme-switcher";
 import { Geist } from "next/font/google";
 import { Roboto } from "next/font/google";
 import BeThereLogo from "@/components/bethere-logo";
-import NavBar from "@/components/ui/navbar";
-import HeaderAuth from "@/components/header-auth";
+import NavBarWrapper from "@/components/ui/navbar-wrapper";
 import { FaGithub, FaYoutube, FaTwitter } from "react-icons/fa";
 
 import { ThemeProvider } from "next-themes";
@@ -34,7 +32,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={roboto.className} suppressHydrationWarning>
+    <html lang="en" className="${roboto.className} bg-background text-foreground" suppressHydrationWarning>
       <body className="bg-background text-foreground">
         <ThemeProvider
           attribute="class"
@@ -45,13 +43,9 @@ export default function RootLayout({
         >
           <main className="min-h-screen flex flex-col items-center">
             <div className="flex-1 w-full flex flex-col gap-10 items-center">
-              <nav className="w-full flex justify-center border-b border-b-foreground/10 h-16">
-                <div className="w-full max-w-5xl flex justify-between items-center px-5 text-sm">
-                  <NavBar />
-                  <HeaderAuth />
-                  <div className="m-2">
-                    <ThemeSwitcher />
-                  </div>
+              <nav className="w-full flex border-b border-b-foreground/10 h-16">
+                <div className="w-full flex justify-between items-center text-sm p-4">
+                  <NavBarWrapper />
                 </div>
               </nav>
               <div className="flex flex-col gap-20 max-w-6xl">{children}</div>
