@@ -15,7 +15,12 @@ export const Phrases = () => {
   const [currentPhrase, setCurrentPhrase] = useState(phrases[0]);
 
   useEffect(() => {
-    const animation = animate(count, phrases.length - 1, { duration: phrases.length * 2, repeat: Infinity });
+    const animation = animate(count, phrases.length - 1, {
+      duration: phrases.length * 2,
+      repeat: Infinity,
+      ease: "easeIn",
+      repeatDelay: 2,
+    });
 
     return animation.stop;
   }, [count, phrases.length]);

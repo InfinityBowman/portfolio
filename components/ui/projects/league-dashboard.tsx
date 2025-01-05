@@ -23,7 +23,7 @@ export default function LeagueDashboard() {
           League Dashboard
         </h2>
         <p className="subtext" data-aos="fade-right" data-aos-delay="200">
-          Dashboard of visualizations built purely with D3.js that uses Express and Axios to fetch live summoner data
+          Dashboard of visualizations built purely with D3.js utilizing Express and Axios to fetch live summoner data
           from the Riot API.
         </p>
         <Link
