@@ -11,8 +11,8 @@ const defaultUrl = process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` 
 
 export const metadata = {
   metadataBase: new URL(defaultUrl),
-  title: "BeThere website",
-  description: "The best experience for location based photo sharing",
+  title: "Mid asf Portfolio",
+  description: "Me messing around trying to create a neat and somewhat useful website",
 };
 
 const geistSans = Geist({
