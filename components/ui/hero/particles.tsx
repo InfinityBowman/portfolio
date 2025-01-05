@@ -25,17 +25,13 @@ export const ParticlesBackground = () => {
     });
   }, []);
 
-  const bgColor = getComputedStyle(document.documentElement).getPropertyValue("--background-color").trim();
-
-  const particlesLoaded = async (container?: Container): Promise<void> => {
-    console.log(container);
-  };
+  // const bgColor = getComputedStyle(document.documentElement).getPropertyValue("--background-color").trim();
 
   const options: ISourceOptions = useMemo(
     () => ({
       background: {
         color: {
-          value: bgColor,
+          value: "#000000",
         },
       },
       fpsLimit: 120,
