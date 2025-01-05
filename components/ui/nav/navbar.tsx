@@ -17,7 +17,7 @@ export default function NavBar({ children }: NavBarProps) {
   };
 
   return (
-    <div className="w-full py-4 z-50">
+    <div className="w-full py-4">
       <div className="flex justify-between h-16">
         <div className="flex-shrink-0 flex items-center">
           <Link href="/" className="font-semibold text-x">
