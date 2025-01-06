@@ -42,11 +42,9 @@ export default function RootLayout({
         >
           <main className="min-h-screen flex flex-col items-center">
             <div className="flex-1 w-full flex flex-col gap-10 items-center">
-              <nav className="w-full flex border-b border-b-foreground/10 h-16">
-                <div className="w-full z-50 bg-background flex justify-between items-center text-sm p-4">
-                  <NavBarWrapper />
-                </div>
-              </nav>
+              <div className="w-full h-12 z-50 bg-background border-b border-b-foreground/10 flex justify-between items-center text-sm p-4">
+                <NavBarWrapper />
+              </div>
               <div className="flex flex-col gap-20 max-w-6xl">{children}</div>
             </div>
 
