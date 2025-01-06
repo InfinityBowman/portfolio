@@ -108,5 +108,5 @@ export const ParticlesBackground = () => {
     );
   }
 
-  return <div>Error: Failed to load particles</div>;
+  return <></>;
 };
