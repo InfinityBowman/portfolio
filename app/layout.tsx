@@ -1,6 +1,5 @@
 import { Geist } from "next/font/google";
 import { Roboto } from "next/font/google";
-import BeThereLogo from "@/components/bethere-logo";
 import NavBarWrapper from "@/components/ui/nav/navbar-wrapper";
 import { FaGithub, FaYoutube, FaTwitter } from "react-icons/fa";
 
