@@ -2,7 +2,6 @@
 
 import React, { useEffect, useState } from "react";
 import KontaktFLTips from "./kontakt-fl-tips";
-import Carousel from "@/components/ui/kontakt-guide/carousel";
 import FreeStuff from "./free-stuff";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -12,10 +11,10 @@ const GuideHero: React.FC = () => {
 
   useEffect(() => {
     AOS.init({
-      duration: 1000, // Animation duration
-      once: true, // Whether animation should happen only once
+      duration: 1000,
+      once: true,
     });
-    AOS.refresh(); // Refresh AOS to detect new elements
+    AOS.refresh();
   }, []);
 
   const renderContent = () => {
@@ -31,7 +30,7 @@ const GuideHero: React.FC = () => {
 
   return (
     <div className="flex flex-col gap-8 w-full" data-aos="fade">
-      <div className="flex justify-center text-5xl font-thin tracking-wide text-transparent bg-clip-text gradient-text">
+      <div className="flex justify-center text-5xl font-thin tracking-wide text-transparent bg-clip-text gradient-text m-4">
         Sampled Instrument Guide
       </div>
       <div className="flex justify-center space-x-4 mb-4 border-b border-b-foreground/10 relative">

@@ -7,7 +7,7 @@ const FreeStuff: React.FC = () => {
       <div className="w-screen">
         <Carousel />
       </div>
-      <div className="flex text-sm max-w-2xl items-center p-4 bg-red-800 bg-opacity-25 border border-red-800 rounded-lg text-primary">
+      <div className="flex text-sm max-w-2xl items-center m-2 p-4 bg-red-800 bg-opacity-25 border border-red-800 rounded-lg text-primary">
         <FaExclamationTriangle className="mr-4 text-5xl" />
         <span>
           <span className="font-semibold">IMPORTANT:</span> All libraries here are 100% free. However, not all 'free'

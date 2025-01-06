@@ -89,6 +89,20 @@ const SwipeToSlide: React.FC = () => {
         loop={true}
         modules={[Pagination]}
         className="mySwiper"
+        breakpoints={{
+          480: {
+            slidesPerView: 1,
+          },
+          640: {
+            slidesPerView: 2,
+          },
+          768: {
+            slidesPerView: 3,
+          },
+          1024: {
+            slidesPerView: 4,
+          },
+        }}
       >
         {items.map((item, index) => (
           <SwiperSlide key={index}>
