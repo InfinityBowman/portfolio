@@ -12,7 +12,7 @@ export default function MobileMenu({ isOpen, onClose, children }: MobileMenuProp
 
   return (
     <div
-      className={`fixed inset-0 top-16 bg-background transition-opacity duration-300 ${
+      className={`fixed inset-0 top-12 bg-background transition-opacity duration-300 ${
         isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
       }`}
       onClick={onClose}
