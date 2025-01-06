@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState, ReactNode } from "react";
+import { ReactNode } from "react";
 import MobileMenuToggle from "./mobile-menu-toggle";
 
 interface NavBarProps {
@@ -10,11 +10,6 @@ interface NavBarProps {
 
 export default function NavBar({ children }: NavBarProps) {
   const pathname = usePathname();
-  const [isOpen, setIsOpen] = useState(false);
-
-  const handleMenuToggle = () => {
-    setIsOpen(!isOpen);
-  };
 
   return (
     <div className="w-full py-4">

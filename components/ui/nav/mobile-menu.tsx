@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 
 interface MobileMenuProps {
   isOpen: boolean;
@@ -8,8 +7,6 @@ interface MobileMenuProps {
 }
 
 export default function MobileMenu({ isOpen, onClose, children }: MobileMenuProps) {
-  const pathname = usePathname();
-
   return (
     <div
       className={`fixed inset-0 top-12 bg-background transition-opacity duration-300 ${
