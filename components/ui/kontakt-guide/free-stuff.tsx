@@ -4,7 +4,7 @@ import Carousel from "@/components/ui/kontakt-guide/carousel";
 const FreeStuff: React.FC = () => {
   return (
     <div className="flex flex-col items-center gap-4">
-      <div className="w-full">
+      <div className="w-screen">
         <Carousel />
       </div>
       <div className="flex text-sm max-w-2xl items-center p-4 bg-red-800 bg-opacity-25 border border-red-800 rounded-lg text-primary">

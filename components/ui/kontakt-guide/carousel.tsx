@@ -80,9 +80,8 @@ const items = [
 
 const SwipeToSlide: React.FC = () => {
   return (
-    <>
+    <div className="mx-2">
       <Swiper
-        slidesPerView={4}
         spaceBetween={20}
         pagination={{
           clickable: true,
@@ -93,13 +92,13 @@ const SwipeToSlide: React.FC = () => {
       >
         {items.map((item, index) => (
           <SwiperSlide key={index}>
-            <div className="pb-5">
+            <div className="pb-5 flex justify-center">
               <CarouselCard image={item.image} title={item.title} description={item.description} link={item.link} />
             </div>
           </SwiperSlide>
         ))}
       </Swiper>
-    </>
+    </div>
   );
 };
 
