@@ -2,11 +2,12 @@
 import { useEffect, useMemo, useState } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { type ISourceOptions, MoveDirection, OutMode } from "@tsparticles/engine";
-
 import { loadSlim } from "@tsparticles/slim";
 
 export const ParticlesBackground = () => {
   const [init, setInit] = useState(false);
+  const [bgColor, setBgColor] = useState("#ffffff");
+  const [pColor, setPColor] = useState("#000000");
 
   // this should be run only once per application lifetime
   useEffect(() => {
@@ -17,11 +18,26 @@ export const ParticlesBackground = () => {
     });
   }, []);
 
-  const bgColor = useMemo(() => {
+  const updateColors = () => {
+    console.log("updating colors");
+    console.log(typeof window !== "undefined");
     if (typeof window !== "undefined") {
-      return getComputedStyle(document.documentElement).getPropertyValue("--background-color").trim();
+      setTimeout(() => {
+        const bg = getComputedStyle(document.documentElement).getPropertyValue("--bgColor").trim();
+        const fg = getComputedStyle(document.documentElement).getPropertyValue("--fgColor").trim();
+        console.log(bg, fg);
+        setBgColor(bg);
+        setPColor(fg);
+      }, 50);
     }
-    return "#000000"; // Default color if not in the browser
+  };
+
+  useEffect(() => {
+    updateColors();
+    window.addEventListener("themechange", updateColors);
+    return () => {
+      window.removeEventListener("themechange", updateColors);
+    };
   }, []);
 
   const options: ISourceOptions = useMemo(
@@ -31,7 +47,7 @@ export const ParticlesBackground = () => {
           value: bgColor,
         },
       },
-      fpsLimit: 120,
+      fpsLimit: 60,
       interactivity: {
         events: {
           onClick: {
@@ -49,16 +65,20 @@ export const ParticlesBackground = () => {
           },
           repulse: {
             distance: 200,
-            duration: 0.4,
+            duration: 10,
+            factor: 10,
+            speed: 1,
+            maxSpeed: 50,
+            easing: "ease-out-quad",
           },
         },
       },
       particles: {
         color: {
-          value: "#ffffff",
+          value: pColor,
         },
         links: {
-          color: "#ffffff",
+          color: pColor,
           distance: 150,
           enable: true,
           opacity: 0.5,
@@ -92,12 +112,12 @@ export const ParticlesBackground = () => {
       },
       detectRetina: true,
     }),
-    []
+    [bgColor, pColor]
   );
 
   if (init) {
     return (
-      <div className="particles-wrapper" style={{ position: "relative", width: "100%", height: "100%" }}>
+      <div className="particles-wrapper -z-50" style={{ position: "relative", width: "100%", height: "100%" }}>
         <Particles
           id="tsparticles"
           options={options}

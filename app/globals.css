@@ -5,7 +5,9 @@
 @layer base {
   :root {
     --background: 0 0% 100%;
+    --bgColor: #ffffff;
     --foreground: 224 71.4% 4.1%;
+    --fgColor: #030712;
     --card: 0 0% 100%;
     --card-foreground: 224 71.4% 4.1%;
     --popover: 0 0% 100%;
@@ -39,7 +41,9 @@
 
   .dark {
     --background: 224 71.4% 4.1%;
+    --bgColor: #030712;
     --foreground: 210 20% 98%;
+    --fgColor: #f9fafb;
     --card: 224 71.4% 4.1%;
     --card-foreground: 210 20% 98%;
     --popover: 224 71.4% 4.1%;
@@ -71,7 +75,9 @@
 
   .twilight {
     --background: 240 30% 20%;
+    --bgColor: #242442;
     --foreground: 210 20% 90%;
+    --fgColor: #e0e6eb;
     --card: 240 30% 20%;
     --card-foreground: 210 20% 90%;
     --popover: 240 30% 20%;
