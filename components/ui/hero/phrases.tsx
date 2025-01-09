@@ -1,5 +1,4 @@
 "use client";
-import { useEffect, useState } from "react";
 import { useMotionValue, useTransform, motion, animate, useMotionValueEvent } from "motion/react";
 
 export const Phrases = () => {
@@ -8,26 +7,99 @@ export const Phrases = () => {
     "Creating awesome websites!",
     "Building sleek apps!",
     "Designing exciting interfaces!",
+    "Doing other stuff too!",
   ];
 
-  const count = useMotionValue(0);
-  const rounded = useTransform(count, Math.round);
-  const [currentPhrase, setCurrentPhrase] = useState(phrases[0]);
+  const duration = 20;
 
-  useEffect(() => {
-    const animation = animate(count, phrases.length - 1, {
-      duration: phrases.length * 2,
-      repeat: Infinity,
-      ease: "easeIn",
-      repeatDelay: 2,
-    });
+  return (
+    <>
+      <motion.div
+        className="absolute"
+        animate={{
+          opacity: [0, 1, 1, 0],
+        }}
+        transition={{
+          duration: duration,
+          ease: "linear",
+          times: [0.8, 0.83, 0.97, 1],
+          repeat: Infinity,
+        }}
+        style={box}
+      >
+        {phrases[4]}
+      </motion.div>
+      <motion.div
+        className="absolute"
+        animate={{
+          opacity: [0, 1, 1, 0],
+        }}
+        transition={{
+          duration: duration,
+          ease: "linear",
+          times: [0.6, 0.63, 0.77, 0.8],
+          repeat: Infinity,
+        }}
+        style={box}
+      >
+        {phrases[3]}
+      </motion.div>
+      <motion.div
+        className="absolute"
+        animate={{
+          opacity: [0, 1, 1, 0],
+        }}
+        transition={{
+          duration: duration,
+          ease: "linear",
+          times: [0.4, 0.43, 0.57, 0.6],
+          repeat: Infinity,
+        }}
+        style={box}
+      >
+        {phrases[2]}
+      </motion.div>
+      <motion.div
+        className="absolute"
+        animate={{
+          opacity: [0, 1, 1, 0],
+        }}
+        transition={{
+          duration: duration,
+          ease: "linear",
+          times: [0.2, 0.23, 0.37, 0.4],
+          repeat: Infinity,
+        }}
+        style={box}
+      >
+        {phrases[1]}
+      </motion.div>
+      <motion.div
+        className="absolute"
+        animate={{
+          opacity: [0, 1, 1, 0],
+        }}
+        transition={{
+          duration: duration,
+          ease: "linear",
+          times: [0, 0.03, 0.17, 0.2],
+          repeat: Infinity,
+          scale: { type: "spring", visualDuration: 0.4, bounce: 0.5 },
+        }}
+        style={box}
+      >
+        {phrases[0]}
+      </motion.div>
+    </>
+  );
+};
 
-    return animation.stop;
-  }, [count, phrases.length]);
-
-  useMotionValueEvent(rounded, "change", (latest) => {
-    setCurrentPhrase(phrases[latest]);
-  });
-
-  return <motion.div>{currentPhrase}</motion.div>;
+const box = {
+  opacity: 0,
+  bottom: 0,
+  height: 50,
+  borderRadius: 5,
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
 };

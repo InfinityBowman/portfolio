@@ -12,7 +12,7 @@ interface CarouselCardProps {
 const CarouselCard: React.FC<CarouselCardProps> = ({ image, title, description, link }) => {
   return (
     <div className="max-w-xs bg-secondary shadow-lg rounded-lg overflow-hidden relative block">
-      <Link href={link}>
+      <a href={link} target="_blank" rel="noopener noreferrer">
         <div className="flex justify-center group overflow-hidden relative">
           <Image
             src={image}
@@ -29,7 +29,7 @@ const CarouselCard: React.FC<CarouselCardProps> = ({ image, title, description, 
             </span>
           </div>
         </div>
-      </Link>
+      </a>
       <div className="p-4">
         <h2 className="text-xl font-semibold mb-2">{title}</h2>
         <p className="text-primary">{description}</p>
