@@ -10,8 +10,8 @@ const defaultUrl = process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` 
 
 export const metadata = {
   metadataBase: new URL(defaultUrl),
-  title: "Mid asf Portfolio",
-  description: "Me messing around trying to create a neat and somewhat useful website",
+  title: "Portfolio",
+  description: "Here it is.",
 };
 
 const geistSans = Geist({
@@ -69,14 +69,14 @@ export default function RootLayout({
                 >
                   <FaYoutube />
                 </a>
-                <a
+                {/* <a
                   href="https://twitter.com/your-twitter"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-xl hover:text-gray-500"
                 >
                   <FaTwitter />
-                </a>
+                </a> */}
               </div>
             </footer>
           </main>
