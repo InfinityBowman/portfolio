@@ -13,7 +13,7 @@ const PriceItem: React.FC<PriceItemProps> = ({ item, user }) => {
         >
           {item.company} - {item.name}
         </Link>
-        <span className="text-lg text-gray-400">${item.price}</span>
+        <span className="text-lg text-primary">${item.price}</span>
         {user && user.email === "jacobamaynard@proton.me" && <PriceScraperButton />}
       </div>
     </div>

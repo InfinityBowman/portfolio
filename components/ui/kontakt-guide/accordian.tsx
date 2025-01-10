@@ -15,7 +15,7 @@ const Accordian: React.FC<AccordianProps> = ({ title, children }) => {
   return (
     <div className="border-b border-b-foreground/10">
       <motion.div className="flex w-full" whileTap={{ scale: 0.99 }} onClick={() => setIsOpen(!isOpen)}>
-        <Button className="justify-between rounded-lg p-4 w-full h-auto bg-background hover:bg-black hover:bg-opacity-20 text-foreground max-h-f">
+        <Button className="justify-between rounded-lg p-4 w-full h-auto bg-background hover:bg-background-hover text-foreground max-h-f">
           {title}
           <motion.div animate={{ rotateX: isOpen ? 180 : 0 }} transition={{ duration: 0.3 }}>
             <FaChevronDown />

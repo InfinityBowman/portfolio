@@ -5,6 +5,7 @@
 @layer base {
   :root {
     --background: 0 0% 100%;
+    --background-hover: 0 0% 97%;
     --bgColor: #ffffff;
     --foreground: 224 71% 4%;
     --fgColor: #030712;
@@ -17,7 +18,8 @@
     --primary-foreground: 210 20% 98%;
     --secondary: 220 14% 96%;
     --secondary-foreground: 221 39% 11%;
-    --muted: 220 14% 96%;
+    --muted: 220 14% 87%;
+    --muted-hover: 220 14% 90%;
     --muted-foreground: 220 8.9% 46%;
     --accent: 220 14% 96%;
     --accent-foreground: 221 39% 11%;
@@ -41,6 +43,7 @@
 
   .dark {
     --background: 224 71% 5%;
+    --background-hover: 224 41% 8%;
     --bgColor: #030712;
     --foreground: 210 20% 98%;
     --fgColor: #f9fafb;
@@ -51,9 +54,10 @@
     --primary: 210 20% 98%;
     --subtext: 0 0% 80%;
     --primary-foreground: 221 39% 11%;
-    --secondary: 215 28% 17%;
+    --secondary: 215 30% 12%;
     --secondary-foreground: 210 20% 98%;
-    --muted: 215 28% 17%;
+    --muted: 215 30% 25%;
+    --muted-hover: 215 30% 28%;
     --muted-foreground: 218 11% 65%;
     --accent: 215 28% 17%;
     --accent-foreground: 210 20% 98%;
@@ -75,6 +79,7 @@
 
   .twilight {
     --background: 240 30% 20%;
+    --background-hover: 240 30% 23%;
     --bgColor: #242442;
     --foreground: 210 20% 90%;
     --fgColor: #e0e6eb;
@@ -87,7 +92,8 @@
     --primary-foreground: 221 39% 20%;
     --secondary: 250 30% 30%;
     --secondary-foreground: 210 20% 90%;
-    --muted: 250 30% 30%;
+    --muted: 250 30% 40%;
+    --muted-hover: 250 30% 43%;
     --muted-foreground: 218 11% 70%;
     --accent: 250 30% 30%;
     --accent-foreground: 210 20% 90%;
