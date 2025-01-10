@@ -22,19 +22,19 @@ export default function NavBar({ children }: NavBarProps) {
         <div className="hidden md:flex md:items-center md:gap-5">
           <Link
             href="/projects"
-            className={`navbar-link h-full flex items-center ${pathname === "/projects" ? "link-active" : "border-b border-transparent"}`}
+            className={`navbar-link relative pb-3 top-2 ${pathname === "/projects" ? "link-active" : "border-b border-transparent"}`}
           >
             Projects
           </Link>
-          <Link
+          {/* <Link
             href="/kontakt-guide"
-            className={`navbar-link h-full flex items-center ${pathname === "/kontakt-guide" ? "link-active" : "border-b border-transparent"}`}
+            className={`navbar-link relative pb-3 top-2 ${pathname === "/kontakt-guide" ? "link-active" : "border-b border-transparent"}`}
           >
             Kontakt Guide
-          </Link>
+          </Link> */}
           <Link
             href="/hobbies"
-            className={`navbar-link h-full flex items-center ${pathname === "/hobbies" ? "link-active" : "border-b border-transparent"}`}
+            className={`navbar-link relative pb-3 top-2 ${pathname === "/hobbies" ? "link-active" : "border-b border-transparent"}`}
           >
             Hobbies
           </Link>
