@@ -7,8 +7,7 @@ import LeagueDashboard from "@/components/ui/projects/league-dashboard";
 export default function Page() {
   return (
     <div className="flex flex-col items-center">
-      <LeagueDashboard />
-      <LeagueDashboard />
+      <div></div>
       <LeagueDashboard />
     </div>
   );
