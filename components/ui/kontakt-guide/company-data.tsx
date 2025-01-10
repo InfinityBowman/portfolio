@@ -1,9 +1,9 @@
-export interface Library {
+export interface Company {
   name: string;
   description: string;
   rating: number;
 }
-export const libraries: Library[] = [
+export const companyData: Company[] = [
   {
     name: "Audio Imperia",
     description:

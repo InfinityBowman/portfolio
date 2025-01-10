@@ -9,7 +9,12 @@ import Accordian from "./accordian";
 import LibraryRecommendations from "./library-recs";
 import LibraryDevelopers from "./library-devs";
 
-const GuideHero: React.FC = () => {
+interface GuideHeroProps {
+  companiesWithVotes: { companyName: string; votes: number }[];
+  user: any;
+}
+
+const GuideHero: React.FC<GuideHeroProps> = ({ companiesWithVotes, user }) => {
   const [activeTab, setActiveTab] = useState("free");
 
   useEffect(() => {
@@ -41,7 +46,7 @@ const GuideHero: React.FC = () => {
           <LibraryRecommendations />
         </Accordian>
         <Accordian title="Notes on Library Developers">
-          <LibraryDevelopers />
+          <LibraryDevelopers companiesWithVotes={companiesWithVotes} user={user} />
         </Accordian>
       </div>
       <div className="flex justify-center space-x-4 mb-4 border-b border-b-foreground/10 relative">

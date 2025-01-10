@@ -1,17 +1,18 @@
 import React, { useState } from "react";
-import { FaChevronDown, FaChevronUp } from "react-icons/fa";
+import { FaChevronDown } from "react-icons/fa";
 import { motion } from "motion/react";
 import { Button } from "@/components/ui/button";
+import VoteButtons from "@/components/ui/kontakt-guide/voting-buttons";
 
 interface LibDevContainerProps {
   name: string;
   description: string;
   rating: number;
+  votes: number;
+  user: any;
 }
 
-const colors = ["#FF3B30", "#FFCC00", "#4CD964", "#4CD964"];
-
-const LibDevContainer: React.FC<LibDevContainerProps> = ({ name, description, rating }) => {
+const LibDevContainer: React.FC<LibDevContainerProps> = ({ name, description, rating, votes, user }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const renderStars = (rating: number) => {
@@ -20,13 +21,15 @@ const LibDevContainer: React.FC<LibDevContainerProps> = ({ name, description, ra
     const emptyStars = "☆".repeat(totalStars - rating);
     return filledStars + emptyStars;
   };
+  console.log(name, votes);
 
   return (
     <div className="my-3 border border-primary bg-secondary rounded-lg px-4 py-2 max-w-md">
       <div className="flex justify-between items-center">
         <h4 className="text-lg font-semibold">{name}</h4>
         <div className="flex items-center">
-          <div className="text-yellow-500 mr-2">{renderStars(rating)}</div>
+          <div className="text-yellow-500 mr-4">{renderStars(rating)}</div>
+          <VoteButtons initialVotes={votes} user={user} />
           <motion.div whileHover={{ scale: 1.1 }} onClick={() => setIsOpen(!isOpen)}>
             <Button
               size={"sm"}
@@ -38,7 +41,7 @@ const LibDevContainer: React.FC<LibDevContainerProps> = ({ name, description, ra
                 animate={{ rotateX: isOpen ? 180 : 0 }}
                 transition={{ duration: 0.3 }}
               >
-                {isOpen ? <FaChevronUp /> : <FaChevronDown />}
+                <FaChevronDown size={16} />
               </motion.div>
             </Button>
           </motion.div>
