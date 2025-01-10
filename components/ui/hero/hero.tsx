@@ -9,7 +9,7 @@ export const Hero = () => {
       <h1 className="sr-only">Jacob Maynard Portfolio Website</h1>
       <h2 className="text-5xl lg:text-6xl font-bold opacity-90">Jacob Maynard</h2>
       {/* designer/musician/developer/artist */}
-      <p className="text-2xl lg:text-3xl opacity-80">Web Developer & Designer</p>
+      <p className="text-2xl lg:text-3xl opacity-80">Creative Development & Design</p>
       <Phrases />
     </div>
   );

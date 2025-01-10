@@ -7,7 +7,7 @@ export const Phrases = () => {
     "Creating awesome websites!",
     "Building sleek apps!",
     "Designing exciting interfaces!",
-    "Doing other stuff too!",
+    "Working with cool people!",
   ];
 
   const duration = 20;
