@@ -74,7 +74,12 @@
     --link-hover: hsl(311, 71%, 63%);
     --icon: 0 0% 98%;
     --bullet: 0 0% 98%;
-    --gradient-text: linear-gradient(to right, #3b82f6, #10b981); /* from-blue-500 to-green-500 */
+    --gradient-text: linear-gradient(
+      to right,
+      #3abce7,
+      #2ddca2,
+      #67f3ee
+    ); /* from-blue-500 to-green-500 to-yellow-500 */
   }
 
   .twilight {
@@ -140,9 +145,23 @@
   }
   .gradient-text {
     background: var(--gradient-text);
+    background-size: 400% 400%;
   }
 }
-
+.animate-gradient {
+  animation: gradient 8s ease infinite;
+}
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
 .swiper-pagination-bullet,
 swiper-pagination-bullet-active {
   background-color: hsl(var(--bullet)) !important;
