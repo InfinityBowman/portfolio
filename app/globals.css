@@ -17,7 +17,7 @@
     --subtext: 0 0% 20%;
     --primary-foreground: 210 20% 98%;
     --secondary: 220 14% 96%;
-    --secondary-foreground: 221 39% 11%;
+    --secondary-foreground: 221 39% 20%;
     --muted: 220 14% 87%;
     --muted-hover: 220 14% 90%;
     --muted-foreground: 220 8.9% 46%;
@@ -55,7 +55,7 @@
     --subtext: 0 0% 80%;
     --primary-foreground: 221 39% 11%;
     --secondary: 215 30% 12%;
-    --secondary-foreground: 210 20% 98%;
+    --secondary-foreground: 210 20% 86%;
     --muted: 215 30% 25%;
     --muted-hover: 215 30% 28%;
     --muted-foreground: 218 11% 65%;
@@ -87,24 +87,24 @@
     --background: 240 30% 20%;
     --background-hover: 240 30% 23%;
     --bgColor: #242442;
-    --foreground: 210 20% 90%;
+    --foreground: 210 20% 98%;
     --fgColor: #e0e6eb;
     --card: 240 30% 20%;
-    --card-foreground: 210 20% 90%;
+    --card-foreground: 210 20% 98%;
     --popover: 240 30% 20%;
     --popover-foreground: 210 20% 90%;
-    --primary: 210 20% 90%;
+    --primary: 210 20% 98%;
     --subtext: 0 0% 70%;
     --primary-foreground: 221 39% 20%;
     --secondary: 250 30% 30%;
-    --secondary-foreground: 210 20% 90%;
+    --secondary-foreground: 210 20% 86%;
     --muted: 250 30% 40%;
     --muted-hover: 250 30% 43%;
     --muted-foreground: 218 11% 70%;
     --accent: 250 30% 30%;
-    --accent-foreground: 210 20% 90%;
+    --accent-foreground: 210 20% 98%;
     --destructive: 0 63% 40%;
-    --destructive-foreground: 210 20% 90%;
+    --destructive-foreground: 210 20% 98%;
     --border: 250 30% 30%;
     --input: 250 30% 30%;
     --ring: 250 30% 70%;
@@ -147,6 +147,15 @@
   .gradient-text {
     background: var(--gradient-text);
     background-size: 400% 400%;
+  }
+
+  .custom-list {
+    list-style-position: inside;
+  }
+
+  .custom-list li {
+    text-indent: -1.4em;
+    padding-left: 1em;
   }
 }
 .animate-gradient {

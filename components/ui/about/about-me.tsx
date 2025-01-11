@@ -27,7 +27,7 @@ export default function AboutMe() {
   return (
     <div className="flex flex-col gap-6">
       <motion.div
-        className="p-6 text-center shadow-lg dark:shadow-glow rounded-lg"
+        className="p-6 text-center flex items-center flex-col shadow-lg dark:shadow-glow rounded-lg"
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
@@ -41,7 +41,7 @@ export default function AboutMe() {
           About Me
         </motion.h2>
         <motion.p
-          className="text-lg text-muted-foreground max-w-3xl"
+          className="text-lg text-secondary-foreground max-w-3xl"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
@@ -55,7 +55,7 @@ export default function AboutMe() {
 
       <div className="flex md:flex-row flex-col w-full justify-evenly gap-6">
         <motion.div
-          className="p-6 shadow-lg dark:shadow-glow rounded-lg"
+          className="p-6 shadow-lg dark:shadow-glow border rounded-lg"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut", delay: 0.6 }}
@@ -68,6 +68,38 @@ export default function AboutMe() {
           >
             Experience
           </motion.h2>
+          <motion.div
+            className="mt-4 space-y-4"
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut", delay: 1 }}
+          >
+            <div className="flex gap flex-col mb-4">
+              <div className="flex justify-between">
+                <p className="font-semibold">Computer/Data Scientist Intern</p>
+                <p className="italic">5/24 - 8/24</p>
+              </div>
+              <div className="flex justify-between text-sm text-muted-foreground">
+                <p className="ml-2">Applied Research Associates (ARA)</p>
+                <p className="italic">Rapid City, SD</p>
+              </div>
+            </div>
+            <motion.ul
+              className="list-disc list-inside space-y-1 custom-list pl-4 text-secondary-foreground"
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut", delay: 1.2 }}
+            >
+              <li>Designed and implemented upgrades to Python-based Bokeh data plotting tools.</li>
+              <li>
+                Led the full stack design and development of a C# .NET application that plots data and computes metrics
+                using JavaScript, HTML, CSS, and BokehJS.
+              </li>
+              <li>Implemented themes and redesigned layout for ARA’s core application.</li>
+              <li>Improved speed and UI/UX of existing apps.</li>
+              <li>Worked independently and in a team with weekly standup meetings.</li>
+            </motion.ul>
+          </motion.div>
         </motion.div>
 
         <div className="flex flex-col gap-6">
@@ -166,7 +198,7 @@ export default function AboutMe() {
               Skills
             </motion.h2>
             <motion.ul
-              className="text-lg text-left text-muted-foreground max-w-3xl list-disc list-inside"
+              className="text-lg text-left text-secondary-foreground max-w-3xl list-disc list-inside"
               initial="hidden"
               animate="visible"
             >
@@ -201,13 +233,13 @@ export default function AboutMe() {
         className="p-4 shadow-lg dark:shadow-glow border rounded-lg w-full flex flex-col gap-2"
         initial={{ opacity: 0 }}
         animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-        transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
+        transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
       >
         <motion.h2
           className="text-3xl font-bold"
           initial={{ opacity: 0, y: -20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
-          transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
         >
           More
         </motion.h2>
