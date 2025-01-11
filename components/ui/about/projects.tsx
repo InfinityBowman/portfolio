@@ -27,7 +27,7 @@ export default function Projects() {
 
   return (
     <motion.div
-      className="shadow-lg dark:shadow-glow my-4 rounded-lg"
+      className="shadow-lg dark:shadow-glow my-4 border rounded-lg"
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
       transition={{ duration: 0.5 }}
