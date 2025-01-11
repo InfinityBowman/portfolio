@@ -1,7 +1,7 @@
 import { Geist } from "next/font/google";
 import { Roboto } from "next/font/google";
 import NavBarWrapper from "@/components/ui/nav/navbar-wrapper";
-import { FaGithub, FaYoutube, FaTwitter, FaLinkedin } from "react-icons/fa";
+import { FaGithub, FaYoutube, FaLinkedin } from "react-icons/fa";
 
 import { ThemeProvider } from "next-themes";
 import "./globals.css";
