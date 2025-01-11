@@ -46,8 +46,8 @@ export default function Page() {
       try {
         const params = {
           method: "user.gettoptracks",
-          user: process.env.NEXT_PUBLIC_LASTFM_USERNAME,
-          api_key: process.env.NEXT_PUBLIC_LASTFM_API_KEY,
+          user: "InfinityBowman",
+          api_key: "e03f73854d4ce7c32d21bea38e51d407",
           format: "json",
           limit: "1",
         };
