@@ -40,7 +40,6 @@
   },
   "devDependencies": {
     "@babel/preset-typescript": "^7.26.0",
-    "@types/aos": "^3.0.7",
     "@types/node": "22.10.2",
     "@types/node-cron": "^3.0.11",
     "@types/react": "^19.0.2",

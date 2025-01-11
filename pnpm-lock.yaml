@@ -105,9 +105,6 @@ importers:
       '@babel/preset-typescript':
         specifier: ^7.26.0
         version: 7.26.0(@babel/core@7.26.0)
-      '@types/aos':
-        specifier: ^3.0.7
-        version: 3.0.7
       '@types/node':
         specifier: 22.10.2
         version: 22.10.2
@@ -997,9 +994,6 @@ packages:
 
   '@tsparticles/updater-stroke-color@3.7.1':
     resolution: {integrity: sha512-VHhQkCNuxjx/Hy7A+g0Yijb24T0+wQ3jNsF/yfrR9dEdZWSBiimZLvV1bilPdAeEtieAJTAZo2VNhcD1snF0iQ==}
-
-  '@types/aos@3.0.7':
-    resolution: {integrity: sha512-sEhyFqvKauUJZDbvAB3Pggynrq6g+2PS4XB3tmUr+mDL1gfDJnwslUC4QQ7/l8UD+LWpr3RxZVR/rHoZrLqZVg==}
 
   '@types/cookie@0.6.0':
     resolution: {integrity: sha512-4Kh9a6B2bQciAhf7FSuMRRkUWecJgJu9nPnx3yzpsfXX/c50REIqpHY4C82bXP90qrLtXtkDxTZosYO3UpOwlA==}
@@ -3795,8 +3789,6 @@ snapshots:
   '@tsparticles/updater-stroke-color@3.7.1':
     dependencies:
       '@tsparticles/engine': 3.7.1
-
-  '@types/aos@3.0.7': {}
 
   '@types/cookie@0.6.0': {}
 
