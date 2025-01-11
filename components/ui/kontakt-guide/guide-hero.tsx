@@ -3,8 +3,6 @@
 import React, { useEffect, useState } from "react";
 import KontaktFLTips from "./kontakt-fl-tips";
 import FreeStuff from "./free-stuff";
-import AOS from "aos";
-import "aos/dist/aos.css";
 import Accordian from "./accordian";
 import LibraryRecommendations from "./library-recs";
 import LibraryDevelopers from "./library-devs";
@@ -16,14 +14,6 @@ interface GuideHeroProps {
 
 const GuideHero: React.FC<GuideHeroProps> = ({ companiesWithVotes, user }) => {
   const [activeTab, setActiveTab] = useState("free");
-
-  useEffect(() => {
-    AOS.init({
-      duration: 1000,
-      once: true,
-    });
-    AOS.refresh();
-  }, []);
 
   const renderContent = () => {
     switch (activeTab) {
