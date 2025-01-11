@@ -28,7 +28,7 @@ const GuideHero: React.FC<GuideHeroProps> = ({ companiesWithVotes, user }) => {
 
   return (
     <div className="flex flex-col gap-8 w-full" data-aos="fade">
-      <div className="flex justify-center text-5xl font-thin tracking-wide text-transparent bg-clip-text gradient-text m-4">
+      <div className="flex justify-center text-5xl font-thin tracking-wide text-transparent bg-clip-text gradient-text p-4">
         Sampled Instrument Guide
       </div>
       <div className="flex flex-col">
