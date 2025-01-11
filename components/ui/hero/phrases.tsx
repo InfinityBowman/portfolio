@@ -13,7 +13,7 @@ export const Phrases = () => {
   const duration = 20;
 
   return (
-    <>
+    <div className="relative flex w-80 justify-center mt-10">
       <motion.div
         className="absolute"
         animate={{
@@ -90,7 +90,7 @@ export const Phrases = () => {
       >
         {phrases[0]}
       </motion.div>
-    </>
+    </div>
   );
 };
 

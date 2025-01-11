@@ -88,7 +88,7 @@ export default function AboutMe() {
               className="list-disc list-inside space-y-1 custom-list pl-4 text-secondary-foreground"
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: "easeOut", delay: 1.2 }}
+              transition={{ duration: 0.8, ease: "easeOut", delay: 1.2 }}
             >
               <li>Designed and implemented upgrades to Python-based Bokeh data plotting tools.</li>
               <li>
@@ -228,50 +228,6 @@ export default function AboutMe() {
           </motion.div>
         </div>
       </div>
-      <motion.div
-        ref={ref}
-        className="p-4 shadow-lg dark:shadow-glow border rounded-lg w-full flex flex-col gap-2"
-        initial={{ opacity: 0 }}
-        animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-        transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
-      >
-        <motion.h2
-          className="text-3xl font-bold"
-          initial={{ opacity: 0, y: -20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
-          transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
-        >
-          More
-        </motion.h2>
-        <motion.ul
-          className="text-lg text-left text-muted-foreground max-w-3xl list-disc list-inside"
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-        >
-          {[
-            "TBD",
-            "TBD",
-            "TBD",
-            "TBD",
-            "TBD",
-            "TBD",
-            "TBD",
-            "TBD",
-            "TBD",
-            "TBD",
-            "TBD",
-            "TBD",
-            "TBD",
-            "TBD",
-            "TBD",
-            "TBD",
-          ].map((skill, index) => (
-            <motion.li key={index} custom={index} variants={listItemVariants}>
-              {skill}
-            </motion.li>
-          ))}
-        </motion.ul>
-      </motion.div>
     </div>
   );
 }
