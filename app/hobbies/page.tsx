@@ -72,8 +72,6 @@ export default function Page() {
         const artworkUrl = trackInfo.album.image.find(
           (img: { size: string; ["#text"]: string }) => img.size === "large"
         )["#text"];
-        console.log("HELLO");
-        console.log(trackInfo);
 
         setTopTrack({ ...track, artworkUrl });
       } catch (error) {
@@ -81,7 +79,7 @@ export default function Page() {
       }
     };
 
-    fetchTopTrack();
+    // fetchTopTrack();
   }, []);
 
   return (
@@ -135,7 +133,7 @@ export default function Page() {
             <AudioPlayer url={track.src} title={track.alt} />
           </motion.div>
         ))}
-        <div className="flex text-2xl justify-center my-4">My top track on Last.fm is:</div>
+        {/* <div className="flex text-2xl justify-center my-4">My top track on Last.fm is:</div> */}
         {topTrack && (
           <div className="text-center mb-4 flex justify-center">
             <div className="max-w-sm bg-primary-foreground p-4 rounded-lg shadow-lg">
