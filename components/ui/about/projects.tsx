@@ -26,7 +26,14 @@ export default function Projects() {
   const isInView = useInView(ref, { once: true });
 
   return (
-    <div className="shadow-lg dark:shadow-glow my-4 rounded-lg">
+    <motion.div
+      className="shadow-lg dark:shadow-glow my-4 rounded-lg"
+      initial="hidden"
+      animate={isInView ? "visible" : "hidden"}
+      transition={{ duration: 0.5 }}
+      variants={fadeInBottomWithDelay(0)}
+      ref={ref}
+    >
       <motion.h1
         className="text-center text-3xl p-4 pt-6 font-bold gradient-text animate-gradient bg-clip-text text-transparent"
         initial="hidden"
@@ -86,6 +93,6 @@ export default function Projects() {
           />
         </motion.div>
       </div>
-    </div>
+    </motion.div>
   );
 }
