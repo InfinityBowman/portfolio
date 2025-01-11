@@ -59,6 +59,9 @@ const config = {
           "5": "hsl(var(--chart-5))",
         },
       },
+      boxShadow: {
+        glow: "var(--glow)",
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",

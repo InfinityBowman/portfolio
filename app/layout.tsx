@@ -1,7 +1,7 @@
 import { Geist } from "next/font/google";
 import { Roboto } from "next/font/google";
 import NavBarWrapper from "@/components/ui/nav/navbar-wrapper";
-import { FaGithub, FaYoutube, FaTwitter } from "react-icons/fa";
+import { FaGithub, FaYoutube, FaTwitter, FaLinkedin } from "react-icons/fa";
 
 import { ThemeProvider } from "next-themes";
 import "./globals.css";
@@ -68,6 +68,14 @@ export default function RootLayout({
                   className="text-xl hover:text-gray-500"
                 >
                   <FaYoutube />
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/jacob-maynard-283767230/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xl hover:text-gray-500"
+                >
+                  <FaLinkedin />
                 </a>
                 {/* <a
                   href="https://twitter.com/your-twitter"

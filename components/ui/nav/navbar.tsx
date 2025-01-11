@@ -14,30 +14,44 @@ export default function NavBar({ children }: NavBarProps) {
   return (
     <div className="w-full py-4">
       <div className="flex justify-between">
-        <div className="flex-shrink-0 flex items-center">
-          <Link href="/" className="font-semibold text-x">
-            Jacob Maynard
-          </Link>
-        </div>
+        {pathname !== "/kontakt-guide" && (
+          <div className="flex-shrink-0 flex items-center">
+            <Link href="/" className="font-semibold text-x">
+              Jacob Maynard
+            </Link>
+          </div>
+        )}
         <div className="hidden md:flex md:items-center md:gap-5">
-          <Link
-            href="/projects"
-            className={`navbar-link relative pb-3 top-2 ${pathname === "/projects" ? "link-active" : "border-b border-transparent"}`}
-          >
-            Projects
-          </Link>
-          {/* <Link
-            href="/kontakt-guide"
-            className={`navbar-link relative pb-3 top-2 ${pathname === "/kontakt-guide" ? "link-active" : "border-b border-transparent"}`}
-          >
-            Kontakt Guide
-          </Link> */}
-          <Link
-            href="/hobbies"
-            className={`navbar-link relative pb-3 top-2 ${pathname === "/hobbies" ? "link-active" : "border-b border-transparent"}`}
-          >
-            Hobbies
-          </Link>
+          {pathname === "/kontakt-guide" && (
+            <Link
+              href="/kontakt-guide"
+              className={`navbar-link relative pb-3 top-2 ${pathname === "/kontakt-guide" ? "link-active" : "border-b border-transparent"}`}
+            >
+              Kontakt Guide
+            </Link>
+          )}
+          {pathname !== "/kontakt-guide" && (
+            <>
+              <Link
+                href="/projects"
+                className={`navbar-link relative pb-3 top-2 ${pathname === "/projects" ? "link-active" : "border-b border-transparent"}`}
+              >
+                Projects
+              </Link>
+              <Link
+                href="/about"
+                className={`navbar-link relative pb-3 top-2 ${pathname === "/about" ? "link-active" : "border-b border-transparent"}`}
+              >
+                About Me{" "}
+              </Link>
+              <Link
+                href="/hobbies"
+                className={`navbar-link relative pb-3 top-2 ${pathname === "/hobbies" ? "link-active" : "border-b border-transparent"}`}
+              >
+                Hobbies
+              </Link>
+            </>
+          )}
         </div>
         <div className="hidden md:flex md:items-center">{children}</div>
         <div className="md:hidden flex">

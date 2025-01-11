@@ -74,6 +74,7 @@
     --link-hover: hsl(311, 71%, 63%);
     --icon: 0 0% 98%;
     --bullet: 0 0% 98%;
+    --glow: 0 0 10px rgba(0, 123, 255, 0.5), 0 0 4px rgba(0, 123, 255, 0.3);
     --gradient-text: linear-gradient(
       to right,
       #3abce7,

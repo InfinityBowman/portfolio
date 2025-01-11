@@ -1,10 +1,15 @@
-import LeagueDashboard from "@/components/ui/projects/league-dashboard";
+// major coursework
+// eagle scout
+// internship - bokeh image
+// math skills
+// other skills
+// skiing and hiking hobbies
 import AboutMe from "@/components/ui/projects/about-me";
 
 export default function Page() {
   return (
     <div className="flex flex-col items-center">
-      <LeagueDashboard />
+      <AboutMe />
     </div>
   );
 }
