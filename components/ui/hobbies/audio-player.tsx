@@ -1,3 +1,4 @@
+"use client";
 import React, { useState, useEffect, useRef } from "react";
 import ReactPlayer from "react-player/youtube";
 import { Play, Pause } from "lucide-react";
@@ -9,9 +10,14 @@ const AudioPlayer = ({ url, title }: { url: string; title: string }) => {
   const [duration, setDuration] = useState(0);
   const waveformRef = useRef<HTMLDivElement>(null);
   const wavesurfer = useRef<WaveSurfer | null>(null);
+  const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
-    if (!wavesurfer.current && waveformRef.current) {
+    setIsClient(true);
+  }, []);
+
+  useEffect(() => {
+    if (isClient && !wavesurfer.current && waveformRef.current) {
       wavesurfer.current = WaveSurfer.create({
         container: waveformRef.current,
         waveColor: "#dddddd",
@@ -42,7 +48,11 @@ const AudioPlayer = ({ url, title }: { url: string; title: string }) => {
         wavesurfer.current;
       }
     };
-  }, [url]);
+  }, [isClient, url]);
+
+  if (!isClient) {
+    return null;
+  }
 
   const handlePlayPause = () => {
     setPlaying(!playing);
