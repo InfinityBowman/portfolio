@@ -25,7 +25,7 @@ export default function AboutMe() {
   const isInView = useInView(ref, { once: true });
 
   return (
-    <div className="mx-2 mb-4 flex flex-col gap-4">
+    <div className="flex flex-col gap-6">
       <motion.div
         className="p-6 text-center shadow-lg dark:shadow-glow rounded-lg"
         initial={{ opacity: 0, y: 50 }}
@@ -53,11 +53,11 @@ export default function AboutMe() {
         </motion.p>
       </motion.div>
 
-      <div className="flex md:flex-row flex-col w-full justify-evenly gap-4 mt-4">
+      <div className="flex md:flex-row flex-col w-full justify-evenly gap-6">
         <motion.div
-          className="p-4 shadow-lg dark:shadow-glow border rounded-lg w-full flex flex-col gap-2"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+          className="p-6 shadow-lg dark:shadow-glow rounded-lg"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut", delay: 0.6 }}
         >
           <motion.h2
@@ -68,17 +68,9 @@ export default function AboutMe() {
           >
             Experience
           </motion.h2>
-          <motion.div
-            className=""
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, ease: "easeOut", delay: 1.0 }}
-          >
-            Hello there
-          </motion.div>
         </motion.div>
 
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-6">
           <motion.div
             className="p-4 shadow-lg dark:shadow-glow w-full max-w-xs border rounded-lg flex flex-col gap-2"
             initial={{ opacity: 0 }}

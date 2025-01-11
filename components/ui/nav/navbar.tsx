@@ -33,12 +33,6 @@ export default function NavBar({ children }: NavBarProps) {
           {pathname !== "/kontakt-guide" && (
             <>
               <Link
-                href="/projects"
-                className={`navbar-link relative pb-3 top-2 ${pathname === "/projects" ? "link-active" : "border-b border-transparent"}`}
-              >
-                Projects
-              </Link>
-              <Link
                 href="/about"
                 className={`navbar-link relative pb-3 top-2 ${pathname === "/about" ? "link-active" : "border-b border-transparent"}`}
               >
