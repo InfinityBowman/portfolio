@@ -55,7 +55,7 @@ export default function AboutMe() {
 
       <div className="flex md:flex-row flex-col w-full justify-evenly gap-6">
         <motion.div
-          className="p-6 shadow-lg dark:shadow-glow border rounded-lg"
+          className="flex flex-col gap-2 p-6 shadow-lg dark:shadow-glow border rounded-lg"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut", delay: 0.6 }}
@@ -77,7 +77,7 @@ export default function AboutMe() {
             <div className="flex gap flex-col mb-4">
               <div className="flex justify-between">
                 <p className="font-semibold">Computer/Data Scientist Intern</p>
-                <p className="italic">5/24 - 8/24</p>
+                <p className="font-light">May 2024 - Aug 2024</p>
               </div>
               <div className="flex justify-between text-sm text-muted-foreground">
                 <p className="ml-2">Applied Research Associates (ARA)</p>
@@ -98,6 +98,64 @@ export default function AboutMe() {
               <li>Implemented themes and redesigned layout for ARA’s core application.</li>
               <li>Improved speed and UI/UX of existing apps.</li>
               <li>Worked independently and in a team with weekly standup meetings.</li>
+            </motion.ul>
+          </motion.div>
+
+          <motion.div
+            className="mt-4 space-y-4"
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut", delay: 1.4 }}
+          >
+            <div className="flex gap flex-col mb-4">
+              <div className="flex justify-between">
+                <p className="font-semibold">Audio Manager, Student Media</p>
+                <p className="font-light">Fall 2024 - Present</p>
+              </div>
+              <div className="flex justify-between text-sm text-muted-foreground">
+                <p className="ml-2">University of Utah</p>
+                <p className="italic">Salt Lake City, UT</p>
+              </div>
+            </div>
+            <motion.ul
+              className="list-disc list-inside space-y-1 custom-list pl-4 text-secondary-foreground"
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut", delay: 1.6 }}
+            >
+              <li>Manage studio equipment and software.</li>
+              <li>Manage reservations and scheduling of studio.</li>
+              <li>Provide training on studio equipment and update/maintain online training Canvas courses.</li>
+            </motion.ul>
+          </motion.div>
+
+          <motion.div
+            className="mt-4 space-y-4"
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut", delay: 1.8 }}
+          >
+            <div className="flex gap flex-col mb-4">
+              <div className="flex justify-between">
+                <p className="font-semibold">Membership Services Associate, Campus Recreation Services</p>
+                <p className="font-light">Sept 2022 - May 2024</p>
+              </div>
+              <div className="flex justify-between text-sm text-muted-foreground">
+                <p className="ml-2">University of Utah</p>
+                <p className="italic">Salt Lake City, UT</p>
+              </div>
+            </div>
+            <motion.ul
+              className="list-disc list-inside space-y-1 custom-list pl-4 text-secondary-foreground"
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut", delay: 2 }}
+            >
+              <li>
+                Responsible for sales to members and guests involving memberships, locker rentals and other services.
+              </li>
+              <li>Worked collaboratively with other sales team members and departments.</li>
+              <li>Provided excellent customer service.</li>
             </motion.ul>
           </motion.div>
         </motion.div>
