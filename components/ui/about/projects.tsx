@@ -4,7 +4,6 @@ import { buttonVariants } from "@/components/ui/button";
 import Link from "next/link";
 import { useRef } from "react";
 import { motion, useInView } from "motion/react";
-import Image from "next/image";
 
 const fadeInBottomWithDelay = (delay: number) => ({
   hidden: { opacity: 0, y: 50 },
@@ -63,7 +62,7 @@ export default function Projects() {
         ref={ref}
       >
         <motion.h1
-          className="text-center text-3xl p-4 pt-6 font-bold gradient-text animate-gradient bg-clip-text text-transparent"
+          className="text-center text-3xl p-4 font-bold gradient-text animate-gradient bg-clip-text text-transparent"
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
           transition={{ duration: 0.5 }}
