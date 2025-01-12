@@ -36,7 +36,7 @@ export default function Projects() {
     {
       title: "This Website!",
       description:
-        "Porfolio website made with Next.js, TailwindCSS, and TypeScript. Utilizes Supabase for authentication and data storage. Motion is used for all of the amazing animations and shadcn/ui for many of the components.",
+        "Porfolio website made with Next.js, TailwindCSS, and TypeScript. Utilizes Supabase for authentication and data storage and Axios and Puppeteer for data collection. Motion is used for all of the amazing animations and shadcn/ui for many of the components.",
       videoUrl: "/portfolioDemo.mp4",
       refUrl: "ttps://github.com/InfinityBowman/portfolio",
       source: "Github",

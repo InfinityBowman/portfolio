@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createClient, SupabaseClient } from "@supabase/supabase-js";
 import puppeteer from "puppeteer";
-import { log } from "console";
 
 const supabaseUrl: string = process.env.NEXT_PUBLIC_SUPABASE_URL as string;
 const supabaseKey: string = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY as string;
