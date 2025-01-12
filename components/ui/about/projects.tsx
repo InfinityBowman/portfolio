@@ -28,7 +28,7 @@ export default function Projects() {
     {
       title: "League Dashboard",
       description:
-        "Dashboard of visualizations built purely with D3.js utilizing Express and Axios to fetch live summoner data from the Riot API.",
+        "Dashboard of visualizations built purely with D3.js utilizing a Node.js server with Express and Axios to fetch live summoner data from the Riot API.",
       videoUrl: "/leagueDashboard.mp4",
       refUrl: "https://github.com/InfinityBowman/LeagueOfLegendsDashboard",
       source: "Github",

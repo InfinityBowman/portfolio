@@ -277,6 +277,9 @@ export default function AboutMe() {
                 "Java",
                 "Data Science",
                 "Python",
+                "Linear Algebra",
+                "Relational Algebra",
+                "Statistics",
               ].map((skill, index) => (
                 <motion.li key={skill} custom={index} variants={listItemVariants}>
                   {skill}
