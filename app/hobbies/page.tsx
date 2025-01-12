@@ -53,7 +53,7 @@ export default function Page() {
                   height={300}
                   className={`object-cover object-center h-60 ${isLoading ? "opacity-0" : "opacity-100"}`}
                   style={{ transform: "scale(1.01)" }}
-                  onLoadingComplete={() => setIsLoading(false)}
+                  onLoad={() => setIsLoading(false)}
                 />
               </motion.div>
             </motion.div>

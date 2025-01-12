@@ -1,5 +1,5 @@
 import Link from "next/link";
-import PriceScraperButton from "@/components/ui/price-scraper-button";
+import PriceScraperButton from "@/components/ui/kontakt-guide/price-scraper-button";
 import { PriceItemProps } from "@/lib/definitions";
 
 const PriceItem: React.FC<PriceItemProps> = ({ item, user }) => {

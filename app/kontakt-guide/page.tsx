@@ -1,4 +1,4 @@
-import LibraryPriceItem from "@/components/ui/library-price-item";
+import LibraryPriceItem from "@/components/ui/kontakt-guide/library-price-item";
 import { createClient } from "@/utils/supabase/server";
 import { PriceItem } from "@/lib/definitions";
 import GuideHero from "@/components/ui/kontakt-guide/guide-hero";

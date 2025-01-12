@@ -57,25 +57,25 @@ export default function RootLayout({
                   href="https://github.com/InfinityBowman"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-xl hover:text-gray-500"
+                  className="hover:text-gray-500"
                 >
-                  <FaGithub />
+                  <FaGithub size={20} />
                 </a>
                 <a
                   href="https://youtube.com/@infinity7585?si=g1JcDj9i_OyPNp_a"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-xl hover:text-gray-500"
+                  className="text-red-600 hover:text-red-400"
                 >
-                  <FaYoutube />
+                  <FaYoutube size={24} />
                 </a>
                 <a
                   href="https://www.linkedin.com/in/jacob-maynard-283767230/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-xl hover:text-gray-500"
+                  className="hover:text-gray-500"
                 >
-                  <FaLinkedin />
+                  <FaLinkedin size={20} />
                 </a>
                 {/* <a
                   href="https://twitter.com/your-twitter"
