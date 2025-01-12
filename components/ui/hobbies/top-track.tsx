@@ -34,7 +34,7 @@ export default function TopTrack() {
 
         const trackInfoParams = {
           method: "track.getInfo",
-          api_key: process.env.NEXT_PUBLIC_LASTFM_API_KEY,
+          api_key: "e03f73854d4ce7c32d21bea38e51d407",
           artist: track.artist.name,
           track: track.name,
           format: "json",
