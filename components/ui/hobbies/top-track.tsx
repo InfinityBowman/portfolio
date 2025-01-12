@@ -55,7 +55,7 @@ export default function TopTrack() {
       }
     };
 
-    // fetchTopTrack();
+    fetchTopTrack();
   }, []);
 
   return (
@@ -66,7 +66,7 @@ export default function TopTrack() {
       transition={{ duration: 0.6, delay: 0.4 }}
     >
       <div className="flex text-2xl justify-center my-4">My top track on Last.fm is:</div>
-      {topTrack && (
+      {topTrack ? (
         <div className="text-center mb-4 flex justify-center">
           <div className="max-w-sm bg-primary-foreground p-4 rounded-lg shadow-lg">
             <h3 className="text-xl font-semibold">{topTrack.name}</h3>
@@ -74,7 +74,7 @@ export default function TopTrack() {
             <img src={topTrack.artworkUrl} alt={`${topTrack.name} artwork`} className="mx-auto mt-2" />
           </div>
         </div>
-      ) ? null : (
+      ) : (
         <div className="text-center text-destructive">Failed to load</div>
       )}
     </motion.div>
