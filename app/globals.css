@@ -116,6 +116,7 @@
     --link-hover: hsl(311, 71%, 63%);
     --icon: 0 0% 90%;
     --bullet: 0 0% 90%;
+    --glow: 0 0 10px rgba(243, 103, 175, 0.5), 0 0 4px rgba(243, 103, 175, 0.3);
     --gradient-text: linear-gradient(to right, #f8923e, #f367af); /* from-orange-400 to-pink-400 */
   }
 }
