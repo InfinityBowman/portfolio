@@ -364,7 +364,6 @@ export function Skills() {
           "Figma",
           "React Native",
           "Kotlin + Android",
-          "MySQL",
           "PostgreSQL",
           "MySQL",
           ".NET",
