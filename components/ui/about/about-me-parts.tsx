@@ -2,6 +2,7 @@
 import { motion } from "motion/react";
 import React from "react";
 import { FaEnvelope, FaLinkedin, FaGraduationCap } from "react-icons/fa";
+import { useTheme } from "next-themes";
 
 const listItemVariants = {
   hidden: (i: number) => ({
@@ -21,9 +22,12 @@ const listItemVariants = {
 };
 
 export function AboutMeHeader() {
+  const { theme } = useTheme();
   return (
     <motion.div
-      className="p-6 text-center flex items-center flex-col light:shadow-lg shadow-glow rounded-lg"
+      className={`p-6 text-center flex items-center flex-col rounded-lg ${
+        theme !== "light" ? "shadow-glow" : ""
+      } shadow-neumorphic`}
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
@@ -51,9 +55,11 @@ export function AboutMeHeader() {
 }
 
 export function Experience() {
+  const { theme } = useTheme();
+
   return (
     <motion.div
-      className="flex flex-col gap-2 p-6 light:shadow-lg shadow-glow  rounded-lg"
+      className={`flex flex-col gap-2 p-6 rounded-lg ${theme !== "light" ? "shadow-glow" : ""} shadow-neumorphic`}
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut", delay: 0.6 }}
@@ -159,9 +165,11 @@ export function Experience() {
 }
 
 export function Coursework() {
+  const { theme } = useTheme();
+
   return (
     <motion.div
-      className="flex flex-col gap-2 p-6 light:shadow-lg shadow-glow  rounded-lg"
+      className={`flex flex-col gap-2 p-6 rounded-lg ${theme !== "light" ? "shadow-glow" : ""} shadow-neumorphic`}
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut", delay: 0.6 }}
@@ -241,9 +249,13 @@ export function Coursework() {
 }
 
 export function Contact() {
+  const { theme } = useTheme();
+
   return (
     <motion.div
-      className="p-4 light:shadow-lg shadow-glow w-full max-w-xs  rounded-lg flex flex-col gap-2"
+      className={`p-4 w-full max-w-xs rounded-lg flex flex-col gap-2 ${
+        theme !== "light" ? "shadow-glow" : ""
+      } shadow-neumorphic`}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.6, ease: "easeOut", delay: 0.6 }}
@@ -284,9 +296,13 @@ export function Contact() {
   );
 }
 export function Education() {
+  const { theme } = useTheme();
+
   return (
     <motion.div
-      className="p-4 light:shadow-lg shadow-glow w-full max-w-xs  rounded-lg flex flex-col gap-2"
+      className={`p-4 w-full max-w-xs rounded-lg flex flex-col gap-2 ${
+        theme !== "light" ? "shadow-glow" : ""
+      } shadow-neumorphic`}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.6, ease: "easeOut", delay: 0.8 }}
@@ -328,9 +344,13 @@ export function Education() {
 }
 
 export function Skills() {
+  const { theme } = useTheme();
+
   return (
     <motion.div
-      className="p-4 light:shadow-lg shadow-glow rounded-lg w-full  flex flex-col gap-2"
+      className={`p-4 rounded-lg w-full flex flex-col gap-2 ${
+        theme !== "light" ? "shadow-glow" : ""
+      } shadow-neumorphic`}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.6, ease: "easeOut", delay: 1 }}

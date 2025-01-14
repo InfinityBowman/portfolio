@@ -23,9 +23,18 @@ export default function GraphicDesign() {
       <h1 className="text-3xl font-bold mb-6 text-center gradient-text animate-gradient bg-clip-text text-transparent">
         Graphic Design
       </h1>
-      {/* <div className="flex justify-center mb-8">
-        <p>help</p>
-      </div> */}
+      <div className="flex justify-center">
+        <motion.div
+          className="flex justify-center text-left p-6 mb-6 w-2/3 shadow-glow rounded-lg"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 0.6 }}
+        >
+          I've always been interested in making cool looking graphics and over my senior year (2024-2025) so I started
+          picking up Photoshop. It has been an exciting journey. Since then, I've made a logo for my music artist name
+          'Relucent' and some custom app icons for my phone.
+        </motion.div>
+      </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
         {designs.map((design) => (
           <motion.div

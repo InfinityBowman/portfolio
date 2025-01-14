@@ -4,6 +4,7 @@ import { buttonVariants } from "@/components/ui/button";
 import Link from "next/link";
 import { useRef } from "react";
 import { motion, useInView } from "motion/react";
+import { useTheme } from "next-themes";
 
 const fadeInBottomWithDelay = (delay: number) => ({
   hidden: { opacity: 0, y: 50 },
@@ -24,6 +25,8 @@ const fadeInLeftWithDelay = (delay: number) => ({
 export default function Projects() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
+  const { theme } = useTheme();
+
   const projects = [
     {
       title: "League Dashboard",
@@ -54,7 +57,7 @@ export default function Projects() {
   return (
     <div className="w-full">
       <motion.div
-        className="shadow-lg dark:shadow-glow my-4 p-2 border rounded-lg"
+        className={`my-4 p-2 rounded-lg ${theme !== "light" ? "shadow-glow" : ""} shadow-neumorphic`}
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
         transition={{ duration: 0.5 }}
