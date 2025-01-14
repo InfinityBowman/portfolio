@@ -367,7 +367,10 @@ export function Skills() {
           "PostgreSQL",
           "MySQL",
           ".NET",
-          "C#, C++, Java, Python",
+          "C#",
+          "C++",
+          "Java",
+          "Python",
         ].map((skill, index) => (
           <motion.li key={skill} custom={index} variants={listItemVariants}>
             {skill}
