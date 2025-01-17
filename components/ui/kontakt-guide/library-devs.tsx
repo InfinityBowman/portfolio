@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import LibDevContainer from "./lib-dev-container";
-import { companyData } from "./company-data";
+import { companyData } from "./data/company-data";
 import { Button } from "@/components/ui/button";
 import { FaChevronDown } from "react-icons/fa";
 import { motion } from "motion/react";

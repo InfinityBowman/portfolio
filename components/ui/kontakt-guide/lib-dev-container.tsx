@@ -29,7 +29,7 @@ const LibDevContainer: React.FC<LibDevContainerProps> = ({ name, description, ra
         <h4 className="text-lg font-semibold">{name}</h4>
         <div className="flex items-center">
           <div className="text-yellow-500 mr-4">{renderStars(rating)}</div>
-          <VoteButtons initialVotes={votes} user={user} />
+          {/* <VoteButtons initialVotes={votes} user={user} /> */}
           <motion.div whileHover={{ scale: 1.1 }} onClick={() => setIsOpen(!isOpen)}>
             <Button
               size={"sm"}

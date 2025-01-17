@@ -6,16 +6,19 @@ import { FaChevronDown } from "react-icons/fa";
 interface AccordianProps {
   title: string;
   children: React.ReactNode;
+  textSize?: string;
 }
 
-const Accordian: React.FC<AccordianProps> = ({ title, children }) => {
+const Accordian: React.FC<AccordianProps> = ({ title, children, textSize = "text-base" }) => {
   const [isOpen, setIsOpen] = useState(false);
   const contentRef = useRef<HTMLDivElement>(null);
 
   return (
     <div className="border-b border-b-foreground/10">
-      <motion.div className="flex w-full" whileTap={{ scale: 0.99 }} onClick={() => setIsOpen(!isOpen)}>
-        <Button className="justify-between rounded-lg p-4 w-full h-auto bg-background hover:bg-background-hover text-foreground max-h-f">
+      <motion.div className="flex w-full" whileTap={{ scale: 1 }} onClick={() => setIsOpen(!isOpen)}>
+        <Button
+          className={`justify-between rounded-lg p-4 w-full h-auto bg-background hover:bg-background-hover text-foreground ${textSize} max-h-f`}
+        >
           {title}
           <motion.div animate={{ rotateX: isOpen ? 180 : 0 }} transition={{ duration: 0.3 }}>
             <FaChevronDown />
@@ -33,8 +36,8 @@ const Accordian: React.FC<AccordianProps> = ({ title, children }) => {
         transition={{ duration: 0.3 }}
         className={`overflow-hidden`}
       >
-        <div ref={contentRef} className="border border-primary bg-background rounded-lg py-2">
-          <div className="px-4 py-2">{children}</div>
+        <div ref={contentRef} className="bg-background rounded-lg py-2">
+          <div className="px-2 py-2">{children}</div>
         </div>
       </motion.div>
     </div>

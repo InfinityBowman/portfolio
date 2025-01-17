@@ -1,12 +1,12 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import KontaktFLTips from "./kontakt-fl-tips";
 import FreeStuff from "./free-stuff";
 import Accordian from "./accordian";
 import LibraryRecommendations from "./library-recs";
 import LibraryDevelopers from "./library-devs";
-
+import PaidLibrariesSection from "./paid-libraries/paid-libraries-section";
 interface GuideHeroProps {
   companiesWithVotes: { companyName: string; votes: number }[];
   user: any;
@@ -21,6 +21,8 @@ const GuideHero: React.FC<GuideHeroProps> = ({ companiesWithVotes, user }) => {
         return <FreeStuff />;
       case "tips":
         return <KontaktFLTips />;
+      case "paid":
+        return <KontaktFLTips />;
       default:
         return null;
     }
@@ -30,14 +32,6 @@ const GuideHero: React.FC<GuideHeroProps> = ({ companiesWithVotes, user }) => {
     <div className="flex flex-col gap-8 w-full" data-aos="fade">
       <div className="flex justify-center text-5xl font-thin tracking-wide text-transparent bg-clip-text gradient-text p-4">
         Sampled Instrument Guide
-      </div>
-      <div className="flex flex-col">
-        <Accordian title="What Libraries Should You Get?">
-          <LibraryRecommendations />
-        </Accordian>
-        <Accordian title="Notes on Library Developers">
-          <LibraryDevelopers companiesWithVotes={companiesWithVotes} user={user} />
-        </Accordian>
       </div>
       <div className="flex justify-center space-x-4 mb-4 border-b border-b-foreground/10 relative">
         <button
@@ -58,6 +52,17 @@ const GuideHero: React.FC<GuideHeroProps> = ({ companiesWithVotes, user }) => {
         </button>
       </div>
       <div>{renderContent()}</div>
+      <div className="flex flex-col">
+        <Accordian title="What Libraries Should You Get?">
+          <LibraryRecommendations />
+        </Accordian>
+        <Accordian title="Notes on Library Developers">
+          <LibraryDevelopers companiesWithVotes={companiesWithVotes} user={user} />
+        </Accordian>
+      </div>
+      <div>
+        <PaidLibrariesSection />
+      </div>
     </div>
   );
 };
