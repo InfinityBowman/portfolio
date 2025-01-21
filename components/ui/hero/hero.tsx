@@ -1,9 +1,14 @@
-"use client";
-import { motion } from "motion/react";
-import { ParticlesBackground } from "./particles";
-import { Phrases } from "./phrases";
+'use client';
+import { motion } from 'motion/react';
+import { ParticlesBackground } from './particles';
+import { Phrases } from './phrases';
+import { Button } from '../button';
+import Link from 'next/link';
+import { useTheme } from 'next-themes';
 
 export const Hero = () => {
+  const { theme } = useTheme();
+
   return (
     <div className="relative flex flex-col gap-8 items-center text-center py-20">
       <ParticlesBackground />
@@ -30,6 +35,21 @@ export const Hero = () => {
         transition={{ duration: 1, delay: 0.6 }}
       >
         <Phrases />
+      </motion.div>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, delay: 0.8 }}
+      >
+        <Link href="/about">
+          <Button
+            className={`text-lg ${
+              theme !== 'light' ? 'shadow-glow' : 'border'
+            } text-primary bg-background/80 hover:bg-secondary`}
+          >
+            Learn More
+          </Button>
+        </Link>
       </motion.div>
     </div>
   );

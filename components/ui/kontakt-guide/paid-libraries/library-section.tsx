@@ -1,5 +1,5 @@
-import { type LibrarySection } from "../data/paid-library-data";
-import Accordian from "../accordian";
+import { type LibrarySection } from '../data/paid-library-data';
+import Accordian from '../accordian';
 
 export default function LibrarySection({ sectionDesc, sectionName, section }: LibrarySection) {
   return (
@@ -9,7 +9,10 @@ export default function LibrarySection({ sectionDesc, sectionName, section }: Li
 
         {section.map((library, libraryIndex) => (
           <Accordian title={library.name}>
-            <div key={libraryIndex} className="p-4 border rounded-lg shadow-md mb-4">
+            <div
+              key={libraryIndex}
+              className="p-4 border rounded-lg shadow-md mb-4"
+            >
               <p className="text-sm text-primary/60">{library.description}</p>
               <p className="text-sm text-primary/70">By: {library.developer}</p>
             </div>

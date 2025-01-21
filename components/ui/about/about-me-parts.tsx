@@ -1,8 +1,8 @@
-"use client";
-import { motion } from "motion/react";
-import React from "react";
-import { FaEnvelope, FaLinkedin, FaGraduationCap } from "react-icons/fa";
-import { useTheme } from "next-themes";
+'use client';
+import { motion } from 'motion/react';
+import React from 'react';
+import { FaEnvelope, FaLinkedin, FaGraduationCap } from 'react-icons/fa';
+import { useTheme } from 'next-themes';
 
 const listItemVariants = {
   hidden: (i: number) => ({
@@ -26,17 +26,17 @@ export function AboutMeHeader() {
   return (
     <motion.div
       className={`p-6 text-center flex items-center flex-col rounded-lg ${
-        theme !== "light" ? "shadow-glow" : ""
+        theme !== 'light' ? 'shadow-glow' : ''
       } shadow-neumorphic`}
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
+      transition={{ duration: 0.8, ease: 'easeOut' }}
     >
       <motion.h2
         className="text-3xl font-bold mb-4 gradient-text animate-gradient bg-clip-text text-transparent"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+        transition={{ duration: 0.6, ease: 'easeOut', delay: 0.2 }}
       >
         About Me
       </motion.h2>
@@ -44,7 +44,7 @@ export function AboutMeHeader() {
         className="text-lg text-secondary-foreground max-w-3xl"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
+        transition={{ duration: 0.6, ease: 'easeOut', delay: 0.4 }}
       >
         Hello! I'm Jacob Maynard, a senior at the University of Utah majoring in Computer Science with a Certificate in
         Data Science. I love blending programming with design to solve complex problems in beautiful ways. My journey in
@@ -59,16 +59,16 @@ export function Experience() {
 
   return (
     <motion.div
-      className={`flex flex-col gap-2 p-6 rounded-lg ${theme !== "light" ? "shadow-glow" : ""} shadow-neumorphic`}
+      className={`flex flex-col gap-2 p-6 rounded-lg ${theme !== 'light' ? 'shadow-glow' : ''} shadow-neumorphic`}
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, ease: "easeOut", delay: 0.6 }}
+      transition={{ duration: 0.6, ease: 'easeOut', delay: 0.6 }}
     >
       <motion.h2
         className="text-3xl font-bold"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: "easeOut", delay: 0.6 }}
+        transition={{ duration: 0.6, ease: 'easeOut', delay: 0.6 }}
       >
         Experience
       </motion.h2>
@@ -76,7 +76,7 @@ export function Experience() {
         className="mt-4 space-y-4"
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: "easeOut", delay: 1 }}
+        transition={{ duration: 0.6, ease: 'easeOut', delay: 1 }}
       >
         <div className="flex gap flex-col mb-4">
           <div className="flex justify-between">
@@ -92,7 +92,7 @@ export function Experience() {
           className="list-disc list-inside space-y-1 custom-list pl-4 text-secondary-foreground"
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut", delay: 1.2 }}
+          transition={{ duration: 0.8, ease: 'easeOut', delay: 1.2 }}
         >
           <li>Designed and implemented upgrades to Python-based Bokeh data plotting tools.</li>
           <li>
@@ -109,7 +109,7 @@ export function Experience() {
         className="mt-4 space-y-4"
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: "easeOut", delay: 1.4 }}
+        transition={{ duration: 0.6, ease: 'easeOut', delay: 1.4 }}
       >
         <div className="flex gap flex-col mb-4">
           <div className="flex justify-between">
@@ -125,7 +125,7 @@ export function Experience() {
           className="list-disc list-inside space-y-1 custom-list pl-4 text-secondary-foreground"
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut", delay: 1.6 }}
+          transition={{ duration: 0.8, ease: 'easeOut', delay: 1.6 }}
         >
           <li>Manage studio equipment and software.</li>
           <li>Manage reservations and scheduling of studio.</li>
@@ -137,7 +137,7 @@ export function Experience() {
         className="mt-4 space-y-4"
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: "easeOut", delay: 1.8 }}
+        transition={{ duration: 0.6, ease: 'easeOut', delay: 1.8 }}
       >
         <div className="flex gap flex-col mb-4">
           <div className="flex justify-between">
@@ -153,7 +153,7 @@ export function Experience() {
           className="list-disc list-inside space-y-1 custom-list pl-4 text-secondary-foreground"
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut", delay: 2 }}
+          transition={{ duration: 0.8, ease: 'easeOut', delay: 2 }}
         >
           <li>Responsible for sales to members and guests involving memberships, locker rentals and other services.</li>
           <li>Worked collaboratively with other sales team members and departments.</li>
@@ -169,16 +169,16 @@ export function Coursework() {
 
   return (
     <motion.div
-      className={`flex flex-col gap-2 p-6 rounded-lg ${theme !== "light" ? "shadow-glow" : ""} shadow-neumorphic`}
+      className={`flex flex-col gap-2 p-6 rounded-lg ${theme !== 'light' ? 'shadow-glow' : ''} shadow-neumorphic`}
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, ease: "easeOut", delay: 0.6 }}
+      transition={{ duration: 0.6, ease: 'easeOut', delay: 0.6 }}
     >
       <motion.h2
         className="text-3xl font-bold py-2"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: "easeOut", delay: 0.6 }}
+        transition={{ duration: 0.6, ease: 'easeOut', delay: 0.6 }}
       >
         Coursework
       </motion.h2>
@@ -187,7 +187,7 @@ export function Coursework() {
           className="space-y-4"
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut", delay: 1 }}
+          transition={{ duration: 0.6, ease: 'easeOut', delay: 1 }}
         >
           <p className="font-semibold">Computer Science</p>
           <motion.ul
@@ -196,17 +196,21 @@ export function Coursework() {
             animate="visible"
           >
             {[
-              "Algorithms",
-              "Discrete Structures",
-              "Software Practice I, II",
-              "Database Systems",
-              "Computer Systems",
-              "Scientific Computing",
-              "Computer Organization",
-              "Object Oriented Programming",
-              "Capstone - Cross platform photo-sharing app",
+              'Algorithms',
+              'Discrete Structures',
+              'Software Practice I, II',
+              'Database Systems',
+              'Computer Systems',
+              'Scientific Computing',
+              'Computer Organization',
+              'Object Oriented Programming',
+              'Capstone - Cross platform photo-sharing app',
             ].map((skill, index) => (
-              <motion.li key={skill} custom={index} variants={listItemVariants}>
+              <motion.li
+                key={skill}
+                custom={index}
+                variants={listItemVariants}
+              >
                 {skill}
               </motion.li>
             ))}
@@ -217,7 +221,7 @@ export function Coursework() {
           className="space-y-4"
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut", delay: 1 }}
+          transition={{ duration: 0.6, ease: 'easeOut', delay: 1 }}
         >
           <p className="font-semibold">Math & Data Science</p>
           <motion.ul
@@ -226,18 +230,22 @@ export function Coursework() {
             animate="visible"
           >
             {[
-              "Calculus 1-3",
-              "Linear Algebra",
-              "Relational Algebra",
-              "Discrete Math",
-              "Foundations of Data Analysis",
-              "Applied Statistics I and II",
-              "Data Wrangling",
-              "Data Mining",
-              "Visualization for Data Science",
-              "Artificial Intelligence",
+              'Calculus 1-3',
+              'Linear Algebra',
+              'Relational Algebra',
+              'Discrete Math',
+              'Foundations of Data Analysis',
+              'Applied Statistics I and II',
+              'Data Wrangling',
+              'Data Mining',
+              'Visualization for Data Science',
+              'Artificial Intelligence',
             ].map((skill, index) => (
-              <motion.li key={skill} custom={index} variants={listItemVariants}>
+              <motion.li
+                key={skill}
+                custom={index}
+                variants={listItemVariants}
+              >
                 {skill}
               </motion.li>
             ))}
@@ -254,31 +262,35 @@ export function Contact() {
   return (
     <motion.div
       className={`p-4 w-full max-w-xs rounded-lg flex flex-col gap-2 ${
-        theme !== "light" ? "shadow-glow" : ""
+        theme !== 'light' ? 'shadow-glow' : ''
       } shadow-neumorphic`}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 0.6, ease: "easeOut", delay: 0.6 }}
+      transition={{ duration: 0.6, ease: 'easeOut', delay: 0.6 }}
     >
       <motion.h2
         className="text-3xl font-bold"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: "easeOut", delay: 0.6 }}
+        transition={{ duration: 0.6, ease: 'easeOut', delay: 0.6 }}
       >
         Contact
       </motion.h2>
-      <motion.p className="text-lg text-muted-foreground max-w-3xl" initial="hidden" animate="visible">
+      <motion.p
+        className="text-lg text-muted-foreground max-w-3xl"
+        initial="hidden"
+        animate="visible"
+      >
         {[
           {
-            href: "mailto:jacobamaynard@proton.me",
+            href: 'mailto:jacobamaynard@proton.me',
             icon: <FaEnvelope className="mr-2 text-primary" />,
-            text: "jacobamaynard@proton.me",
+            text: 'jacobamaynard@proton.me',
           },
           {
-            href: "https://www.linkedin.com/in/jacob-maynard-283767230/",
+            href: 'https://www.linkedin.com/in/jacob-maynard-283767230/',
             icon: <FaLinkedin className="mr-2 text-primary" />,
-            text: "LinkedIn",
+            text: 'LinkedIn',
           },
         ].map((link, index) => (
           <motion.a
@@ -301,26 +313,35 @@ export function Education() {
   return (
     <motion.div
       className={`p-4 w-full max-w-xs rounded-lg flex flex-col gap-2 ${
-        theme !== "light" ? "shadow-glow" : ""
+        theme !== 'light' ? 'shadow-glow' : ''
       } shadow-neumorphic`}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 0.6, ease: "easeOut", delay: 0.8 }}
+      transition={{ duration: 0.6, ease: 'easeOut', delay: 0.8 }}
     >
       <motion.h2
         className="text-3xl font-bold"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: "easeOut", delay: 0.8 }}
+        transition={{ duration: 0.6, ease: 'easeOut', delay: 0.8 }}
       >
         Education
       </motion.h2>
-      <motion.div className="text-lg text-muted-foreground max-w-3xl" initial="hidden" animate="visible">
+      <motion.div
+        className="text-lg text-muted-foreground max-w-3xl"
+        initial="hidden"
+        animate="visible"
+      >
         {[
           {
-            icon: <FaGraduationCap size={26} className="mr-2 text-primary" />,
-            text: "University of Utah",
-            subtext: "Bachelors in Computer Science (2021-2025)",
+            icon: (
+              <FaGraduationCap
+                size={26}
+                className="mr-2 text-primary"
+              />
+            ),
+            text: 'University of Utah',
+            subtext: 'Bachelors in Computer Science (2021-2025)',
           },
         ].map((link, index) => (
           <motion.li
@@ -349,17 +370,17 @@ export function Skills() {
   return (
     <motion.div
       className={`p-4 rounded-lg w-full flex flex-col gap-2 ${
-        theme !== "light" ? "shadow-glow" : ""
+        theme !== 'light' ? 'shadow-glow' : ''
       } shadow-neumorphic`}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 0.6, ease: "easeOut", delay: 1 }}
+      transition={{ duration: 0.6, ease: 'easeOut', delay: 1 }}
     >
       <motion.h2
         className="text-3xl font-bold"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: "easeOut", delay: 1 }}
+        transition={{ duration: 0.6, ease: 'easeOut', delay: 1 }}
       >
         Skills
       </motion.h2>
@@ -369,30 +390,37 @@ export function Skills() {
         animate="visible"
       >
         {[
-          "JavaScript & TypeScript",
-          "React",
-          "Angular",
-          "Electron",
-          "Next.js",
-          "Vite",
-          "Node.js",
-          "D3.js",
-          "Chart.js",
-          "Bokeh & BokehJS",
-          "Motion.js",
-          "TailwindCSS",
-          "Figma",
-          "React Native",
-          "Kotlin + Android",
-          "PostgreSQL",
-          "MySQL",
-          ".NET",
-          "C#",
-          "C++",
-          "Java",
-          "Python",
+          'JavaScript & TypeScript',
+          'React',
+          'React Native',
+          'Angular',
+          'Electron',
+          'Jotai',
+          'Next.js',
+          'Vite',
+          'NodeJS',
+          'Electron',
+          'D3.js',
+          'Chart.js',
+          'Bokeh & BokehJS',
+          'Motion.js',
+          'TailwindCSS',
+          'Figma',
+          'Kotlin + Android',
+          'PostgreSQL',
+          'MySQL',
+          '.NET',
+          'C#',
+          'C++',
+          'Java',
+          'Python',
+          'Ollama',
         ].map((skill, index) => (
-          <motion.li key={skill} custom={index} variants={listItemVariants}>
+          <motion.li
+            key={skill}
+            custom={index}
+            variants={listItemVariants}
+          >
             {skill}
           </motion.li>
         ))}
