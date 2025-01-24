@@ -1,10 +1,10 @@
-"use client";
-import { FaExternalLinkAlt } from "react-icons/fa";
-import { buttonVariants } from "@/components/ui/button";
-import Link from "next/link";
-import { useRef } from "react";
-import { motion, useInView } from "motion/react";
-import { useTheme } from "next-themes";
+'use client';
+import { FaExternalLinkAlt } from 'react-icons/fa';
+import { buttonVariants } from '@/components/ui/button';
+import Link from 'next/link';
+import { useRef } from 'react';
+import { motion, useInView } from 'motion/react';
+import { useTheme } from 'next-themes';
 
 const fadeInBottomWithDelay = (delay: number) => ({
   hidden: { opacity: 0, y: 50 },
@@ -29,37 +29,53 @@ export default function Projects() {
 
   const projects = [
     {
-      title: "League Dashboard",
+      title: 'League Dashboard',
       description:
-        "Dashboard of visualizations built purely with D3.js utilizing a Node.js server with Express and Axios to fetch live summoner data from the Riot API.",
-      videoUrl: "/leagueDashboard.mp4",
-      refUrl: "https://github.com/InfinityBowman/LeagueOfLegendsDashboard",
-      source: "Github",
+        'Dashboard of visualizations built purely with D3.js utilizing a Node.js server with Express and Axios to fetch live summoner data from the Riot API.',
+      videoUrl: '/leagueDashboard.mp4',
+      refUrl: 'https://github.com/InfinityBowman/LeagueOfLegendsDashboard',
+      source: 'Github',
     },
     {
-      title: "This Website!",
+      title: 'This Website!',
       description:
-        "Porfolio website made with Next.js, TailwindCSS, and TypeScript. Utilizes Supabase for authentication and data storage and Axios and Puppeteer for data collection. Motion is used for all of the amazing animations and ShadCN for many of the components.",
-      videoUrl: "/portfolioDemo.mp4",
-      refUrl: "ttps://github.com/InfinityBowman/portfolio",
-      source: "Github",
+        'Porfolio website made with Next.js, TailwindCSS, and TypeScript. Utilizes Supabase for authentication and data storage and Axios and Puppeteer for data collection. Motion is used for all of the amazing animations and ShadCN for many of the components.',
+      videoUrl: '/portfolioDemo.mp4',
+      refUrl: 'https://github.com/InfinityBowman/portfolio',
+      source: 'Github',
     },
     {
-      title: "MoonBlight",
+      title: 'Markdown Notes App',
       description:
-        "Video game made in Unity with C#. A 2D bullet hell conceptualized, designed, and created within 48 Hours for the University of Utah's March 2022 Game Jam. Worked wit a large team of programmers, desginers, and artists to create a neat little game.",
-      videoUrl: "/moonBlight.mp4",
-      refUrl: "https://monkeybarrelgames.itch.io/moonblight",
-      source: "Itch.io",
+        'Notes app made in Electron with React and Typescript. Accesses filesystem to create and autosave notes. Supports markdown editing. Uses Jotai for state management and TailwindCSS, Tailwind Merge for styling.',
+      videoUrl: '/NotesPlusDemo.mp4',
+      refUrl: 'https://github.com/InfinityBowman/notes-app',
+      source: 'Github',
+    },
+    {
+      title: 'Local AI Chatbot',
+      description:
+        'Adapted out of the Notes to be a clone of the ChatGPT that uses local Ollama models. The app allows the model to write in rich text and remember context of the conversation with the user.',
+      videoUrl: '/portfolioDemo.mp4',
+      refUrl: 'https://github.com/InfinityBowman/invisible-chat',
+      source: 'Github',
+    },
+    {
+      title: 'MoonBlight',
+      description:
+        "Video game made in Unity with C#. A 2D bullet hell conceptualized, designed, and created within 48 Hours for the University of Utah's March 2022 Game Jam. Worked with a large team of programmers, desginers, and artists to create a neat little game.",
+      videoUrl: '/moonBlight.mp4',
+      refUrl: 'https://monkeybarrelgames.itch.io/moonblight',
+      source: 'Itch.io',
     },
   ];
 
   return (
     <div className="w-full">
       <motion.div
-        className={`my-4 p-2 rounded-lg ${theme !== "light" ? "shadow-glow" : ""} shadow-neumorphic`}
+        className={`my-4 p-2 rounded-lg ${theme !== 'light' ? 'shadow-glow' : ''} shadow-neumorphic`}
         initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
+        animate={isInView ? 'visible' : 'hidden'}
         transition={{ duration: 0.5 }}
         variants={fadeInBottomWithDelay(0)}
         ref={ref}
@@ -67,7 +83,7 @@ export default function Projects() {
         <motion.h1
           className="text-center text-3xl p-4 font-bold gradient-text animate-gradient bg-clip-text text-transparent"
           initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
+          animate={isInView ? 'visible' : 'hidden'}
           transition={{ duration: 0.5 }}
           variants={fadeInBottomWithDelay(0)}
           ref={ref}
@@ -84,7 +100,7 @@ export default function Projects() {
                 key={index}
                 className="flex md:flex-row flex-col md:justify-between gap-2"
                 initial="hidden"
-                animate={isInView ? "visible" : "hidden"}
+                animate={isInView ? 'visible' : 'hidden'}
                 transition={{ duration: 0.5 }}
                 ref={ref}
               >
@@ -92,7 +108,7 @@ export default function Projects() {
                   <motion.h2
                     className="text-xl font-semibold mb-2"
                     initial="hidden"
-                    animate={isInView ? "visible" : "hidden"}
+                    animate={isInView ? 'visible' : 'hidden'}
                     transition={{ duration: 0.5 }}
                     variants={fadeInRightWithDelay(0.3)}
                   >
@@ -101,7 +117,7 @@ export default function Projects() {
                   <motion.p
                     className="subtext max-w-lg"
                     initial="hidden"
-                    animate={isInView ? "visible" : "hidden"}
+                    animate={isInView ? 'visible' : 'hidden'}
                     variants={fadeInRightWithDelay(0.4)}
                   >
                     {project.description}
@@ -109,11 +125,11 @@ export default function Projects() {
 
                   <motion.div
                     initial="hidden"
-                    animate={isInView ? "visible" : "hidden"}
+                    animate={isInView ? 'visible' : 'hidden'}
                     variants={fadeInRightWithDelay(0.4)}
                   >
                     <Link
-                      className={`${buttonVariants({ variant: "outline" })} my-4 w-28 flex gap-2`}
+                      className={`${buttonVariants({ variant: 'outline' })} my-4 w-28 flex gap-2`}
                       href={project.refUrl}
                       target="_blank"
                       rel="noopener noreferrer"
@@ -127,14 +143,17 @@ export default function Projects() {
                 <motion.video
                   className="flex md:max-w-lg max-w-xs h-60 md:h-96 border border-white rounded-lg overflow-hidden object-cover w-full"
                   initial="hidden"
-                  animate={isInView ? "visible" : "hidden"}
+                  animate={isInView ? 'visible' : 'hidden'}
                   variants={fadeInLeftWithDelay(0.4)}
                   autoPlay
                   loop
                   muted
                   playsInline
                 >
-                  <source src={project.videoUrl} type="video/mp4" />
+                  <source
+                    src={project.videoUrl}
+                    type="video/mp4"
+                  />
                   Your browser does not support the video tag.
                 </motion.video>
               </motion.div>

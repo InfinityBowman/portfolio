@@ -394,7 +394,6 @@ export function Skills() {
           'React',
           'React Native',
           'Angular',
-          'Electron',
           'Jotai',
           'Next.js',
           'Vite',
