@@ -39,7 +39,7 @@ export default function Projects() {
     {
       title: 'This Website!',
       description:
-        'Porfolio website made with Next.js, TailwindCSS, and TypeScript. Utilizes Supabase for authentication and data storage and Axios and Puppeteer for data collection. Motion is used for all of the amazing animations and ShadCN for many of the components.',
+        'Porfolio website made with Next.js, TailwindCSS, and TypeScript. Utilizes Supabase for authentication and data storage and Axios and Puppeteer for data collection. Motion/Framer Motion is used for all of the amazing animations and ShadCN for many of the components.',
       videoUrl: '/portfolioDemo.mp4',
       refUrl: 'https://github.com/InfinityBowman/portfolio',
       source: 'Github',
@@ -47,7 +47,7 @@ export default function Projects() {
     {
       title: 'Markdown Notes App',
       description:
-        'Notes app made in Electron with React and Typescript. Accesses filesystem to create and autosave notes. Supports markdown editing. Uses Jotai for state management and TailwindCSS, Tailwind Merge for styling.',
+        'Notes app made in Electron + Vite with React and Typescript. Accesses filesystem to create and autosave notes. Supports markdown editing. Uses Jotai for state management and TailwindCSS, Tailwind Merge for styling.',
       videoUrl: '/NotesPlusDemo.mp4',
       refUrl: 'https://github.com/InfinityBowman/notes-app',
       source: 'Github',
@@ -55,7 +55,7 @@ export default function Projects() {
     {
       title: 'Local AI Chatbot',
       description:
-        'Adapted out of the Notes to be a clone of the ChatGPT that uses local Ollama models. The app allows the model to write in rich text and remember context of the conversation with the user.',
+        'Adapted out of the Notes to be a clone of the ChatGPT MacOS app that uses local Ollama models. The app allows the model to write in rich text and remember context of the conversation with the user.',
       videoUrl: '/InvisibleChatDemo.mp4',
       refUrl: 'https://github.com/InfinityBowman/invisible-chat',
       source: 'Github',
