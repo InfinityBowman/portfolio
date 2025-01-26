@@ -56,7 +56,7 @@ export default function Projects() {
       title: 'Local AI Chatbot',
       description:
         'Adapted out of the Notes to be a clone of the ChatGPT that uses local Ollama models. The app allows the model to write in rich text and remember context of the conversation with the user.',
-      videoUrl: '/portfolioDemo.mp4',
+      videoUrl: '/InvisibleChatDemo.mp4',
       refUrl: 'https://github.com/InfinityBowman/invisible-chat',
       source: 'Github',
     },
