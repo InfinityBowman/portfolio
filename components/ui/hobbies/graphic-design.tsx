@@ -25,7 +25,7 @@ export default function GraphicDesign() {
       </h1>
       <div className="flex justify-center">
         <motion.div
-          className="flex justify-center text-left p-6 mb-6 w-2/3 shadow-glow rounded-lg"
+          className="flex justify-center text-left p-6 mb-6 w-5/6 shadow-glow rounded-lg"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: 'easeOut', delay: 0.6 }}
