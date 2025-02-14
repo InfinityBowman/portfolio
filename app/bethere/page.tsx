@@ -4,7 +4,7 @@ import Image from 'next/image';
 export default function Page() {
   return (
     <div>
-      <Image
+      <img
         src={'/bethere/betherelogo.png'}
         alt={'BeThere Logo'}
         width={400}
