@@ -10,7 +10,7 @@ export default function NavBarWrapper() {
           <div className="md:hidden flex pr-2">Appearance</div>
           <ThemeSwitcher />
         </div>
-        <HeaderAuth />
+        {/* <HeaderAuth /> */}
       </div>
     </NavBar>
   );
