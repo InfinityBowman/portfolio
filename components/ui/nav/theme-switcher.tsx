@@ -71,7 +71,7 @@ const ThemeSwitcher = () => {
       >
         <DropdownMenuRadioGroup
           value={theme}
-          onValueChange={() => handleThemeChange}
+          onValueChange={(value: string) => handleThemeChange(value as ThemeType)}
         >
           {Object.entries(themeIcons).map(([value, Icon]) => (
             <DropdownMenuRadioItem
