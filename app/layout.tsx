@@ -40,7 +40,7 @@ export default function RootLayout({
         >
           <main className="min-h-screen flex flex-col items-center">
             <div className="flex-1 w-full flex flex-col gap-10 items-center">
-              <header className="w-full h-12 z-50 bg-background border-b border-b-foreground/10 flex justify-between items-center text-sm p-4">
+              <header className="sticky top-0 w-full h-12 z-50 bg-background border-b border-b-foreground/10 flex justify-between items-center text-sm p-4">
                 <NavBarWrapper />
               </header>
               <div className="flex flex-col gap-20 max-w-6xl">{children}</div>
