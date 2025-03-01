@@ -27,14 +27,13 @@ export default function NavBar({ children }: NavBarProps) {
         <div className="flex-grow flex justify-center">
           <div className="hidden md:flex md:items-center md:gap-5">
             <Link
-              prefetch
               href="/about"
               className={`navbar-link relative pb-3 top-2 ${pathname === '/about' ? 'link-active' : 'border-b border-transparent'}`}
             >
               About Me
             </Link>
             <Link
-              prefetch
+              prefetch={true}
               href="/hobbies"
               className={`navbar-link relative pb-3 top-2 ${pathname === '/hobbies' ? 'link-active' : 'border-b border-transparent'}`}
             >

@@ -1,10 +1,3 @@
-'use client';
-// major coursework
-// eagle scout
-// internship - bokeh image
-// math skills
-// other skills
-// skiing and hiking hobbies
 import React, { Suspense, lazy } from 'react';
 import BackgroundCanvas from '@/components/ui/background-grid';
 

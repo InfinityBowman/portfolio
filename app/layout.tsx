@@ -1,28 +1,23 @@
-import { Geist } from "next/font/google";
-import { Roboto } from "next/font/google";
-import NavBarWrapper from "@/components/ui/nav/navbar-wrapper";
-import { FaGithub, FaYoutube, FaLinkedin } from "react-icons/fa";
+import { Roboto } from 'next/font/google';
+import NavBarWrapper from '@/components/ui/nav/navbar-wrapper';
+import { FaGithub, FaYoutube, FaLinkedin } from 'react-icons/fa';
 
-import { ThemeProvider } from "next-themes";
-import "./globals.css";
+import { ThemeProvider } from 'next-themes';
+import './globals.css';
 
-const defaultUrl = process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://localhost:3000";
+const defaultUrl = process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000';
 
 export const metadata = {
   metadataBase: new URL(defaultUrl),
-  title: "Portfolio",
-  description: "Here it is.",
+  title: 'Portfolio',
+  description: 'Here it is.',
 };
 
-const geistSans = Geist({
-  display: "swap",
-  subsets: ["latin"],
-});
 const roboto = Roboto({
-  subsets: ["latin"],
-  weight: ["400", "700"],
-  style: ["normal", "italic"],
-  display: "swap",
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  style: ['normal', 'italic'],
+  display: 'swap',
 });
 
 export default function RootLayout({
@@ -31,14 +26,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${roboto.className}`} suppressHydrationWarning>
+    <html
+      lang="en"
+      className={`${roboto.className}`}
+      suppressHydrationWarning
+    >
       <body>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange={false}
-          themes={["light", "dark", "twilight"]}
+          themes={['light', 'dark', 'twilight']}
         >
           <main className="min-h-screen flex flex-col items-center">
             <div className="flex-1 w-full flex flex-col gap-10 items-center">
