@@ -1,9 +1,20 @@
 'use client';
 import { motion } from 'motion/react';
-import React, { lazy } from 'react';
+import React, { Suspense } from 'react';
+import dynamic from 'next/dynamic';
+import { LoaderCircle } from 'lucide-react';
 
-const AudioPlayer = lazy(() => import('@/components/ui/hobbies/audio-player'));
-
+const AudioPlayer = dynamic(() => import('@/components/ui/hobbies/audio-player'), {
+  ssr: false,
+  loading: () => (
+    <div className="flex justify-center items-center h-20 bg-background/30 backdrop-blur-sm rounded-lg my-4">
+      <LoaderCircle
+        className="animate-spin"
+        size={24}
+      />
+    </div>
+  ),
+});
 const tracks = [
   {
     id: 1,
@@ -46,10 +57,21 @@ export default function MyTracks() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: 'easeOut', delay: track.id * 0.2 + 0.6 }}
         >
-          <AudioPlayer
-            url={track.src}
-            title={track.alt}
-          />
+          <Suspense
+            fallback={
+              <div className="flex justify-center items-center h-20 bg-background/30 backdrop-blur-sm rounded-lg my-4">
+                <LoaderCircle
+                  className="animate-spin"
+                  size={24}
+                />
+              </div>
+            }
+          >
+            <AudioPlayer
+              url={track.src}
+              title={track.alt}
+            />
+          </Suspense>
         </motion.div>
       ))}
     </motion.div>
