@@ -6,7 +6,6 @@ import { useRef } from 'react';
 import { motion, useInView } from 'motion/react';
 import { useTheme } from 'next-themes';
 
-// Move animations outside component to prevent recreation
 const animations = {
   fadeInBottom: (delay: number) => ({
     hidden: { opacity: 0, y: 50 },
@@ -69,25 +68,21 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
         </motion.div>
       </div>
 
-      <motion.div
+      <motion.video
         variants={animations.fadeInLeft(0.4)}
-        className="flex md:max-w-lg max-w-xs h-60 md:h-96 border border-white rounded-lg overflow-hidden w-full"
+        className="flex md:max-w-lg max-w-xs h-60 md:h-96 border border-white rounded-lg overflow-hidden w-full object-cover"
+        autoPlay
+        loop
+        muted
+        playsInline
+        aria-label={`Demo video for ${project.title}`}
       >
-        <video
-          className="object-cover"
-          autoPlay
-          loop
-          muted
-          playsInline
-          aria-label={`Demo video for ${project.title}`}
-        >
-          <source
-            src={project.videoUrl}
-            type="video/mp4"
-          />
-          <p>Your browser does not support the video tag.</p>
-        </video>
-      </motion.div>
+        <source
+          src={project.videoUrl}
+          type="video/mp4"
+        />
+        <p>Your browser does not support the video tag.</p>
+      </motion.video>
     </motion.article>
   );
 };
