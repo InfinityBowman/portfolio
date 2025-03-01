@@ -9,8 +9,23 @@ import BackgroundCanvas from '@/components/ui/background-particles';
 export const Hero = () => {
   const { theme } = useTheme();
 
+  const isLightTheme = theme === 'light';
+
+  const fadeUpVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: (delay: number) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 1,
+        delay,
+        ease: 'easeOut',
+      },
+    }),
+  };
+
   return (
-    <div className="relative flex flex-col gap-8 items-center text-center py-20">
+    <section className="relative flex flex-col gap-8 items-center text-center py-20">
       <BackgroundCanvas opacity={1} />
       <div className="sr-only">Jacob Maynard Portfolio Website</div>
       <motion.h2
@@ -22,35 +37,42 @@ export const Hero = () => {
         Jacob Maynard
       </motion.h2>
       <motion.p
-        className="text-2xl lg:text-3xl opacity-80"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 0.8, y: 0 }}
-        transition={{ duration: 1, delay: 0.4 }}
+        className="text-xl sm:text-2xl lg:text-3xl opacity-80"
+        initial="hidden"
+        animate="visible"
+        variants={fadeUpVariants}
+        custom={0.4}
       >
         Creative Development & Design
       </motion.p>
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, delay: 0.6 }}
+        initial="hidden"
+        animate="visible"
+        variants={fadeUpVariants}
+        custom={0.6}
       >
         <Phrases />
       </motion.div>
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, delay: 0.8 }}
+        initial="hidden"
+        animate="visible"
+        variants={fadeUpVariants}
+        custom={0.8}
       >
-        <Link href="/about">
+        <Link
+          href="/about"
+          passHref
+          legacyBehavior
+        >
           <Button
             className={`text-lg ${
               theme !== 'light' ? 'shadow-glow' : 'border'
-            } text-primary bg-background/80 hover:bg-secondary`}
+            } text-primary bg-background/80 hover:bg-secondary transition-colors`}
           >
             Learn More
           </Button>
         </Link>
       </motion.div>
-    </div>
+    </section>
   );
 };

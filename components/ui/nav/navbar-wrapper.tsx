@@ -1,5 +1,4 @@
 import NavBar from "./navbar";
-import HeaderAuth from "./header-auth";
 import { ThemeSwitcher } from "@/components/ui/nav/theme-switcher";
 
 export default function NavBarWrapper() {
@@ -10,7 +9,6 @@ export default function NavBarWrapper() {
           <div className="md:hidden flex pr-2">Appearance</div>
           <ThemeSwitcher />
         </div>
-        {/* <HeaderAuth /> */}
       </div>
     </NavBar>
   );
