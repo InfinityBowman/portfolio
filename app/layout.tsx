@@ -77,14 +77,6 @@ export default function RootLayout({
                 >
                   <FaLinkedin size={20} />
                 </a>
-                {/* <a
-                  href="https://twitter.com/your-twitter"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-xl hover:text-gray-500"
-                >
-                  <FaTwitter />
-                </a> */}
               </div>
             </footer>
           </main>

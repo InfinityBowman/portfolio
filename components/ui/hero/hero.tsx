@@ -1,17 +1,17 @@
 'use client';
 import { motion } from 'motion/react';
-import { ParticlesBackground } from './particles';
 import { Phrases } from './phrases';
 import { Button } from '../button';
 import Link from 'next/link';
 import { useTheme } from 'next-themes';
+import BackgroundCanvas from '@/components/ui/background-particles';
 
 export const Hero = () => {
   const { theme } = useTheme();
 
   return (
     <div className="relative flex flex-col gap-8 items-center text-center py-20">
-      <ParticlesBackground />
+      <BackgroundCanvas opacity={1} />
       <div className="sr-only">Jacob Maynard Portfolio Website</div>
       <motion.h2
         className="text-5xl lg:text-6xl font-bold gradient-text animate-gradient opacity-90 bg-clip-text text-transparent"

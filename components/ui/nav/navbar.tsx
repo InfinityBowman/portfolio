@@ -26,30 +26,20 @@ export default function NavBar({ children }: NavBarProps) {
         )}
         <div className="flex-grow flex justify-center">
           <div className="hidden md:flex md:items-center md:gap-5">
-            {pathname === '/kontakt-guide' && (
-              <Link
-                href="/kontakt-guide"
-                className={`navbar-link relative pb-3 top-2 ${pathname === '/kontakt-guide' ? 'link-active' : 'border-b border-transparent'}`}
-              >
-                Kontakt Guide
-              </Link>
-            )}
-            {pathname !== '/kontakt-guide' && (
-              <>
-                <Link
-                  href="/about"
-                  className={`navbar-link relative pb-3 top-2 ${pathname === '/about' ? 'link-active' : 'border-b border-transparent'}`}
-                >
-                  About Me{' '}
-                </Link>
-                <Link
-                  href="/hobbies"
-                  className={`navbar-link relative pb-3 top-2 ${pathname === '/hobbies' ? 'link-active' : 'border-b border-transparent'}`}
-                >
-                  Hobbies
-                </Link>
-              </>
-            )}
+            <Link
+              prefetch
+              href="/about"
+              className={`navbar-link relative pb-3 top-2 ${pathname === '/about' ? 'link-active' : 'border-b border-transparent'}`}
+            >
+              About Me
+            </Link>
+            <Link
+              prefetch
+              href="/hobbies"
+              className={`navbar-link relative pb-3 top-2 ${pathname === '/hobbies' ? 'link-active' : 'border-b border-transparent'}`}
+            >
+              Hobbies
+            </Link>
           </div>
         </div>
         <div className="hidden md:flex md:items-center">{children}</div>

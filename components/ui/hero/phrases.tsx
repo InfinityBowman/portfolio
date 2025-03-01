@@ -1,13 +1,13 @@
-"use client";
-import { useMotionValue, useTransform, motion, animate, useMotionValueEvent } from "motion/react";
+'use client';
+import { motion } from 'motion/react';
 
 export const Phrases = () => {
   const phrases = [
-    "I love making cool stuff!",
-    "Creating awesome websites!",
-    "Building sleek apps!",
-    "Designing exciting interfaces!",
-    "Working with cool people!",
+    'I love making cool stuff!',
+    'Creating awesome websites!',
+    'Building sleek apps!',
+    'Designing exciting interfaces!',
+    'Working with cool people!',
   ];
 
   const duration = 20;
@@ -21,7 +21,7 @@ export const Phrases = () => {
         }}
         transition={{
           duration: duration,
-          ease: "linear",
+          ease: 'linear',
           times: [0.8, 0.83, 0.97, 1],
           repeat: Infinity,
         }}
@@ -36,7 +36,7 @@ export const Phrases = () => {
         }}
         transition={{
           duration: duration,
-          ease: "linear",
+          ease: 'linear',
           times: [0.6, 0.63, 0.77, 0.8],
           repeat: Infinity,
         }}
@@ -51,7 +51,7 @@ export const Phrases = () => {
         }}
         transition={{
           duration: duration,
-          ease: "linear",
+          ease: 'linear',
           times: [0.4, 0.43, 0.57, 0.6],
           repeat: Infinity,
         }}
@@ -66,7 +66,7 @@ export const Phrases = () => {
         }}
         transition={{
           duration: duration,
-          ease: "linear",
+          ease: 'linear',
           times: [0.2, 0.23, 0.37, 0.4],
           repeat: Infinity,
         }}
@@ -81,10 +81,10 @@ export const Phrases = () => {
         }}
         transition={{
           duration: duration,
-          ease: "linear",
+          ease: 'linear',
           times: [0, 0.03, 0.17, 0.2],
           repeat: Infinity,
-          scale: { type: "spring", visualDuration: 0.4, bounce: 0.5 },
+          scale: { type: 'spring', visualDuration: 0.4, bounce: 0.5 },
         }}
         style={box}
       >
@@ -99,7 +99,7 @@ const box = {
   bottom: 0,
   height: 50,
   borderRadius: 5,
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
 };

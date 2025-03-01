@@ -1,6 +1,6 @@
 import React, { Suspense, lazy } from 'react';
 import { LoadingSpinner } from '@/components/spinner';
-import BackgroundCanvas from '@/components/ui/background-canvas';
+import BackgroundCanvas from '@/components/ui/background-grid';
 
 const TopTrack = lazy(() => import('@/components/ui/hobbies/top-track'));
 const MyTracks = lazy(() => import('@/components/ui/hobbies/my-tracks'));

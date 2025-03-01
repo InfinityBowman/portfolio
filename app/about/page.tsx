@@ -6,7 +6,7 @@
 // other skills
 // skiing and hiking hobbies
 import React, { Suspense, lazy } from 'react';
-import BackgroundCanvas from '@/components/ui/background-canvas';
+import BackgroundCanvas from '@/components/ui/background-grid';
 
 const AboutMe = lazy(() => import('@/components/ui/about/about-me'));
 const Projects = lazy(() => import('@/components/ui/about/projects'));
