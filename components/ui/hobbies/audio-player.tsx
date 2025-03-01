@@ -1,8 +1,7 @@
-"use client";
-import React, { useState, useEffect, useRef } from "react";
-import ReactPlayer from "react-player/youtube";
-import { Play, Pause } from "lucide-react";
-import WaveSurfer from "wavesurfer.js";
+'use client';
+import React, { useState, useEffect, useRef } from 'react';
+import { Play, Pause } from 'lucide-react';
+import WaveSurfer from 'wavesurfer.js';
 
 const AudioPlayer = ({ url, title }: { url: string; title: string }) => {
   const [playing, setPlaying] = useState(false);
@@ -11,6 +10,7 @@ const AudioPlayer = ({ url, title }: { url: string; title: string }) => {
   const waveformRef = useRef<HTMLDivElement>(null);
   const wavesurfer = useRef<WaveSurfer | null>(null);
   const [isClient, setIsClient] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     setIsClient(true);
@@ -20,9 +20,9 @@ const AudioPlayer = ({ url, title }: { url: string; title: string }) => {
     if (isClient && !wavesurfer.current && waveformRef.current) {
       wavesurfer.current = WaveSurfer.create({
         container: waveformRef.current,
-        waveColor: "#dddddd",
-        progressColor: "#4f4a85",
-        cursorColor: "#fff",
+        waveColor: '#dddddd',
+        progressColor: '#4f4a85',
+        cursorColor: '#fff',
         cursorWidth: 2,
         barWidth: 3,
         barRadius: 2,
@@ -30,11 +30,12 @@ const AudioPlayer = ({ url, title }: { url: string; title: string }) => {
         normalize: false,
       });
 
-      wavesurfer.current.on("ready", () => {
+      wavesurfer.current.on('ready', () => {
         setDuration(wavesurfer.current?.getDuration() || 0);
+        setLoading(false);
       });
 
-      wavesurfer.current.on("audioprocess", () => {
+      wavesurfer.current.on('audioprocess', () => {
         setCurrentTime(wavesurfer.current?.getCurrentTime() || 0);
       });
     }
@@ -64,36 +65,61 @@ const AudioPlayer = ({ url, title }: { url: string; title: string }) => {
   const formatTime = (seconds: number) => {
     const minutes = Math.floor(seconds / 60);
     const secs = Math.floor(seconds % 60);
-    return `${minutes}:${secs < 10 ? "0" : ""}${secs}`;
+    return `${minutes}:${secs < 10 ? '0' : ''}${secs}`;
   };
 
   return (
-    <div className="p-4 text-center flex flex-col gap-2">
+    <section
+      className="p-4 text-center flex flex-col gap-2"
+      role="region"
+      aria-label={`Audio player for ${title}`}
+    >
       <div className="z-10 flex items-center justify-start">
-        <ReactPlayer
-          url={url}
-          playing={playing}
-          controls={false}
-          width="0"
-          height="0"
-          config={{
-            playerVars: { showinfo: 0, controls: 0 },
-          }}
-        />
         <button
           onClick={handlePlayPause}
+          disabled={loading}
           className="p-3 bg-opacity-0 text-primary border rounded-full hover:bg-background-hover duration-0 flex"
+          aria-label={`${playing ? 'Pause' : 'Play'} ${title}`}
+          aria-pressed={playing}
         >
-          {playing ? <Pause size={20} /> : <Play size={20} />}
+          {playing ?
+            <Pause size={20} />
+          : <Play size={20} />}
         </button>
-        <div className="ml-4 text-primary">{title}</div>
+        <span
+          className="ml-4 text-primary"
+          aria-label="Track title"
+        >
+          {title}
+        </span>
       </div>
-      <div ref={waveformRef} className=""></div>
-      <div className="flex justify-between mt-2">
-        <div className="text-primary text-sm">{formatTime(currentTime)}</div>
-        <div className="text-primary text-sm">{formatTime(duration)}</div>
+      <div
+        ref={waveformRef}
+        className={loading ? 'opacity-50' : ''}
+        role="progressbar"
+        aria-label="Audio visualization"
+        aria-valuemin={0}
+        aria-valuemax={100}
+        aria-valuenow={duration ? (currentTime / duration) * 100 : 0}
+      ></div>
+      <div
+        className="flex justify-between mt-2"
+        role="timer"
+      >
+        <span
+          className="text-primary text-sm"
+          aria-label="Current time"
+        >
+          {formatTime(currentTime)}
+        </span>
+        <span
+          className="text-primary text-sm"
+          aria-label="Total duration"
+        >
+          {formatTime(duration)}
+        </span>
       </div>
-    </div>
+    </section>
   );
 };
 
