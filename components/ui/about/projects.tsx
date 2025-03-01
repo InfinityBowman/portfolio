@@ -34,7 +34,7 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
       animate={isInView ? 'visible' : 'hidden'}
       transition={{ duration: 0.5 }}
       ref={ref}
-      aria-labelledby={`project-title-${index}`}
+      role="article"
     >
       <div className="flex flex-col">
         <motion.h2
@@ -165,10 +165,7 @@ export default function Projects() {
         >
           Projects
         </motion.h1>
-        <div
-          className="flex flex-col rounded-lg p-4 gap-8"
-          role="list"
-        >
+        <div className="flex flex-col rounded-lg p-4 gap-8">
           {projects.map((project, index) => (
             <ProjectCard
               key={project.title}
