@@ -327,7 +327,7 @@ export function Education() {
       >
         Education
       </motion.h2>
-      <motion.div
+      <motion.ul
         className="text-lg text-muted-foreground max-w-3xl"
         initial="hidden"
         animate="visible"
@@ -359,7 +359,7 @@ export function Education() {
             </div>
           </motion.li>
         ))}
-      </motion.div>
+      </motion.ul>
     </motion.div>
   );
 }
