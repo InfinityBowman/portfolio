@@ -6,28 +6,109 @@ import { useRef } from 'react';
 import { motion, useInView } from 'motion/react';
 import { useTheme } from 'next-themes';
 
-const fadeInBottomWithDelay = (delay: number) => ({
-  hidden: { opacity: 0, y: 50 },
-  visible: { opacity: 1, y: 0 },
-  transition: { delay, duration: 0.5 },
-});
+// Move animations outside component to prevent recreation
+const animations = {
+  fadeInBottom: (delay: number) => ({
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0 },
+    transition: { delay, duration: 0.5 },
+  }),
+  fadeInRight: (delay: number) => ({
+    hidden: { opacity: 0, x: -100 },
+    visible: { opacity: 1, x: 0, transition: { delay, duration: 0.5 } },
+  }),
+  fadeInLeft: (delay: number) => ({
+    hidden: { opacity: 0, x: 100 },
+    visible: { opacity: 1, x: 0, transition: { delay, duration: 1 } },
+  }),
+};
 
-const fadeInRightWithDelay = (delay: number) => ({
-  hidden: { opacity: 0, x: -100 },
-  visible: { opacity: 1, x: 0, transition: { delay, duration: 0.5 } },
-});
+const ProjectCard = ({ project, index }: { project: Project; index: number }) => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
 
-const fadeInLeftWithDelay = (delay: number) => ({
-  hidden: { opacity: 0, x: 100 },
-  visible: { opacity: 1, x: 0, transition: { delay, duration: 1 } },
-});
+  return (
+    <motion.article
+      key={index}
+      className="flex md:flex-row flex-col md:justify-between gap-2"
+      initial="hidden"
+      animate={isInView ? 'visible' : 'hidden'}
+      transition={{ duration: 0.5 }}
+      ref={ref}
+      aria-labelledby={`project-title-${index}`}
+    >
+      <div className="flex flex-col">
+        <motion.h2
+          id={`project-title-${index}`}
+          className="text-xl font-semibold mb-2"
+          variants={animations.fadeInRight(0.3)}
+        >
+          {project.title}
+        </motion.h2>
+        <motion.p
+          className="subtext max-w-lg"
+          variants={animations.fadeInRight(0.4)}
+        >
+          {project.description}
+        </motion.p>
+
+        <motion.div variants={animations.fadeInRight(0.4)}>
+          <Link
+            className={`${buttonVariants({ variant: 'outline' })} my-4 w-28 flex gap-2`}
+            href={project.refUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`View ${project.title} on ${project.source} (opens in new tab)`}
+          >
+            <span>{project.source}</span>
+            <FaExternalLinkAlt
+              className="mb-1"
+              aria-hidden="true"
+            />
+          </Link>
+        </motion.div>
+      </div>
+
+      <motion.div
+        variants={animations.fadeInLeft(0.4)}
+        className="flex md:max-w-lg max-w-xs h-60 md:h-96 border border-white rounded-lg overflow-hidden w-full"
+      >
+        <video
+          className="object-cover"
+          autoPlay
+          loop
+          muted
+          playsInline
+          aria-label={`Demo video for ${project.title}`}
+        >
+          <source
+            src={project.videoUrl}
+            type="video/mp4"
+          />
+          <p>Your browser does not support the video tag.</p>
+        </video>
+      </motion.div>
+    </motion.article>
+  );
+};
+
+ProjectCard.displayName = 'ProjectCard';
+
+interface Project {
+  title: string;
+  description: string;
+  videoUrl: string;
+  refUrl: string;
+  source: string;
+}
 
 export default function Projects() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
   const { theme } = useTheme();
 
-  const projects = [
+  // TODO Move projects data to separate file if it grows larger
+  const projects: Project[] = [
     {
       title: 'League Dashboard',
       description:
@@ -71,96 +152,37 @@ export default function Projects() {
   ];
 
   return (
-    <div className="w-full">
+    <section
+      className="w-full"
+      aria-label="Projects Section"
+    >
       <motion.div
         className={`my-4 p-2 rounded-lg ${theme !== 'light' ? 'shadow-glow' : ''} shadow-neumorphic`}
         initial="hidden"
         animate={isInView ? 'visible' : 'hidden'}
         transition={{ duration: 0.5 }}
-        variants={fadeInBottomWithDelay(0)}
+        variants={animations.fadeInBottom(0)}
         ref={ref}
       >
         <motion.h1
           className="text-center text-3xl p-4 font-bold gradient-text animate-gradient bg-clip-text text-transparent"
-          initial="hidden"
-          animate={isInView ? 'visible' : 'hidden'}
-          transition={{ duration: 0.5 }}
-          variants={fadeInBottomWithDelay(0)}
-          ref={ref}
+          variants={animations.fadeInBottom(0)}
         >
           Projects
         </motion.h1>
-        <div className="flex flex-col rounded-lg p-4 gap-8">
-          {projects.map((project, index) => {
-            const ref = useRef(null);
-            const isInView = useInView(ref, { once: true });
-
-            return (
-              <motion.div
-                key={index}
-                className="flex md:flex-row flex-col md:justify-between gap-2"
-                initial="hidden"
-                animate={isInView ? 'visible' : 'hidden'}
-                transition={{ duration: 0.5 }}
-                ref={ref}
-              >
-                <div className="flex flex-col">
-                  <motion.h2
-                    className="text-xl font-semibold mb-2"
-                    initial="hidden"
-                    animate={isInView ? 'visible' : 'hidden'}
-                    transition={{ duration: 0.5 }}
-                    variants={fadeInRightWithDelay(0.3)}
-                  >
-                    {project.title}
-                  </motion.h2>
-                  <motion.p
-                    className="subtext max-w-lg"
-                    initial="hidden"
-                    animate={isInView ? 'visible' : 'hidden'}
-                    variants={fadeInRightWithDelay(0.4)}
-                  >
-                    {project.description}
-                  </motion.p>
-
-                  <motion.div
-                    initial="hidden"
-                    animate={isInView ? 'visible' : 'hidden'}
-                    variants={fadeInRightWithDelay(0.4)}
-                  >
-                    <Link
-                      className={`${buttonVariants({ variant: 'outline' })} my-4 w-28 flex gap-2`}
-                      href={project.refUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {project.source}
-                      <FaExternalLinkAlt className="mb-1" />
-                    </Link>
-                  </motion.div>
-                </div>
-
-                <motion.video
-                  className="flex md:max-w-lg max-w-xs h-60 md:h-96 border border-white rounded-lg overflow-hidden object-cover w-full"
-                  initial="hidden"
-                  animate={isInView ? 'visible' : 'hidden'}
-                  variants={fadeInLeftWithDelay(0.4)}
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                >
-                  <source
-                    src={project.videoUrl}
-                    type="video/mp4"
-                  />
-                  Your browser does not support the video tag.
-                </motion.video>
-              </motion.div>
-            );
-          })}
+        <div
+          className="flex flex-col rounded-lg p-4 gap-8"
+          role="list"
+        >
+          {projects.map((project, index) => (
+            <ProjectCard
+              key={project.title}
+              project={project}
+              index={index}
+            />
+          ))}
         </div>
       </motion.div>
-    </div>
+    </section>
   );
 }
