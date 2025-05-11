@@ -36,7 +36,7 @@ export default function RootLayout({
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange={false}
-          themes={['light', 'dark', 'twilight']}
+          themes={['dark', 'twilight']}
         >
           <main className="min-h-screen flex flex-col items-center">
             <div className="flex-1 w-full flex flex-col gap-10 items-center">

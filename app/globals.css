@@ -4,14 +4,14 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
+    --background: 224 71% 5%;
     --background-hover: 0 0% 97%;
     --bgColor: #ffffff;
     --foreground: 224 71% 4%;
     --fgColor: #030712;
     --card: 0 0% 100%;
     --card-foreground: 224 71% 4%;
-    --popover: 0 0% 100%;
+    --popover: 0 0% 100%;s
     --popover-foreground: 224 71% 4%;
     --primary: 221 39% 11%;
     --subtext: 0 0% 20%;

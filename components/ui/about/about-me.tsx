@@ -1,5 +1,4 @@
-"use client";
-import { AboutMeHeader, Contact, Coursework, Education, Experience, Skills } from "./about-me-parts";
+import { AboutMeHeader, Contact, Coursework, Education, Experience, Skills } from './about-me-parts';
 
 export default function AboutMe() {
   return (

@@ -1,4 +1,3 @@
-'use client';
 import { motion } from 'motion/react';
 import React from 'react';
 import { FaEnvelope, FaLinkedin, FaGraduationCap } from 'react-icons/fa';

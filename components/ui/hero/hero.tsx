@@ -9,8 +9,6 @@ import BackgroundCanvas from '@/components/ui/background-particles';
 export const Hero = () => {
   const { theme } = useTheme();
 
-  const isLightTheme = theme === 'light';
-
   const fadeUpVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: (delay: number) => ({
