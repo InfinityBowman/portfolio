@@ -91,8 +91,8 @@ export default function About() {
           <hr className="text-secondary-foreground/70 transform -translate-x-full reveal-line" />
         </div>
         <div className="grid md:grid-cols-12 gap-y-6 sm:gap-y-9 gap-x-16 flex-wrap">
-          <h3 className="sm:col-span-5 slide-over text-4xl sm:text-5xl whitespace-nowrap">{ABOUT.title}</h3>
-          <p className="sm:col-span-7 slide-in text-md sm:mr-2 sm:text-xl text-muted-foreground">{ABOUT.description}</p>
+          <h3 className="md:col-span-5 slide-over text-4xl sm:text-5xl whitespace-nowrap">{ABOUT.title}</h3>
+          <p className="md:col-span-7 slide-in text-md sm:mr-2 sm:text-xl text-muted-foreground">{ABOUT.description}</p>
         </div>
         <div className="flex sm:gap-4 gap-2 flex-wrap">
           {SOCIAL_LINKS.map((link) => (

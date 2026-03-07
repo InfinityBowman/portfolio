@@ -170,7 +170,7 @@ export default function NavMenu({ isOpen, onClose }: NavMenuProps) {
 
           {/* Menu panel */}
           <motion.div
-            className="fixed top-0 right-0 h-screen w-80 sm:w-96
+            className="fixed top-0 right-0 h-dvh w-80 sm:w-96
                     bg-secondary shadow-lg z-41 overflow-y-auto
                     border-l border-accent flex flex-col"
             initial={{ x: '100%' }}
@@ -185,7 +185,7 @@ export default function NavMenu({ isOpen, onClose }: NavMenuProps) {
           >
             {/* Menu items */}
             <nav className="flex-1 flex items-center">
-              <ul className="space-y-4 w-full p-6">
+              <ul className="space-y-4 w-full p-6 pb-16">
                 {menuItems.map((item, index) => (
                   <motion.li
                     key={item.href}

@@ -68,11 +68,11 @@ export default function Skills() {
             className="grid md:grid-cols-12"
             key={key}
           >
-            <div className="sm:col-span-5">
+            <div className="md:col-span-5">
               <h3 className="slide-up text-5xl leading-none text-muted-foreground uppercase mb-4">{key}</h3>
             </div>
 
-            <div className="sm:col-span-7 flex gap-x-11 gap-y-9 flex-wrap">
+            <div className="md:col-span-7 flex gap-x-11 gap-y-9 flex-wrap">
               {value.map((item) => (
                 <div
                   className="slide-up flex gap-2 sm:gap-3.5 items-center leading-none"
