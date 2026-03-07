@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import { Link, useLocation, useNavigate } from '@tanstack/react-router';
+import { useLenis } from 'lenis/react';
 import SOCIAL_LINKS from '@/lib/socials';
 
 interface NavMenuProps {
@@ -11,6 +12,7 @@ interface NavMenuProps {
 export default function NavMenu({ isOpen, onClose }: NavMenuProps) {
   const location = useLocation();
   const navigate = useNavigate();
+  const lenis = useLenis();
 
   const [activeSection, setActiveSection] = useState(
     location.pathname.startsWith('/blog') ? 'blog'
@@ -71,6 +73,14 @@ export default function NavMenu({ isOpen, onClose }: NavMenuProps) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [location.pathname]);
 
+  const scrollToElement = (el: HTMLElement) => {
+    if (lenis) {
+      lenis.scrollTo(el);
+    } else {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   const handleSectionClick = (e: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
     e.preventDefault();
 
@@ -78,14 +88,12 @@ export default function NavMenu({ isOpen, onClose }: NavMenuProps) {
       navigate({ to: '/' }).then(() => {
         setTimeout(() => {
           const el = document.getElementById(sectionId);
-          if (el) el.scrollIntoView({ behavior: 'smooth' });
+          if (el) scrollToElement(el);
         }, 50);
       });
     } else {
       const el = document.getElementById(sectionId);
-      if (el) {
-        window.scrollTo({ top: el.offsetTop, behavior: 'smooth' });
-      }
+      if (el) scrollToElement(el);
     }
 
     setActiveSection(sectionId);
