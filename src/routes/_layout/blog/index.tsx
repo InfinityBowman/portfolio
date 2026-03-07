@@ -25,6 +25,21 @@ function formatDate(dateString: string) {
 
 export const Route = createFileRoute('/_layout/blog/')({
   component: BlogListPage,
+  head: () => ({
+    meta: [
+      { title: 'Blog | Jacob Maynard' },
+      { name: 'description', content: 'Blog posts by Jacob Maynard on software development, web technologies, and AI.' },
+      { property: 'og:title', content: 'Blog | Jacob Maynard' },
+      { property: 'og:description', content: 'Blog posts by Jacob Maynard on software development, web technologies, and AI.' },
+      { property: 'og:url', content: 'https://jacobmaynard.dev/blog' },
+      { name: 'twitter:card', content: 'summary' },
+      { name: 'twitter:title', content: 'Blog | Jacob Maynard' },
+      { name: 'twitter:description', content: 'Blog posts by Jacob Maynard on software development, web technologies, and AI.' },
+    ],
+    links: [
+      { rel: 'canonical', href: 'https://jacobmaynard.dev/blog' },
+    ],
+  }),
 });
 
 function BlogListPage() {

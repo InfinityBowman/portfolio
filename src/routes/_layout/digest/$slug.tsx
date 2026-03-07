@@ -33,6 +33,25 @@ export const Route = createFileRoute('/_layout/digest/$slug')({
     if (!digest) throw notFound();
     return digest;
   },
+  head: ({ loaderData }) => {
+    if (!loaderData) return {};
+    return {
+      meta: [
+        { title: `${loaderData.title} | Foxfire` },
+        { name: 'description', content: loaderData.summary },
+        { property: 'og:title', content: loaderData.title },
+        { property: 'og:description', content: loaderData.summary },
+        { property: 'og:type', content: 'article' },
+        { property: 'og:url', content: `https://jacobmaynard.dev/digest/${loaderData.slug}` },
+        { name: 'twitter:card', content: 'summary' },
+        { name: 'twitter:title', content: loaderData.title },
+        { name: 'twitter:description', content: loaderData.summary },
+      ],
+      links: [
+        { rel: 'canonical', href: `https://jacobmaynard.dev/digest/${loaderData.slug}` },
+      ],
+    };
+  },
 });
 
 function DigestPostPage() {

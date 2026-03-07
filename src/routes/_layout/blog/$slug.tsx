@@ -33,6 +33,25 @@ export const Route = createFileRoute('/_layout/blog/$slug')({
     if (!post) throw notFound();
     return post;
   },
+  head: ({ loaderData }) => {
+    if (!loaderData) return {};
+    return {
+      meta: [
+        { title: `${loaderData.title} | Jacob Maynard` },
+        { name: 'description', content: loaderData.summary },
+        { property: 'og:title', content: loaderData.title },
+        { property: 'og:description', content: loaderData.summary },
+        { property: 'og:type', content: 'article' },
+        { property: 'og:url', content: `https://jacobmaynard.dev/blog/${loaderData.slug}` },
+        { name: 'twitter:card', content: 'summary' },
+        { name: 'twitter:title', content: loaderData.title },
+        { name: 'twitter:description', content: loaderData.summary },
+      ],
+      links: [
+        { rel: 'canonical', href: `https://jacobmaynard.dev/blog/${loaderData.slug}` },
+      ],
+    };
+  },
 });
 
 function BlogPostPage() {

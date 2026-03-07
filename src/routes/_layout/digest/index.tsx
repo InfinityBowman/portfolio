@@ -25,6 +25,21 @@ function formatDate(dateString: string) {
 
 export const Route = createFileRoute('/_layout/digest/')({
   component: DigestListPage,
+  head: () => ({
+    meta: [
+      { title: 'Foxfire | Jacob Maynard' },
+      { name: 'description', content: 'Foxfire — a weekly signal flare from the edges of tech. AI, open source, engineering, and whatever else caught fire this week.' },
+      { property: 'og:title', content: 'Foxfire | Jacob Maynard' },
+      { property: 'og:description', content: 'A weekly signal flare from the edges of tech. AI, open source, engineering, and whatever else caught fire this week.' },
+      { property: 'og:url', content: 'https://jacobmaynard.dev/digest' },
+      { name: 'twitter:card', content: 'summary' },
+      { name: 'twitter:title', content: 'Foxfire | Jacob Maynard' },
+      { name: 'twitter:description', content: 'A weekly signal flare from the edges of tech. AI, open source, engineering, and whatever else caught fire this week.' },
+    ],
+    links: [
+      { rel: 'canonical', href: 'https://jacobmaynard.dev/digest' },
+    ],
+  }),
 });
 
 function DigestListPage() {

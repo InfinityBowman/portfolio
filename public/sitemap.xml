@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://jacobmaynard.dev/</loc>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://jacobmaynard.dev/blog</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://jacobmaynard.dev/blog/corates</loc>
+  </url>
+  <url>
+    <loc>https://jacobmaynard.dev/blog/how-i-use-ai-in-development</loc>
+  </url>
+  <url>
+    <loc>https://jacobmaynard.dev/blog/no-build-jsx-in-webview2</loc>
+  </url>
+  <url>
+    <loc>https://jacobmaynard.dev/blog/wheres-religion</loc>
+  </url>
+  <url>
+    <loc>https://jacobmaynard.dev/digest</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://jacobmaynard.dev/digest/foxfire-1</loc>
+  </url>
+  <url>
+    <loc>https://jacobmaynard.dev/digest/foxfire-2</loc>
+  </url>
+  <url>
+    <loc>https://jacobmaynard.dev/digest/foxfire-3</loc>
+  </url>
+</urlset>

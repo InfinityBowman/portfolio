@@ -36,10 +36,21 @@ export const Route = createRootRoute({
           'Software Developer specializing in React, TypeScript, .NET, and building high-performance web applications.',
       },
       { property: 'og:type', content: 'website' },
+      { property: 'og:url', content: 'https://jacobmaynard.dev' },
+      { property: 'og:image', content: 'https://jacobmaynard.dev/og-image.png' },
+      { name: 'twitter:card', content: 'summary_large_image' },
+      { name: 'twitter:image', content: 'https://jacobmaynard.dev/og-image.png' },
+      { name: 'twitter:title', content: 'Jacob Maynard | Software Developer' },
+      {
+        name: 'twitter:description',
+        content:
+          'Software Developer specializing in React, TypeScript, .NET, and building high-performance web applications.',
+      },
     ],
     links: [
       { rel: 'stylesheet', href: appCss },
       { rel: 'icon', href: '/favicon.ico' },
+      { rel: 'canonical', href: 'https://jacobmaynard.dev' },
     ],
     scripts: [
       {
