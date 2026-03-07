@@ -2,7 +2,7 @@
 title: 'Foxfire #3'
 issue: 3
 date: '2026-03-07'
-summary: 'GPT-5.4 drops, Anthropic goes to war (literally), Claude Code sparks a 60-year-old's midnight passion, and we all collectively wonder if tech jobs are just... gone.'
+summary: "GPT-5.4 drops, Anthropic goes to war (literally), Claude Code sparks a 60-year-old's midnight passion, and we all collectively wonder if tech jobs are just... gone."
 published: 'true'
 ---
 
