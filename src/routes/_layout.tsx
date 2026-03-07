@@ -1,6 +1,7 @@
 import { Outlet, createFileRoute } from '@tanstack/react-router';
 import { ReactLenis } from 'lenis/react';
-import { useEffect, useState } from 'react';
+import 'lenis/dist/lenis.css';
+import { useState } from 'react';
 import NavMenuToggle from '@/components/nav/NavMenuToggle';
 import NavMenu from '@/components/nav/NavMenu';
 import Footer from '@/components/Footer';
@@ -14,27 +15,6 @@ export const Route = createFileRoute('/_layout')({
 
 function LayoutComponent() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isTouchDevice, setIsTouchDevice] = useState(false);
-
-  useEffect(() => {
-    setIsTouchDevice(window.matchMedia('(pointer: coarse)').matches);
-  }, []);
-
-  const content = (
-    <>
-      <NavMenuToggle onToggle={() => setIsMenuOpen((prev) => !prev)} isOpen={isMenuOpen} />
-      <NavMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
-      <main className="relative z-10">
-        <Outlet />
-      </main>
-      <Footer />
-      <BackgroundParticles opacity={0.5} />
-      <BackgroundCanvas opacity={0.1} />
-      <ScrollProgressIndicator />
-    </>
-  );
-
-  if (isTouchDevice) return content;
 
   return (
     <ReactLenis
@@ -46,7 +26,15 @@ function LayoutComponent() {
         orientation: 'vertical',
       }}
     >
-      {content}
+      <NavMenuToggle onToggle={() => setIsMenuOpen((prev) => !prev)} isOpen={isMenuOpen} />
+      <NavMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
+      <main className="relative z-10">
+        <Outlet />
+      </main>
+      <Footer />
+      <BackgroundParticles opacity={0.5} />
+      <BackgroundCanvas opacity={0.1} />
+      <ScrollProgressIndicator />
     </ReactLenis>
   );
 }
