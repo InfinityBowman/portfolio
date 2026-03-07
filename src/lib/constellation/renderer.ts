@@ -1,10 +1,9 @@
-import { ConstellationConfig } from './types';
 import {
-  nodeVertexShader, nodeFragmentShader,
-  lineVertexShader, lineFragmentShader,
+  lineFragmentShader, lineVertexShader,
+  nodeFragmentShader, nodeVertexShader,
 } from './shaders';
-import { ConnectionResult } from './simulation';
-import type { ConstellationNode } from './types';
+import type { ConstellationConfig, ConstellationNode  } from './types';
+import type { ConnectionResult } from './simulation';
 
 // ---- Minimal matrix math ----
 type Mat4 = Float32Array;
@@ -25,7 +24,7 @@ function perspective(fov: number, aspect: number, near: number, far: number): Ma
   return out;
 }
 
-function lookAt(eye: number[], center: number[], up: number[]): Mat4 {
+function lookAt(eye: Array<number>, center: Array<number>, up: Array<number>): Mat4 {
   const out = createMat4();
   let fx = center[0] - eye[0], fy = center[1] - eye[1], fz = center[2] - eye[2];
   let len = 1 / Math.sqrt(fx * fx + fy * fy + fz * fz);
@@ -63,7 +62,7 @@ function compileShader(gl: WebGLRenderingContext, src: string, type: number): We
 function createProgram(gl: WebGLRenderingContext, vsSrc: string, fsSrc: string): WebGLProgram {
   const vs = compileShader(gl, vsSrc, gl.VERTEX_SHADER);
   const fs = compileShader(gl, fsSrc, gl.FRAGMENT_SHADER);
-  const program = gl.createProgram()!;
+  const program = gl.createProgram();
   gl.attachShader(program, vs);
   gl.attachShader(program, fs);
   gl.linkProgram(program);
@@ -110,15 +109,15 @@ export function initRenderer(canvas: HTMLCanvasElement, config: ConstellationCon
   const lineProgram = createProgram(gl, lineVertexShader, lineFragmentShader);
 
   const nodeBuffers = {
-    position: gl.createBuffer()!,
-    color: gl.createBuffer()!,
-    size: gl.createBuffer()!,
-    phase: gl.createBuffer()!,
+    position: gl.createBuffer(),
+    color: gl.createBuffer(),
+    size: gl.createBuffer(),
+    phase: gl.createBuffer(),
   };
 
   const lineBuffers = {
-    position: gl.createBuffer()!,
-    alpha: gl.createBuffer()!,
+    position: gl.createBuffer(),
+    alpha: gl.createBuffer(),
   };
 
   const aspect = canvas.width / canvas.height;
@@ -155,7 +154,7 @@ export function resizeRenderer(state: RendererState, width: number, height: numb
 
 export function renderFrame(
   state: RendererState,
-  nodes: ConstellationNode[],
+  nodes: Array<ConstellationNode>,
   connections: ConnectionResult,
   time: number,
 ): void {

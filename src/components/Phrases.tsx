@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'preact/hooks';
+import { useEffect, useMemo, useState } from 'react';
 
 const PHRASES = [
   'Software Engineer',
@@ -24,7 +24,6 @@ export default function Phrases() {
   const displayText = useMemo(() => currentPhrase.slice(0, subIndex), [currentPhrase, subIndex]);
 
   useEffect(() => {
-    // Tunables
     const TYPE_MS = 80;
     const DELETE_MS = 40;
     const HOLD_MS = 1400;

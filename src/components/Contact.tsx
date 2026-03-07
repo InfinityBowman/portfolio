@@ -1,10 +1,10 @@
-import SectionTitle from '@/src/components/SectionTitle';
-import SOCIAL_LINKS from '@/src/lib/socials';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
-import React, { useRef } from 'react';
-import { FaEnvelope, FaDownload } from 'react-icons/fa';
+import { useRef } from 'react';
+import { FaDownload, FaEnvelope } from 'react-icons/fa';
+import SOCIAL_LINKS from '@/lib/socials';
+import SectionTitle from '@/components/SectionTitle';
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 

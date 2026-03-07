@@ -8,7 +8,7 @@ export interface ConstellationConfig {
   rotationSpeed: number;
   noiseScale: number;
   noiseSpeed: number;
-  colors: NodeColor[];
+  colors: Array<NodeColor>;
   focalDistance: number;
   dofStrength: number;
   pulseMin: number;

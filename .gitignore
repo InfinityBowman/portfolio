@@ -1,13 +1,6 @@
-# Dependencies
-node_modules/
-
-# Production build
-dist/
-tsconfig.tsbuildinfo
-
-# IDE specific files
-.vscode/
-
-# OS generated files
+node_modules
+dist
+.vite
+.wrangler
+.tanstack
 .DS_Store
-.DS_Store?

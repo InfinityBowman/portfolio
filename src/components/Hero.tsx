@@ -1,7 +1,7 @@
 import { motion } from 'motion/react';
-import { useState, useEffect } from 'preact/hooks';
-import Phrases from '@/src/components/Phrases';
+import { useEffect, useState } from 'react';
 import { FaDownload } from 'react-icons/fa';
+import Phrases from '@/components/Phrases';
 
 function ScrambleText({ text, delay = 0 }: { text: string; delay?: number }) {
   const [displayText, setDisplayText] = useState(text);
@@ -18,7 +18,6 @@ function ScrambleText({ text, delay = 0 }: { text: string; delay?: number }) {
             .split('')
             .map((char, index) => {
               if (char === ' ') return ' ';
-              // Lock in characters progressively
               const lockThreshold = iteration / 2;
               if (index < lockThreshold) {
                 return text[index];
@@ -54,7 +53,7 @@ export default function Hero() {
       transition: {
         duration: 1,
         delay,
-        ease: 'easeOut',
+        ease: 'easeOut' as const,
       },
     }),
   };
@@ -73,7 +72,6 @@ export default function Hero() {
       <motion.div
         initial="hidden"
         animate="visible"
-        // @ts-ignore
         variants={fadeUpVariants}
         custom={0.4}
       >
@@ -82,7 +80,6 @@ export default function Hero() {
       <motion.div
         initial="hidden"
         animate="visible"
-        // @ts-ignore
         variants={fadeUpVariants}
         custom={0.6}
       >

@@ -1,4 +1,4 @@
-import { ConstellationConfig, ConstellationNode } from './types';
+import type { ConstellationConfig, ConstellationNode } from './types';
 
 // ---- 3D Simplex Noise (public domain, Stefan Gustavson) ----
 const grad3 = [
@@ -89,8 +89,8 @@ function pickColor(config: ConstellationConfig): { r: number; g: number; b: numb
   return { r: last.r, g: last.g, b: last.b };
 }
 
-export function createNodes(config: ConstellationConfig): ConstellationNode[] {
-  const nodes: ConstellationNode[] = [];
+export function createNodes(config: ConstellationConfig): Array<ConstellationNode> {
+  const nodes: Array<ConstellationNode> = [];
   for (let i = 0; i < config.nodeCount; i++) {
     // Distribute in spherical volume (uniform distribution)
     const u = Math.random();
@@ -120,13 +120,12 @@ export function createNodes(config: ConstellationConfig): ConstellationNode[] {
   return nodes;
 }
 
-export function updateNodes(nodes: ConstellationNode[], time: number, config: ConstellationConfig): void {
+export function updateNodes(nodes: Array<ConstellationNode>, time: number, config: ConstellationConfig): void {
   const scale = config.noiseScale;
   const speed = config.noiseSpeed;
   const t = time * speed;
 
-  for (let i = 0; i < nodes.length; i++) {
-    const node = nodes[i];
+  for (const node of nodes) {
     const nx = node.baseX * scale;
     const ny = node.baseY * scale;
     const nz = node.baseZ * scale;
@@ -143,7 +142,7 @@ export interface ConnectionResult {
   lineCount: number;
 }
 
-export function computeConnections(nodes: ConstellationNode[], config: ConstellationConfig): ConnectionResult {
+export function computeConnections(nodes: Array<ConstellationNode>, config: ConstellationConfig): ConnectionResult {
   const maxDist = config.connectionDistance;
   const maxDistSq = maxDist * maxDist;
   const maxConns = config.maxConnectionsPerNode;

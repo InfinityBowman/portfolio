@@ -1,25 +1,16 @@
-import SectionTitle from '@/src/components/SectionTitle';
-import { HiOutlineExternalLink } from "react-icons/hi";
-
-import { MY_PROJECTS } from '@/src/lib/data';
+import { HiOutlineExternalLink } from 'react-icons/hi';
+import { Link } from '@tanstack/react-router';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
-import React, { useRef } from 'react';
+import { useRef } from 'react';
+import { MY_PROJECTS } from '@/lib/data';
+import SectionTitle from '@/components/SectionTitle';
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 export default function Projects() {
   const containerRef = useRef<HTMLDivElement>(null);
-
-  const startTransition = (update: () => void) => {
-    if (typeof document !== 'undefined' && 'startViewTransition' in document) {
-      // eslint-disable-next-line no-undef
-      document.startViewTransition(() => update());
-      return;
-    }
-    update();
-  };
 
   useGSAP(
     () => {
@@ -72,10 +63,10 @@ export default function Projects() {
       <SectionTitle title="My Projects" />
 
       <div className="space-y-8">
-        {Object.entries(MY_PROJECTS).map(([key, project]) => (
+        {MY_PROJECTS.map((project, index) => (
           <div
             className="flex slide-up flex-col sm:flex-row p-4 border justify-between rounded-xl border-accent backdrop-blur-xs bg-background/60 gap-4"
-            key={key}
+            key={index}
           >
             <div className="text-sm sm:text-md text-muted-foreground/95 space-y-4 space-x-2">
               <h3 className="md:text-3xl sm:text-2xl text-1xl leading-none text-muted-foreground">{project.title}</h3>
@@ -102,17 +93,13 @@ export default function Projects() {
                 </a>
               ) : null}
               {project.readMore && (
-                <button
+                <Link
+                  to={project.readMore}
+                  viewTransition
                   className="inline-flex items-center gap-2 border border-muted p-2 text-primary bg-background rounded-lg hover:bg-secondary focus:border-primary"
-                  onClick={() => {
-                    startTransition(() => {
-                      window.history.pushState({}, '', project.readMore);
-                      window.dispatchEvent(new Event('pushstate'));
-                    });
-                  }}
                 >
                   Read More
-                </button>
+                </Link>
               )}
             </div>
             {project.isVideo ? (

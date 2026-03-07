@@ -1,24 +1,16 @@
-import SectionTitle from '@/src/components/SectionTitle';
-import { ABOUT } from '@/src/lib/data';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
-import React, { useRef } from 'react';
-import SOCIAL_LINKS from '@/src/lib/socials';
+import { useRef } from 'react';
+import { Link } from '@tanstack/react-router';
+import SOCIAL_LINKS from '@/lib/socials';
+import { ABOUT } from '@/lib/data';
+import SectionTitle from '@/components/SectionTitle';
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 export default function About() {
   const containerRef = useRef<HTMLDivElement>(null);
-
-  const startTransition = (update: () => void) => {
-    if (typeof document !== 'undefined' && 'startViewTransition' in document) {
-      // eslint-disable-next-line no-undef
-      document.startViewTransition(() => update());
-      return;
-    }
-    update();
-  };
 
   useGSAP(
     () => {
@@ -105,24 +97,16 @@ export default function About() {
               aria-label={link.label}
             >
               <span className="text-secondary-foreground group-hover:text-primary transition-colors">{link.label}</span>
-
               {link.icon}
             </a>
           ))}
-          <a
-            href="/blog"
-            className={` group flex items-center gap-2 border border-muted p-1.5 px-2 text-primary bg-background rounded-lg hover:bg-secondary focus:border-primary pop-in`}
-            aria-label="Blog"
-            onClick={(e) => {
-              e.preventDefault();
-              startTransition(() => {
-                window.history.pushState({}, '', '/blog');
-                window.dispatchEvent(new Event('pushstate'));
-              });
-            }}
+          <Link
+            to="/blog"
+            viewTransition
+            className="group flex items-center gap-2 border border-muted p-1.5 px-2 text-primary bg-background rounded-lg hover:bg-secondary focus:border-primary pop-in"
           >
             <span className="text-secondary-foreground group-hover:text-primary transition-colors">My Blog</span>
-          </a>
+          </Link>
         </div>
       </div>
     </section>

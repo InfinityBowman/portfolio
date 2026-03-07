@@ -1,17 +1,28 @@
-import { defineConfig } from 'vite';
-import tailwindcss from '@tailwindcss/vite';
-import preact from '@preact/preset-vite';
-import path from 'path';
-import { plugin as mdPlugin, Mode } from 'vite-plugin-markdown';
+import { defineConfig } from 'vite'
+import { tanstackStart } from '@tanstack/react-start/plugin/vite'
+import viteReact from '@vitejs/plugin-react'
+import viteTsConfigPaths from 'vite-tsconfig-paths'
+import tailwindcss from '@tailwindcss/vite'
+import { cloudflare } from '@cloudflare/vite-plugin'
+import { plugin as markdown } from 'vite-plugin-markdown'
 
-export default defineConfig({
-  plugins: [tailwindcss(), preact(), mdPlugin({ mode: [Mode.HTML] })],
-  resolve: {
-    alias: {
-      '@': path.resolve(__dirname, './'),
-      react: 'preact/compat',
-      'react-dom': 'preact/compat',
+const config = defineConfig({
+  plugins: [
+    cloudflare({ viteEnvironment: { name: 'ssr' } }),
+    viteTsConfigPaths({
+      projects: ['./tsconfig.json'],
+    }),
+    tailwindcss(),
+    markdown({ mode: ['html', 'meta'] as any }),
+    tanstackStart(),
+    viteReact(),
+  ],
+  ssr: {
+    optimizeDeps: {
+      include: ['react', 'react-dom', 'react-dom/server', 'react/jsx-runtime', 'react/jsx-dev-runtime'],
     },
-    extensions: ['.js', '.jsx', '.ts', '.tsx'],
+    noExternal: ['lenis'],
   },
-});
+})
+
+export default config

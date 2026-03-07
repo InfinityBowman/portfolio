@@ -1,9 +1,9 @@
-import SectionTitle from '@/src/components/SectionTitle';
-import { MY_EXPERIENCE } from '@/src/lib/data';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
 import React, { useMemo, useRef, useState } from 'react';
+import { MY_EXPERIENCE } from '@/lib/data';
+import SectionTitle from '@/components/SectionTitle';
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -138,7 +138,7 @@ export default function Experience() {
                         {value.tech?.length ? (
                           <div className="text-muted-foreground/90">
                             <p className="text-sm sm:text-base">Tech</p>
-                            <p className="text-md sm:text-lg">{value.tech.join(' • ')}</p>
+                            <p className="text-md sm:text-lg">{value.tech.join(' \u2022 ')}</p>
                           </div>
                         ) : null}
                       </div>

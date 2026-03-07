@@ -1,9 +1,9 @@
-import SectionTitle from '@/src/components/SectionTitle';
-import { MY_STACK } from '@/src/lib/data';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
-import React, { useRef } from 'react';
+import { useRef } from 'react';
+import { MY_STACK } from '@/lib/data';
+import SectionTitle from '@/components/SectionTitle';
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 

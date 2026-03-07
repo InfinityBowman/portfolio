@@ -176,11 +176,11 @@ export interface ExperienceItem {
   title: string;
   duration: string;
   description?: string;
-  highlights?: string[];
-  tech?: string[];
+  highlights?: Array<string>;
+  tech?: Array<string>;
 }
 
-export const MY_EXPERIENCE: ExperienceItem[] = [
+export const MY_EXPERIENCE: Array<ExperienceItem> = [
   {
     company: 'Applied Research Associates',
     title: 'Software Engineering Intern',
@@ -216,7 +216,7 @@ export const MY_EXPERIENCE: ExperienceItem[] = [
     highlights: [
       'Maintained and developed software that provided digital modeling, simulation, and analysis tools for aircraft survivability.',
       'Responsible for re-imagining and creating a software product based on an engineering-level prototype developed in Python. As lead for the project, I was responsible for all phases of application development: deriving requirements; building user documentation; and working with senior software professionals to address distribution challenges associated with deploying software on U.S. Air Force networks',
-      'The project was also used as a testing ground for more modern technologies that I recommended be introduced into the company’s development stack.',
+      "The project was also used as a testing ground for more modern technologies that I recommended be introduced into the company\u2019s development stack.",
     ],
     tech: ['.NET/C#', 'JavaScript', 'Bokeh', 'Python', 'Winforms', 'Webview2'],
   },
@@ -238,7 +238,7 @@ export interface EducationItem {
   description?: string;
 }
 
-export const MY_EDUCATION: EducationItem[] = [
+export const MY_EDUCATION: Array<EducationItem> = [
   {
     institution: 'Saint Louis University',
     degree: 'Master of Science in Artificial Intelligence',
@@ -263,7 +263,7 @@ interface Project {
   readMore?: string;
 }
 
-export const MY_PROJECTS: Project[] = [
+export const MY_PROJECTS: Array<Project> = [
   {
     title: 'PaleoWaifu',
     description:
@@ -371,7 +371,7 @@ export const MY_PROJECTS: Project[] = [
   {
     title: 'League Dashboard',
     description:
-      'Dashboard of visualizations built purely with D3.js utilizing a Node.js server with Express and Axios to fetch live summoner data from the Riot API. This was my first experience with D3 and I’ve continued using it and improving at it.',
+      'Dashboard of visualizations built purely with D3.js utilizing a Node.js server with Express and Axios to fetch live summoner data from the Riot API. This was my first experience with D3 and I\'ve continued using it and improving at it.',
     media: '/projects/league-dashboard.jpg',
     refUrl: 'https://github.com/InfinityBowman/LeagueOfLegendsDashboard',
     source: 'Github',
@@ -380,7 +380,7 @@ export const MY_PROJECTS: Project[] = [
   {
     title: 'Markdown Notes App',
     description:
-      'Notes app made in Electron + Vite with React and Typescript. Accesses filesystem to create and autosave notes. Supports markdown editing. Uses Jotai for state management and TailwindCSS, Tailwind Merge for styling. This was my first time trying out Electron. It’s pretty cool but I definitely also want to try out Tauri.',
+      "Notes app made in Electron + Vite with React and Typescript. Accesses filesystem to create and autosave notes. Supports markdown editing. Uses Jotai for state management and TailwindCSS, Tailwind Merge for styling. This was my first time trying out Electron. It\u2019s pretty cool but I definitely also want to try out Tauri.",
     media: '/projects/notes-plus.jpg',
     refUrl: 'https://github.com/InfinityBowman/notes-app',
     source: 'Github',

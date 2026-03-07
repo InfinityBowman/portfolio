@@ -14,10 +14,10 @@ export default function BackgroundParticles({ opacity }: BackgroundParticlesProp
     const ctx = canvas.getContext('2d', { alpha: true });
     if (!ctx) return;
 
-    const particles: Particle[] = [];
+    const particles: Array<Particle> = [];
 
     // Track device pixel ratio for high-DPI screens
-    let pixelRatio = window.devicePixelRatio || 1;
+    const pixelRatio = window.devicePixelRatio || 1;
 
     function resizeCanvas() {
       if (canvas && ctx) {
@@ -58,17 +58,12 @@ export default function BackgroundParticles({ opacity }: BackgroundParticlesProp
         this.y = Math.round(Math.random() * displayHeight);
         this.size = Math.max(1.5, Math.round(Math.random() * 3 + 0.5));
 
-        const signX = Math.random() < 0.5 ? -1 : 1;
-        const signY = Math.random() < 0.5 ? -1 : 1;
-        this.speedX = signX * (Math.random() * 2 + 0.4);
-        this.speedY = signY * (Math.random() * 2 + 0.4);
-
         // Ensure speedX and speedY are not both zero
         do {
-          const signX = Math.random() < 0.5 ? -1 : 1;
-          const signY = Math.random() < 0.5 ? -1 : 1;
-          this.speedX = signX * (Math.random() * 2 + 0.4);
-          this.speedY = signY * (Math.random() * 2 + 0.4);
+          const sx = Math.random() < 0.5 ? -1 : 1;
+          const sy = Math.random() < 0.5 ? -1 : 1;
+          this.speedX = sx * (Math.random() * 2 + 0.4);
+          this.speedY = sy * (Math.random() * 2 + 0.4);
         } while (this.speedX === 0 && this.speedY === 0);
 
         this.color = `hsl(${Math.random() * 360}, 100%, 100%)`;
@@ -139,7 +134,7 @@ export default function BackgroundParticles({ opacity }: BackgroundParticlesProp
       // Only check connections for particles within a certain distance
       const maxDistance = 100;
       const gridSize = Math.ceil(maxDistance);
-      const grid: Record<string, Particle[]> = {};
+      const grid = new Map<string, Array<Particle>>();
 
       // Place particles in grid cells for spatial partitioning
       particles.forEach((particle) => {
@@ -147,8 +142,12 @@ export default function BackgroundParticles({ opacity }: BackgroundParticlesProp
         const cellY = Math.floor(particle.y / gridSize);
         const key = `${cellX},${cellY}`;
 
-        if (!grid[key]) grid[key] = [];
-        grid[key].push(particle);
+        const existing = grid.get(key);
+        if (existing) {
+          existing.push(particle);
+        } else {
+          grid.set(key, [particle]);
+        }
       });
 
       // Check connections only with nearby grid cells
@@ -160,7 +159,7 @@ export default function BackgroundParticles({ opacity }: BackgroundParticlesProp
         for (let x = -1; x <= 1; x++) {
           for (let y = -1; y <= 1; y++) {
             const key = `${cellX + x},${cellY + y}`;
-            const cellParticles = grid[key] || [];
+            const cellParticles = grid.get(key) ?? [];
 
             cellParticles.forEach((p2) => {
               if (p1 === p2) return; // Skip self
@@ -206,9 +205,9 @@ export default function BackgroundParticles({ opacity }: BackgroundParticlesProp
 
         ctx.clearRect(0, 0, displayWidth, displayHeight);
 
-        for (let i = 0; i < particles.length; i++) {
-          particles[i].update();
-          particles[i].draw();
+        for (const particle of particles) {
+          particle.update();
+          particle.draw();
         }
 
         connectParticles();

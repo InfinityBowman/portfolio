@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
-import { DEFAULT_CONFIG } from '@/src/lib/constellation/types';
-import { createNodes, updateNodes, computeConnections } from '@/src/lib/constellation/simulation';
-import { initRenderer, resizeRenderer, renderFrame, cleanupRenderer } from '@/src/lib/constellation/renderer';
+import { DEFAULT_CONFIG } from '@/lib/constellation/types';
+import { computeConnections, createNodes, updateNodes } from '@/lib/constellation/simulation';
+import { cleanupRenderer, initRenderer, renderFrame, resizeRenderer } from '@/lib/constellation/renderer';
 
 interface ConstellationBackgroundProps {
   opacity?: number;
