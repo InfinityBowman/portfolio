@@ -11,7 +11,8 @@ Built with TanStack Start, and deployed on Cloudflare Workers.
 - **Animations:** GSAP, Motion, Lenis smooth scroll
 - **Blog/Digest:** Markdown with vite-plugin-markdown
 - **Hosting:** Cloudflare Workers
-
+- **portless** For nice URLs during development
+ 
 ## Development
 
 ```bash
