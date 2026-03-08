@@ -1,7 +1,7 @@
 import { createFileRoute } from '@tanstack/react-router';
 import ConstellationBackground from '@/components/ConstellationBackground';
 
-export const Route = createFileRoute('/_layout/constellation')({
+export const Route = createFileRoute('/constellation')({
   component: ConstellationPage,
 });
 
