@@ -126,7 +126,7 @@ export default function NavMenu({ isOpen, onClose }: NavMenuProps) {
             onClick={(e) => e.stopPropagation()}
           >
             <nav className="flex-1 flex items-center">
-              <ul className="space-y-4 w-full p-6 pb-16">
+              <ul className="space-y-1 sm:space-y-4 w-full p-6 pb-16">
                 {allItems.map((item, index) => (
                   <motion.li
                     key={item.href}
