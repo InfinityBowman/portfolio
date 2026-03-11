@@ -9,4 +9,7 @@
   "routes": [
     { "pattern": "jacobmaynard.dev", "custom_domain": true }
   ],
+  "observability": {
+    "enabled": true
+  }
 }

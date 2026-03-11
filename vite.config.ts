@@ -14,7 +14,12 @@ const config = defineConfig({
     }),
     tailwindcss(),
     markdown({ mode: ['html', 'meta'] as any }),
-    tanstackStart(),
+    tanstackStart({
+      prerender: {
+        enabled: true,
+        crawlLinks: true,
+      },
+    }),
     viteReact(),
   ],
   ssr: {
