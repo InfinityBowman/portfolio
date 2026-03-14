@@ -96,19 +96,22 @@ No long-context premium. Flat per-token pricing across the full 1M window. 6x mo
 
 ---
 
-## 🔬 Research & Models
+## 🔬 Research & Systems
 
-**HealthBench (OpenAI/dair-ai)**
-A new open-ended benchmark for evaluating LLMs on real-world health queries — not multiple choice, but realistic, nuanced health interactions. Results: GPT-3.5 Turbo scores 16%, GPT-4o hits 32%, o3 reaches 60%. GPT-4.1 nano outperforms GPT-4o at 25x lower cost. The "smaller but more efficient" story keeps getting stronger.
+**[turbopuffer: Object Storage-native Database for Search — CMU DB Seminar](https://www.youtube.com/watch?v=pqoRNwNaxfs)**
+Simon Eskildsen (ex-Shopify Principal Eng, now co-founder of turbopuffer) gave a talk in CMU's "PostgreSQL vs. The World" spring seminar series this week. The pitch: turbopuffer is a search engine built natively on object storage (S3/R2), using tiered NVMe SSD + RAM cache to hit sub-10ms warm query latency, and — wild part — drives consensus using conditional writes to object storage rather than a traditional consensus layer. The argument is that there's a new class of workload (AI-scale vector search) that Postgres genuinely can't serve, and that recent advances in object storage economics make a fundamentally different architecture viable. Worth 45 minutes if you're interested in storage engine design.
+
+**[CMU "PostgreSQL vs. The World" Spring 2026 Seminar Series](https://db.cs.cmu.edu/seminars/spring2026/)**
+Speaking of which — CMU's database group is running a full seminar series this spring examining the new wave of database systems challenging (or extending) Postgres. Upcoming talks include YugabyteDB, SpacetimeDB (April 6 — yes, the multiplayer game DB), Supabase Multigres, and TonicDB. All free, online via Zoom, recorded to YouTube. If you care about database internals this is the best ongoing content in the field right now.
+
+**[Poisson Sampling over Acyclic Joins (arXiv:2603.10982)](https://arxiv.org/abs/2603.10982)**
+A DB theory paper that's more practical than it sounds: how do you efficiently sample from the result of a join query without fully materializing the join first? The naive approach is O(join result size), which can be enormous. This paper introduces a nearly instance-optimal algorithm running in O(N + k log N) — N being input size, k the sample size — using a random-access index into the virtual join result. Implemented and benchmarked on column stores. Useful for approximate query processing, cardinality estimation, and anywhere you need cheap statistical samples over joined data.
 
 **[Enhancing gut-brain communication reversed cognitive decline in aging mice](https://med.stanford.edu/news/all-news/2026/03/gut-brain-cognitive-decline.html)**
-Stanford researchers found that boosting gut-to-brain signaling pathways reversed age-related cognitive decline in mouse models. Not AI-related, but it was the second-most-discussed science story on HN this week (380 pts) and it's genuinely interesting biology. Gut-brain axis research is having a moment.
+Not systems, but the second-most-discussed science story on HN this week (380 pts). Stanford researchers found that boosting gut-to-brain signaling pathways reversed age-related cognitive decline in mouse models. Gut-brain axis research is picking up serious momentum — worth keeping an eye on if you follow biology at all.
 
-**OpenClaw-RL (Princeton AI Lab)**
-A reinforcement learning framework enabling policy learning from diverse next-state signals across multiple interaction modalities, using asynchronous training with PRM judges and hindsight-guided distillation. Trending on Hugging Face this week. The "diverse signal" approach to RL is getting a lot of attention as people try to move beyond narrow reward functions.
-
-**Alien Science paper (arXiv)**
-"Alien Science: Sampling Coherent but Cognitively Unavailable Research Directions from Idea Atoms" — using LLMs to generate research directions that are plausible and coherent but outside the distribution of what humans would naturally think to explore. Meta-research about AI-assisted science direction finding. Provocative framing.
+**HealthBench (OpenAI)**
+An open-ended benchmark for LLMs on real-world health queries — not multiple choice, actual nuanced health interactions. GPT-4.1 nano outperforms GPT-4o at 25x lower cost. The "smaller but more efficient" story keeps getting stronger, and the benchmark methodology (open-ended rather than multiple choice) is more meaningful than most.
 
 ---
 
