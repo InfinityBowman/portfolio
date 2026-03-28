@@ -47,7 +47,7 @@ export default function Contact() {
 
         <div className="flex justify-center gap-4 flex-wrap slide-up">
           <a
-            href="mailto:jacobmaynard03@gmail.com"
+            href="mailto:jacobamaynard@proton.me"
             className="group flex items-center gap-2 border border-muted p-3 px-5 text-primary bg-background rounded-lg hover:bg-secondary hover:border-primary transition-colors"
           >
             <FaEnvelope size={20} />
