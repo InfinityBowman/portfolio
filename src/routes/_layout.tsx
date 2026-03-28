@@ -1,6 +1,8 @@
 import { Outlet, createFileRoute } from '@tanstack/react-router';
-import { ReactLenis } from 'lenis/react';
+import { ReactLenis, useLenis } from 'lenis/react';
 import { useState } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/all';
 import NavMenuToggle from '@/components/nav/NavMenuToggle';
 import NavMenu from '@/components/nav/NavMenu';
 import Footer from '@/components/Footer';
@@ -8,9 +10,18 @@ import BackgroundParticles from '@/components/BackgroundParticles';
 import BackgroundCanvas from '@/components/BackgroundGrid';
 import ScrollProgressIndicator from '@/components/ScrollProgressIndicator';
 
+gsap.registerPlugin(ScrollTrigger);
+
 export const Route = createFileRoute('/_layout')({
   component: LayoutComponent,
 });
+
+function LenisScrollTriggerSync() {
+  useLenis(() => {
+    ScrollTrigger.update();
+  });
+  return null;
+}
 
 function LayoutComponent() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -25,6 +36,7 @@ function LayoutComponent() {
         orientation: 'vertical',
       }}
     >
+      <LenisScrollTriggerSync />
       <NavMenuToggle onToggle={() => setIsMenuOpen((prev) => !prev)} isOpen={isMenuOpen} />
       <NavMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
       <main className="relative z-10">
