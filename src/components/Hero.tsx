@@ -84,8 +84,8 @@ export default function Hero() {
         custom={0.6}
       >
         <a
-          href="/Jacob Maynard Resume 2025.pdf"
-          download="Jacob Maynard Resume 2025.pdf"
+          href="/Jacob Maynard Resume 2026.pdf"
+          download="Jacob Maynard Resume 2026.pdf"
           className="group flex items-center gap-2 border border-muted p-3 px-5 text-primary bg-background rounded-lg hover:bg-secondary hover:border-primary transition-colors"
         >
           <FaDownload size={18} />

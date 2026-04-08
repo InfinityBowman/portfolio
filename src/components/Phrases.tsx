@@ -2,12 +2,12 @@ import { useEffect, useMemo, useState } from "react";
 
 const PHRASES = [
   "Software Engineer",
+  "Performance Engineer",
+  "Systems Programmer",
+  "AI Engineer",
   "Web Developer",
-  "Frontend Developer",
-  "Backend Developer",
+  "Founding Engineer",
   "Product Minded",
-  "Entrepreneur?",
-  "Data Scientist",
 ] as const;
 
 type Phase = "typing" | "holding" | "deleting";
