@@ -3,7 +3,7 @@ import { env } from "cloudflare:workers";
 
 const FROM_NAME = "Portfolio Contact";
 const FROM_ADDRESS = "contact@jacobmaynard.dev";
-const TO_ADDRESS = "jacob@jacobmaynard.dev";
+const TO_ADDRESS = "jacobamaynard@proton.me";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
