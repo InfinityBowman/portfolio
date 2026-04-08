@@ -9,6 +9,12 @@
   "routes": [
     { "pattern": "jacobmaynard.dev", "custom_domain": true }
   ],
+  "send_email": [
+    {
+      "name": "SEB",
+      "destination_address": "jacob@jacobmaynard.dev"
+    }
+  ],
   "observability": {
     "enabled": true
   }
