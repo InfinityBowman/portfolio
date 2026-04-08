@@ -1,6 +1,6 @@
 import { motion } from 'motion/react';
 import { useEffect, useState } from 'react';
-import { FaDownload } from 'react-icons/fa';
+import { FaFilePdf } from 'react-icons/fa';
 import Phrases from '@/components/Phrases';
 
 function ScrambleText({ text, delay = 0 }: { text: string; delay?: number }) {
@@ -85,11 +85,12 @@ export default function Hero() {
       >
         <a
           href="/Jacob Maynard Resume 2026.pdf"
-          download="Jacob Maynard Resume 2026.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
           className="group flex items-center gap-2 border border-muted p-3 px-5 text-primary bg-background rounded-lg hover:bg-secondary hover:border-primary transition-colors"
         >
-          <FaDownload size={18} />
-          <span className="text-secondary-foreground group-hover:text-primary transition-colors">Download Resume</span>
+          <FaFilePdf size={18} />
+          <span className="text-secondary-foreground group-hover:text-primary transition-colors">View Resume</span>
         </a>
       </motion.div>
     </section>

@@ -2,7 +2,7 @@ import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
 import { useRef } from 'react';
-import { FaDownload, FaEnvelope } from 'react-icons/fa';
+import { FaEnvelope, FaFilePdf } from 'react-icons/fa';
 import SOCIAL_LINKS from '@/lib/socials';
 import SectionTitle from '@/components/SectionTitle';
 
@@ -56,11 +56,12 @@ export default function Contact() {
 
           <a
             href="/Jacob Maynard Resume 2026.pdf"
-            download="Jacob Maynard Resume 2026.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
             className="group flex items-center gap-2 border border-muted p-3 px-5 text-primary bg-background rounded-lg hover:bg-secondary hover:border-primary transition-colors"
           >
-            <FaDownload size={20} />
-            <span className="text-secondary-foreground group-hover:text-primary transition-colors">Download Resume</span>
+            <FaFilePdf size={20} />
+            <span className="text-secondary-foreground group-hover:text-primary transition-colors">View Resume</span>
           </a>
 
           {SOCIAL_LINKS.map((link) => (
