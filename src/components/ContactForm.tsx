@@ -14,10 +14,15 @@ const EMAIL_MAX = 254;
 const MESSAGE_MAX = 5000;
 
 // Minimum visible duration for the submitting state, so the user always sees
-// the loading spinner instead of a one-frame flash on fast responses.
-const MIN_SUBMIT_MS = 700;
+// the loading spinner instead of a one-frame flash. Kept short because the
+// success state is shown optimistically.
+const MIN_SUBMIT_MS = 1000;
 
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
+
+// Duration of the field fade-out before the values are cleared. Long enough
+// to read as a transition, short enough to feel snappy.
+const FADE_MS = 250;
 
 export default function ContactForm() {
   const [name, setName] = useState("");
@@ -25,6 +30,7 @@ export default function ContactForm() {
   const [message, setMessage] = useState("");
   const [honeypot, setHoneypot] = useState("");
   const [status, setStatus] = useState<Status>({ kind: "idle" });
+  const [fieldsVisible, setFieldsVisible] = useState(true);
 
   const submitting = status.kind === "submitting";
 
@@ -32,22 +38,36 @@ export default function ContactForm() {
     event.preventDefault();
     if (submitting) return;
 
-    setStatus({ kind: "submitting" });
-    const startedAt = Date.now();
+    // Snapshot the values so we can restore them if the background send fails.
+    const snapshot = { name, email, message, honeypot };
 
+    setStatus({ kind: "submitting" });
+
+    // Kick off the actual send immediately, in parallel with the spinner.
+    const sendPromise = sendContactEmail({ data: snapshot });
+
+    // Show the spinner for at least MIN_SUBMIT_MS so it doesn't flash.
+    await sleep(MIN_SUBMIT_MS);
+
+    // Fade the filled-in fields out (values are still rendered during the
+    // fade), then clear them and transition to success, then fade the now-
+    // empty fields back in.
+    setFieldsVisible(false);
+    await sleep(FADE_MS);
+    setName("");
+    setEmail("");
+    setMessage("");
+    setStatus({ kind: "success" });
+    setFieldsVisible(true);
+
+    // Resolve the actual send in the background. On failure, restore the
+    // form values and surface the error.
     try {
-      await sendContactEmail({
-        data: { name, email, message, honeypot },
-      });
-      const elapsed = Date.now() - startedAt;
-      if (elapsed < MIN_SUBMIT_MS) await sleep(MIN_SUBMIT_MS - elapsed);
-      setStatus({ kind: "success" });
-      setName("");
-      setEmail("");
-      setMessage("");
+      await sendPromise;
     } catch (err) {
-      const elapsed = Date.now() - startedAt;
-      if (elapsed < MIN_SUBMIT_MS) await sleep(MIN_SUBMIT_MS - elapsed);
+      setName(snapshot.name);
+      setEmail(snapshot.email);
+      setMessage(snapshot.message);
       const errorMessage =
         err instanceof Error
           ? err.message
@@ -65,50 +85,56 @@ export default function ContactForm() {
       className="space-y-4 text-left"
       noValidate
     >
-      <div className="grid gap-4 sm:grid-cols-2">
-        <label className="block">
-          <span className="mb-1 block text-sm text-muted-foreground">Name</span>
-          <input
-            type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            required
-            maxLength={NAME_MAX}
-            autoComplete="name"
-            disabled={submitting}
-            className={inputClass}
-            placeholder="Your name"
-          />
-        </label>
-        <label className="block">
-          <span className="mb-1 block text-sm text-muted-foreground">Email</span>
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-            maxLength={EMAIL_MAX}
-            autoComplete="email"
-            disabled={submitting}
-            className={inputClass}
-            placeholder="you@example.com"
-          />
-        </label>
-      </div>
+      <motion.div
+        className="space-y-4"
+        animate={{ opacity: fieldsVisible ? 1 : 0 }}
+        transition={{ duration: FADE_MS / 1000, ease: "easeOut" }}
+      >
+        <div className="grid gap-4 sm:grid-cols-2">
+          <label className="block">
+            <span className="mb-1 block text-sm text-muted-foreground">Name</span>
+            <input
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required
+              maxLength={NAME_MAX}
+              autoComplete="name"
+              disabled={submitting}
+              className={inputClass}
+              placeholder="Your name"
+            />
+          </label>
+          <label className="block">
+            <span className="mb-1 block text-sm text-muted-foreground">Email</span>
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              maxLength={EMAIL_MAX}
+              autoComplete="email"
+              disabled={submitting}
+              className={inputClass}
+              placeholder="you@example.com"
+            />
+          </label>
+        </div>
 
-      <label className="block">
-        <span className="mb-1 block text-sm text-muted-foreground">Message</span>
-        <textarea
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-          required
-          maxLength={MESSAGE_MAX}
-          rows={5}
-          disabled={submitting}
-          className={`${inputClass} resize-y min-h-[120px]`}
-          placeholder="What's on your mind?"
-        />
-      </label>
+        <label className="block">
+          <span className="mb-1 block text-sm text-muted-foreground">Message</span>
+          <textarea
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+            required
+            maxLength={MESSAGE_MAX}
+            rows={5}
+            disabled={submitting}
+            className={`${inputClass} resize-y min-h-[120px]`}
+            placeholder="What's on your mind?"
+          />
+        </label>
+      </motion.div>
 
       {/* Honeypot: visually hidden, not announced to assistive tech, kept off
           the tab order. Real users never see or focus this field. */}

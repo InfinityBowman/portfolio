@@ -16,6 +16,68 @@ export interface ContactFormPayload {
   honeypot: string;
 }
 
+function escapeHtml(s: string): string {
+  return s
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+function buildPlainText(name: string, email: string, message: string): string {
+  return [
+    "New portfolio inquiry",
+    "─────────────────────",
+    "",
+    `Name:  ${name}`,
+    `Email: ${email}`,
+    "",
+    "Message:",
+    message,
+    "",
+    "─────────────────────",
+    "Sent from the contact form on jacobmaynard.dev.",
+    "Reply directly to this email to respond.",
+  ].join("\n");
+}
+
+function buildHtml(name: string, email: string, message: string): string {
+  const safeName = escapeHtml(name);
+  const safeEmail = escapeHtml(email);
+  const safeMessage = escapeHtml(message);
+
+  return `<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background:#f9fafb;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <div style="max-width:560px;margin:0 auto;padding:32px 16px;">
+    <div style="background:#ffffff;border:1px solid #e5e7eb;border-radius:12px;padding:32px;box-shadow:0 1px 3px rgba(0,0,0,0.05);">
+      <div style="font-size:12px;color:#6b7280;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:4px;">Portfolio Contact</div>
+      <h1 style="margin:0 0 24px 0;font-size:20px;font-weight:600;color:#111827;line-height:1.3;">New message from ${safeName}</h1>
+      <table style="width:100%;border-collapse:collapse;margin-bottom:20px;">
+        <tr>
+          <td style="padding:6px 12px 6px 0;color:#6b7280;font-size:13px;vertical-align:top;width:60px;">Name</td>
+          <td style="padding:6px 0;color:#111827;font-size:14px;">${safeName}</td>
+        </tr>
+        <tr>
+          <td style="padding:6px 12px 6px 0;color:#6b7280;font-size:13px;vertical-align:top;">Email</td>
+          <td style="padding:6px 0;font-size:14px;"><a href="mailto:${safeEmail}" style="color:#2563eb;text-decoration:none;">${safeEmail}</a></td>
+        </tr>
+      </table>
+      <div style="border-top:1px solid #e5e7eb;padding-top:20px;">
+        <div style="color:#6b7280;font-size:13px;margin-bottom:12px;">Message</div>
+        <div style="color:#1f2937;font-size:15px;line-height:1.6;white-space:pre-wrap;">${safeMessage}</div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:20px;color:#9ca3af;font-size:12px;">
+      Sent from the contact form on jacobmaynard.dev. Reply directly to this email.
+    </div>
+  </div>
+</body>
+</html>`;
+}
+
 export const sendContactEmail = createServerFn({ method: "POST" })
   .inputValidator((data: unknown): ContactFormPayload => {
     if (typeof data !== "object" || data === null) {
@@ -53,7 +115,8 @@ export const sendContactEmail = createServerFn({ method: "POST" })
       to: TO_ADDRESS,
       subject: `Portfolio contact from ${data.name}`,
       replyTo: data.email,
-      text: `From: ${data.name} <${data.email}>\n\n${data.message}`,
+      text: buildPlainText(data.name, data.email, data.message),
+      html: buildHtml(data.name, data.email, data.message),
     });
 
     return { ok: true as const };
