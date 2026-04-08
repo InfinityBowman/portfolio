@@ -88,9 +88,10 @@ export default function Phrases() {
   return (
     <div className="relative flex justify-center text-3xl opacity-80 sm:text-4xl lg:text-5xl">
       <div className="relative">
-        <span className="min-h-1lh">{displayText}&nbsp;</span>
+        <span className="min-h-1lh">{displayText || "\u200B"}</span>
         <span
-          className={`absolute ${showCursor ? "opacity-100" : "opacity-0"} -ml-3.5`}
+          aria-hidden="true"
+          className={`absolute ${showCursor ? "opacity-100" : "opacity-0"} ml-0.5`}
         >
           |
         </span>

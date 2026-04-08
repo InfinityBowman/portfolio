@@ -29,6 +29,50 @@ export const MY_STACK = {
       icon: "/logo/c.svg",
     },
   ],
+  "systems & graphics": [
+    {
+      name: "WebGL2",
+      icon: "/logo/webgl.svg",
+    },
+    {
+      name: "WebGPU",
+      icon: "/logo/webgpu.svg",
+    },
+    {
+      name: "Three.js",
+      icon: "/logo/threejs.svg",
+    },
+    {
+      name: "OpenMP",
+      icon: "/logo/openmp.svg",
+    },
+    {
+      name: "CMake",
+      icon: "/logo/cmake.svg",
+    },
+  ],
+  "ai/ml": [
+    {
+      name: "PyTorch",
+      icon: "/logo/pytorch.svg",
+    },
+    {
+      name: "NumPy",
+      icon: "/logo/numpy.svg",
+    },
+    {
+      name: "Pandas",
+      icon: "/logo/pandas.svg",
+    },
+    {
+      name: "Jupyter",
+      icon: "/logo/jupyter.svg",
+    },
+    {
+      name: "scikit-learn",
+      icon: "/logo/scikit-learn.svg",
+    },
+  ],
   frontend: [
     {
       name: "SolidJS",
@@ -55,10 +99,6 @@ export const MY_STACK = {
       icon: "/logo/gsap.svg",
     },
     {
-      name: "Framer Motion",
-      icon: "/logo/framer-motion.png",
-    },
-    {
       name: "Motion",
       icon: "/logo/motion.png",
     },
@@ -71,10 +111,6 @@ export const MY_STACK = {
       icon: "/logo/d3.svg",
     },
     {
-      name: "Bokeh",
-      icon: "/logo/bokeh.svg",
-    },
-    {
       name: "TanStack",
       icon: "/logo/tanstack.png",
     },
@@ -85,7 +121,7 @@ export const MY_STACK = {
   ],
   backend: [
     {
-      name: ".Net",
+      name: ".NET Framework",
       icon: "/logo/dotnet.svg",
     },
     {
@@ -167,10 +203,6 @@ export const MY_STACK = {
     {
       name: "Airflow",
       icon: "/logo/airflow.svg",
-    },
-    {
-      name: "TortoiseSVN",
-      icon: "/logo/tortoisesvn.svg",
     },
   ],
 };
