@@ -72,10 +72,9 @@ function BlogPostPage() {
       </Link>
       <article
         className="min-h-screen max-w-sm xs:max-w-md sm:max-w-lg md:max-w-2xl lg:max-w-3xl xl:max-w-4xl prose prose-invert mx-auto p-8 mb-8 rounded-lg shadow-md border border-accent backdrop-blur-md"
-        style={{ viewTransitionName: `blog-card-${post.slug}` }}
       >
         <h1
-          className="mb-4 text-4xl font-extrabold text-zinc-100 drop-shadow-lg"
+          className="mb-4 w-fit text-4xl font-extrabold text-zinc-100 drop-shadow-lg"
           style={{ viewTransitionName: `blog-title-${post.slug}` }}
         >
           {post.title}

@@ -51,7 +51,6 @@ function BlogListPage() {
           <li
             key={post.slug}
             className="border rounded-xl border-accent backdrop-blur-md hover:scale-[1.02] transition-all"
-            style={{ viewTransitionName: `blog-card-${post.slug}` }}
           >
             <Link
               to="/blog/$slug"
@@ -59,7 +58,7 @@ function BlogListPage() {
               viewTransition
               className="block p-4 text-left w-full text-2xl font-semibold transition-colors"
             >
-              <span style={{ viewTransitionName: `blog-title-${post.slug}` }}>{post.title}</span>
+              <span className="font-anton" style={{ viewTransitionName: `blog-title-${post.slug}` }}>{post.title}</span>
               <span className="text-zinc-400 text-base font-normal"> ({formatDate(post.date)})</span>
               <div className="text-zinc-400 text-base mt-1 font-normal">{post.summary}</div>
             </Link>

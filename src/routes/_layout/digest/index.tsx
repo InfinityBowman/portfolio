@@ -65,7 +65,6 @@ function DigestListPage() {
           <li
             key={digest.slug}
             className="border rounded-xl border-accent backdrop-blur-md hover:scale-[1.02] transition-all"
-            style={{ viewTransitionName: `digest-card-${digest.slug}` }}
           >
             <Link
               to="/digest/$slug"
@@ -74,7 +73,7 @@ function DigestListPage() {
               className="block p-4 text-left w-full text-2xl font-semibold transition-colors"
             >
               <span className="text-muted-foreground text-base font-mono mr-2">#{digest.issue}</span>
-              <span style={{ viewTransitionName: `digest-title-${digest.slug}` }}>{digest.title}</span>
+              <span className="font-anton text-xl" style={{ viewTransitionName: `digest-title-${digest.slug}` }}>{digest.title}</span>
               <span className="text-zinc-400 text-base font-normal"> ({formatDate(digest.date)})</span>
               <div className="text-zinc-400 text-base mt-1 font-normal">{digest.summary}</div>
             </Link>

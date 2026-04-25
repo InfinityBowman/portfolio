@@ -1,6 +1,6 @@
 import { Outlet, createFileRoute } from '@tanstack/react-router';
 import { ReactLenis, useLenis } from 'lenis/react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
 import NavMenuToggle from '@/components/nav/NavMenuToggle';
@@ -23,6 +23,30 @@ function LenisScrollTriggerSync() {
   return null;
 }
 
+function LenisViewTransitionSync() {
+  const lenis = useLenis();
+
+  useEffect(() => {
+    if (!lenis || typeof document.startViewTransition !== 'function') return;
+
+    const original = document.startViewTransition.bind(document);
+    document.startViewTransition = ((...args: [unknown]) => {
+      lenis.stop();
+      const transition = original(...(args as Parameters<typeof original>));
+      transition.finished.finally(() => {
+        lenis.start();
+      });
+      return transition;
+    }) as typeof document.startViewTransition;
+
+    return () => {
+      document.startViewTransition = original;
+    };
+  }, [lenis]);
+
+  return null;
+}
+
 function LayoutComponent() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -37,6 +61,7 @@ function LayoutComponent() {
       }}
     >
       <LenisScrollTriggerSync />
+      <LenisViewTransitionSync />
       <NavMenuToggle onToggle={() => setIsMenuOpen((prev) => !prev)} isOpen={isMenuOpen} />
       <NavMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
       <main className="relative z-10">
