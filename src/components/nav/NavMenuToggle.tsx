@@ -23,7 +23,7 @@ export default function NavMenuToggle({ onToggle, isOpen }: NavMenuToggleProps) 
             y1="6"
             x2="20"
             y2="6"
-            className={`transition-transform duration-300 ${
+            className={`transition-transform duration-200 ${
               isOpen ? 'transform rotate-45 translate-y-[-0.02rem] translate-x-[0.55rem]' : ''
             }`}
             stroke="currentColor"
@@ -35,7 +35,7 @@ export default function NavMenuToggle({ onToggle, isOpen }: NavMenuToggleProps) 
             y1="12"
             x2="20"
             y2="12"
-            className={`transition duration-300 ${isOpen ? 'translate-x-7 opacity-25' : ''}`}
+            className={`transition duration-200 ${isOpen ? 'translate-x-7 opacity-25' : ''}`}
             stroke="currentColor"
             strokeWidth="1"
             strokeLinecap="round"
@@ -45,7 +45,7 @@ export default function NavMenuToggle({ onToggle, isOpen }: NavMenuToggleProps) 
             y1="18"
             x2="20"
             y2="18"
-            className={`transition-transform duration-300 ${
+            className={`transition-transform duration-200 ${
               isOpen ? 'transform -rotate-45 translate-y-[0.51rem] -translate-x-[0.51rem]' : ''
             }`}
             stroke="currentColor"

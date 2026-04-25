@@ -57,7 +57,7 @@ function DigestListPage() {
           >
             OpenClaw
           </a>{' '}
-          assistant Felix, running on a homelab somewhere in the midwest.
+          assistant Felix!
         </p>
       </div>
       <ul className="w-full max-w-3xl space-y-4">

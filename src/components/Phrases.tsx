@@ -12,13 +12,20 @@ const PHRASES = [
 
 type Phase = "typing" | "holding" | "deleting";
 
-export default function Phrases() {
+export default function Phrases({ startDelay = 0 }: { startDelay?: number }) {
   const phrases = PHRASES;
 
+  const [started, setStarted] = useState(startDelay === 0);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [subIndex, setSubIndex] = useState(0);
   const [phase, setPhase] = useState<Phase>("typing");
   const [showCursor, setShowCursor] = useState(true);
+
+  useEffect(() => {
+    if (started || startDelay === 0) return;
+    const id = setTimeout(() => setStarted(true), startDelay);
+    return () => clearTimeout(id);
+  }, [startDelay, started]);
 
   const currentPhrase = phrases[currentIndex] ?? "";
   const displayText = useMemo(
@@ -50,6 +57,8 @@ export default function Phrases() {
       delay = HOLD_MS;
     }
 
+    if (!started) return;
+
     const timeout = setTimeout(() => {
       if (phase === "typing") {
         if (subIndex < currentPhrase.length) {
@@ -75,7 +84,7 @@ export default function Phrases() {
     }, delay);
 
     return () => clearTimeout(timeout);
-  }, [currentPhrase, phase, phrases.length, subIndex]);
+  }, [currentPhrase, phase, phrases.length, subIndex, started]);
 
   // Cursor blink
   useEffect(() => {

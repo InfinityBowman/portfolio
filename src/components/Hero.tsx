@@ -21,7 +21,7 @@ export default function Hero() {
     <section id="hero" className="min-h-svh relative flex flex-col gap-8 justify-center items-center">
       <div className="sr-only">Jacob Maynard's Portfolio Website</div>
       <motion.div
-        className="w-full max-w-2xl text-center"
+        className="w-full max-w-2xl xl:max-w-4xl text-center -mb-4 sm:mb-0"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.3, delay: 0.2 }}
@@ -32,15 +32,15 @@ export default function Hero() {
         initial="hidden"
         animate="visible"
         variants={fadeUpVariants}
-        custom={0.4}
+        custom={1.2}
       >
-        <Phrases />
+        <Phrases startDelay={1200} />
       </motion.div>
       <motion.div
         initial="hidden"
         animate="visible"
         variants={fadeUpVariants}
-        custom={0.6}
+        custom={1.6}
       >
         <a
           href="/Jacob Maynard Resume 2026.pdf"

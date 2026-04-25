@@ -133,14 +133,14 @@ export default function NavMenu({ isOpen, onClose }: NavMenuProps) {
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{
-                      delay: 0.1 + index * 0.1,
+                      delay: 0.08 + index * 0.07,
                       duration: 0.3,
                     }}
                   >
                     {item.type === 'section' ? (
                       <a
                         href={item.href}
-                        className={`block px-4 py-3 rounded-lg text-lg font-medium transition-all duration-400
+                        className={`block px-4 py-3 rounded-lg text-lg font-medium transition-all duration-200
                           ${
                             activeSection === item.id
                               ? 'border-accent border text-primary hover:bg-background/70'
@@ -155,7 +155,7 @@ export default function NavMenu({ isOpen, onClose }: NavMenuProps) {
                         to={item.href}
                         viewTransition
                         onClick={() => onClose()}
-                        className={`block px-4 py-3 rounded-lg text-lg font-medium transition-all duration-400
+                        className={`block px-4 py-3 rounded-lg text-lg font-medium transition-all duration-200
                           ${
                             activeSection === item.id
                               ? 'border-accent border text-primary hover:bg-background/70'
@@ -174,7 +174,7 @@ export default function NavMenu({ isOpen, onClose }: NavMenuProps) {
               className="absolute bottom-0 left-0 right-0 py-3 border-t border-accent"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.5 }}
+              transition={{ delay: 0.35, duration: 0.3 }}
             >
               <div className="flex justify-center gap-4">
                 {SOCIAL_LINKS.map((link) => (
