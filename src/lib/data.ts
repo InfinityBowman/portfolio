@@ -12,10 +12,10 @@ export const MY_STACK = {
       name: "Python",
       icon: "/logo/python.svg",
     },
-    {
-      name: "Rust",
-      icon: "/logo/rust.svg",
-    },
+    // {
+    //   name: "Rust",
+    //   icon: "/logo/rust.svg",
+    // },
     {
       name: "C#",
       icon: "/logo/csharp.svg",
@@ -24,10 +24,10 @@ export const MY_STACK = {
       name: "C++",
       icon: "/logo/cpp.svg",
     },
-    {
-      name: "C",
-      icon: "/logo/c.svg",
-    },
+    // {
+    //   name: "C",
+    //   icon: "/logo/c.svg",
+    // },
   ],
   "systems & graphics": [
     {
