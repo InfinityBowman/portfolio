@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useSyncExternalStore } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import { Link, useLocation, useNavigate } from '@tanstack/react-router';
 import { useLenis } from 'lenis/react';
@@ -9,7 +9,17 @@ interface NavMenuProps {
   onClose: () => void;
 }
 
+const mq = typeof window !== 'undefined' ? window.matchMedia('(max-width: 640px)') : null;
+function useMobile() {
+  return useSyncExternalStore(
+    (cb) => { mq?.addEventListener('change', cb); return () => mq?.removeEventListener('change', cb); },
+    () => mq?.matches ?? false,
+    () => false,
+  );
+}
+
 export default function NavMenu({ isOpen, onClose }: NavMenuProps) {
+  const mobile = useMobile();
   const location = useLocation();
   const navigate = useNavigate();
   const lenis = useLenis();
@@ -120,7 +130,7 @@ export default function NavMenu({ isOpen, onClose }: NavMenuProps) {
             exit={{ x: '100%' }}
             transition={{
               type: 'spring',
-              stiffness: 400,
+              stiffness: mobile ? 500 : 400,
               damping: 40,
             }}
             onClick={(e) => e.stopPropagation()}
@@ -133,8 +143,8 @@ export default function NavMenu({ isOpen, onClose }: NavMenuProps) {
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{
-                      delay: 0.08 + index * 0.07,
-                      duration: 0.3,
+                      delay: mobile ? 0.04 + index * 0.03 : 0.08 + index * 0.07,
+                      duration: mobile ? 0.2 : 0.3,
                     }}
                   >
                     {item.type === 'section' ? (
@@ -174,7 +184,7 @@ export default function NavMenu({ isOpen, onClose }: NavMenuProps) {
               className="absolute bottom-0 left-0 right-0 py-3 border-t border-accent"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.35, duration: 0.3 }}
+              transition={{ delay: mobile ? 0.2 : 0.35, duration: mobile ? 0.2 : 0.3 }}
             >
               <div className="flex justify-center gap-4">
                 {SOCIAL_LINKS.map((link) => (
