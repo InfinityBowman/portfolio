@@ -28,7 +28,7 @@ export default function Testimonials() {
 
   return (
     <section ref={containerRef}>
-      <h2 className="text-3xl sm:text-4xl font-anton text-center mb-12">What People Say</h2>
+      <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12">What People Say</h2>
       <div className="grid gap-6 sm:grid-cols-1 max-w-2xl mx-auto">
         {TESTIMONIALS.map((t, i) => (
           <div

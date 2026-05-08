@@ -28,7 +28,7 @@ export default function HowItWorks() {
 
   return (
     <section id="process" ref={containerRef}>
-      <h2 className="text-3xl sm:text-4xl font-anton text-center mb-12">How It Works</h2>
+      <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12">How It Works</h2>
       <div className="grid gap-8 sm:grid-cols-3">
         {PROCESS_STEPS.map((step) => (
           <div key={step.number} className="step-item text-center">

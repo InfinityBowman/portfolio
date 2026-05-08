@@ -28,7 +28,7 @@ export default function Services() {
 
   return (
     <section id="services" ref={containerRef}>
-      <h2 className="text-3xl sm:text-4xl font-anton text-center mb-4">What I Do</h2>
+      <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4">What I Do</h2>
       <p className="text-muted-foreground text-center mb-12 max-w-2xl mx-auto">
         From building your first website to adding AI features to your existing business. I handle the technical side so you can focus on what you do best.
       </p>

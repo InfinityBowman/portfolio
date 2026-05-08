@@ -29,7 +29,7 @@ export default function SelectedWork() {
 
   return (
     <section id="work" ref={containerRef}>
-      <h2 className="text-3xl sm:text-4xl font-anton text-center mb-4">Selected Work</h2>
+      <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4">Selected Work</h2>
       <p className="text-muted-foreground text-center mb-12 max-w-2xl mx-auto">
         A few projects that show what I can build.{' '}
         <Link to="/portfolio" className="text-primary underline underline-offset-2 hover:opacity-80 transition-opacity">

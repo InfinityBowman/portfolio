@@ -38,7 +38,7 @@ export default function TopNav() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-background/80 border-b border-accent/50">
       <nav className="max-w-6xl mx-auto px-4 sm:px-8 h-16 flex items-center justify-between">
-        <Link to="/" className="text-xl font-anton tracking-wide text-primary hover:opacity-80 transition-opacity">
+        <Link to="/" className="text-xl font-bold tracking-tight text-primary hover:opacity-80 transition-opacity">
           Jacob Maynard
         </Link>
 

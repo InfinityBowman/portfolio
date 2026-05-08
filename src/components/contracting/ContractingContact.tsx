@@ -28,7 +28,7 @@ export default function ContractingContact() {
 
   return (
     <section id="contact" ref={containerRef} className="pb-16">
-      <h2 className="text-3xl sm:text-4xl font-anton text-center mb-4">Work With Me</h2>
+      <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4">Work With Me</h2>
       <p className="contact-fade text-muted-foreground text-center mb-10 max-w-xl mx-auto">
         Tell me what you need and I'll get back to you with a plan. No commitment, no jargon.
       </p>
