@@ -3,6 +3,7 @@ import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
 import { TESTIMONIALS } from '@/lib/contracting-data';
+import TextReveal from '@/components/TextReveal';
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -28,14 +29,17 @@ export default function Testimonials() {
 
   return (
     <section ref={containerRef}>
-      <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12">What People Say</h2>
+      <TextReveal
+        text="What People Say"
+        className="text-3xl sm:text-4xl font-bold text-center mb-12"
+      />
       <div className="grid gap-6 md:grid-cols-3 max-w-5xl mx-auto">
         {TESTIMONIALS.map((t, i) => (
           <div
             key={i}
             className="testimonial-card p-6 rounded-xl border border-border bg-background/60 backdrop-blur-sm text-center"
           >
-            <div className="text-6xl leading-none text-muted-foreground/50 font-serif select-none">&ldquo;</div>
+            <div className="text-6xl leading-none text-ring/30 font-serif select-none">&ldquo;</div>
             <blockquote className="text-lg text-primary mb-4 -mt-4">
               {t.quote}
             </blockquote>

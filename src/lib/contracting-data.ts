@@ -93,6 +93,13 @@ export const TESTIMONIALS = [
   },
 ];
 
+export const STATS = [
+  { value: 10, suffix: '+', label: 'Projects Shipped' },
+  { value: 3, suffix: '+', label: 'Years Building' },
+  { value: 5, suffix: '+', label: 'Happy Clients' },
+  { value: 100, suffix: '%', label: 'On-Time Delivery' },
+];
+
 export const CREDENTIALS = [
   'MS in AI, Saint Louis University',
   'Applied Research Associates',

@@ -2,105 +2,142 @@
 @import 'tailwindcss';
 @plugin "@tailwindcss/typography";
 
-/* Catppuccin Latte (light) - default */
+/* Light - default */
 :root {
-  --background: #eff1f5;
-  --background-hover: #e6e9ef;
-  --foreground: #4c4f69;
-  --card: #e6e9ef;
-  --card-foreground: #4c4f69;
-  --popover: #e6e9ef;
-  --popover-foreground: #4c4f69;
-  --primary: #4c4f69;
-  --primary-foreground: #eff1f5;
-  --secondary: #ccd0da;
-  --secondary-foreground: #5c5f77;
-  --muted: #acb0be;
-  --muted-hover: #9ca0b0;
-  --muted-foreground: #6c6f85;
-  --accent: #bcc0cc;
-  --accent-foreground: #4c4f69;
-  --destructive: #d20f39;
-  --border: #bcc0cc;
-  --input: #bcc0cc;
+  --background: #fafbfd;
+  --background-hover: #f0f2f5;
+  --foreground: #1a1a2e;
+  --card: #f4f5f7;
+  --card-foreground: #1a1a2e;
+  --popover: #f4f5f7;
+  --popover-foreground: #1a1a2e;
+  --primary: #1a1a2e;
+  --primary-foreground: #fafbfd;
+  --secondary: #eef0f3;
+  --secondary-foreground: #3a3a52;
+  --muted: #c8cdd5;
+  --muted-hover: #b8bdc5;
+  --muted-foreground: #64748b;
+  --accent: #e2e8f0;
+  --accent-foreground: #1a1a2e;
+  --destructive: #dc2626;
+  --border: #e2e8f0;
+  --input: #e2e8f0;
   --ring: #7287fd;
+  --peach: #fe640b;
   --radius: 0.625rem;
 
-  --dot-grid: radial-gradient(rgba(76, 79, 105, 0.15) 1px, transparent 1px);
+  --dot-grid: radial-gradient(rgba(26, 26, 46, 0.1) 1px, transparent 1px);
 
-  --subtext: #6c6f85;
-  --link-hover: #8839ef;
-  --glow: 0 0 10px rgba(136, 57, 239, 0.4), 0 0 4px rgba(136, 57, 239, 0.25);
+  --subtext: #64748b;
+  --link-hover: #7287fd;
+  --glow: 0 0 12px rgba(114, 135, 253, 0.4), 0 0 4px rgba(114, 135, 253, 0.25);
   --gradient-text: linear-gradient(to right, #fe640b, #ea76cb);
 }
 
 /* Dark - system preference */
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: oklch(0.28 0.0559 282.1);
-    --background-hover: oklch(0.36 0.0777 289.59);
-    --foreground: oklch(0.98 0.0017 247.84);
-    --card: oklch(0.32 0.065 285);
-    --card-foreground: oklch(0.98 0.0017 247.84);
-    --popover: oklch(0.32 0.065 285);
-    --popover-foreground: oklch(0.98 0.0017 247.84);
-    --primary: oklch(0.99 0.0017 247.84);
-    --primary-foreground: oklch(0.3 0.05 264);
-    --secondary: oklch(0.3 0.0629 281.93);
-    --secondary-foreground: oklch(0.9 0.0125 247.97);
-    --muted: oklch(0.44 0.0986 289.35);
-    --muted-hover: oklch(0.47 0.1 289);
-    --muted-foreground: oklch(0.85 0.0167 261.49);
-    --accent: oklch(0.36 0.0777 289.59);
-    --accent-foreground: oklch(0.98 0.0017 247.84);
-    --destructive: oklch(0.65 0.2 25);
-    --border: oklch(0.36 0.0777 289.59);
-    --input: oklch(0.36 0.0777 289.59);
-    --ring: oklch(0.65 0.15 280);
+    --background: #0f0f1a;
+    --background-hover: #1a1a2e;
+    --foreground: #f1f5f9;
+    --card: #1a1a2e;
+    --card-foreground: #f1f5f9;
+    --popover: #1a1a2e;
+    --popover-foreground: #f1f5f9;
+    --primary: #f1f5f9;
+    --primary-foreground: #0f0f1a;
+    --secondary: #1e1e32;
+    --secondary-foreground: #c8cdd5;
+    --muted: #3a3a52;
+    --muted-hover: #4a4a62;
+    --muted-foreground: #94a3b8;
+    --accent: #2a2a3e;
+    --accent-foreground: #f1f5f9;
+    --destructive: #ef4444;
+    --border: #2a2a3e;
+    --input: #2a2a3e;
+    --ring: #7c8aff;
+    --peach: #f8923e;
     --radius: 0.625rem;
 
-    --dot-grid: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+    --dot-grid: radial-gradient(rgba(241, 245, 249, 0.06) 1px, transparent 1px);
 
-    --subtext: oklch(0.7 0 0);
-    --link-hover: hsla(311, 71%, 63%, 90%);
-    --glow: 0 0 10px rgba(243, 103, 175, 0.5), 0 0 4px rgba(243, 103, 175, 0.3);
+    --subtext: #94a3b8;
+    --link-hover: #7c8aff;
+    --glow: 0 0 12px rgba(124, 138, 255, 0.5), 0 0 4px rgba(124, 138, 255, 0.3);
     --gradient-text: linear-gradient(to right, #f8923e, #f367af);
   }
 }
 
 /* Force light - user toggle */
 [data-theme='light'] {
-  --background: #eff1f5;
-  --background-hover: #e6e9ef;
-  --foreground: #4c4f69;
-  --card: #e6e9ef;
-  --card-foreground: #4c4f69;
-  --popover: #e6e9ef;
-  --popover-foreground: #4c4f69;
-  --primary: #4c4f69;
-  --primary-foreground: #eff1f5;
-  --secondary: #ccd0da;
-  --secondary-foreground: #5c5f77;
-  --muted: #acb0be;
-  --muted-hover: #9ca0b0;
-  --muted-foreground: #6c6f85;
-  --accent: #bcc0cc;
-  --accent-foreground: #4c4f69;
-  --destructive: #d20f39;
-  --border: #bcc0cc;
-  --input: #bcc0cc;
+  --background: #fafbfd;
+  --background-hover: #f0f2f5;
+  --foreground: #1a1a2e;
+  --card: #f4f5f7;
+  --card-foreground: #1a1a2e;
+  --popover: #f4f5f7;
+  --popover-foreground: #1a1a2e;
+  --primary: #1a1a2e;
+  --primary-foreground: #fafbfd;
+  --secondary: #eef0f3;
+  --secondary-foreground: #3a3a52;
+  --muted: #c8cdd5;
+  --muted-hover: #b8bdc5;
+  --muted-foreground: #64748b;
+  --accent: #e2e8f0;
+  --accent-foreground: #1a1a2e;
+  --destructive: #dc2626;
+  --border: #e2e8f0;
+  --input: #e2e8f0;
   --ring: #7287fd;
+  --peach: #fe640b;
 
-  --dot-grid: radial-gradient(rgba(76, 79, 105, 0.15) 1px, transparent 1px);
+  --dot-grid: radial-gradient(rgba(26, 26, 46, 0.1) 1px, transparent 1px);
 
-  --subtext: #6c6f85;
-  --link-hover: #8839ef;
-  --glow: 0 0 10px rgba(136, 57, 239, 0.4), 0 0 4px rgba(136, 57, 239, 0.25);
+  --subtext: #64748b;
+  --link-hover: #7287fd;
+  --glow: 0 0 12px rgba(114, 135, 253, 0.4), 0 0 4px rgba(114, 135, 253, 0.25);
   --gradient-text: linear-gradient(to right, #fe640b, #ea76cb);
 }
 
 /* Force dark - portfolio layout or user toggle */
 [data-theme='dark'] {
+  --background: #0f0f1a;
+  --background-hover: #1a1a2e;
+  --foreground: #f1f5f9;
+  --card: #1a1a2e;
+  --card-foreground: #f1f5f9;
+  --popover: #1a1a2e;
+  --popover-foreground: #f1f5f9;
+  --primary: #f1f5f9;
+  --primary-foreground: #0f0f1a;
+  --secondary: #1e1e32;
+  --secondary-foreground: #c8cdd5;
+  --muted: #3a3a52;
+  --muted-hover: #4a4a62;
+  --muted-foreground: #94a3b8;
+  --accent: #2a2a3e;
+  --accent-foreground: #f1f5f9;
+  --destructive: #ef4444;
+  --border: #2a2a3e;
+  --input: #2a2a3e;
+  --ring: #7c8aff;
+  --peach: #f8923e;
+
+  --dot-grid: radial-gradient(rgba(241, 245, 249, 0.06) 1px, transparent 1px);
+
+  --subtext: #94a3b8;
+  --link-hover: #7c8aff;
+  --glow: 0 0 12px rgba(124, 138, 255, 0.5), 0 0 4px rgba(124, 138, 255, 0.3);
+  --gradient-text: linear-gradient(to right, #f8923e, #f367af);
+}
+
+/* Portfolio pages — restore original Catppuccin Mocha dark.
+   data-theme-locked is only set by the portfolio layout, so this
+   overrides [data-theme='dark'] without affecting contracting pages. */
+[data-theme-locked] {
   --background: oklch(0.28 0.0559 282.1);
   --background-hover: oklch(0.36 0.0777 289.59);
   --foreground: oklch(0.98 0.0017 247.84);
@@ -121,8 +158,7 @@
   --border: oklch(0.36 0.0777 289.59);
   --input: oklch(0.36 0.0777 289.59);
   --ring: oklch(0.65 0.15 280);
-
-  --dot-grid: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  --peach: #f8923e;
 
   --subtext: oklch(0.7 0 0);
   --link-hover: hsla(311, 71%, 63%, 90%);
@@ -151,6 +187,7 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
+  --color-peach: var(--peach);
 
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -178,8 +215,6 @@ html.lenis body {
 
   body {
     overflow-x: clip;
-    background-image: var(--dot-grid);
-    background-size: 24px 24px;
   }
 
   h1,

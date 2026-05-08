@@ -34,19 +34,29 @@ export const Route = createFileRoute('/_contracting/')({
 function ContractingPage() {
   return (
     <>
-      <div className="space-y-24 sm:space-y-32 mx-auto max-w-6xl px-4 sm:px-8">
+      {/* Dot grid + ambient glow blobs — contracting page only */}
+      <div
+        className="pointer-events-none fixed inset-0 overflow-hidden"
+        aria-hidden="true"
+        style={{ backgroundImage: 'var(--dot-grid)', backgroundSize: '24px 24px' }}
+      >
+        <div className="absolute -top-[20vh] -right-[15vw] size-[60vw] rounded-full bg-ring/[0.07] blur-[120px]" />
+        <div className="absolute top-[50vh] -left-[15vw] size-[50vw] rounded-full bg-peach/[0.05] blur-[120px]" />
+      </div>
+
+      <div className="relative space-y-24 sm:space-y-32 mx-auto max-w-6xl px-4 sm:px-8">
         <ContractingHero />
         <CredibilityBar />
         <Services />
         <HowItWorks />
         <SelectedWork />
       </div>
-      <div className="bg-secondary/15 mt-24 sm:mt-32 py-20 sm:py-28">
+      <div className="relative bg-secondary/20 mt-24 sm:mt-32 py-20 sm:py-28">
         <div className="mx-auto max-w-6xl px-4 sm:px-8">
           <Testimonials />
         </div>
       </div>
-      <div className="mx-auto max-w-6xl px-4 sm:px-8 pt-24 sm:pt-32">
+      <div className="relative mx-auto max-w-6xl px-4 sm:px-8 pt-24 sm:pt-32">
         <ContractingContact />
       </div>
     </>

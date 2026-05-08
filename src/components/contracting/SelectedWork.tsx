@@ -4,6 +4,7 @@ import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
 import { CASE_STUDIES } from '@/lib/contracting-data';
+import TextReveal from '@/components/TextReveal';
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -29,10 +30,13 @@ export default function SelectedWork() {
 
   return (
     <section id="work" ref={containerRef}>
-      <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4">Selected Work</h2>
+      <TextReveal
+        text="Selected Work"
+        className="text-3xl sm:text-4xl font-bold text-center mb-4"
+      />
       <p className="text-muted-foreground text-center mb-8 max-w-2xl mx-auto">
         A few projects that show what I can build.{' '}
-        <Link to="/portfolio" className="text-primary underline underline-offset-2 hover:opacity-80 transition-opacity">
+        <Link to="/portfolio" className="text-ring underline underline-offset-2 hover:opacity-80 transition-opacity">
           See the full portfolio
         </Link>
       </p>

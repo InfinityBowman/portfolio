@@ -3,6 +3,7 @@ import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
 import ContactForm from '@/components/ContactForm';
+import TextReveal from '@/components/TextReveal';
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -28,7 +29,10 @@ export default function ContractingContact() {
 
   return (
     <section id="contact" ref={containerRef} className="pb-16">
-      <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4">Let's Talk</h2>
+      <TextReveal
+        text="Let's Talk"
+        className="text-3xl sm:text-4xl font-bold text-center mb-4"
+      />
       <p className="contact-fade text-muted-foreground text-center mb-10 max-w-xl mx-auto">
         Tell me what you're working on and I'll get back to you. No commitment, no pressure.
       </p>

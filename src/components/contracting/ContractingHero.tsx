@@ -38,11 +38,11 @@ export default function ContractingHero() {
       </motion.p>
 
       <motion.button
-        onClick={scrollToContact}
-        className="mt-2 px-8 py-3 rounded-lg bg-ring text-white font-medium hover:brightness-110 hover:shadow-glow transition-all"
+        className="mt-2 px-8 py-3 rounded-lg bg-ring text-white font-medium hover:brightness-110 hover:shadow-glow transition-all duration-200"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 1.3 }}
+        onClick={scrollToContact}
       >
         Let's Talk
       </motion.button>
