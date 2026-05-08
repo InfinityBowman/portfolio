@@ -26,6 +26,8 @@
   --ring: #7287fd;
   --radius: 0.625rem;
 
+  --dot-grid: radial-gradient(rgba(76, 79, 105, 0.15) 1px, transparent 1px);
+
   --subtext: #6c6f85;
   --link-hover: #8839ef;
   --glow: 0 0 10px rgba(136, 57, 239, 0.4), 0 0 4px rgba(136, 57, 239, 0.25);
@@ -57,6 +59,8 @@
     --ring: oklch(0.65 0.15 280);
     --radius: 0.625rem;
 
+    --dot-grid: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+
     --subtext: oklch(0.7 0 0);
     --link-hover: hsla(311, 71%, 63%, 90%);
     --glow: 0 0 10px rgba(243, 103, 175, 0.5), 0 0 4px rgba(243, 103, 175, 0.3);
@@ -87,6 +91,8 @@
   --input: #bcc0cc;
   --ring: #7287fd;
 
+  --dot-grid: radial-gradient(rgba(76, 79, 105, 0.15) 1px, transparent 1px);
+
   --subtext: #6c6f85;
   --link-hover: #8839ef;
   --glow: 0 0 10px rgba(136, 57, 239, 0.4), 0 0 4px rgba(136, 57, 239, 0.25);
@@ -115,6 +121,8 @@
   --border: oklch(0.36 0.0777 289.59);
   --input: oklch(0.36 0.0777 289.59);
   --ring: oklch(0.65 0.15 280);
+
+  --dot-grid: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
 
   --subtext: oklch(0.7 0 0);
   --link-hover: hsla(311, 71%, 63%, 90%);
@@ -170,6 +178,8 @@ html.lenis body {
 
   body {
     overflow-x: clip;
+    background-image: var(--dot-grid);
+    background-size: 24px 24px;
   }
 
   h1,

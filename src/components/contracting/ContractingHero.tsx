@@ -39,7 +39,7 @@ export default function ContractingHero() {
 
       <motion.button
         onClick={scrollToContact}
-        className="mt-2 px-8 py-3 rounded-lg border-2 border-primary bg-background text-primary font-medium hover:bg-primary hover:text-primary-foreground transition-colors"
+        className="mt-2 px-8 py-3 rounded-lg bg-ring text-white font-medium hover:brightness-110 hover:shadow-glow transition-all"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 1.3 }}
