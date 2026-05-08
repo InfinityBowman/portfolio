@@ -1,3 +1,5 @@
+import { Link } from '@tanstack/react-router';
+
 interface NavMenuToggleProps {
   onToggle: () => void;
   isOpen: boolean;
@@ -5,7 +7,13 @@ interface NavMenuToggleProps {
 
 export default function NavMenuToggle({ onToggle, isOpen }: NavMenuToggleProps) {
   return (
-    <div className='fixed top-0 right-0 z-50 w-fit p-6'>
+    <div className='fixed top-0 right-0 z-50 flex items-center gap-3 p-6'>
+      <Link
+        to='/'
+        className='rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary backdrop-blur-sm transition-colors hover:bg-primary/20'
+      >
+        Work With Me
+      </Link>
       <button
         onClick={onToggle}
         className='inline-flex items-center justify-center rounded-md'

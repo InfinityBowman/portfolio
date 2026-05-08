@@ -46,6 +46,7 @@ export default function NavMenu({ isOpen, onClose }: NavMenuProps) {
   const pageLinks = [
     { to: '/blog', label: 'Blog', id: 'blog' },
     { to: '/digest', label: 'Digest', id: 'digest' },
+    { to: '/', label: 'Work With Me', id: 'hire' },
   ];
 
   // Update active section when route changes
