@@ -4,14 +4,14 @@ import { useTheme } from '@/lib/theme';
 const spring = { type: 'spring' as const, stiffness: 250, damping: 35, mass: 4 };
 
 const dots = [
-  { cx: 22, cy: 12, delay: 0.48 },
-  { cx: 19.0711, cy: 19.0711, delay: 0.4 },
-  { cx: 12, cy: 22, delay: 0.32 },
-  { cx: 4.9289, cy: 19.0711, delay: 0.24 },
-  { cx: 2, cy: 12, delay: 0.2 },
-  { cx: 4.9289, cy: 4.9289, delay: 0.28 },
+  { cx: 22, cy: 12, delay: 0 },
+  { cx: 19.0711, cy: 19.0711, delay: 0.06 },
+  { cx: 12, cy: 22, delay: 0.12 },
+  { cx: 4.9289, cy: 19.0711, delay: 0.18 },
+  { cx: 2, cy: 12, delay: 0.24 },
+  { cx: 4.9289, cy: 4.9289, delay: 0.30 },
   { cx: 12, cy: 2, delay: 0.36 },
-  { cx: 19.0711, cy: 4.9289, delay: 0.44 },
+  { cx: 19.0711, cy: 4.9289, delay: 0.42 },
 ];
 
 export default function ThemeToggle() {
@@ -61,17 +61,23 @@ export default function ThemeToggle() {
 
         <g mask="url(#sun-dot-mask)">
           {dots.map((dot, i) => (
-            <motion.circle
-              key={i}
-              cx={dot.cx}
-              cy={dot.cy}
-              r="1.5"
-              fill="currentColor"
-              style={{ transformOrigin: `${dot.cx}px ${dot.cy}px` }}
-              initial={false}
-              animate={{ scale: isDark ? 0 : 1 }}
-              transition={{ ...spring, delay: isDark ? 0 : dot.delay }}
-            />
+            <g key={i} transform={`translate(${dot.cx}, ${dot.cy})`}>
+              <motion.circle
+                cx="0"
+                cy="0"
+                r="1.5"
+                fill="currentColor"
+                initial={false}
+                animate={{ scale: isDark ? 0 : 1 }}
+                transition={{
+                  type: 'spring',
+                  stiffness: 500,
+                  damping: 20,
+                  mass: 0.5,
+                  delay: isDark ? 0 : dot.delay,
+                }}
+              />
+            </g>
           ))}
         </g>
 
