@@ -83,17 +83,17 @@ export default function ParticleText({ text = 'Jacob Maynard', colorScheme }: { 
 
     const vs = compileShader(vsSource, gl.VERTEX_SHADER);
     const fs = compileShader(fsSource, gl.FRAGMENT_SHADER);
-    const program = gl.createProgram()!;
+    const program = gl.createProgram();
     gl.attachShader(program, vs);
     gl.attachShader(program, fs);
     gl.linkProgram(program);
     gl.useProgram(program);
 
-    const startPosBuffer = gl.createBuffer()!;
-    const targetPosBuffer = gl.createBuffer()!;
-    const textUBuffer = gl.createBuffer()!;
-    const alphaBuffer = gl.createBuffer()!;
-    const speedBuffer = gl.createBuffer()!;
+    const startPosBuffer = gl.createBuffer();
+    const targetPosBuffer = gl.createBuffer();
+    const textUBuffer = gl.createBuffer();
+    const alphaBuffer = gl.createBuffer();
+    const speedBuffer = gl.createBuffer();
 
     const aStartPos = gl.getAttribLocation(program, 'aStartPos');
     gl.enableVertexAttribArray(aStartPos);
@@ -162,11 +162,11 @@ export default function ParticleText({ text = 'Jacob Maynard', colorScheme }: { 
 
       const imageData = ctx2d.getImageData(0, 0, offscreen.width, offscreen.height);
 
-      const positions: number[] = [];
-      const targets: number[] = [];
-      const textUs: number[] = [];
-      const alphas: number[] = [];
-      const speeds: number[] = [];
+      const positions: Array<number> = [];
+      const targets: Array<number> = [];
+      const textUs: Array<number> = [];
+      const alphas: Array<number> = [];
+      const speeds: Array<number> = [];
 
       for (let y = 0; y < offscreen.height; y++) {
         for (let x = 0; x < offscreen.width; x++) {

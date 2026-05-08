@@ -1,4 +1,4 @@
-import { FaGlobe, FaRocket, FaBrain, FaChartBar } from 'react-icons/fa';
+import { FaBrain, FaChartBar, FaGlobe, FaRocket } from 'react-icons/fa';
 
 export const SERVICES = [
   {
@@ -84,8 +84,8 @@ export const TESTIMONIALS = [
 ];
 
 export const CREDENTIALS = [
-  'HackSLU Grand Prize Winner',
   'MS in AI, Saint Louis University',
-  'Founding Engineer at Syntch',
   'Applied Research Associates',
+  'Founding Engineer at Syntch',
+  'HackSLU Grand Prize Winner',
 ];

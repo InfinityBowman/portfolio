@@ -1,6 +1,6 @@
 import { Outlet, createFileRoute } from '@tanstack/react-router';
 import { ReactLenis } from 'lenis/react';
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { LenisScrollTriggerSync, LenisViewTransitionSync } from '@/lib/lenis-utils';
 import NavMenuToggle from '@/components/nav/NavMenuToggle';
 import NavMenu from '@/components/nav/NavMenu';

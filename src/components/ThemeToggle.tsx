@@ -1,5 +1,5 @@
-import { FaSun, FaMoon } from 'react-icons/fa';
-import { motion, AnimatePresence } from 'motion/react';
+import { FaMoon, FaSun } from 'react-icons/fa';
+import { AnimatePresence, motion } from 'motion/react';
 import { useTheme } from '@/lib/theme';
 
 export default function ThemeToggle() {

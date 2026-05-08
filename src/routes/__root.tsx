@@ -5,8 +5,8 @@ import {
   Scripts,
   createRootRoute,
 } from '@tanstack/react-router'
-import { ThemeProvider } from '@/lib/theme'
 import appCss from '../styles.css?url'
+import { ThemeProvider } from '@/lib/theme'
 
 const jsonLd = JSON.stringify({
   '@context': 'https://schema.org',
