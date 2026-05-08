@@ -77,9 +77,19 @@ export const CASE_STUDIES = [
 
 export const TESTIMONIALS = [
   {
-    quote: "Jacob is a high-achieving, goal-oriented individual, and he is a pleasure to work with.",
-    name: "Applied Research Associates",
-    role: "Project Manager",
+    quote: "Jacob differentiated himself from other interns and I tasked him to lead the re-imaging and creation of a software product. Not only did he successfully complete the assignment, he introduced a new software architecture that we will leverage in future applications.",
+    name: "RuthAnn Abruzzi",
+    role: "Principal Scientist, Applied Research Associates",
+  },
+  {
+    quote: "Jacob built a collaborative tool that transformed how our research team works together. He took the time to understand our process and delivered something we rely on daily.",
+    name: "Brandy Maynard, Ph.D.",
+    role: "Associate Dean & Professor, School of Social Work, Saint Louis University",
+  },
+  {
+    quote: "Jacob led the technical development of our mapping platform and delivered exactly what our research team needed. Skilled, reliable, and genuinely easy to work with.",
+    name: "Adam Park",
+    role: "Research Fellow, American Studies, Saint Louis University",
   },
 ];
 

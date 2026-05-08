@@ -78,6 +78,10 @@ export default function ContactForm({
     setStatus({ kind: "success" });
     setFieldsVisible(true);
 
+    window.plausible("Contact Form Submit", {
+      props: { projectType: snapshot.projectType ?? "none" },
+    });
+
     // Resolve the actual send in the background. On failure, restore the
     // form values and surface the error.
     try {

@@ -29,13 +29,13 @@ export default function Testimonials() {
   return (
     <section ref={containerRef}>
       <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12">What People Say</h2>
-      <div className="grid gap-6 sm:grid-cols-1 max-w-2xl mx-auto">
+      <div className="grid gap-6 md:grid-cols-3 max-w-5xl mx-auto">
         {TESTIMONIALS.map((t, i) => (
           <div
             key={i}
             className="testimonial-card p-6 rounded-xl border border-accent bg-background/60 backdrop-blur-sm text-center"
           >
-            <blockquote className="text-lg text-primary italic mb-4">
+            <blockquote className="text-lg text-primary mb-4">
               &ldquo;{t.quote}&rdquo;
             </blockquote>
             <div className="text-sm text-muted-foreground">

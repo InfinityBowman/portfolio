@@ -7,6 +7,7 @@ export default function ContractingHero() {
 
   const scrollToContact = (e: React.MouseEvent) => {
     e.preventDefault();
+    window.plausible("CTA Click");
     const el = document.getElementById('contact');
     if (el) {
       if (lenis) lenis.scrollTo(el);
