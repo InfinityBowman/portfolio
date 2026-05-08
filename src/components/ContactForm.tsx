@@ -24,9 +24,28 @@ const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 // to read as a transition, short enough to feel snappy.
 const FADE_MS = 250;
 
-export default function ContactForm() {
+interface ContactFormProps {
+  showProjectType?: boolean;
+  ctaLabel?: string;
+  messagePlaceholder?: string;
+}
+
+const PROJECT_TYPES = [
+  "New website",
+  "Fix / improve existing site",
+  "Dashboard or custom tool",
+  "AI / automation",
+  "Something else",
+];
+
+export default function ContactForm({
+  showProjectType = false,
+  ctaLabel = "Send Message",
+  messagePlaceholder = "What's on your mind?",
+}: ContactFormProps) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [projectType, setProjectType] = useState("");
   const [message, setMessage] = useState("");
   const [honeypot, setHoneypot] = useState("");
   const [status, setStatus] = useState<Status>({ kind: "idle" });
@@ -38,12 +57,10 @@ export default function ContactForm() {
     event.preventDefault();
     if (submitting) return;
 
-    // Snapshot the values so we can restore them if the background send fails.
-    const snapshot = { name, email, message, honeypot };
+    const snapshot = { name, email, message, honeypot, projectType: projectType || undefined };
 
     setStatus({ kind: "submitting" });
 
-    // Kick off the actual send immediately, in parallel with the spinner.
     const sendPromise = sendContactEmail({ data: snapshot });
 
     // Show the spinner for at least MIN_SUBMIT_MS so it doesn't flash.
@@ -56,6 +73,7 @@ export default function ContactForm() {
     await sleep(FADE_MS);
     setName("");
     setEmail("");
+    setProjectType("");
     setMessage("");
     setStatus({ kind: "success" });
     setFieldsVisible(true);
@@ -121,6 +139,23 @@ export default function ContactForm() {
           </label>
         </div>
 
+        {showProjectType && (
+          <label className="block">
+            <span className="mb-1 block text-sm text-muted-foreground">What do you need? <span className="text-muted-foreground/50">(optional)</span></span>
+            <select
+              value={projectType}
+              onChange={(e) => setProjectType(e.target.value)}
+              disabled={submitting}
+              className={`${inputClass} appearance-none`}
+            >
+              <option value="">Select a project type...</option>
+              {PROJECT_TYPES.map((t) => (
+                <option key={t} value={t}>{t}</option>
+              ))}
+            </select>
+          </label>
+        )}
+
         <label className="block">
           <span className="mb-1 block text-sm text-muted-foreground">Message</span>
           <textarea
@@ -131,7 +166,7 @@ export default function ContactForm() {
             rows={5}
             disabled={submitting}
             className={`${inputClass} resize-y min-h-[120px]`}
-            placeholder="What's on your mind?"
+            placeholder={messagePlaceholder}
           />
         </label>
       </motion.div>
@@ -188,7 +223,7 @@ export default function ContactForm() {
                 transition={{ duration: 0.18 }}
                 className="text-secondary-foreground group-hover:text-primary transition-colors"
               >
-                Send Message
+                {ctaLabel}
               </motion.span>
             )}
           </AnimatePresence>

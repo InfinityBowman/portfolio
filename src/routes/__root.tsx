@@ -5,6 +5,7 @@ import {
   Scripts,
   createRootRoute,
 } from '@tanstack/react-router'
+import { ThemeProvider } from '@/lib/theme'
 import appCss from '../styles.css?url'
 
 export const Route = createRootRoute({
@@ -17,34 +18,34 @@ export const Route = createRootRoute({
         name: 'apple-mobile-web-app-status-bar-style',
         content: 'black-translucent',
       },
-      { title: 'Jacob Maynard | Software Developer' },
+      { title: 'Jacob Maynard | Web Development & AI Solutions' },
       {
         name: 'description',
         content:
-          'Jacob Maynard - Software Developer specializing in React, TypeScript, .NET, and building high-performance web applications. Currently pursuing a Masters in AI at Saint Louis University.',
+          'I build and optimize websites, dashboards, and AI-powered tools for small businesses. Custom web development, SEO, and automation solutions.',
       },
       {
         name: 'keywords',
         content:
-          'Jacob Maynard, Software Developer, React, TypeScript, .NET, JavaScript, Web Development, AI, Saint Louis University',
+          'Jacob Maynard, Web Developer, Freelance Developer, Website Development, AI, SEO, Small Business, Saint Louis',
       },
       { name: 'author', content: 'Jacob Maynard' },
-      { property: 'og:title', content: 'Jacob Maynard | Software Developer' },
+      { property: 'og:title', content: 'Jacob Maynard | Web Development & AI Solutions' },
       {
         property: 'og:description',
         content:
-          'Software Developer specializing in React, TypeScript, .NET, and building high-performance web applications.',
+          'I build and optimize websites, dashboards, and AI-powered tools for small businesses.',
       },
       { property: 'og:type', content: 'website' },
       { property: 'og:url', content: 'https://jacobmaynard.dev' },
       { property: 'og:image', content: 'https://jacobmaynard.dev/og-image.png' },
       { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'twitter:image', content: 'https://jacobmaynard.dev/og-image.png' },
-      { name: 'twitter:title', content: 'Jacob Maynard | Software Developer' },
+      { name: 'twitter:title', content: 'Jacob Maynard | Web Development & AI Solutions' },
       {
         name: 'twitter:description',
         content:
-          'Software Developer specializing in React, TypeScript, .NET, and building high-performance web applications.',
+          'I build and optimize websites, dashboards, and AI-powered tools for small businesses.',
       },
     ],
     links: [
@@ -53,6 +54,10 @@ export const Route = createRootRoute({
       { rel: 'canonical', href: 'https://jacobmaynard.dev' },
     ],
     scripts: [
+      {
+        children:
+          '(function(){var t=localStorage.getItem("theme");document.documentElement.dataset.theme=t==="dark"||t==="light"?t:matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light"})()',
+      },
       {
         src: 'https://plausible.jacobmaynard.dev/js/pa-Kgv3yIBtqUtsphy9Oc7Um.js',
         async: true,
@@ -105,5 +110,9 @@ function RootDocument({ children }: { children: React.ReactNode }) {
 }
 
 function RootLayout() {
-  return <Outlet />
+  return (
+    <ThemeProvider>
+      <Outlet />
+    </ThemeProvider>
+  )
 }

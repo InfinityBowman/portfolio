@@ -1,6 +1,20 @@
 import { useEffect, useRef } from 'react';
+import { useTheme } from '@/lib/theme';
+
+function hexToGLSL(hex: string): string {
+  const r = parseInt(hex.slice(1, 3), 16) / 255;
+  const g = parseInt(hex.slice(3, 5), 16) / 255;
+  const b = parseInt(hex.slice(5, 7), 16) / 255;
+  return `vec3(${r.toFixed(3)}, ${g.toFixed(3)}, ${b.toFixed(3)})`;
+}
+
+const THEME_COLORS = {
+  dark: { a: '#F89238', b: '#F36AB0' },
+  light: { a: '#1e66f5', b: '#7287fd' },
+};
 
 export default function ParticleText({ text = 'Jacob Maynard' }: { text?: string }) {
+  const { theme } = useTheme();
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const textRef = useRef<HTMLHeadingElement>(null);
@@ -14,6 +28,7 @@ export default function ParticleText({ text = 'Jacob Maynard' }: { text?: string
     const gl = canvas.getContext('webgl2', { alpha: true, premultipliedAlpha: false });
     if (!gl) return;
 
+    const colors = THEME_COLORS[theme];
     const vsSource = `#version 300 es
       in vec2 aStartPos;
       in vec2 aTargetPos;
@@ -26,8 +41,8 @@ export default function ParticleText({ text = 'Jacob Maynard' }: { text?: string
 
       out vec4 vColor;
 
-      const vec3 COLOR_A = vec3(0.973, 0.573, 0.243);
-      const vec3 COLOR_B = vec3(0.953, 0.404, 0.686);
+      const vec3 COLOR_A = ${hexToGLSL(colors.a)};
+      const vec3 COLOR_B = ${hexToGLSL(colors.b)};
 
       float easeOutQuart(float t) {
         return 1.0 - pow(1.0 - t, 4.0);
@@ -156,7 +171,8 @@ export default function ParticleText({ text = 'Jacob Maynard' }: { text?: string
         for (let x = 0; x < offscreen.width; x++) {
           const i = (y * offscreen.width + x) * 4;
           const alpha = imageData.data[i + 3];
-          if (alpha > 5) {
+          const alphaThreshold = theme === 'light' ? 100 : 5;
+          if (alpha > alphaThreshold) {
             const px = x / supersample;
             const py = y / supersample;
 
@@ -236,7 +252,7 @@ export default function ParticleText({ text = 'Jacob Maynard' }: { text?: string
       gl.deleteBuffer(alphaBuffer);
       gl.deleteBuffer(speedBuffer);
     };
-  }, [text]);
+  }, [text, theme]);
 
   return (
     <div ref={containerRef} className="relative w-full overflow-visible">

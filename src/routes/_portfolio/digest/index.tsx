@@ -23,7 +23,7 @@ function formatDate(dateString: string) {
   });
 }
 
-export const Route = createFileRoute('/_layout/digest/')({
+export const Route = createFileRoute('/_portfolio/digest/')({
   component: DigestListPage,
   head: () => ({
     meta: [

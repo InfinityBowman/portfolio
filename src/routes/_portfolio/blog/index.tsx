@@ -23,7 +23,7 @@ function formatDate(dateString: string) {
   });
 }
 
-export const Route = createFileRoute('/_layout/blog/')({
+export const Route = createFileRoute('/_portfolio/blog/')({
   component: BlogListPage,
   head: () => ({
     meta: [

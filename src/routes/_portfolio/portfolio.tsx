@@ -7,7 +7,7 @@ import Projects from '@/components/Projects';
 import About from '@/components/About';
 import Contact from '@/components/Contact';
 
-export const Route = createFileRoute('/_layout/')({
+export const Route = createFileRoute('/_portfolio/portfolio')({
   component: HomePage,
 });
 

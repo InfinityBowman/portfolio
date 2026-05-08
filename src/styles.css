@@ -2,8 +2,70 @@
 @import 'tailwindcss';
 @plugin "@tailwindcss/typography";
 
+/* Catppuccin Latte (light) - default */
 :root {
-  /* Theme colors */
+  --background: #eff1f5;
+  --background-hover: #e6e9ef;
+  --foreground: #4c4f69;
+  --primary: #4c4f69;
+  --primary-foreground: #eff1f5;
+  --secondary: #ccd0da;
+  --secondary-foreground: #5c5f77;
+  --muted: #acb0be;
+  --muted-hover: #9ca0b0;
+  --muted-foreground: #6c6f85;
+  --accent: #bcc0cc;
+
+  --subtext: #6c6f85;
+  --link-hover: #8839ef;
+  --glow: 0 0 10px rgba(136, 57, 239, 0.4), 0 0 4px rgba(136, 57, 239, 0.25);
+  --gradient-text: linear-gradient(to right, #fe640b, #ea76cb);
+}
+
+/* Dark - system preference */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: oklch(0.28 0.0559 282.1);
+    --background-hover: oklch(0.36 0.0777 289.59);
+    --foreground: oklch(0.98 0.0017 247.84);
+    --primary: oklch(0.99 0.0017 247.84);
+    --primary-foreground: oklch(0.3 0.05 264);
+    --secondary: oklch(0.3 0.0629 281.93);
+    --secondary-foreground: oklch(0.9 0.0125 247.97);
+    --muted: oklch(0.44 0.0986 289.35);
+    --muted-hover: oklch(0.47 0.1 289);
+    --muted-foreground: oklch(0.85 0.0167 261.49);
+    --accent: oklch(0.36 0.0777 289.59);
+
+    --subtext: oklch(0.7 0 0);
+    --link-hover: hsla(311, 71%, 63%, 90%);
+    --glow: 0 0 10px rgba(243, 103, 175, 0.5), 0 0 4px rgba(243, 103, 175, 0.3);
+    --gradient-text: linear-gradient(to right, #f8923e, #f367af);
+  }
+}
+
+/* Force light - user toggle */
+[data-theme='light'] {
+  --background: #eff1f5;
+  --background-hover: #e6e9ef;
+  --foreground: #4c4f69;
+  --primary: #4c4f69;
+  --primary-foreground: #eff1f5;
+  --secondary: #ccd0da;
+  --secondary-foreground: #5c5f77;
+  --muted: #acb0be;
+  --muted-hover: #9ca0b0;
+  --muted-foreground: #6c6f85;
+  --accent: #bcc0cc;
+
+  --subtext: #6c6f85;
+  --link-hover: #8839ef;
+  --glow: 0 0 10px rgba(136, 57, 239, 0.4), 0 0 4px rgba(136, 57, 239, 0.25);
+  --gradient-text: linear-gradient(to right, #fe640b, #ea76cb);
+}
+
+/* Force dark - portfolio layout or user toggle */
+[data-theme='dark'] {
   --background: oklch(0.28 0.0559 282.1);
   --background-hover: oklch(0.36 0.0777 289.59);
   --foreground: oklch(0.98 0.0017 247.84);
@@ -67,16 +129,15 @@ html.lenis body {
     letter-spacing: 0.02em;
   }
 
-  /* Hide scrollbars */
-  html,
-  body {
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
+  /* Hide scrollbars — only when portfolio layout sets the attribute */
+  html[data-hide-scrollbar],
+  html[data-hide-scrollbar] body {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 
-  /* Chrome, Safari, newer Edge */
-  html::-webkit-scrollbar,
-  body::-webkit-scrollbar {
+  html[data-hide-scrollbar]::-webkit-scrollbar,
+  html[data-hide-scrollbar] body::-webkit-scrollbar {
     display: none;
   }
 

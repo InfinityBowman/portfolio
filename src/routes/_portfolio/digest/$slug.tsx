@@ -26,7 +26,7 @@ function formatDate(dateString: string) {
   });
 }
 
-export const Route = createFileRoute('/_layout/digest/$slug')({
+export const Route = createFileRoute('/_portfolio/digest/$slug')({
   component: DigestPostPage,
   loader: ({ params }) => {
     const digest = digests.find((d) => d.slug === params.slug);

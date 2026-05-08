@@ -26,7 +26,7 @@ function formatDate(dateString: string) {
   });
 }
 
-export const Route = createFileRoute('/_layout/blog/$slug')({
+export const Route = createFileRoute('/_portfolio/blog/$slug')({
   component: BlogPostPage,
   loader: ({ params }) => {
     const post = posts.find((p) => p.slug === params.slug);
