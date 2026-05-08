@@ -1,18 +1,9 @@
-import { useState, useSyncExternalStore } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link, useLocation } from '@tanstack/react-router';
 import { useLenis } from 'lenis/react';
 import { AnimatePresence, motion } from 'motion/react';
 import SOCIAL_LINKS from '@/lib/socials';
 import ThemeToggle from '@/components/ThemeToggle';
-
-const mq = typeof window !== 'undefined' ? window.matchMedia('(max-width: 640px)') : null;
-function useMobile() {
-  return useSyncExternalStore(
-    (cb) => { mq?.addEventListener('change', cb); return () => mq?.removeEventListener('change', cb); },
-    () => mq?.matches ?? false,
-    () => false,
-  );
-}
 
 const navLinks = [
   { to: '/portfolio' as const, label: 'Portfolio' },
@@ -21,9 +12,20 @@ const navLinks = [
 
 export default function TopNav() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const mobile = useMobile();
+  const headerRef = useRef<HTMLElement>(null);
   const location = useLocation();
   const lenis = useLenis();
+
+  useEffect(() => {
+    if (!menuOpen) return;
+    const onClick = (e: MouseEvent) => {
+      if (headerRef.current && !headerRef.current.contains(e.target as Node)) {
+        setMenuOpen(false);
+      }
+    };
+    document.addEventListener('click', onClick);
+    return () => document.removeEventListener('click', onClick);
+  }, [menuOpen]);
 
   const scrollToContact = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -36,7 +38,7 @@ export default function TopNav() {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-background/80 border-b border-accent/50">
+    <header ref={headerRef} className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-background/80 border-b border-accent/50">
       <nav className="max-w-6xl mx-auto px-4 sm:px-8 h-16 flex items-center justify-between">
         <Link to="/" className="text-xl tracking-tight text-primary hover:opacity-80 transition-opacity" style={{ fontFamily: "'Fira Mono', 'JetBrains Mono', 'Consolas', monospace", fontWeight: 600 }}>
           j<span style={{ color: '#7287fd' }}>;</span>maynard
@@ -70,7 +72,8 @@ export default function TopNav() {
         <button
           className="sm:hidden p-2 text-primary"
           onClick={() => setMenuOpen((prev) => !prev)}
-          aria-label="Toggle menu"
+          aria-label="Menu"
+          aria-expanded={menuOpen}
         >
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
             <motion.line x1="3" y1="6" x2="21" y2="6" animate={menuOpen ? { rotate: 45, y: 6, x: 0 } : { rotate: 0, y: 0, x: 0 }} style={{ transformOrigin: 'center' }} />
@@ -82,7 +85,7 @@ export default function TopNav() {
 
       {/* Mobile menu */}
       <AnimatePresence>
-        {menuOpen && mobile && (
+        {menuOpen && (
           <motion.div
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
@@ -111,7 +114,7 @@ export default function TopNav() {
               >
                 Let's Talk
               </button>
-              <div className="flex gap-4 px-4 pt-2">
+              <div className="flex items-center gap-4 px-4 pt-2">
                 {SOCIAL_LINKS.map((link) => (
                   <a
                     key={link.href}
@@ -124,6 +127,7 @@ export default function TopNav() {
                     {link.icon}
                   </a>
                 ))}
+                <ThemeToggle />
               </div>
             </div>
           </motion.div>

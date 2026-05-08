@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/all';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SERVICES } from '@/lib/contracting-data';
 import { useTilt } from '@/hooks/useTilt';
 import TextReveal from '@/components/TextReveal';

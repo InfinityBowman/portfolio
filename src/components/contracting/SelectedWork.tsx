@@ -2,7 +2,7 @@ import { useRef } from 'react';
 import { Link } from '@tanstack/react-router';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/all';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { CASE_STUDIES } from '@/lib/contracting-data';
 import TextReveal from '@/components/TextReveal';
 

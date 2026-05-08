@@ -1,4 +1,4 @@
-import { createContext, useCallback, useContext, useEffect, useState } from 'react';
+import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
 
 type Theme = 'light' | 'dark';
 
@@ -31,10 +31,21 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setThemeState] = useState<Theme>('light');
 
   useEffect(() => {
-    const saved = localStorage.getItem('theme') as Theme | null;
+    let saved: string | null = null;
+    try { saved = localStorage.getItem('theme'); } catch {}
     const initial = saved === 'light' || saved === 'dark' ? saved : getSystemTheme();
     setThemeState(initial);
     applyTheme(initial);
+
+    const mq = window.matchMedia('(prefers-color-scheme: dark)');
+    const onChange = () => {
+      if (localStorage.getItem('theme')) return;
+      const next = mq.matches ? 'dark' : 'light';
+      setThemeState(next);
+      applyTheme(next);
+    };
+    mq.addEventListener('change', onChange);
+    return () => mq.removeEventListener('change', onChange);
   }, []);
 
   const toggleTheme = useCallback(() => {
@@ -43,13 +54,15 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
       localStorage.setItem('theme', next);
       document.documentElement.classList.add('theme-transition');
       applyTheme(next);
-      setTimeout(() => document.documentElement.classList.remove('theme-transition'), 500);
+      setTimeout(() => document.documentElement.classList.remove('theme-transition'), 550);
       return next;
     });
   }, []);
 
+  const value = useMemo(() => ({ theme, toggleTheme }), [theme, toggleTheme]);
+
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+    <ThemeContext.Provider value={value}>
       {children}
     </ThemeContext.Provider>
   );

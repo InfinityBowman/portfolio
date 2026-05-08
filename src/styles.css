@@ -4,6 +4,7 @@
 
 /* Light - default */
 :root {
+  color-scheme: light dark;
   --background: #fafbfd;
   --background-hover: #f0f2f5;
   --foreground: #1a1a2e;
@@ -72,6 +73,7 @@
 
 /* Force light - user toggle */
 [data-theme='light'] {
+  color-scheme: light;
   --background: #fafbfd;
   --background-hover: #f0f2f5;
   --foreground: #1a1a2e;
@@ -104,6 +106,7 @@
 
 /* Force dark - portfolio layout or user toggle */
 [data-theme='dark'] {
+  color-scheme: dark;
   --background: #0f0f1a;
   --background-hover: #1a1a2e;
   --foreground: #f1f5f9;
@@ -368,6 +371,13 @@ textarea:-webkit-autofill:focus {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+
+  .theme-transition,
+  .theme-transition *,
+  .theme-transition *::before,
+  .theme-transition *::after {
+    transition: none !important;
   }
 
   ::view-transition-group(*) {

@@ -1,3 +1,4 @@
+import { useId } from 'react';
 import { motion } from 'motion/react';
 import { useTheme } from '@/lib/theme';
 
@@ -16,15 +17,17 @@ const dots = [
 
 export default function ThemeToggle() {
   const { theme, toggleTheme } = useTheme();
+  const id = useId();
   const isDark = theme === 'dark';
 
   return (
     <button
       onClick={toggleTheme}
       aria-label={`Switch to ${isDark ? 'light' : 'dark'} mode`}
-      className="p-2 rounded-lg text-muted-foreground hover:text-primary transition-colors"
+      className="p-2 rounded-lg text-muted-foreground hover:text-primary transition-colors focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
     >
       <motion.svg
+        aria-hidden="true"
         width="20"
         height="20"
         viewBox="0 0 24 24"
@@ -32,11 +35,11 @@ export default function ThemeToggle() {
         animate={{ rotate: isDark ? 40 : 90 }}
         transition={spring}
       >
-        <mask id="sun-dot-mask">
+        <mask id={`sun-dot-mask-${id}`}>
           <rect x="-10" y="-10" width="44" height="44" fill="#FFF" />
           <circle r="6" cx="12" cy="12" fill="#000" />
         </mask>
-        <mask id="moon-cutout-mask">
+        <mask id={`moon-cutout-mask-${id}`}>
           <rect x="0" y="0" width="24" height="24" fill="#FFF" />
           <motion.circle
             cx="12"
@@ -47,7 +50,7 @@ export default function ThemeToggle() {
             transition={spring}
           />
         </mask>
-        <mask id="moon-crescent-mask">
+        <mask id={`moon-crescent-mask-${id}`}>
           <rect x="0" y="0" width="24" height="24" fill="#000" />
           <motion.circle
             cx="12"
@@ -59,7 +62,7 @@ export default function ThemeToggle() {
           />
         </mask>
 
-        <g mask="url(#sun-dot-mask)">
+        <g mask={`url(#sun-dot-mask-${id})`}>
           {dots.map((dot, i) => (
             <g key={i} transform={`translate(${dot.cx}, ${dot.cy})`}>
               <motion.circle
@@ -81,7 +84,7 @@ export default function ThemeToggle() {
           ))}
         </g>
 
-        <g mask="url(#moon-cutout-mask)">
+        <g mask={`url(#moon-cutout-mask-${id})`}>
           <motion.circle
             cx="12"
             cy="12"
@@ -94,7 +97,7 @@ export default function ThemeToggle() {
           />
         </g>
 
-        <g mask="url(#moon-crescent-mask)">
+        <g mask={`url(#moon-crescent-mask-${id})`}>
           <motion.circle
             cx="12"
             r="8"

@@ -2,7 +2,7 @@ import { HiOutlineExternalLink } from 'react-icons/hi';
 import { Link } from '@tanstack/react-router';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/all';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useRef } from 'react';
 import { MY_PROJECTS } from '@/lib/data';
 import SectionTitle from '@/components/SectionTitle';
