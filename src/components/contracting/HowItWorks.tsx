@@ -32,7 +32,7 @@ export default function HowItWorks() {
       <div className="grid gap-8 sm:grid-cols-3">
         {PROCESS_STEPS.map((step) => (
           <div key={step.number} className="step-item text-center">
-            <div className="w-12 h-12 rounded-full border-2 border-muted flex items-center justify-center mx-auto mb-4 text-lg font-semibold text-primary">
+            <div className="size-12 rounded-full bg-secondary flex items-center justify-center mx-auto mb-4 text-lg font-semibold text-primary">
               {step.number}
             </div>
             <h3 className="text-lg font-semibold text-primary mb-2">{step.title}</h3>

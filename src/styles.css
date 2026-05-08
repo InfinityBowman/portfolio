@@ -7,6 +7,10 @@
   --background: #eff1f5;
   --background-hover: #e6e9ef;
   --foreground: #4c4f69;
+  --card: #e6e9ef;
+  --card-foreground: #4c4f69;
+  --popover: #e6e9ef;
+  --popover-foreground: #4c4f69;
   --primary: #4c4f69;
   --primary-foreground: #eff1f5;
   --secondary: #ccd0da;
@@ -15,6 +19,12 @@
   --muted-hover: #9ca0b0;
   --muted-foreground: #6c6f85;
   --accent: #bcc0cc;
+  --accent-foreground: #4c4f69;
+  --destructive: #d20f39;
+  --border: #bcc0cc;
+  --input: #bcc0cc;
+  --ring: #7287fd;
+  --radius: 0.625rem;
 
   --subtext: #6c6f85;
   --link-hover: #8839ef;
@@ -28,6 +38,10 @@
     --background: oklch(0.28 0.0559 282.1);
     --background-hover: oklch(0.36 0.0777 289.59);
     --foreground: oklch(0.98 0.0017 247.84);
+    --card: oklch(0.32 0.065 285);
+    --card-foreground: oklch(0.98 0.0017 247.84);
+    --popover: oklch(0.32 0.065 285);
+    --popover-foreground: oklch(0.98 0.0017 247.84);
     --primary: oklch(0.99 0.0017 247.84);
     --primary-foreground: oklch(0.3 0.05 264);
     --secondary: oklch(0.3 0.0629 281.93);
@@ -36,6 +50,12 @@
     --muted-hover: oklch(0.47 0.1 289);
     --muted-foreground: oklch(0.85 0.0167 261.49);
     --accent: oklch(0.36 0.0777 289.59);
+    --accent-foreground: oklch(0.98 0.0017 247.84);
+    --destructive: oklch(0.65 0.2 25);
+    --border: oklch(0.36 0.0777 289.59);
+    --input: oklch(0.36 0.0777 289.59);
+    --ring: oklch(0.65 0.15 280);
+    --radius: 0.625rem;
 
     --subtext: oklch(0.7 0 0);
     --link-hover: hsla(311, 71%, 63%, 90%);
@@ -49,6 +69,10 @@
   --background: #eff1f5;
   --background-hover: #e6e9ef;
   --foreground: #4c4f69;
+  --card: #e6e9ef;
+  --card-foreground: #4c4f69;
+  --popover: #e6e9ef;
+  --popover-foreground: #4c4f69;
   --primary: #4c4f69;
   --primary-foreground: #eff1f5;
   --secondary: #ccd0da;
@@ -57,6 +81,11 @@
   --muted-hover: #9ca0b0;
   --muted-foreground: #6c6f85;
   --accent: #bcc0cc;
+  --accent-foreground: #4c4f69;
+  --destructive: #d20f39;
+  --border: #bcc0cc;
+  --input: #bcc0cc;
+  --ring: #7287fd;
 
   --subtext: #6c6f85;
   --link-hover: #8839ef;
@@ -69,6 +98,10 @@
   --background: oklch(0.28 0.0559 282.1);
   --background-hover: oklch(0.36 0.0777 289.59);
   --foreground: oklch(0.98 0.0017 247.84);
+  --card: oklch(0.32 0.065 285);
+  --card-foreground: oklch(0.98 0.0017 247.84);
+  --popover: oklch(0.32 0.065 285);
+  --popover-foreground: oklch(0.98 0.0017 247.84);
   --primary: oklch(0.99 0.0017 247.84);
   --primary-foreground: oklch(0.3 0.05 264);
   --secondary: oklch(0.3 0.0629 281.93);
@@ -77,6 +110,11 @@
   --muted-hover: oklch(0.47 0.1 289);
   --muted-foreground: oklch(0.85 0.0167 261.49);
   --accent: oklch(0.36 0.0777 289.59);
+  --accent-foreground: oklch(0.98 0.0017 247.84);
+  --destructive: oklch(0.65 0.2 25);
+  --border: oklch(0.36 0.0777 289.59);
+  --input: oklch(0.36 0.0777 289.59);
+  --ring: oklch(0.65 0.15 280);
 
   --subtext: oklch(0.7 0 0);
   --link-hover: hsla(311, 71%, 63%, 90%);
@@ -84,18 +122,33 @@
   --gradient-text: linear-gradient(to right, #f8923e, #f367af);
 }
 
-@theme {
-  /* Theme colors */
+@theme inline {
   --color-background: var(--background);
   --color-background-hover: var(--background-hover);
   --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
   --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
   --color-muted: var(--muted);
   --color-muted-hover: var(--muted-hover);
   --color-muted-foreground: var(--muted-foreground);
   --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
 
   --breakpoint-xs: 30rem;
 }

@@ -40,7 +40,7 @@ export default function SelectedWork() {
         {CASE_STUDIES.map((study) => (
           <div
             key={study.title}
-            className="case-study grid gap-6 sm:grid-cols-2 items-start p-6 rounded-xl border border-accent bg-background/60 backdrop-blur-sm"
+            className="case-study grid gap-6 sm:grid-cols-2 items-start p-6 rounded-xl border border-border bg-background/60 backdrop-blur-sm"
           >
             <div className="order-2 sm:order-1">
               <h3 className="text-xl font-semibold text-primary mb-5">{study.title}</h3>
@@ -54,7 +54,7 @@ export default function SelectedWork() {
               <img
                 src={study.image}
                 alt={study.title}
-                className="w-full rounded-lg border border-accent"
+                className="w-full rounded-lg border border-border"
                 loading="lazy"
               />
             </div>

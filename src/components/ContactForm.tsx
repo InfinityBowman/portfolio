@@ -99,7 +99,7 @@ export default function ContactForm({
   }
 
   const inputClass =
-    "w-full rounded-lg border border-muted bg-background/60 px-4 py-2.5 text-base text-secondary-foreground placeholder:text-muted-foreground/70 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-colors disabled:opacity-50";
+    "w-full rounded-lg border border-input bg-background/60 px-4 py-2.5 text-base text-secondary-foreground placeholder:text-muted-foreground/70 focus:border-ring focus:outline-none focus:ring-1 focus:ring-ring transition-colors disabled:opacity-50";
 
   return (
     <form
@@ -203,7 +203,7 @@ export default function ContactForm({
         <button
           type="submit"
           disabled={submitting}
-          className="group flex items-center justify-center gap-2 border border-muted bg-background px-5 py-3 text-primary rounded-lg hover:bg-secondary hover:border-primary transition-colors disabled:cursor-not-allowed disabled:opacity-80 min-w-[160px]"
+          className="group flex items-center justify-center gap-2 border border-input bg-background px-5 py-3 text-primary rounded-lg hover:bg-secondary hover:border-ring transition-colors disabled:cursor-not-allowed disabled:opacity-80 min-w-[160px]"
         >
           <AnimatePresence mode="wait" initial={false}>
             {submitting ? (
@@ -258,7 +258,7 @@ export default function ContactForm({
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -6 }}
                 transition={{ duration: 0.25 }}
-                className="text-red-400 block"
+                className="text-destructive block"
               >
                 {status.message}
               </motion.span>

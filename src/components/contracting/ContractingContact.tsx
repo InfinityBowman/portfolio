@@ -33,7 +33,7 @@ export default function ContractingContact() {
         Tell me what you're working on and I'll get back to you. No commitment, no pressure.
       </p>
 
-      <div className="contact-fade max-w-2xl mx-auto p-6 rounded-xl border border-accent bg-background/60 backdrop-blur-sm">
+      <div className="contact-fade max-w-2xl mx-auto p-6 rounded-xl border border-border bg-background/60 backdrop-blur-sm">
         <ContactForm
           showProjectType
           ctaLabel="Send Message"

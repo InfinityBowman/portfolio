@@ -33,7 +33,7 @@ export default function Testimonials() {
         {TESTIMONIALS.map((t, i) => (
           <div
             key={i}
-            className="testimonial-card p-6 rounded-xl border border-accent bg-background/60 backdrop-blur-sm text-center"
+            className="testimonial-card p-6 rounded-xl border border-border bg-background/60 backdrop-blur-sm text-center"
           >
             <blockquote className="text-lg text-primary mb-4">
               &ldquo;{t.quote}&rdquo;

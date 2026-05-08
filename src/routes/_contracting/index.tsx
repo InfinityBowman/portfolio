@@ -33,14 +33,22 @@ export const Route = createFileRoute('/_contracting/')({
 
 function ContractingPage() {
   return (
-    <div className="space-y-24 sm:space-y-32 mx-auto max-w-5xl px-4 sm:px-8">
-      <ContractingHero />
-      <CredibilityBar />
-      <Services />
-      <HowItWorks />
-      <SelectedWork />
-      <Testimonials />
-      <ContractingContact />
-    </div>
+    <>
+      <div className="space-y-24 sm:space-y-32 mx-auto max-w-6xl px-4 sm:px-8">
+        <ContractingHero />
+        <CredibilityBar />
+        <Services />
+        <HowItWorks />
+        <SelectedWork />
+      </div>
+      <div className="bg-secondary/15 mt-24 sm:mt-32 py-20 sm:py-28">
+        <div className="mx-auto max-w-6xl px-4 sm:px-8">
+          <Testimonials />
+        </div>
+      </div>
+      <div className="mx-auto max-w-6xl px-4 sm:px-8 pt-24 sm:pt-32">
+        <ContractingContact />
+      </div>
+    </>
   );
 }
