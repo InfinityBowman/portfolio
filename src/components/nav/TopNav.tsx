@@ -38,8 +38,8 @@ export default function TopNav() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-background/80 border-b border-accent/50">
       <nav className="max-w-6xl mx-auto px-4 sm:px-8 h-16 flex items-center justify-between">
-        <Link to="/" className="text-xl font-bold tracking-tight text-primary hover:opacity-80 transition-opacity">
-          Jacob Maynard
+        <Link to="/" className="text-xl tracking-tight text-primary hover:opacity-80 transition-opacity" style={{ fontFamily: "'Fira Mono', 'JetBrains Mono', 'Consolas', monospace", fontWeight: 600 }}>
+          j<span style={{ color: '#7287fd' }}>;</span>maynard
         </Link>
 
         {/* Desktop nav */}
@@ -61,7 +61,7 @@ export default function TopNav() {
             onClick={scrollToContact}
             className="text-sm font-medium px-4 py-2 rounded-lg border border-muted bg-background hover:bg-secondary hover:border-primary text-primary transition-colors"
           >
-            Contact
+            Let's Talk
           </button>
           <ThemeToggle />
         </div>
@@ -109,7 +109,7 @@ export default function TopNav() {
                 onClick={scrollToContact}
                 className="w-full text-left px-4 py-3 rounded-lg text-base font-medium border border-muted text-primary hover:bg-secondary/30 transition-colors"
               >
-                Contact
+                Let's Talk
               </button>
               <div className="flex gap-4 px-4 pt-2">
                 {SOCIAL_LINKS.map((link) => (

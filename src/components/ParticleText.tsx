@@ -13,8 +13,9 @@ const THEME_COLORS = {
   light: { a: '#1e66f5', b: '#7287fd' },
 };
 
-export default function ParticleText({ text = 'Jacob Maynard' }: { text?: string }) {
-  const { theme } = useTheme();
+export default function ParticleText({ text = 'Jacob Maynard', colorScheme }: { text?: string; colorScheme?: 'light' | 'dark' }) {
+  const { theme: contextTheme } = useTheme();
+  const theme = colorScheme ?? contextTheme;
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const textRef = useRef<HTMLHeadingElement>(null);

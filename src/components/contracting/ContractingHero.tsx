@@ -33,7 +33,7 @@ export default function ContractingHero() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 1.0 }}
       >
-        I build and optimize websites, dashboards, and AI-powered tools for small businesses.
+        I turn your ideas into software that works.
       </motion.p>
 
       <motion.button
@@ -43,7 +43,7 @@ export default function ContractingHero() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 1.3 }}
       >
-        Work With Me
+        Let's Talk
       </motion.button>
     </section>
   );

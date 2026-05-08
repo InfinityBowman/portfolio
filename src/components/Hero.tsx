@@ -26,7 +26,7 @@ export default function Hero() {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.3, delay: 0.2 }}
       >
-        <ParticleText text="Jacob Maynard" />
+        <ParticleText text="Jacob Maynard" colorScheme="dark" />
       </motion.div>
       <motion.div
         initial="hidden"

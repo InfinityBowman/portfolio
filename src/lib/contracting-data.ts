@@ -5,25 +5,25 @@ export const SERVICES = [
     icon: FaGlobe,
     title: 'Web Development',
     description:
-      'Custom websites, Shopify stores, and landing pages built for speed and conversion. From a single landing page to a full e-commerce build.',
+      'Custom websites, web apps, and platforms built for speed and usability. From a single landing page to a full production system.',
   },
   {
     icon: FaRocket,
     title: 'Website Optimization',
     description:
-      'Speed, SEO, and accessibility improvements for your existing site. Faster load times, better search rankings, more customers.',
+      'Speed, SEO, and accessibility improvements for your existing site. Faster load times, better search rankings, better user experience.',
   },
   {
     icon: FaBrain,
     title: 'AI & Automation',
     description:
-      'Chatbots, smart forms, and automated workflows that save your team hours. Real tools for your business, not tech demos.',
+      'Chatbots, smart forms, and automated workflows that save your team hours. Real tools that solve real problems, not tech demos.',
   },
   {
     icon: FaChartBar,
     title: 'Custom Tools & Dashboards',
     description:
-      'Internal tools, analytics dashboards, and reporting systems tailored to how your business actually works.',
+      'Internal tools, analytics dashboards, and reporting systems tailored to how your team actually works.',
   },
 ];
 
@@ -36,9 +36,9 @@ export const PROCESS_STEPS = [
   },
   {
     number: 2,
-    title: 'Get a plan & quote',
+    title: 'Get a plan',
     description:
-      "I'll respond with a clear scope, timeline, and price. No jargon, no surprises.",
+      "I'll respond with a clear breakdown of what's needed, how long it'll take, and what it'll cost.",
   },
   {
     number: 3,
