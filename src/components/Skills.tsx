@@ -83,6 +83,7 @@ export default function Skills() {
                       src={item.icon}
                       alt={item.name + ' icon'}
                       className="w-full h-full object-contain"
+                      loading="lazy"
                     />
                 </div>
                   <span className="text-xl sm:text-2xl">{item.name}</span>

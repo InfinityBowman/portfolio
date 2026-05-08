@@ -8,7 +8,52 @@ import {
 import { ThemeProvider } from '@/lib/theme'
 import appCss from '../styles.css?url'
 
+const jsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Person',
+      '@id': 'https://jacobmaynard.dev/#person',
+      name: 'Jacob Maynard',
+      url: 'https://jacobmaynard.dev',
+      jobTitle: 'Software Engineer',
+      description: 'Web development, AI solutions, and custom software.',
+      sameAs: [
+        'https://github.com/InfinityBowman',
+        'https://www.linkedin.com/in/jacob-maynard-283767230/',
+      ],
+      knowsAbout: ['Web Development', 'Artificial Intelligence', 'React', 'TypeScript', 'Cloud Infrastructure'],
+    },
+    {
+      '@type': 'WebSite',
+      '@id': 'https://jacobmaynard.dev/#website',
+      url: 'https://jacobmaynard.dev',
+      name: 'Jacob Maynard',
+      publisher: { '@id': 'https://jacobmaynard.dev/#person' },
+    },
+  ],
+});
+
 export const Route = createRootRoute({
+  headers: () => ({
+    'Strict-Transport-Security': 'max-age=31536000; includeSubDomains; preload',
+    'X-Frame-Options': 'DENY',
+    'X-Content-Type-Options': 'nosniff',
+    'Referrer-Policy': 'strict-origin-when-cross-origin',
+    'Permissions-Policy': 'camera=(), microphone=(), geolocation=()',
+    'Content-Security-Policy': [
+      "default-src 'self'",
+      "script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval' https://plausible.jacobmaynard.dev",
+      "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+      `img-src 'self' data: blob:`,
+      "connect-src 'self' https://plausible.jacobmaynard.dev",
+      "font-src 'self' https://fonts.gstatic.com",
+      "frame-ancestors 'none'",
+      "form-action 'self'",
+      "base-uri 'self'",
+    ].join('; '),
+    'Cache-Control': 'public, s-maxage=3600, stale-while-revalidate=86400',
+  }),
   head: () => ({
     meta: [
       { charSet: 'utf-8' },
@@ -18,45 +63,56 @@ export const Route = createRootRoute({
         name: 'apple-mobile-web-app-status-bar-style',
         content: 'black-translucent',
       },
+      { name: 'robots', content: 'index,follow,max-image-preview:large' },
       { title: 'Jacob Maynard | Web Development & AI Solutions' },
       {
         name: 'description',
         content:
-          'I build and optimize websites, dashboards, and AI-powered tools for small businesses. Custom web development, SEO, and automation solutions.',
+          'I build and optimize websites, dashboards, and AI-powered tools. Custom web development, SEO, and automation solutions.',
       },
       {
         name: 'keywords',
         content:
-          'Jacob Maynard, Web Developer, Freelance Developer, Website Development, AI, SEO, Small Business, Saint Louis',
+          'Jacob Maynard, Web Developer, Freelance Developer, Website Development, AI, SEO, Saint Louis',
       },
       { name: 'author', content: 'Jacob Maynard' },
+      { property: 'og:site_name', content: 'Jacob Maynard' },
       { property: 'og:title', content: 'Jacob Maynard | Web Development & AI Solutions' },
       {
         property: 'og:description',
         content:
-          'I build and optimize websites, dashboards, and AI-powered tools for small businesses.',
+          'I build and optimize websites, dashboards, and AI-powered tools.',
       },
       { property: 'og:type', content: 'website' },
       { property: 'og:url', content: 'https://jacobmaynard.dev' },
       { property: 'og:image', content: 'https://jacobmaynard.dev/og-image.png' },
+      { property: 'og:image:width', content: '1200' },
+      { property: 'og:image:height', content: '630' },
+      { property: 'og:image:alt', content: 'Jacob Maynard - Web Development & AI Solutions' },
+      { property: 'og:locale', content: 'en_US' },
       { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'twitter:image', content: 'https://jacobmaynard.dev/og-image.png' },
       { name: 'twitter:title', content: 'Jacob Maynard | Web Development & AI Solutions' },
       {
         name: 'twitter:description',
         content:
-          'I build and optimize websites, dashboards, and AI-powered tools for small businesses.',
+          'I build and optimize websites, dashboards, and AI-powered tools.',
       },
     ],
     links: [
       { rel: 'stylesheet', href: appCss },
       { rel: 'icon', href: '/favicon.ico' },
+      { rel: 'manifest', href: '/site.webmanifest' },
       { rel: 'canonical', href: 'https://jacobmaynard.dev' },
     ],
     scripts: [
       {
         children:
           '(function(){var t=localStorage.getItem("theme");document.documentElement.dataset.theme=t==="dark"||t==="light"?t:matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light"})()',
+      },
+      {
+        type: 'application/ld+json',
+        children: jsonLd,
       },
       {
         src: 'https://plausible.jacobmaynard.dev/js/pa-Kgv3yIBtqUtsphy9Oc7Um.js',

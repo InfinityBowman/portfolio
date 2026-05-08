@@ -16,7 +16,7 @@ export default function ContractingHero() {
 
   return (
     <section id="hero" className="min-h-[85vh] relative flex flex-col gap-6 justify-center items-center text-center">
-      <div className="sr-only">Jacob Maynard - Web Development and AI Solutions</div>
+      <h1 className="sr-only">Jacob Maynard - Web Development and AI Solutions</h1>
 
       <motion.div
         className="w-full max-w-2xl xl:max-w-4xl -mb-2 sm:mb-0"

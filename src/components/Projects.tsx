@@ -125,6 +125,7 @@ export default function Projects() {
                   className="rounded-lg border border-white/30 lg:max-w-lg md:max-w-md sm:max-w-xs h-auto max-h-[400px] object-contain bg-black/20"
                   src={project.media}
                   alt={project.title + ' image'}
+                  loading="lazy"
                 />
               </div>
             )}

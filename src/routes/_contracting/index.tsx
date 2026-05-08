@@ -15,15 +15,18 @@ export const Route = createFileRoute('/_contracting/')({
       {
         name: 'description',
         content:
-          'I build and optimize websites, dashboards, and AI-powered tools for small businesses. Get a free quote today.',
+          'I build and optimize websites, dashboards, and AI-powered tools. Custom web development, SEO, and automation solutions.',
       },
       { property: 'og:title', content: 'Jacob Maynard | Web Development & AI Solutions' },
       {
         property: 'og:description',
         content:
-          'I build and optimize websites, dashboards, and AI-powered tools for small businesses.',
+          'I build and optimize websites, dashboards, and AI-powered tools.',
       },
       { property: 'og:url', content: 'https://jacobmaynard.dev' },
+    ],
+    links: [
+      { rel: 'canonical', href: 'https://jacobmaynard.dev' },
     ],
   }),
 });

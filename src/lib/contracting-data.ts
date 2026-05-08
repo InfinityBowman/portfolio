@@ -79,7 +79,7 @@ export const TESTIMONIALS = [
   {
     quote: "Jacob is a high-achieving, goal-oriented individual, and he is a pleasure to work with.",
     name: "Applied Research Associates",
-    role: "Internship Supervisor",
+    role: "Project Manager",
   },
 ];
 

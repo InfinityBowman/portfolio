@@ -1,0 +1,16 @@
+{
+  "name": "Jacob Maynard",
+  "short_name": "jmaynard",
+  "description": "Web development, AI solutions, and custom software.",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#eff1f5",
+  "background_color": "#eff1f5",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "500x440",
+      "type": "image/jpeg"
+    }
+  ]
+}

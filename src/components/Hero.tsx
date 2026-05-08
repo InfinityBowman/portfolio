@@ -19,7 +19,7 @@ export default function Hero() {
 
   return (
     <section id="hero" className="min-h-svh relative flex flex-col gap-8 justify-center items-center">
-      <div className="sr-only">Jacob Maynard's Portfolio Website</div>
+      <h1 className="sr-only">Jacob Maynard's Portfolio Website</h1>
       <motion.div
         className="w-full max-w-2xl xl:max-w-4xl text-center -mb-4 sm:mb-0"
         initial={{ opacity: 0 }}

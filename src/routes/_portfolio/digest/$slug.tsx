@@ -35,6 +35,19 @@ export const Route = createFileRoute('/_portfolio/digest/$slug')({
   },
   head: ({ loaderData }) => {
     if (!loaderData) return {};
+    const articleJsonLd = JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'Article',
+      headline: loaderData.title,
+      description: loaderData.summary,
+      datePublished: loaderData.date,
+      url: `https://jacobmaynard.dev/digest/${loaderData.slug}`,
+      author: {
+        '@type': 'Person',
+        name: 'Jacob Maynard',
+        url: 'https://jacobmaynard.dev',
+      },
+    });
     return {
       meta: [
         { title: `${loaderData.title} | Foxfire` },
@@ -43,12 +56,17 @@ export const Route = createFileRoute('/_portfolio/digest/$slug')({
         { property: 'og:description', content: loaderData.summary },
         { property: 'og:type', content: 'article' },
         { property: 'og:url', content: `https://jacobmaynard.dev/digest/${loaderData.slug}` },
+        { property: 'article:published_time', content: loaderData.date },
+        { property: 'article:author', content: 'Jacob Maynard' },
         { name: 'twitter:card', content: 'summary' },
         { name: 'twitter:title', content: loaderData.title },
         { name: 'twitter:description', content: loaderData.summary },
       ],
       links: [
         { rel: 'canonical', href: `https://jacobmaynard.dev/digest/${loaderData.slug}` },
+      ],
+      scripts: [
+        { type: 'application/ld+json', children: articleJsonLd },
       ],
     };
   },
