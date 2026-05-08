@@ -50,14 +50,6 @@ export const PROCESS_STEPS = [
 
 export const CASE_STUDIES = [
   {
-    title: 'Urban STL Analytics',
-    problem: 'St. Louis needed a way to visualize and explore civic data across neighborhoods.',
-    approach: 'Built an interactive mapping platform with Mapbox GL, real-time data visualization, and an AI-powered analysis agent.',
-    result: 'Grand Prize winner at HackSLU. Interactive data exploration across 800+ data points.',
-    image: '/projects/urban-stl-analytics.png',
-    link: '/portfolio#projects',
-  },
-  {
     title: 'CoRATES',
     problem: 'Teams needed a real-time collaborative rating and evaluation tool with reliable sync.',
     approach: 'Built with CRDTs over WebSockets and Cloudflare Durable Objects for conflict-free real-time collaboration.',
@@ -71,6 +63,14 @@ export const CASE_STUDIES = [
     approach: 'Led a team building a TanStack Start web app and React Native mobile app with shared authentication and real-time data.',
     result: 'Full-stack platform serving researchers with interactive maps and collaborative features.',
     image: '/projects/wr-home.png',
+    link: '/portfolio#projects',
+  },
+  {
+    title: 'Urban STL Analytics',
+    problem: 'St. Louis needed a way to visualize and explore civic data across neighborhoods.',
+    approach: 'Built an interactive mapping platform with Mapbox GL, real-time data visualization, and an AI-powered analysis agent.',
+    result: 'Grand Prize winner at HackSLU. Interactive data exploration across 800+ data points.',
+    image: '/projects/urban-stl-analytics.png',
     link: '/portfolio#projects',
   },
 ];
