@@ -83,13 +83,13 @@ const ScrollProgressIndicator = () => {
     <div
       ref={trackRef}
       onMouseDown={handleMouseDown}
-      className={`z-10 fixed top-[50svh] right-[2%] -translate-y-1/2 w-1.5 h-75 rounded-full bg-accent overflow-hidden hover:w-3 transition-all hidden sm:block ${
+      className={`bg-accent fixed top-[50svh] right-[2%] z-10 hidden h-75 w-1.5 -translate-y-1/2 overflow-hidden rounded-full transition-all hover:w-3 sm:block ${
         isDragging ? 'w-3' : ''
       }`}
       style={{ cursor: isDragging ? 'grabbing' : 'grab' }}
     >
       <div
-        className={`w-full bg-primary rounded-full h-full pointer-events-none ${isDragging ? 'opacity-80' : ''}`}
+        className={`bg-primary pointer-events-none h-full w-full rounded-full ${isDragging ? 'opacity-80' : ''}`}
         ref={scrollBarRef}
       ></div>
     </div>

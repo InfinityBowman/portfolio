@@ -1,8 +1,5 @@
 //  @ts-check
 
-import { tanstackConfig } from '@tanstack/eslint-config'
+import { tanstackConfig } from '@tanstack/eslint-config';
 
-export default [
-  { ignores: ['.output/**', '.wrangler/**', 'dist/**', '*.js'] },
-  ...tanstackConfig,
-]
+export default [{ ignores: ['.output/**', '.wrangler/**', 'dist/**', '*.js'] }, ...tanstackConfig];

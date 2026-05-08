@@ -1,13 +1,13 @@
-import { useState } from "react";
-import { FaCircleNotch } from "react-icons/fa";
-import { AnimatePresence, motion } from "motion/react";
-import { sendContactEmail } from "@/lib/contact";
+import { useState } from 'react';
+import { FaCircleNotch } from 'react-icons/fa';
+import { AnimatePresence, motion } from 'motion/react';
+import { sendContactEmail } from '@/lib/contact';
 
 type Status =
-  | { kind: "idle" }
-  | { kind: "submitting" }
-  | { kind: "success" }
-  | { kind: "error"; message: string };
+  | { kind: 'idle' }
+  | { kind: 'submitting' }
+  | { kind: 'success' }
+  | { kind: 'error'; message: string };
 
 const NAME_MAX = 100;
 const EMAIL_MAX = 254;
@@ -18,7 +18,7 @@ const MESSAGE_MAX = 5000;
 // success state is shown optimistically.
 const MIN_SUBMIT_MS = 1000;
 
-const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
+const sleep = (ms: number) => new Promise(r => setTimeout(r, ms));
 
 // Duration of the field fade-out before the values are cleared. Long enough
 // to read as a transition, short enough to feel snappy.
@@ -31,35 +31,41 @@ interface ContactFormProps {
 }
 
 const PROJECT_TYPES = [
-  "New website",
-  "Fix / improve existing site",
-  "Dashboard or custom tool",
-  "AI / automation",
-  "Something else",
+  'New website',
+  'Fix / improve existing site',
+  'Dashboard or custom tool',
+  'AI / automation',
+  'Something else',
 ];
 
 export default function ContactForm({
   showProjectType = false,
-  ctaLabel = "Send Message",
+  ctaLabel = 'Send Message',
   messagePlaceholder = "What's on your mind?",
 }: ContactFormProps) {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [projectType, setProjectType] = useState("");
-  const [message, setMessage] = useState("");
-  const [honeypot, setHoneypot] = useState("");
-  const [status, setStatus] = useState<Status>({ kind: "idle" });
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [projectType, setProjectType] = useState('');
+  const [message, setMessage] = useState('');
+  const [honeypot, setHoneypot] = useState('');
+  const [status, setStatus] = useState<Status>({ kind: 'idle' });
   const [fieldsVisible, setFieldsVisible] = useState(true);
 
-  const submitting = status.kind === "submitting";
+  const submitting = status.kind === 'submitting';
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     if (submitting) return;
 
-    const snapshot = { name, email, message, honeypot, projectType: projectType || undefined };
+    const snapshot = {
+      name,
+      email,
+      message,
+      honeypot,
+      projectType: projectType || undefined,
+    };
 
-    setStatus({ kind: "submitting" });
+    setStatus({ kind: 'submitting' });
 
     const sendPromise = sendContactEmail({ data: snapshot });
 
@@ -71,15 +77,15 @@ export default function ContactForm({
     // empty fields back in.
     setFieldsVisible(false);
     await sleep(FADE_MS);
-    setName("");
-    setEmail("");
-    setProjectType("");
-    setMessage("");
-    setStatus({ kind: "success" });
+    setName('');
+    setEmail('');
+    setProjectType('');
+    setMessage('');
+    setStatus({ kind: 'success' });
     setFieldsVisible(true);
 
-    window.plausible("Contact Form Submit", {
-      props: { projectType: snapshot.projectType ?? "none" },
+    window.plausible('Contact Form Submit', {
+      props: { projectType: snapshot.projectType ?? 'none' },
     });
 
     // Resolve the actual send in the background. On failure, restore the
@@ -91,85 +97,85 @@ export default function ContactForm({
       setEmail(snapshot.email);
       setMessage(snapshot.message);
       const errorMessage =
-        err instanceof Error
-          ? err.message
-          : "Something went wrong. Please try again or email me directly.";
-      setStatus({ kind: "error", message: errorMessage });
+        err instanceof Error ?
+          err.message
+        : 'Something went wrong. Please try again or email me directly.';
+      setStatus({ kind: 'error', message: errorMessage });
     }
   }
 
   const inputClass =
-    "w-full rounded-lg border border-input bg-background/60 px-4 py-2.5 text-base text-secondary-foreground placeholder:text-muted-foreground/70 focus:border-ring focus:outline-none focus:ring-1 focus:ring-ring transition-colors disabled:opacity-50";
+    'w-full rounded-lg border border-input bg-background/60 px-4 py-2.5 text-base text-secondary-foreground placeholder:text-muted-foreground/70 focus:border-ring focus:outline-none focus:ring-1 focus:ring-ring transition-colors disabled:opacity-50';
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="space-y-4 text-left"
-      noValidate
-    >
+    <form onSubmit={handleSubmit} className='space-y-4 text-left' noValidate>
       <motion.div
-        className="space-y-4"
+        className='space-y-4'
         animate={{ opacity: fieldsVisible ? 1 : 0 }}
-        transition={{ duration: FADE_MS / 1000, ease: "easeOut" }}
+        transition={{ duration: FADE_MS / 1000, ease: 'easeOut' }}
       >
-        <div className="grid gap-4 sm:grid-cols-2">
-          <label className="block">
-            <span className="mb-1 block text-sm text-muted-foreground">Name</span>
+        <div className='grid gap-4 sm:grid-cols-2'>
+          <label className='block'>
+            <span className='text-muted-foreground mb-1 block text-sm'>Name</span>
             <input
-              type="text"
+              type='text'
               value={name}
-              onChange={(e) => setName(e.target.value)}
+              onChange={e => setName(e.target.value)}
               required
               maxLength={NAME_MAX}
-              autoComplete="name"
+              autoComplete='name'
               disabled={submitting}
               className={inputClass}
-              placeholder="Your name"
+              placeholder='Your name'
             />
           </label>
-          <label className="block">
-            <span className="mb-1 block text-sm text-muted-foreground">Email</span>
+          <label className='block'>
+            <span className='text-muted-foreground mb-1 block text-sm'>Email</span>
             <input
-              type="email"
+              type='email'
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={e => setEmail(e.target.value)}
               required
               maxLength={EMAIL_MAX}
-              autoComplete="email"
+              autoComplete='email'
               disabled={submitting}
               className={inputClass}
-              placeholder="you@example.com"
+              placeholder='you@example.com'
             />
           </label>
         </div>
 
         {showProjectType && (
-          <label className="block">
-            <span className="mb-1 block text-sm text-muted-foreground">What do you need? <span className="text-muted-foreground/50">(optional)</span></span>
+          <label className='block'>
+            <span className='text-muted-foreground mb-1 block text-sm'>
+              What do you need? <span className='text-muted-foreground/50'>(optional)</span>
+            </span>
             <select
               value={projectType}
-              onChange={(e) => setProjectType(e.target.value)}
+              onChange={e => setProjectType(e.target.value)}
               disabled={submitting}
               className={`${inputClass} appearance-none`}
             >
-              <option value="">Select a project type...</option>
-              {PROJECT_TYPES.map((t) => (
-                <option key={t} value={t}>{t}</option>
+              <option value=''>Select a project type...</option>
+              {PROJECT_TYPES.map(t => (
+                <option key={t} value={t}>
+                  {t}
+                </option>
               ))}
             </select>
           </label>
         )}
 
-        <label className="block">
-          <span className="mb-1 block text-sm text-muted-foreground">Message</span>
+        <label className='block'>
+          <span className='text-muted-foreground mb-1 block text-sm'>Message</span>
           <textarea
             value={message}
-            onChange={(e) => setMessage(e.target.value)}
+            onChange={e => setMessage(e.target.value)}
             required
             maxLength={MESSAGE_MAX}
             rows={5}
             disabled={submitting}
-            className={`${inputClass} resize-y min-h-[120px]`}
+            className={`${inputClass} min-h-[120px] resize-y`}
             placeholder={messagePlaceholder}
           />
         </label>
@@ -178,91 +184,86 @@ export default function ContactForm({
       {/* Honeypot: visually hidden, not announced to assistive tech, kept off
           the tab order. Real users never see or focus this field. */}
       <div
-        aria-hidden="true"
+        aria-hidden='true'
         style={{
-          position: "absolute",
-          left: "-10000px",
-          width: "1px",
-          height: "1px",
-          overflow: "hidden",
+          position: 'absolute',
+          left: '-10000px',
+          width: '1px',
+          height: '1px',
+          overflow: 'hidden',
         }}
       >
         <label>
           Leave this field empty
           <input
-            type="text"
+            type='text'
             tabIndex={-1}
-            autoComplete="off"
+            autoComplete='off'
             value={honeypot}
-            onChange={(e) => setHoneypot(e.target.value)}
+            onChange={e => setHoneypot(e.target.value)}
           />
         </label>
       </div>
 
-      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+      <div className='flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between'>
         <button
-          type="submit"
+          type='submit'
           disabled={submitting}
-          className="group flex items-center justify-center gap-2 border border-input bg-background px-5 py-3 text-primary rounded-lg hover:bg-secondary hover:border-ring transition-colors disabled:cursor-not-allowed disabled:opacity-80 min-w-[160px]"
+          className='group border-input bg-background text-primary hover:bg-secondary hover:border-ring flex min-w-[160px] items-center justify-center gap-2 rounded-lg border px-5 py-3 transition-colors disabled:cursor-not-allowed disabled:opacity-80'
         >
-          <AnimatePresence mode="wait" initial={false}>
-            {submitting ? (
+          <AnimatePresence mode='wait' initial={false}>
+            {submitting ?
               <motion.span
-                key="sending"
+                key='sending'
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.18 }}
-                className="flex items-center gap-2 text-secondary-foreground"
+                className='text-secondary-foreground flex items-center gap-2'
               >
-                <FaCircleNotch className="animate-spin" aria-hidden="true" />
+                <FaCircleNotch className='animate-spin' aria-hidden='true' />
                 Sending
               </motion.span>
-            ) : (
-              <motion.span
-                key="idle"
+            : <motion.span
+                key='idle'
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.18 }}
-                className="text-secondary-foreground group-hover:text-primary transition-colors"
+                className='text-secondary-foreground group-hover:text-primary transition-colors'
               >
                 {ctaLabel}
               </motion.span>
-            )}
+            }
           </AnimatePresence>
         </button>
 
-        <div
-          className="text-sm min-h-[1.25rem]"
-          aria-live="polite"
-          role="status"
-        >
-          <AnimatePresence mode="wait">
-            {status.kind === "success" ? (
+        <div className='min-h-[1.25rem] text-sm' aria-live='polite' role='status'>
+          <AnimatePresence mode='wait'>
+            {status.kind === 'success' ?
               <motion.span
-                key="success"
+                key='success'
                 initial={{ opacity: 0, y: 6 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -6 }}
                 transition={{ duration: 0.25 }}
-                className="text-primary block"
+                className='text-primary block'
               >
                 Thanks, I'll get back to you soon.
               </motion.span>
-            ) : null}
-            {status.kind === "error" ? (
+            : null}
+            {status.kind === 'error' ?
               <motion.span
-                key="error"
+                key='error'
                 initial={{ opacity: 0, y: 6 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -6 }}
                 transition={{ duration: 0.25 }}
-                className="text-destructive block"
+                className='text-destructive block'
               >
                 {status.message}
               </motion.span>
-            ) : null}
+            : null}
           </AnimatePresence>
         </div>
       </div>

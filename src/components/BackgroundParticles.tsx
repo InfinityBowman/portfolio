@@ -35,7 +35,7 @@ export default function BackgroundParticles({ opacity }: BackgroundParticlesProp
         const newHeight = canvas.height / pixelRatio;
 
         // Adjust particle positions proportionally
-        particles.forEach((p) => {
+        particles.forEach(p => {
           p.x = (p.x / oldWidth) * newWidth;
           p.y = (p.y / oldHeight) * newHeight;
         });
@@ -137,7 +137,7 @@ export default function BackgroundParticles({ opacity }: BackgroundParticlesProp
       const grid = new Map<string, Array<Particle>>();
 
       // Place particles in grid cells for spatial partitioning
-      particles.forEach((particle) => {
+      particles.forEach(particle => {
         const cellX = Math.floor(particle.x / gridSize);
         const cellY = Math.floor(particle.y / gridSize);
         const key = `${cellX},${cellY}`;
@@ -151,7 +151,7 @@ export default function BackgroundParticles({ opacity }: BackgroundParticlesProp
       });
 
       // Check connections only with nearby grid cells
-      particles.forEach((p1) => {
+      particles.forEach(p1 => {
         const cellX = Math.floor(p1.x / gridSize);
         const cellY = Math.floor(p1.y / gridSize);
 
@@ -161,7 +161,7 @@ export default function BackgroundParticles({ opacity }: BackgroundParticlesProp
             const key = `${cellX + x},${cellY + y}`;
             const cellParticles = grid.get(key) ?? [];
 
-            cellParticles.forEach((p2) => {
+            cellParticles.forEach(p2 => {
               if (p1 === p2) return; // Skip self
 
               const dx = p1.x - p2.x;

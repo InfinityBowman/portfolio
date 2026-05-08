@@ -51,24 +51,30 @@ export const PROCESS_STEPS = [
 export const CASE_STUDIES = [
   {
     title: 'CoRATES',
-    problem: 'Teams needed a real-time collaborative rating and evaluation tool with reliable sync.',
-    approach: 'Built with CRDTs over WebSockets and Cloudflare Durable Objects for conflict-free real-time collaboration.',
+    problem:
+      'Teams needed a real-time collaborative rating and evaluation tool with reliable sync.',
+    approach:
+      'Built with CRDTs over WebSockets and Cloudflare Durable Objects for conflict-free real-time collaboration.',
     result: 'Production SaaS with Stripe billing, MFA, and edge-deployed infrastructure.',
     image: '/projects/corates.png',
     link: '/portfolio#projects',
   },
   {
     title: "Where's Religion?",
-    problem: 'A digital humanities research project needed a cross-platform tool for mapping and analyzing religious data.',
-    approach: 'Led a team building a TanStack Start web app and React Native mobile app with shared authentication and real-time data.',
-    result: 'Full-stack platform serving researchers with interactive maps and collaborative features.',
+    problem:
+      'A digital humanities research project needed a cross-platform tool for mapping and analyzing religious data.',
+    approach:
+      'Led a team building a TanStack Start web app and React Native mobile app with shared authentication and real-time data.',
+    result:
+      'Full-stack platform serving researchers with interactive maps and collaborative features.',
     image: '/projects/wr-home.png',
     link: '/portfolio#projects',
   },
   {
     title: 'Urban STL Analytics',
     problem: 'St. Louis needed a way to visualize and explore civic data across neighborhoods.',
-    approach: 'Built an interactive mapping platform with Mapbox GL, real-time data visualization, and an AI-powered analysis agent.',
+    approach:
+      'Built an interactive mapping platform with Mapbox GL, real-time data visualization, and an AI-powered analysis agent.',
     result: 'Grand Prize winner at HackSLU. Interactive data exploration across 800+ data points.',
     image: '/projects/urban-stl-analytics.png',
     link: '/portfolio#projects',
@@ -77,19 +83,22 @@ export const CASE_STUDIES = [
 
 export const TESTIMONIALS = [
   {
-    quote: "Jacob differentiated himself from other interns and I tasked him to lead the re-imaging and creation of a software product. Not only did he successfully complete the assignment, he introduced a new software architecture that we will leverage in future applications.",
-    name: "RuthAnn Abruzzi",
-    role: "Principal Scientist, Applied Research Associates",
+    quote:
+      'Jacob differentiated himself from other interns and I tasked him to lead the re-imaging and creation of a software product. Not only did he successfully complete the assignment, he introduced a new software architecture that we will leverage in future applications.',
+    name: 'RuthAnn Abruzzi',
+    role: 'Principal Scientist, Applied Research Associates',
   },
   {
-    quote: "Jacob built a collaborative tool that transformed how our research team works together. He took the time to understand our process and delivered something we rely on daily.",
-    name: "Brandy Maynard, Ph.D.",
-    role: "Associate Dean & Professor, School of Social Work, Saint Louis University",
+    quote:
+      'Jacob built a collaborative tool that transformed how our research team works together. He took the time to understand our process and delivered something we rely on daily.',
+    name: 'Brandy Maynard, Ph.D.',
+    role: 'Associate Dean & Professor, School of Social Work, Saint Louis University',
   },
   {
-    quote: "Jacob led the technical development of our mapping platform and delivered exactly what our research team needed. Skilled, reliable, and genuinely easy to work with.",
-    name: "Adam Park",
-    role: "Research Fellow, American Studies, Saint Louis University",
+    quote:
+      'Jacob led the technical development of our mapping platform and delivered exactly what our research team needed. Skilled, reliable, and genuinely easy to work with.',
+    name: 'Adam Park',
+    role: 'Research Fellow, American Studies, Saint Louis University',
   },
 ];
 

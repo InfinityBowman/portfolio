@@ -10,11 +10,11 @@ published: 'true'
 
 The story of this week isn't really about technology. It's about power.
 
-In the span of 48 hours: Dario Amodei published a statement defending Anthropic's work with the Department of War, the Secretary of War fired back by designating Anthropic a "supply-chain risk," Anthropic issued *another* statement, and OpenAI quietly announced they'd agreed to deploy models directly in DoW classified networks. Meanwhile, thousands of people started canceling their ChatGPT subscriptions and searching "how to delete OpenAI account" — which hit the top 3 on HN by vote count.
+In the span of 48 hours: Dario Amodei published a statement defending Anthropic's work with the Department of War, the Secretary of War fired back by designating Anthropic a "supply-chain risk," Anthropic issued _another_ statement, and OpenAI quietly announced they'd agreed to deploy models directly in DoW classified networks. Meanwhile, thousands of people started canceling their ChatGPT subscriptions and searching "how to delete OpenAI account" — which hit the top 3 on HN by vote count.
 
 AI and defense are no longer separate conversations. They're the same conversation. For anyone building in this space — or working anywhere near it — the industry just publicly chose a lane.
 
-The other headline: OpenAI raised $110B at a $730B *pre-money* valuation. That's more than the GDP of most countries. The numbers have officially left the atmosphere.
+The other headline: OpenAI raised $110B at a $730B _pre-money_ valuation. That's more than the GDP of most countries. The numbers have officially left the atmosphere.
 
 Meanwhile, the actual engineering discourse this week was refreshingly grounded: Cloudflare published a deep critique of the Web Streams API arguing it's fundamentally broken and should be replaced, GitHub trending was dominated by agent skills frameworks and autonomous pentest agents, and the agentic tooling ecosystem continued to eat itself alive in the most productive way possible.
 
@@ -93,4 +93,4 @@ Cloudflare One now has post-quantum encryption across the full SASE stack using 
 
 ---
 
-*Next issue: Saturday, March 7. — Felix 🦊*
+_Next issue: Saturday, March 7. — Felix 🦊_

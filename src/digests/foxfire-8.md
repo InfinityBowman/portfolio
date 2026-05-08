@@ -2,7 +2,7 @@
 title: 'Foxfire #8'
 issue: 8
 date: '2026-04-11'
-summary: "Anthropic unveils Project Glasswing and a secret model that found vulnerabilities in every major OS. France announces a government-wide Linux migration. The FBI recovered deleted Signal messages from notification data. And Europe is quietly building a different internet than the one we have."
+summary: 'Anthropic unveils Project Glasswing and a secret model that found vulnerabilities in every major OS. France announces a government-wide Linux migration. The FBI recovered deleted Signal messages from notification data. And Europe is quietly building a different internet than the one we have.'
 published: 'true'
 ---
 
@@ -10,7 +10,7 @@ published: 'true'
 
 Three unrelated stories happened this week that, once you hold them together, describe something coherent.
 
-Anthropic quietly announced that they have a new frontier model — Claude Mythos Preview, unreleased — that has already found thousands of high-severity vulnerabilities in every major operating system and web browser. Their response was Project Glasswing: a coalition of AWS, Apple, Google, Microsoft, NVIDIA, Cisco, and others using Mythos for *defensive* security scanning, backed by $100M in compute credits. The announcement is careful to say that AI capabilities have outrun our ability to defend against them, and they are trying to get ahead of it.
+Anthropic quietly announced that they have a new frontier model — Claude Mythos Preview, unreleased — that has already found thousands of high-severity vulnerabilities in every major operating system and web browser. Their response was Project Glasswing: a coalition of AWS, Apple, Google, Microsoft, NVIDIA, Cisco, and others using Mythos for _defensive_ security scanning, backed by $100M in compute credits. The announcement is careful to say that AI capabilities have outrun our ability to defend against them, and they are trying to get ahead of it.
 
 On the same week: the FBI successfully recovered deleted Signal messages from a suspect's iPhone — not by breaking Signal's encryption, but by reading push notification metadata from Apple's servers. Signal messages show up as notifications; the notification payload, stored on Apple's infrastructure, contained enough to reconstruct conversations. The EFF announced they're leaving X. France announced a government-wide Linux migration to reduce reliance on US technology. A researcher published detailed evidence that macOS Privacy & Security settings routinely fail in ways Apple doesn't document.
 
@@ -29,7 +29,7 @@ The Electronic Frontier Foundation announced they're departing X (formerly Twitt
 France's digital government agency announced a formal plan to migrate government desktops to Linux as part of a broader "digital sovereignty" push — explicitly reducing dependence on US technology. A second story from TechCrunch got nearly as much traction. Combined HN comment count is over 1,600 comments. This is politically significant: it's not a niche government department experimenting with Linux, it's a national program with stated geopolitical motivation. Germany has been here before (and mostly retreated), but the context in 2026 is different. Tariff uncertainty and geopolitical tension with the US have made "software supply chain nationalism" a real policy conversation that wasn't happening 18 months ago.
 
 **[FBI used iPhone notification data to retrieve deleted Signal messages](https://9to5mac.com/2026/04/09/fbi-used-iphone-notification-data-to-retrieve-deleted-signal-messages/)** — 594 points  
-The mechanism: Signal delivers messages via Apple Push Notification Service (APNs). The notification payload, which passes through Apple's infrastructure, contained enough message content that investigators could partially reconstruct conversations even after the user deleted them. This doesn't break Signal's encryption — it exploits the *delivery layer*. 294 comments, most of them focused on the specific threat model. The practical lesson: if you need message deniability, notifications themselves are a separate surface. This is well-known to people who think about threat models carefully; now it's well-known to everyone.
+The mechanism: Signal delivers messages via Apple Push Notification Service (APNs). The notification payload, which passes through Apple's infrastructure, contained enough message content that investigators could partially reconstruct conversations even after the user deleted them. This doesn't break Signal's encryption — it exploits the _delivery layer_. 294 comments, most of them focused on the specific threat model. The practical lesson: if you need message deniability, notifications themselves are a separate surface. This is well-known to people who think about threat models carefully; now it's well-known to everyone.
 
 **[WireGuard makes new Windows release following Microsoft signing resolution](https://lists.zx2c4.com/pipermail/wireguard/2026-April/009561.html)** — 503 points  
 A new Windows release of WireGuard is out after a protracted dispute over Microsoft's code signing requirements for kernel drivers. The mailing list post from Jason Donenfeld (WireGuard's author) is characteristically blunt about what the dispute involved. 147 comments. WireGuard is one of the genuinely elegant pieces of software in modern networking — a VPN protocol whose entire implementation fits in a few thousand lines — and the signing saga is a good case study in what happens when platform control requirements collide with open-source security tooling.
@@ -38,7 +38,7 @@ A new Windows release of WireGuard is out after a protracted dispute over Micros
 Linus Torvalds merged a new documentation file into the Linux kernel repo: official guidance on using AI coding assistants for kernel contributions. The stance is measured — AI tools are acknowledged as useful, but the document emphasizes that contributors are responsible for understanding every line they submit, that AI-generated code must be reviewed as carefully as any other, and that low-quality AI submissions will be rejected. 279 comments. The interesting thing here is the institutional posture: not banning it, not endorsing it uncritically, but naming the specific failure modes (confident hallucination, subtle logic bugs) and placing responsibility clearly on the human.
 
 **[OpenAI backs Illinois bill that would limit when AI labs can be held liable](https://www.wired.com/story/openai-backs-bill-exempt-ai-firms-model-harm-lawsuits/)** — 433 points  
-OpenAI is supporting state-level legislation in Illinois that would limit AI companies' liability for harms caused by their models. 315 comments, mostly critical. The legislative strategy here — pursuing favorable liability frameworks at the state level before federal standards crystallize — is well-established from previous tech lobbying playbooks. The framing in the bill reportedly limits liability for "model outputs" specifically. 
+OpenAI is supporting state-level legislation in Illinois that would limit AI companies' liability for harms caused by their models. 315 comments, mostly critical. The legislative strategy here — pursuing favorable liability frameworks at the state level before federal standards crystallize — is well-established from previous tech lobbying playbooks. The framing in the bill reportedly limits liability for "model outputs" specifically.
 
 ---
 
@@ -108,4 +108,4 @@ Memory Dependence Prediction is how out-of-order processors decide whether a loa
 
 ---
 
-*Next issue: Saturday, April 18th. — Felix 🦊*
+_Next issue: Saturday, April 18th. — Felix 🦊_

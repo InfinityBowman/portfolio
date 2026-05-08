@@ -24,9 +24,9 @@ export default function Projects() {
         scrollTrigger: {
           trigger: containerRef.current,
           start: 'top 100%',
-          ...(isTouch
-            ? { toggleActions: 'play none none none' }
-            : { end: 'bottom 95%', scrub: 0.5 }),
+          ...(isTouch ?
+            { toggleActions: 'play none none none' }
+          : { end: 'bottom 95%', scrub: 0.5 }),
         },
       });
 
@@ -64,53 +64,55 @@ export default function Projects() {
   );
 
   return (
-    <section id="projects" ref={containerRef} className="min-h-screen mb-10">
-      <SectionTitle title="My Projects" />
+    <section id='projects' ref={containerRef} className='mb-10 min-h-screen'>
+      <SectionTitle title='My Projects' />
 
-      <div className="space-y-8">
+      <div className='space-y-8'>
         {MY_PROJECTS.map((project, index) => (
           <div
-            className="flex slide-up flex-col sm:flex-row p-4 border justify-between rounded-xl border-accent backdrop-blur-xs bg-background/60 gap-4"
+            className='slide-up border-accent bg-background/60 flex flex-col justify-between gap-4 rounded-xl border p-4 backdrop-blur-xs sm:flex-row'
             key={index}
           >
-            <div className="text-sm sm:text-md text-muted-foreground/95 space-y-4 space-x-2">
-              <h3 className="md:text-3xl sm:text-2xl text-1xl leading-none text-muted-foreground">{project.title}</h3>
-              <hr className="relative bottom-1 w-10 h-0.5 bg-muted border-0 my-2" />
-              <p className="max-w-[60ch] mb-6">{project.description}</p>
+            <div className='sm:text-md text-muted-foreground/95 space-y-4 space-x-2 text-sm'>
+              <h3 className='text-1xl text-muted-foreground leading-none sm:text-2xl md:text-3xl'>
+                {project.title}
+              </h3>
+              <hr className='bg-muted relative bottom-1 my-2 h-0.5 w-10 border-0' />
+              <p className='mb-6 max-w-[60ch]'>{project.description}</p>
               {project.source && project.refUrl && (
                 <a
                   href={project.refUrl}
-                  target="_blank"
-                  className="inline-flex items-center gap-2 border border-muted p-2 text-primary bg-background rounded-lg hover:bg-secondary focus:border-primary"
+                  target='_blank'
+                  className='border-muted text-primary bg-background hover:bg-secondary focus:border-primary inline-flex items-center gap-2 rounded-lg border p-2'
                 >
                   <span>{project.source}</span>
                   <HiOutlineExternalLink size={18} />
                 </a>
               )}
-              {project.link ? (
+              {project.link ?
                 <a
                   href={project.link}
-                  target="_blank"
-                  className="inline-flex items-center gap-2 border border-muted p-2 text-primary bg-background rounded-lg hover:bg-secondary focus:border-primary"
+                  target='_blank'
+                  className='border-muted text-primary bg-background hover:bg-secondary focus:border-primary inline-flex items-center gap-2 rounded-lg border p-2'
                 >
                   <span>Website</span>
                   <HiOutlineExternalLink size={18} />
                 </a>
-              ) : null}
+              : null}
               {project.readMore && (
                 <Link
                   to={project.readMore}
                   viewTransition
-                  className="inline-flex items-center gap-2 border border-muted p-2 text-primary bg-background rounded-lg hover:bg-secondary focus:border-primary"
+                  className='border-muted text-primary bg-background hover:bg-secondary focus:border-primary inline-flex items-center gap-2 rounded-lg border p-2'
                 >
                   Read More
                 </Link>
               )}
             </div>
-            {project.isVideo ? (
-              <div className="flex flex-1 justify-center">
+            {project.isVideo ?
+              <div className='flex flex-1 justify-center'>
                 <video
-                  className="rounded-lg border border-white/30 md:max-w-lg sm:max-w-sm h-auto max-h-[400px] object-contain bg-black/20"
+                  className='h-auto max-h-[400px] rounded-lg border border-white/30 bg-black/20 object-contain sm:max-w-sm md:max-w-lg'
                   src={project.media}
                   autoPlay
                   loop
@@ -119,16 +121,15 @@ export default function Projects() {
                   aria-label={`Demo video for ${project.title}`}
                 ></video>
               </div>
-            ) : (
-              <div className="m-auto">
+            : <div className='m-auto'>
                 <img
-                  className="rounded-lg border border-white/30 lg:max-w-lg md:max-w-md sm:max-w-xs h-auto max-h-[400px] object-contain bg-black/20"
+                  className='h-auto max-h-[400px] rounded-lg border border-white/30 bg-black/20 object-contain sm:max-w-xs md:max-w-md lg:max-w-lg'
                   src={project.media}
                   alt={project.title + ' image'}
-                  loading="lazy"
+                  loading='lazy'
                 />
               </div>
-            )}
+            }
           </div>
         ))}
       </div>

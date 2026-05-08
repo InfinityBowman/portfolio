@@ -5,7 +5,7 @@ interface PlausibleOptions {
 
 interface Window {
   plausible: ((event: string, options?: PlausibleOptions) => void) & {
-    q?: unknown[];
+    q?: Array<unknown>;
     init?: (options?: Record<string, unknown>) => void;
     o?: Record<string, unknown>;
   };

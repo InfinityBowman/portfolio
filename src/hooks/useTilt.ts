@@ -1,4 +1,4 @@
-import { useRef, useCallback } from 'react';
+import { useCallback, useRef } from 'react';
 
 export function useTilt<T extends HTMLElement = HTMLDivElement>(maxTilt = 6) {
   const ref = useRef<T>(null);

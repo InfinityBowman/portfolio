@@ -30,21 +30,19 @@ export default function Testimonials() {
   return (
     <section ref={containerRef}>
       <TextReveal
-        text="What People Say"
-        className="text-3xl sm:text-4xl font-bold text-center mb-12"
+        text='What People Say'
+        className='mb-12 text-center text-3xl font-bold sm:text-4xl'
       />
-      <div className="grid gap-6 md:grid-cols-3 max-w-5xl mx-auto">
+      <div className='mx-auto grid max-w-5xl gap-6 md:grid-cols-3'>
         {TESTIMONIALS.map((t, i) => (
           <div
             key={i}
-            className="testimonial-card p-6 rounded-xl border border-border bg-background/60 backdrop-blur-sm text-center"
+            className='testimonial-card border-border bg-background/60 rounded-xl border p-6 text-center backdrop-blur-sm'
           >
-            <div className="text-6xl leading-none text-ring/30 font-serif select-none">&ldquo;</div>
-            <blockquote className="text-lg text-primary mb-4 -mt-4">
-              {t.quote}
-            </blockquote>
-            <div className="text-sm text-muted-foreground">
-              <span className="font-medium text-secondary-foreground">{t.name}</span>
+            <div className='text-ring/30 font-serif text-6xl leading-none select-none'>&ldquo;</div>
+            <blockquote className='text-primary -mt-4 mb-4 text-lg'>{t.quote}</blockquote>
+            <div className='text-muted-foreground text-sm'>
+              <span className='text-secondary-foreground font-medium'>{t.name}</span>
               {t.role && <span>, {t.role}</span>}
             </div>
           </div>

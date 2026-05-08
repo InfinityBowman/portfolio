@@ -12,7 +12,10 @@ interface NavMenuProps {
 const mq = typeof window !== 'undefined' ? window.matchMedia('(max-width: 640px)') : null;
 function useMobile() {
   return useSyncExternalStore(
-    (cb) => { mq?.addEventListener('change', cb); return () => mq?.removeEventListener('change', cb); },
+    cb => {
+      mq?.addEventListener('change', cb);
+      return () => mq?.removeEventListener('change', cb);
+    },
     () => mq?.matches ?? false,
     () => false,
   );
@@ -61,7 +64,7 @@ export default function NavMenu({ isOpen, onClose }: NavMenuProps) {
     const handleScroll = () => {
       if (location.pathname !== '/portfolio') return;
 
-      const sections = homeSections.map((item) => item.id);
+      const sections = homeSections.map(item => item.id);
       const scrollPosition = window.scrollY + 200;
 
       for (const section of sections) {
@@ -111,20 +114,18 @@ export default function NavMenu({ isOpen, onClose }: NavMenuProps) {
   };
 
   const allItems = [
-    ...homeSections.map((s) => ({ ...s, type: 'section' as const })),
-    ...pageLinks.map((p) => ({ ...p, href: p.to, type: 'page' as const })),
+    ...homeSections.map(s => ({ ...s, type: 'section' as const })),
+    ...pageLinks.map(p => ({ ...p, href: p.to, type: 'page' as const })),
   ];
 
   return (
     <AnimatePresence>
       {isOpen && (
         <>
-          <motion.div className="fixed inset-0 z-40" onClick={onClose} />
+          <motion.div className='fixed inset-0 z-40' onClick={onClose} />
 
           <motion.div
-            className="fixed top-0 right-0 h-dvh w-80 sm:w-96
-                    bg-secondary shadow-lg z-41 overflow-y-auto
-                    border-l border-accent flex flex-col"
+            className='bg-secondary border-accent fixed top-0 right-0 z-41 flex h-dvh w-80 flex-col overflow-y-auto border-l shadow-lg sm:w-96'
             initial={{ x: '100%' }}
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
@@ -133,10 +134,10 @@ export default function NavMenu({ isOpen, onClose }: NavMenuProps) {
               stiffness: mobile ? 500 : 400,
               damping: 40,
             }}
-            onClick={(e) => e.stopPropagation()}
+            onClick={e => e.stopPropagation()}
           >
-            <nav className="flex-1 flex items-center">
-              <ul className="space-y-1 sm:space-y-4 w-full p-6 pb-16">
+            <nav className='flex flex-1 items-center'>
+              <ul className='w-full space-y-1 p-6 pb-16 sm:space-y-4'>
                 {allItems.map((item, index) => (
                   <motion.li
                     key={item.href}
@@ -147,52 +148,52 @@ export default function NavMenu({ isOpen, onClose }: NavMenuProps) {
                       duration: mobile ? 0.2 : 0.3,
                     }}
                   >
-                    {item.type === 'section' ? (
+                    {item.type === 'section' ?
                       <a
                         href={item.href}
-                        className={`block px-4 py-3 rounded-lg text-lg font-medium transition-all duration-200
-                          ${
-                            activeSection === item.id
-                              ? 'border-accent border text-primary hover:bg-background/70'
-                              : 'border border-transparent text-muted-foreground hover:text-primary hover:bg-background/70'
-                          }`}
-                        onClick={(e) => handleSectionClick(e, item.id)}
+                        className={`block rounded-lg px-4 py-3 text-lg font-medium transition-all duration-200 ${
+                          activeSection === item.id ?
+                            'border-accent text-primary hover:bg-background/70 border'
+                          : 'text-muted-foreground hover:text-primary hover:bg-background/70 border border-transparent'
+                        }`}
+                        onClick={e => handleSectionClick(e, item.id)}
                       >
                         {item.label}
                       </a>
-                    ) : (
-                      <Link
+                    : <Link
                         to={item.href}
                         viewTransition
                         onClick={() => onClose()}
-                        className={`block px-4 py-3 rounded-lg text-lg font-medium transition-all duration-200
-                          ${
-                            activeSection === item.id
-                              ? 'border-accent border text-primary hover:bg-background/70'
-                              : 'border border-transparent text-muted-foreground hover:text-primary hover:bg-background/70'
-                          }`}
+                        className={`block rounded-lg px-4 py-3 text-lg font-medium transition-all duration-200 ${
+                          activeSection === item.id ?
+                            'border-accent text-primary hover:bg-background/70 border'
+                          : 'text-muted-foreground hover:text-primary hover:bg-background/70 border border-transparent'
+                        }`}
                       >
                         {item.label}
                       </Link>
-                    )}
+                    }
                   </motion.li>
                 ))}
               </ul>
             </nav>
 
             <motion.div
-              className="absolute bottom-0 left-0 right-0 py-3 border-t border-accent"
+              className='border-accent absolute right-0 bottom-0 left-0 border-t py-3'
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: mobile ? 0.2 : 0.35, duration: mobile ? 0.2 : 0.3 }}
+              transition={{
+                delay: mobile ? 0.2 : 0.35,
+                duration: mobile ? 0.2 : 0.3,
+              }}
             >
-              <div className="flex justify-center gap-4">
-                {SOCIAL_LINKS.map((link) => (
+              <div className='flex justify-center gap-4'>
+                {SOCIAL_LINKS.map(link => (
                   <a
                     key={link.href}
                     href={link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    target='_blank'
+                    rel='noopener noreferrer'
                     className={link.className}
                     aria-label={link.label}
                   >

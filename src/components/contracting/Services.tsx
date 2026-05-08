@@ -16,11 +16,11 @@ function ServiceCard({ service }: { service: (typeof SERVICES)[number] }) {
       ref={tilt.ref}
       onMouseMove={tilt.onMouseMove}
       onMouseLeave={tilt.onMouseLeave}
-      className="h-full p-6 rounded-xl border border-border bg-background/60 backdrop-blur-sm hover:border-ring transition-all duration-200 will-change-transform"
+      className='border-border bg-background/60 hover:border-ring h-full rounded-xl border p-6 backdrop-blur-sm transition-all duration-200 will-change-transform'
     >
-      <service.icon className="text-2xl text-peach mb-3" />
-      <h3 className="text-xl font-semibold text-primary mb-2">{service.title}</h3>
-      <p className="text-muted-foreground text-sm leading-relaxed">{service.description}</p>
+      <service.icon className='text-peach mb-3 text-2xl' />
+      <h3 className='text-primary mb-2 text-xl font-semibold'>{service.title}</h3>
+      <p className='text-muted-foreground text-sm leading-relaxed'>{service.description}</p>
     </div>
   );
 }
@@ -46,17 +46,15 @@ export default function Services() {
   );
 
   return (
-    <section id="services" ref={containerRef}>
-      <TextReveal
-        text="What I Do"
-        className="text-3xl sm:text-4xl font-bold text-center mb-4"
-      />
-      <p className="text-muted-foreground text-center mb-12 max-w-2xl mx-auto">
-        From building your first website to adding AI features to your existing business. I handle the technical side so you can focus on what you do best.
+    <section id='services' ref={containerRef}>
+      <TextReveal text='What I Do' className='mb-4 text-center text-3xl font-bold sm:text-4xl' />
+      <p className='text-muted-foreground mx-auto mb-12 max-w-2xl text-center'>
+        From building your first website to adding AI features to your existing business. I handle
+        the technical side so you can focus on what you do best.
       </p>
-      <div className="grid gap-6 sm:grid-cols-2">
-        {SERVICES.map((service) => (
-          <div key={service.title} className="service-card-wrapper">
+      <div className='grid gap-6 sm:grid-cols-2'>
+        {SERVICES.map(service => (
+          <div key={service.title} className='service-card-wrapper'>
             <ServiceCard service={service} />
           </div>
         ))}

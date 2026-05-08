@@ -75,37 +75,45 @@ export default function About() {
   );
 
   return (
-    <section id="about" ref={containerRef} className="">
-      <SectionTitle title="whoami" />
+    <section id='about' ref={containerRef} className=''>
+      <SectionTitle title='whoami' />
 
-      <div className="sm:space-y-10 space-y-6">
-        <div className="overflow-hidden mx-2">
-          <hr className="text-secondary-foreground/70 transform -translate-x-full reveal-line" />
+      <div className='space-y-6 sm:space-y-10'>
+        <div className='mx-2 overflow-hidden'>
+          <hr className='text-secondary-foreground/70 reveal-line -translate-x-full transform' />
         </div>
-        <div className="grid md:grid-cols-12 gap-y-6 sm:gap-y-9 gap-x-16 flex-wrap">
-          <h3 className="md:col-span-5 slide-over text-4xl sm:text-5xl whitespace-nowrap">{ABOUT.title}</h3>
-          <p className="md:col-span-7 slide-in text-md sm:mr-2 sm:text-xl text-muted-foreground">{ABOUT.description}</p>
+        <div className='grid flex-wrap gap-x-16 gap-y-6 sm:gap-y-9 md:grid-cols-12'>
+          <h3 className='slide-over text-4xl whitespace-nowrap sm:text-5xl md:col-span-5'>
+            {ABOUT.title}
+          </h3>
+          <p className='slide-in text-md text-muted-foreground sm:mr-2 sm:text-xl md:col-span-7'>
+            {ABOUT.description}
+          </p>
         </div>
-        <div className="flex sm:gap-4 gap-2 flex-wrap">
-          {SOCIAL_LINKS.map((link) => (
+        <div className='flex flex-wrap gap-2 sm:gap-4'>
+          {SOCIAL_LINKS.map(link => (
             <a
               key={link.href}
               href={link.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`${link.className} group flex items-center gap-2 border border-muted p-1.5 px-2 text-primary bg-background rounded-lg hover:bg-secondary focus:border-primary pop-in`}
+              target='_blank'
+              rel='noopener noreferrer'
+              className={`${link.className} group border-muted text-primary bg-background hover:bg-secondary focus:border-primary pop-in flex items-center gap-2 rounded-lg border p-1.5 px-2`}
               aria-label={link.label}
             >
-              <span className="text-secondary-foreground group-hover:text-primary transition-colors">{link.label}</span>
+              <span className='text-secondary-foreground group-hover:text-primary transition-colors'>
+                {link.label}
+              </span>
               {link.icon}
             </a>
           ))}
           <Link
-            to="/blog"
+            to='/blog'
             viewTransition
-            className="group flex items-center gap-2 border border-muted p-1.5 px-2 text-primary bg-background rounded-lg hover:bg-secondary focus:border-primary pop-in"
+            className='group border-muted text-primary bg-background hover:bg-secondary focus:border-primary pop-in flex items-center gap-2 rounded-lg border p-1.5 px-2'
           >
-            <span className="text-secondary-foreground group-hover:text-primary transition-colors">My Blog</span>
+            <span className='text-secondary-foreground group-hover:text-primary transition-colors'>
+              My Blog
+            </span>
           </Link>
         </div>
       </div>

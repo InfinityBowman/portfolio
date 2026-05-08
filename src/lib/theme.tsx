@@ -1,4 +1,12 @@
-import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useLayoutEffect,
+  useMemo,
+  useState,
+} from 'react';
 
 type Theme = 'light' | 'dark';
 
@@ -28,18 +36,28 @@ function applyTheme(theme: Theme) {
 }
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setThemeState] = useState<Theme>('light');
+  const [theme, setThemeState] = useState<Theme>(() => {
+    if (typeof document === 'undefined') return 'light';
+    const attr = document.documentElement.dataset.theme;
+    return attr === 'dark' || attr === 'light' ? attr : 'light';
+  });
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     let saved: string | null = null;
-    try { saved = localStorage.getItem('theme'); } catch {}
+    try {
+      saved = localStorage.getItem('theme');
+    } catch {}
     const initial = saved === 'light' || saved === 'dark' ? saved : getSystemTheme();
     setThemeState(initial);
     applyTheme(initial);
+  }, []);
 
+  useEffect(() => {
     const mq = window.matchMedia('(prefers-color-scheme: dark)');
     const onChange = () => {
-      if (localStorage.getItem('theme')) return;
+      try {
+        if (localStorage.getItem('theme')) return;
+      } catch {}
       const next = mq.matches ? 'dark' : 'light';
       setThemeState(next);
       applyTheme(next);
@@ -49,7 +67,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   const toggleTheme = useCallback(() => {
-    setThemeState((prev) => {
+    setThemeState(prev => {
       const next = prev === 'dark' ? 'light' : 'dark';
       localStorage.setItem('theme', next);
       document.documentElement.classList.add('theme-transition');
@@ -61,9 +79,5 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
   const value = useMemo(() => ({ theme, toggleTheme }), [theme, toggleTheme]);
 
-  return (
-    <ThemeContext.Provider value={value}>
-      {children}
-    </ThemeContext.Provider>
-  );
+  return <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>;
 }

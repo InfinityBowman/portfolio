@@ -13,7 +13,13 @@ const THEME_COLORS = {
   light: { a: '#1e66f5', b: '#7287fd' },
 };
 
-export default function ParticleText({ text = 'Jacob Maynard', colorScheme }: { text?: string; colorScheme?: 'light' | 'dark' }) {
+export default function ParticleText({
+  text = 'Jacob Maynard',
+  colorScheme,
+}: {
+  text?: string;
+  colorScheme?: 'light' | 'dark';
+}) {
   const { theme: contextTheme } = useTheme();
   const theme = colorScheme ?? contextTheme;
   const containerRef = useRef<HTMLDivElement>(null);
@@ -26,7 +32,10 @@ export default function ParticleText({ text = 'Jacob Maynard', colorScheme }: { 
     const textEl = textRef.current;
     if (!container || !canvas || !textEl) return;
 
-    const gl = canvas.getContext('webgl2', { alpha: true, premultipliedAlpha: false });
+    const gl = canvas.getContext('webgl2', {
+      alpha: true,
+      premultipliedAlpha: false,
+    });
     if (!gl) return;
 
     const colors = THEME_COLORS[theme];
@@ -220,7 +229,10 @@ export default function ParticleText({ text = 'Jacob Maynard', colorScheme }: { 
 
     let initialObserve = true;
     const ro = new ResizeObserver(() => {
-      if (initialObserve) { initialObserve = false; return; }
+      if (initialObserve) {
+        initialObserve = false;
+        return;
+      }
       sampleTextAndUpload();
     });
     ro.observe(textEl);
@@ -256,14 +268,11 @@ export default function ParticleText({ text = 'Jacob Maynard', colorScheme }: { 
   }, [text, theme]);
 
   return (
-    <div ref={containerRef} className="relative w-full overflow-visible">
-      <canvas
-        ref={canvasRef}
-        className="absolute pointer-events-none"
-      />
+    <div ref={containerRef} className='relative w-full overflow-visible'>
+      <canvas ref={canvasRef} className='pointer-events-none absolute' />
       <h1
         ref={textRef}
-        className="text-5xl lg:text-7xl xl:text-8xl font-bold p-1 text-center text-transparent select-text"
+        className='p-1 text-center text-5xl font-bold text-transparent select-text lg:text-7xl xl:text-8xl'
         style={{ fontFamily: 'system-ui, sans-serif' }}
       >
         {text}

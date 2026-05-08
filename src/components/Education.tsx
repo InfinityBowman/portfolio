@@ -22,9 +22,9 @@ export default function Education() {
         scrollTrigger: {
           trigger: containerRef.current,
           start: 'top 80%',
-          ...(isTouch
-            ? { toggleActions: 'play none none none' }
-            : { end: 'bottom 100%', scrub: 0.5 }),
+          ...(isTouch ?
+            { toggleActions: 'play none none none' }
+          : { end: 'bottom 100%', scrub: 0.5 }),
         },
       });
 
@@ -62,17 +62,24 @@ export default function Education() {
   );
 
   return (
-    <section id="education" ref={containerRef} className="">
-      <SectionTitle title="Education" />
+    <section id='education' ref={containerRef} className=''>
+      <SectionTitle title='Education' />
 
-      <div className="space-y-12">
+      <div className='space-y-12'>
         {MY_EDUCATION.map((edu, index) => (
-          <div className="flex slide-up p-4 border rounded-xl border-accent backdrop-blur-md" key={index}>
-            <div className="text-md sm:text-lg text-muted-foreground/90 space-y-2">
+          <div
+            className='slide-up border-accent flex rounded-xl border p-4 backdrop-blur-md'
+            key={index}
+          >
+            <div className='text-md text-muted-foreground/90 space-y-2 sm:text-lg'>
               <p>{edu.institution}</p>
-              <h3 className="md:text-5xl sm:text-4xl text-3xl leading-none text-muted-foreground">{edu.degree}</h3>
+              <h3 className='text-muted-foreground text-3xl leading-none sm:text-4xl md:text-5xl'>
+                {edu.degree}
+              </h3>
               <p>{edu.duration}</p>
-              {edu.description ? <p className="text-muted-foreground/80">{edu.description}</p> : null}
+              {edu.description ?
+                <p className='text-muted-foreground/80'>{edu.description}</p>
+              : null}
             </div>
           </div>
         ))}

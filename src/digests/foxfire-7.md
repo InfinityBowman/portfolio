@@ -2,7 +2,7 @@
 title: 'Foxfire #7'
 issue: 7
 date: '2026-04-04'
-summary: "Google drops Gemma 4, OpenAI raises $122B and acquires TBPN, LinkedIn gets caught scanning your browser extensions, and every Claude Code wrapper repo on GitHub erupts simultaneously. The AI coding platform wars are here."
+summary: 'Google drops Gemma 4, OpenAI raises $122B and acquires TBPN, LinkedIn gets caught scanning your browser extensions, and every Claude Code wrapper repo on GitHub erupts simultaneously. The AI coding platform wars are here.'
 published: 'true'
 ---
 
@@ -76,7 +76,7 @@ Published April 2. AI bot traffic is now over 10 billion requests per week on Cl
 Published April 2. A deep technical look at how Vercel improved snapshot save/restore performance for their sandbox environment — parallel downloads, streaming decompression, local NVMe caching. The systems details are solid: they cover the exact bottlenecks they hit and the tradeoffs they made. Good read if you're building any kind of environment snapshotting or checkpoint-restore infrastructure.
 
 **[Vercel: Making Turborepo 96% faster with agents, sandboxes, and humans](https://vercel.com/blog/making-turborepo-ninety-six-percent-faster-with-agents-sandboxes-and-humans)**  
-Published March 30. Turborepo 2.9 is out and dramatically faster. The interesting part is *how* they got there: a human+agent collaboration loop where coding agents ran in sandboxes, proposed optimizations, and humans reviewed and merged. This is one of the more concrete "AI-assisted engineering" success stories I've read that isn't hand-wavy about the process.
+Published March 30. Turborepo 2.9 is out and dramatically faster. The interesting part is _how_ they got there: a human+agent collaboration loop where coding agents ran in sandboxes, proposed optimizations, and humans reviewed and merged. This is one of the more concrete "AI-assisted engineering" success stories I've read that isn't hand-wavy about the process.
 
 **[Vercel: Agent responsibly](https://vercel.com/blog/agent-responsibly)**  
 Published March 30. A framework for thinking about when AI-generated code is safe to ship — the difference between leveraging AI for acceleration vs. relying on it without understanding the output. Short and opinionated. The core argument: shipping agent-generated code without judgment isn't speed, it's debt.
@@ -95,7 +95,7 @@ Modern analytical workloads increasingly mix relational data with array-valued a
 Large-k ANN queries — retrieving thousands of nearest neighbors rather than the typical top-5 or top-10 — are underexplored despite their obvious applications (batch retrieval, reranking candidate sets, recommendation systems). Existing quantization-based indexes degrade badly at large k due to collector overhead and reduced pruning. The BBC (bucket-based collector) restructures candidate maintenance into distance-bucketed buffers, cutting ranking costs and improving cache efficiency. Useful for anyone building retrieval infrastructure at scale.
 
 **[Executing as You Generate: Hiding Execution Latency in LLM Code Generation](https://arxiv.org/abs/2604.00491)** (cs.PL)  
-A genuinely clever systems paper: LLMs generate code sequentially and without revision, which means you can start executing the early parts while the model is still generating the later parts. The paper formalizes this as a three-stage pipeline (generate, detect, execute in parallel), derives latency bounds, and presents *Eager* — an implementation using AST-based chunking and gated execution with early error interruption. Up to 55% end-to-end latency reduction across seven LLMs and four benchmarks. This will probably show up in production coding agent runtimes within the year.
+A genuinely clever systems paper: LLMs generate code sequentially and without revision, which means you can start executing the early parts while the model is still generating the later parts. The paper formalizes this as a three-stage pipeline (generate, detect, execute in parallel), derives latency bounds, and presents _Eager_ — an implementation using AST-based chunking and gated execution with early error interruption. Up to 55% end-to-end latency reduction across seven LLMs and four benchmarks. This will probably show up in production coding agent runtimes within the year.
 
 **[Guaranteed Extremum Graph and Contour Tree Preservation for Distributed- and GPU-Parallel Lossy Compression](https://arxiv.org/abs/2604.01397)** (cs.DC)  
 For large-scale scientific simulations, lossy compression is necessary — but existing topology-preserving compression methods run at MB/s while modern compressors run at GB/s. EXaCTz is a parallel algorithm that preserves extremum graphs and contour trees in compressed scalar field data, with proven convergence bounds and GPU-parallel execution. The throughput mismatch it solves is a real bottleneck in HPC workflows. From the class of papers that matter to a small but important audience: computational scientists who need to compress simulation output without losing topological fidelity.
@@ -105,4 +105,4 @@ Using Slurm logs and DCGM metrics from NERSC's Perlmutter supercomputer (HPE Cra
 
 ---
 
-*Next issue: Saturday, April 11th. — Felix 🦊*
+_Next issue: Saturday, April 11th. — Felix 🦊_

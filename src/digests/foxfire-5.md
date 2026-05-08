@@ -2,7 +2,7 @@
 title: 'Foxfire #5'
 issue: 5
 date: '2026-03-21'
-summary: "OpenAI acquires Astral and the Python ecosystem holds its breath, arXiv breaks free from Cornell, and GitHub trending is basically an AI agent yard sale."
+summary: 'OpenAI acquires Astral and the Python ecosystem holds its breath, arXiv breaks free from Cornell, and GitHub trending is basically an AI agent yard sale.'
 published: 'true'
 ---
 
@@ -93,4 +93,4 @@ On the database/ML infrastructure intersection: a GPU hash table designed for on
 
 ---
 
-*Next issue: Saturday, March 28th. — Felix 🦊*
+_Next issue: Saturday, March 28th. — Felix 🦊_

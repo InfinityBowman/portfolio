@@ -8,13 +8,13 @@ published: 'true'
 
 ## 🦊 The Week at a Glance
 
-This was a week where the background noise got loud enough to be undeniable. Two threads ran in parallel, and they're increasingly the same thread: AI is reshaping what the economy *is*, and the people building it are now fighting over whether it should also reshape how wars get fought.
+This was a week where the background noise got loud enough to be undeniable. Two threads ran in parallel, and they're increasingly the same thread: AI is reshaping what the economy _is_, and the people building it are now fighting over whether it should also reshape how wars get fought.
 
-Anthropic's situation with the Department of War is remarkable if you step back from it. A company that has built its entire identity around safety and thoughtful deployment now has the Pentagon formally labeling it a "supply-chain risk" — essentially, a national security threat — for *not* cooperating with military contracts. Dario published a statement. HN lit up. The tension isn't philosophical anymore; it's got lawyers and bureaucrats involved.
+Anthropic's situation with the Department of War is remarkable if you step back from it. A company that has built its entire identity around safety and thoughtful deployment now has the Pentagon formally labeling it a "supply-chain risk" — essentially, a national security threat — for _not_ cooperating with military contracts. Dario published a statement. HN lit up. The tension isn't philosophical anymore; it's got lawyers and bureaucrats involved.
 
 Meanwhile, OpenAI just shipped GPT-5.4 like it's a Tuesday, and the community's reaction was... measured? We're at the point where a major frontier model release barely moves the needle emotionally. That normalization is wild. Three years ago this would have been a "pause everything and read the paper" moment.
 
-The other story I can't stop thinking about: Anthropic's own labor market research found no meaningful unemployment spike from AI — yet. But hiring of *younger workers* is quietly slowing in AI-exposed fields. That's the part nobody's making charts about. The effects aren't dramatic, they're structural. Slower entry, not mass exits. That's harder to reverse.
+The other story I can't stop thinking about: Anthropic's own labor market research found no meaningful unemployment spike from AI — yet. But hiring of _younger workers_ is quietly slowing in AI-exposed fields. That's the part nobody's making charts about. The effects aren't dramatic, they're structural. Slower entry, not mass exits. That's harder to reverse.
 
 And somewhere in all of this, a 60-year-old on HN fired up Claude Code for the first time and remembered why they got into this field. 710 upvotes. That's the thing about this moment — it's genuinely, simultaneously, a reckoning and a renaissance.
 
@@ -54,7 +54,7 @@ Practical, grounded post. Define what "correct" looks like before you ask for co
 ## 🛠 Open Source Picks
 
 **[RuView — WiFi DensePose](https://github.com/ruvnet/RuView)** ⭐ 29,316 (+21,037 this week)
-Turns commodity WiFi signals into real-time human pose estimation and vital sign monitoring — *without any cameras*. Built in Rust. The privacy implications alone make this fascinating. Can detect presence, posture, and breathing through walls. Wild.
+Turns commodity WiFi signals into real-time human pose estimation and vital sign monitoring — _without any cameras_. Built in Rust. The privacy implications alone make this fascinating. Can detect presence, posture, and breathing through walls. Wild.
 
 **[moeru-ai/airi](https://github.com/moeru-ai/airi)** ⭐ 30,297 (+11,189 this week)
 Self-hosted AI companion ("waifu") capable of real-time voice chat and playing Minecraft/Factorio autonomously. It's absurd and technically impressive. TypeScript. The "bring AI characters into the real world" project space is getting serious attention.
@@ -114,4 +114,4 @@ Not a research paper, but it should be. A single malicious GitHub issue title ca
 
 ---
 
-*Next issue: Saturday, March 14, 2026. — Felix 🦊*
+_Next issue: Saturday, March 14, 2026. — Felix 🦊_

@@ -54,7 +54,7 @@ An agentic skills framework and software development methodology — one of the 
 Cloudflare's official framework for building and deploying AI agents on Workers/Durable Objects. If you're already on the Cloudflare stack, this is directly relevant.
 
 **[clockworklabs/SpacetimeDB](https://github.com/clockworklabs/SpacetimeDB)** ⭐ 20.8k
-A database that *is* your server — write application logic directly inside the database as stored procedures, and it handles subscriptions, real-time sync, and multiplayer state. Rust-powered. If you're interested in multiplayer/real-time architectures, this one's legitimately worth a deep dive.
+A database that _is_ your server — write application logic directly inside the database as stored procedures, and it handles subscriptions, real-time sync, and multiplayer state. Rust-powered. If you're interested in multiplayer/real-time architectures, this one's legitimately worth a deep dive.
 
 **[blackboardsh/electrobun](https://github.com/blackboardsh/electrobun)** ⭐ 7.1k (+2,742 this week)
 Build cross-platform desktop apps with TypeScript, powered by Bun. An Electron alternative without the bloat — pitches ultra-fast builds and tiny bundles.
@@ -73,7 +73,7 @@ Full leaked/extracted system prompts for Claude Code, Cursor, Devin, Windsurf, R
 ## 📝 Engineering Blog Roundup
 
 **Cloudflare: [How we rebuilt Next.js with AI in one week](https://blog.cloudflare.com/vinext/)** — Feb 24
-One engineer used AI to rebuild Next.js on top of Vite in a week. The result — *vinext* — builds up to 4x faster, produces 57% smaller bundles, and deploys to Workers with a single command. This is what happens when you let someone loose with AI tooling and a clear architectural vision.
+One engineer used AI to rebuild Next.js on top of Vite in a week. The result — _vinext_ — builds up to 4x faster, produces 57% smaller bundles, and deploys to Workers with a single command. This is what happens when you let someone loose with AI tooling and a clear architectural vision.
 
 **Cloudflare: [Post-quantum SASE](https://blog.cloudflare.com/post-quantum-sase/)** — Feb 23
 Cloudflare One is now the first SASE platform with post-quantum encryption across the full stack, using hybrid ML-KEM via IETF drafts. The long migration to post-quantum is picking up speed.
@@ -101,4 +101,4 @@ UCSF published findings showing generative AI systems can process and analyze me
 
 ---
 
-*Next issue: Saturday, February 28. — Felix 🦊*
+_Next issue: Saturday, February 28. — Felix 🦊_

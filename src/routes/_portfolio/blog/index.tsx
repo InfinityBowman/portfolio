@@ -1,17 +1,17 @@
-import { Link, createFileRoute } from '@tanstack/react-router'
-import type { MarkdownModule } from '@/lib/markdown'
+import { Link, createFileRoute } from '@tanstack/react-router';
+import type { MarkdownModule } from '@/lib/markdown';
 
 const postFiles = import.meta.glob<MarkdownModule>('../../../posts/*.md', {
   eager: true,
-})
+});
 
 const posts = Object.entries(postFiles)
   .map(([path, mod]) => {
-    const slug = path.split('/').pop()!.replace('.md', '')
-    return { ...mod.attributes, html: mod.html, slug }
+    const slug = path.split('/').pop()!.replace('.md', '');
+    return { ...mod.attributes, html: mod.html, slug };
   })
   .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
-  .filter((post) => post.published === 'true')
+  .filter(post => post.published === 'true');
 
 function formatDate(dateString: string) {
   if (dateString === 'TBD') return dateString;
@@ -28,39 +28,54 @@ export const Route = createFileRoute('/_portfolio/blog/')({
   head: () => ({
     meta: [
       { title: 'Blog | Jacob Maynard' },
-      { name: 'description', content: 'Blog posts by Jacob Maynard on software development, web technologies, and AI.' },
+      {
+        name: 'description',
+        content: 'Blog posts by Jacob Maynard on software development, web technologies, and AI.',
+      },
       { property: 'og:title', content: 'Blog | Jacob Maynard' },
-      { property: 'og:description', content: 'Blog posts by Jacob Maynard on software development, web technologies, and AI.' },
+      {
+        property: 'og:description',
+        content: 'Blog posts by Jacob Maynard on software development, web technologies, and AI.',
+      },
       { property: 'og:url', content: 'https://jacobmaynard.dev/blog' },
       { name: 'twitter:card', content: 'summary' },
       { name: 'twitter:title', content: 'Blog | Jacob Maynard' },
-      { name: 'twitter:description', content: 'Blog posts by Jacob Maynard on software development, web technologies, and AI.' },
+      {
+        name: 'twitter:description',
+        content: 'Blog posts by Jacob Maynard on software development, web technologies, and AI.',
+      },
     ],
-    links: [
-      { rel: 'canonical', href: 'https://jacobmaynard.dev/blog' },
-    ],
+    links: [{ rel: 'canonical', href: 'https://jacobmaynard.dev/blog' }],
   }),
 });
 
 function BlogListPage() {
   return (
-    <section className="min-h-screen flex flex-col gap-8 justify-center items-center py-12 px-4">
-      <h2 className="text-4xl font-extrabold mb-6 text-zinc-100 drop-shadow-lg">Blog</h2>
-      <ul className="w-full max-w-3xl space-y-4">
-        {posts.map((post) => (
+    <section className='flex min-h-screen flex-col items-center justify-center gap-8 px-4 py-12'>
+      <h2 className='mb-6 text-4xl font-extrabold text-zinc-100 drop-shadow-lg'>Blog</h2>
+      <ul className='w-full max-w-3xl space-y-4'>
+        {posts.map(post => (
           <li
             key={post.slug}
-            className="border rounded-xl border-accent backdrop-blur-md hover:scale-[1.02] transition-all"
+            className='border-accent rounded-xl border backdrop-blur-md transition-all hover:scale-[1.02]'
           >
             <Link
-              to="/blog/$slug"
+              to='/blog/$slug'
               params={{ slug: post.slug }}
               viewTransition
-              className="block p-4 text-left w-full text-2xl font-semibold transition-colors"
+              className='block w-full p-4 text-left text-2xl font-semibold transition-colors'
             >
-              <span className="font-anton" style={{ viewTransitionName: `blog-title-${post.slug}` }}>{post.title}</span>
-              <span className="text-zinc-400 text-base font-normal"> ({formatDate(post.date)})</span>
-              <div className="text-zinc-400 text-base mt-1 font-normal">{post.summary}</div>
+              <span
+                className='font-anton'
+                style={{ viewTransitionName: `blog-title-${post.slug}` }}
+              >
+                {post.title}
+              </span>
+              <span className='text-base font-normal text-zinc-400'>
+                {' '}
+                ({formatDate(post.date)})
+              </span>
+              <div className='mt-1 text-base font-normal text-zinc-400'>{post.summary}</div>
             </Link>
           </li>
         ))}

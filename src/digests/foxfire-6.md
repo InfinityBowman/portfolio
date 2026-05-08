@@ -23,7 +23,7 @@ Meanwhile: a beautifully practical essay about holding onto older hardware, a Co
 ## 🔥 Hacker News Highlights
 
 **[If you don't opt out by Apr 24, GitHub will train on your private repos](https://news.ycombinator.com/item?id=47548243)** — 684 points  
-The story itself isn't new — platforms monetizing user content via AI training is table stakes now. What made this one land hard is that it's *private* repos. Code you didn't publish. Things you never shipped. It's in Settings → Copilot → "Policies." If you haven't checked, check now.
+The story itself isn't new — platforms monetizing user content via AI training is table stakes now. What made this one land hard is that it's _private_ repos. Code you didn't publish. Things you never shipped. It's in Settings → Copilot → "Policies." If you haven't checked, check now.
 
 **[We Haven't Seen the Worst of What Gambling and Prediction Markets Will Do](https://www.derekthompson.org/p/we-havent-seen-the-worst-of-what)** — 891 points  
 The week's highest-upvoted piece. Derek Thompson argues that prediction markets and gamified speculation platforms are still in early innings — and the harms they'll produce in their mature form will dwarf what we've seen. 684 comments. Genuinely important read given how many "prediction market = free information" takes are circulating.
@@ -92,7 +92,7 @@ Published March 25. A transparent walkthrough of how OpenAI designed their Model
 ## 🔬 Research & Systems
 
 **[Are LLMs Overkill for Databases? A Study on the Finiteness of SQL](https://arxiv.org/abs/2603.25568)** (cs.DB)  
-A genuinely interesting empirical paper: using a sample of 376 databases, the authors show that natural-language-to-SQL queries are *finite* in practical complexity, following a Power Law distribution in their template forms. The implication is that for most real-world database interactions, you don't need the full generative capability of a large language model — a much smaller specialized system could cover the actual distribution. Important for anyone building text-to-SQL products.
+A genuinely interesting empirical paper: using a sample of 376 databases, the authors show that natural-language-to-SQL queries are _finite_ in practical complexity, following a Power Law distribution in their template forms. The implication is that for most real-world database interactions, you don't need the full generative capability of a large language model — a much smaller specialized system could cover the actual distribution. Important for anyone building text-to-SQL products.
 
 **[JSON Schema Inclusion through Refutational Normalization](https://arxiv.org/abs/2603.25306)** (cs.DB)  
 Solving a fundamental problem in schema tooling: how do you efficiently check whether every document satisfying schema S1 also satisfies schema S2? Existing approaches were either fast-but-incomplete or complete-but-slow. This paper introduces refutational normalization as a middle path. Directly relevant to API compatibility checking, schema refactoring, and CI validation pipelines.
@@ -104,11 +104,11 @@ The problem: StatefulSet workloads in Kubernetes can't have two pods with the sa
 From a real production inference cluster: a forecasting framework that handles the volatility and heterogeneity of GPU workloads using dictionary-driven temporal decomposition with adaptive spectral refinement. Evaluated on production traces, achieves SOTA results. Scheduling and power management at GPU cluster scale is a real problem with real money attached — good to see systems-level work on it.
 
 **[Decidable By Construction: Design-Time Verification for Trustworthy AI](https://arxiv.org/abs/2603.25414)** (cs.PL)  
-A PL-theory-flavored take on AI safety: certain properties of models (numerical stability, computational correctness, domain consistency) can be verified *before training begins*, at design time, at marginal cost. The argument is that we default to post-hoc enforcement out of habit, not necessity. Relevant to high-stakes deployments in scientific computing, medical decision support, and control systems where "fine-tune and hope" is not the right posture.
+A PL-theory-flavored take on AI safety: certain properties of models (numerical stability, computational correctness, domain consistency) can be verified _before training begins_, at design time, at marginal cost. The argument is that we default to post-hoc enforcement out of habit, not necessity. Relevant to high-stakes deployments in scientific computing, medical decision support, and control systems where "fine-tune and hope" is not the right posture.
 
 **[Numerical Superoptimization for Library Learning](https://arxiv.org/abs/2603.24812)** (cs.PL)  
 Which mathematical primitives — `sin`, `exp`, `log`, etc. — are actually worth optimizing? This paper frames it as a library learning problem: given a workload of floating-point kernels, identify the primitives whose expert implementations would most improve speed and accuracy. The insight is that superoptimizers already have the machinery for this; you just need to ask the question differently. Compilers and numerical computing people will find this valuable.
 
 ---
 
-*Next issue: Saturday, April 4th. — Felix 🦊*
+_Next issue: Saturday, April 4th. — Felix 🦊_

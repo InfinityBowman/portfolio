@@ -7,14 +7,14 @@ import type { MarkdownModule } from '@/lib/markdown';
 
 const postFiles = import.meta.glob<MarkdownModule>('../../../posts/*.md', {
   eager: true,
-})
+});
 
 const posts = Object.entries(postFiles)
   .map(([path, mod]) => {
-    const slug = path.split('/').pop()!.replace('.md', '')
-    return { ...mod.attributes, html: mod.html, slug }
+    const slug = path.split('/').pop()!.replace('.md', '');
+    return { ...mod.attributes, html: mod.html, slug };
   })
-  .filter((post) => post.published === 'true')
+  .filter(post => post.published === 'true');
 
 function formatDate(dateString: string) {
   if (dateString === 'TBD') return dateString;
@@ -29,7 +29,7 @@ function formatDate(dateString: string) {
 export const Route = createFileRoute('/_portfolio/blog/$slug')({
   component: BlogPostPage,
   loader: ({ params }) => {
-    const post = posts.find((p) => p.slug === params.slug);
+    const post = posts.find(p => p.slug === params.slug);
     if (!post) throw notFound();
     return post;
   },
@@ -55,7 +55,10 @@ export const Route = createFileRoute('/_portfolio/blog/$slug')({
         { property: 'og:title', content: loaderData.title },
         { property: 'og:description', content: loaderData.summary },
         { property: 'og:type', content: 'article' },
-        { property: 'og:url', content: `https://jacobmaynard.dev/blog/${loaderData.slug}` },
+        {
+          property: 'og:url',
+          content: `https://jacobmaynard.dev/blog/${loaderData.slug}`,
+        },
         { property: 'article:published_time', content: loaderData.date },
         { property: 'article:author', content: 'Jacob Maynard' },
         { name: 'twitter:card', content: 'summary' },
@@ -63,11 +66,12 @@ export const Route = createFileRoute('/_portfolio/blog/$slug')({
         { name: 'twitter:description', content: loaderData.summary },
       ],
       links: [
-        { rel: 'canonical', href: `https://jacobmaynard.dev/blog/${loaderData.slug}` },
+        {
+          rel: 'canonical',
+          href: `https://jacobmaynard.dev/blog/${loaderData.slug}`,
+        },
       ],
-      scripts: [
-        { type: 'application/ld+json', children: articleJsonLd },
-      ],
+      scripts: [{ type: 'application/ld+json', children: articleJsonLd }],
     };
   },
 });
@@ -82,22 +86,20 @@ function BlogPostPage() {
   return (
     <>
       <Link
-        to="/blog"
+        to='/blog'
         viewTransition
-        className="m-4 mb-10 hover:text-blue-300 flex items-center gap-1 transition-colors"
+        className='m-4 mb-10 flex items-center gap-1 transition-colors hover:text-blue-300'
       >
-        <FaArrowLeft className="w-4 h-4" /> <span>Back</span>
+        <FaArrowLeft className='h-4 w-4' /> <span>Back</span>
       </Link>
-      <article
-        className="min-h-screen max-w-sm xs:max-w-md sm:max-w-lg md:max-w-2xl lg:max-w-3xl xl:max-w-4xl prose prose-invert mx-auto p-8 mb-8 rounded-lg shadow-md border border-accent backdrop-blur-md"
-      >
+      <article className='xs:max-w-md prose prose-invert border-accent mx-auto mb-8 min-h-screen max-w-sm rounded-lg border p-8 shadow-md backdrop-blur-md sm:max-w-lg md:max-w-2xl lg:max-w-3xl xl:max-w-4xl'>
         <h1
-          className="mb-4 w-fit text-4xl font-extrabold text-zinc-100 drop-shadow-lg"
+          className='mb-4 w-fit text-4xl font-extrabold text-zinc-100 drop-shadow-lg'
           style={{ viewTransitionName: `blog-title-${post.slug}` }}
         >
           {post.title}
         </h1>
-        <hr className="relative bottom-1 w-10 h-0.5 bg-muted border-0 m-0! p-0!" />
+        <hr className='bg-muted relative bottom-1 m-0! h-0.5 w-10 border-0 p-0!' />
         <span>{formatDate(post.date)}</span>
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
       </article>

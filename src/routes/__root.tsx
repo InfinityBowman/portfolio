@@ -1,12 +1,6 @@
-import {
-  HeadContent,
-  Link,
-  Outlet,
-  Scripts,
-  createRootRoute,
-} from '@tanstack/react-router'
-import appCss from '../styles.css?url'
-import { ThemeProvider } from '@/lib/theme'
+import { HeadContent, Link, Outlet, Scripts, createRootRoute } from '@tanstack/react-router';
+import appCss from '../styles.css?url';
+import { ThemeProvider } from '@/lib/theme';
 
 const jsonLd = JSON.stringify({
   '@context': 'https://schema.org',
@@ -22,7 +16,13 @@ const jsonLd = JSON.stringify({
         'https://github.com/InfinityBowman',
         'https://www.linkedin.com/in/jacob-maynard-283767230/',
       ],
-      knowsAbout: ['Web Development', 'Artificial Intelligence', 'React', 'TypeScript', 'Cloud Infrastructure'],
+      knowsAbout: [
+        'Web Development',
+        'Artificial Intelligence',
+        'React',
+        'TypeScript',
+        'Cloud Infrastructure',
+      ],
     },
     {
       '@type': 'WebSite',
@@ -77,31 +77,48 @@ export const Route = createRootRoute({
       },
       { name: 'author', content: 'Jacob Maynard' },
       { property: 'og:site_name', content: 'Jacob Maynard' },
-      { property: 'og:title', content: 'Jacob Maynard | Web Development & AI Solutions' },
+      {
+        property: 'og:title',
+        content: 'Jacob Maynard | Web Development & AI Solutions',
+      },
       {
         property: 'og:description',
-        content:
-          'I build and optimize websites, dashboards, and AI-powered tools.',
+        content: 'I build and optimize websites, dashboards, and AI-powered tools.',
       },
       { property: 'og:type', content: 'website' },
       { property: 'og:url', content: 'https://jacobmaynard.dev' },
-      { property: 'og:image', content: 'https://jacobmaynard.dev/og-image.png' },
+      {
+        property: 'og:image',
+        content: 'https://jacobmaynard.dev/og-image.png',
+      },
       { property: 'og:image:width', content: '1200' },
       { property: 'og:image:height', content: '630' },
-      { property: 'og:image:alt', content: 'Jacob Maynard - Web Development & AI Solutions' },
+      {
+        property: 'og:image:alt',
+        content: 'Jacob Maynard - Web Development & AI Solutions',
+      },
       { property: 'og:locale', content: 'en_US' },
       { name: 'twitter:card', content: 'summary_large_image' },
-      { name: 'twitter:image', content: 'https://jacobmaynard.dev/og-image.png' },
-      { name: 'twitter:title', content: 'Jacob Maynard | Web Development & AI Solutions' },
+      {
+        name: 'twitter:image',
+        content: 'https://jacobmaynard.dev/og-image.png',
+      },
+      {
+        name: 'twitter:title',
+        content: 'Jacob Maynard | Web Development & AI Solutions',
+      },
       {
         name: 'twitter:description',
-        content:
-          'I build and optimize websites, dashboards, and AI-powered tools.',
+        content: 'I build and optimize websites, dashboards, and AI-powered tools.',
       },
     ],
     links: [
       { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
-      { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossOrigin: 'anonymous' },
+      {
+        rel: 'preconnect',
+        href: 'https://fonts.gstatic.com',
+        crossOrigin: 'anonymous',
+      },
       { rel: 'stylesheet', href: appCss },
       { rel: 'icon', href: '/favicon.ico' },
       { rel: 'manifest', href: '/site.webmanifest' },
@@ -130,41 +147,40 @@ export const Route = createRootRoute({
   component: RootLayout,
   shellComponent: RootDocument,
   notFoundComponent: NotFound,
-})
+});
 
 function NotFound() {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center gap-4 text-center">
-      <h1 className="text-6xl font-bold gradient-text">404</h1>
-      <p className="text-muted-foreground text-lg">This page doesn't exist.</p>
+    <div className='flex min-h-screen flex-col items-center justify-center gap-4 text-center'>
+      <h1 className='gradient-text text-6xl font-bold'>404</h1>
+      <p className='text-muted-foreground text-lg'>This page doesn't exist.</p>
       <Link
-        to="/"
-        className="text-sm text-primary underline underline-offset-4 hover:text-primary/80"
+        to='/'
+        className='text-primary hover:text-primary/80 text-sm underline underline-offset-4'
       >
         Back home
       </Link>
     </div>
-  )
+  );
 }
 
 function RootDocument({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className="overflow-x-hidden">
+    <html lang='en' className='overflow-x-hidden'>
       <head>
         <HeadContent />
       </head>
       <body
-        className="min-h-screen overflow-x-hidden bg-background text-foreground antialiased"
+        className='bg-background text-foreground min-h-screen overflow-x-hidden antialiased'
         style={{
-          fontFamily:
-            "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+          fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
         }}
       >
         {children}
         <Scripts />
       </body>
     </html>
-  )
+  );
 }
 
 function RootLayout() {
@@ -172,5 +188,5 @@ function RootLayout() {
     <ThemeProvider>
       <Outlet />
     </ThemeProvider>
-  )
+  );
 }

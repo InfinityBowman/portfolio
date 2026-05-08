@@ -7,7 +7,7 @@ export default function ContractingHero() {
 
   const scrollToContact = (e: React.MouseEvent) => {
     e.preventDefault();
-    window.plausible("CTA Click");
+    window.plausible('CTA Click');
     const el = document.getElementById('contact');
     if (el) {
       if (lenis) lenis.scrollTo(el);
@@ -16,20 +16,23 @@ export default function ContractingHero() {
   };
 
   return (
-    <section id="hero" className="min-h-[85vh] relative flex flex-col gap-6 justify-center items-center text-center">
-      <h1 className="sr-only">Jacob Maynard - Web Development and AI Solutions</h1>
+    <section
+      id='hero'
+      className='relative flex min-h-[85vh] flex-col items-center justify-center gap-6 text-center'
+    >
+      <h1 className='sr-only'>Jacob Maynard - Web Development and AI Solutions</h1>
 
       <motion.div
-        className="w-full max-w-2xl xl:max-w-4xl -mb-2 sm:mb-0"
+        className='-mb-2 w-full max-w-2xl sm:mb-0 xl:max-w-4xl'
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.3, delay: 0.2 }}
       >
-        <ParticleText text="Jacob Maynard" />
+        <ParticleText text='Jacob Maynard' />
       </motion.div>
 
       <motion.p
-        className="text-lg sm:text-xl text-muted-foreground max-w-2xl"
+        className='text-muted-foreground max-w-2xl text-lg sm:text-xl'
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 1.0 }}
@@ -38,7 +41,7 @@ export default function ContractingHero() {
       </motion.p>
 
       <motion.button
-        className="mt-2 px-8 py-3 rounded-lg bg-ring text-white font-medium hover:brightness-110 hover:shadow-glow transition-all duration-200"
+        className='bg-ring hover:shadow-glow mt-2 rounded-lg px-8 py-3 font-medium text-white transition-all duration-200 hover:brightness-110'
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 1.3 }}

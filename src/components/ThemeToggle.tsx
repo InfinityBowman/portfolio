@@ -1,8 +1,13 @@
-import { useId } from 'react';
+import { useEffect, useId, useState } from 'react';
 import { motion } from 'motion/react';
 import { useTheme } from '@/lib/theme';
 
-const spring = { type: 'spring' as const, stiffness: 250, damping: 35, mass: 4 };
+const spring = {
+  type: 'spring' as const,
+  stiffness: 250,
+  damping: 35,
+  mass: 4,
+};
 
 const dots = [
   { cx: 22, cy: 12, delay: 0 },
@@ -10,7 +15,7 @@ const dots = [
   { cx: 12, cy: 22, delay: 0.12 },
   { cx: 4.9289, cy: 19.0711, delay: 0.18 },
   { cx: 2, cy: 12, delay: 0.24 },
-  { cx: 4.9289, cy: 4.9289, delay: 0.30 },
+  { cx: 4.9289, cy: 4.9289, delay: 0.3 },
   { cx: 12, cy: 2, delay: 0.36 },
   { cx: 19.0711, cy: 4.9289, delay: 0.42 },
 ];
@@ -19,43 +24,49 @@ export default function ThemeToggle() {
   const { theme, toggleTheme } = useTheme();
   const id = useId();
   const isDark = theme === 'dark';
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+
+  if (!mounted) {
+    return <div className='h-9 w-9' />;
+  }
 
   return (
     <button
       onClick={toggleTheme}
       aria-label={`Switch to ${isDark ? 'light' : 'dark'} mode`}
-      className="p-2 rounded-lg text-muted-foreground hover:text-primary transition-colors focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
+      className='text-muted-foreground hover:text-primary focus-visible:ring-ring rounded-lg p-2 transition-colors focus-visible:ring-2 focus-visible:outline-none'
     >
       <motion.svg
-        aria-hidden="true"
-        width="20"
-        height="20"
-        viewBox="0 0 24 24"
+        aria-hidden='true'
+        width='20'
+        height='20'
+        viewBox='0 0 24 24'
         initial={false}
         animate={{ rotate: isDark ? 40 : 90 }}
         transition={spring}
       >
         <mask id={`sun-dot-mask-${id}`}>
-          <rect x="-10" y="-10" width="44" height="44" fill="#FFF" />
-          <circle r="6" cx="12" cy="12" fill="#000" />
+          <rect x='-10' y='-10' width='44' height='44' fill='#FFF' />
+          <circle r='6' cx='12' cy='12' fill='#000' />
         </mask>
         <mask id={`moon-cutout-mask-${id}`}>
-          <rect x="0" y="0" width="24" height="24" fill="#FFF" />
+          <rect x='0' y='0' width='24' height='24' fill='#FFF' />
           <motion.circle
-            cx="12"
-            r="8"
-            fill="#000"
+            cx='12'
+            r='8'
+            fill='#000'
             initial={false}
             animate={{ cy: isDark ? 4 : -4 }}
             transition={spring}
           />
         </mask>
         <mask id={`moon-crescent-mask-${id}`}>
-          <rect x="0" y="0" width="24" height="24" fill="#000" />
+          <rect x='0' y='0' width='24' height='24' fill='#000' />
           <motion.circle
-            cx="12"
-            cy="12"
-            fill="#FFF"
+            cx='12'
+            cy='12'
+            fill='#FFF'
             initial={false}
             animate={{ r: isDark ? 10.5 : 7 }}
             transition={spring}
@@ -66,10 +77,10 @@ export default function ThemeToggle() {
           {dots.map((dot, i) => (
             <g key={i} transform={`translate(${dot.cx}, ${dot.cy})`}>
               <motion.circle
-                cx="0"
-                cy="0"
-                r="1.5"
-                fill="currentColor"
+                cx='0'
+                cy='0'
+                r='1.5'
+                fill='currentColor'
                 initial={false}
                 animate={{ scale: isDark ? 0 : 1 }}
                 transition={{
@@ -86,11 +97,11 @@ export default function ThemeToggle() {
 
         <g mask={`url(#moon-cutout-mask-${id})`}>
           <motion.circle
-            cx="12"
-            cy="12"
-            stroke="currentColor"
-            strokeWidth="2"
-            fill="none"
+            cx='12'
+            cy='12'
+            stroke='currentColor'
+            strokeWidth='2'
+            fill='none'
             initial={false}
             animate={{ r: isDark ? 9.5 : 6 }}
             transition={spring}
@@ -99,11 +110,11 @@ export default function ThemeToggle() {
 
         <g mask={`url(#moon-crescent-mask-${id})`}>
           <motion.circle
-            cx="12"
-            r="8"
-            stroke="currentColor"
-            strokeWidth="2"
-            fill="none"
+            cx='12'
+            r='8'
+            stroke='currentColor'
+            strokeWidth='2'
+            fill='none'
             initial={false}
             animate={{ cy: isDark ? 4 : -4 }}
             transition={spring}

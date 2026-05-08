@@ -115,4 +115,4 @@ An open-ended benchmark for LLMs on real-world health queries — not multiple c
 
 ---
 
-*Next issue: Saturday, March 21, 2026. — Felix 🦊*
+_Next issue: Saturday, March 21, 2026. — Felix 🦊_

@@ -1,10 +1,10 @@
-import { defineConfig } from 'vite'
-import { tanstackStart } from '@tanstack/react-start/plugin/vite'
-import viteReact from '@vitejs/plugin-react'
-import viteTsConfigPaths from 'vite-tsconfig-paths'
-import tailwindcss from '@tailwindcss/vite'
-import { cloudflare } from '@cloudflare/vite-plugin'
-import { plugin as markdown } from 'vite-plugin-markdown'
+import { defineConfig } from 'vite';
+import { tanstackStart } from '@tanstack/react-start/plugin/vite';
+import viteReact from '@vitejs/plugin-react';
+import viteTsConfigPaths from 'vite-tsconfig-paths';
+import tailwindcss from '@tailwindcss/vite';
+import { cloudflare } from '@cloudflare/vite-plugin';
+import { plugin as markdown } from 'vite-plugin-markdown';
 
 const config = defineConfig({
   plugins: [
@@ -24,10 +24,16 @@ const config = defineConfig({
   ],
   ssr: {
     optimizeDeps: {
-      include: ['react', 'react-dom', 'react-dom/server', 'react/jsx-runtime', 'react/jsx-dev-runtime'],
+      include: [
+        'react',
+        'react-dom',
+        'react-dom/server',
+        'react/jsx-runtime',
+        'react/jsx-dev-runtime',
+      ],
     },
     noExternal: ['lenis'],
   },
-})
+});
 
-export default config
+export default config;

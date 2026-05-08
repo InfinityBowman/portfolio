@@ -22,7 +22,7 @@ function ContractingLayout() {
       <LenisScrollTriggerSync />
       <LenisViewTransitionSync />
       <TopNav />
-      <main className="pt-16">
+      <main className='pt-16'>
         <Outlet />
       </main>
       <Footer />

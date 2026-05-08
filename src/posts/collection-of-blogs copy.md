@@ -20,11 +20,9 @@ https://github.com/makeplane/plane
 
 https://github.com/rasbt/LLMs-from-scratch
 
-
 Cool AI tools:
 https://aistudio.google.com/
 https://stitch.withgoogle.com/
-
 
 Courses:
 https://pdos.csail.mit.edu/6.824/

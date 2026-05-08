@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap');
 @import 'tailwindcss';
-@plugin "@tailwindcss/typography";
+@plugin '@tailwindcss/typography';
 
 /* Light - default */
 :root {
@@ -173,8 +173,13 @@
 .theme-transition *,
 .theme-transition *::before,
 .theme-transition *::after {
-  transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease,
-    box-shadow 0.5s ease, fill 0.5s ease, stroke 0.5s ease !important;
+  transition:
+    background-color 0.5s ease,
+    color 0.5s ease,
+    border-color 0.5s ease,
+    box-shadow 0.5s ease,
+    fill 0.5s ease,
+    stroke 0.5s ease !important;
 }
 
 @theme inline {

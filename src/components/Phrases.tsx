@@ -1,16 +1,16 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from 'react';
 
 const PHRASES = [
-  "Software Engineer",
-  "Performance Engineer",
-  "Systems Programmer",
-  "AI Engineer",
-  "Web Developer",
-  "Founding Engineer",
-  "Product Minded",
+  'Software Engineer',
+  'Performance Engineer',
+  'Systems Programmer',
+  'AI Engineer',
+  'Web Developer',
+  'Founding Engineer',
+  'Product Minded',
 ] as const;
 
-type Phase = "typing" | "holding" | "deleting";
+type Phase = 'typing' | 'holding' | 'deleting';
 
 export default function Phrases({ startDelay = 0 }: { startDelay?: number }) {
   const phrases = PHRASES;
@@ -18,7 +18,7 @@ export default function Phrases({ startDelay = 0 }: { startDelay?: number }) {
   const [started, setStarted] = useState(startDelay === 0);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [subIndex, setSubIndex] = useState(0);
-  const [phase, setPhase] = useState<Phase>("typing");
+  const [phase, setPhase] = useState<Phase>('typing');
   const [showCursor, setShowCursor] = useState(true);
 
   useEffect(() => {
@@ -27,11 +27,8 @@ export default function Phrases({ startDelay = 0 }: { startDelay?: number }) {
     return () => clearTimeout(id);
   }, [startDelay, started]);
 
-  const currentPhrase = phrases[currentIndex] ?? "";
-  const displayText = useMemo(
-    () => currentPhrase.slice(0, subIndex),
-    [currentPhrase, subIndex],
-  );
+  const currentPhrase = phrases[currentIndex] ?? '';
+  const displayText = useMemo(() => currentPhrase.slice(0, subIndex), [currentPhrase, subIndex]);
 
   useEffect(() => {
     const TYPE_MS = 80;
@@ -41,7 +38,7 @@ export default function Phrases({ startDelay = 0 }: { startDelay?: number }) {
 
     let delay = TYPE_MS;
 
-    if (phase === "typing") {
+    if (phase === 'typing') {
       if (subIndex >= currentPhrase.length) {
         delay = HOLD_MS;
       } else {
@@ -49,38 +46,38 @@ export default function Phrases({ startDelay = 0 }: { startDelay?: number }) {
       }
     }
 
-    if (phase === "deleting") {
+    if (phase === 'deleting') {
       delay = subIndex === 0 ? BETWEEN_MS : DELETE_MS;
     }
 
-    if (phase === "holding") {
+    if (phase === 'holding') {
       delay = HOLD_MS;
     }
 
     if (!started) return;
 
     const timeout = setTimeout(() => {
-      if (phase === "typing") {
+      if (phase === 'typing') {
         if (subIndex < currentPhrase.length) {
-          setSubIndex((value) => value + 1);
+          setSubIndex(value => value + 1);
           return;
         }
-        setPhase("deleting");
+        setPhase('deleting');
         return;
       }
 
-      if (phase === "deleting") {
+      if (phase === 'deleting') {
         if (subIndex > 0) {
-          setSubIndex((value) => value - 1);
+          setSubIndex(value => value - 1);
           return;
         }
-        setCurrentIndex((value) => (value + 1) % phrases.length);
-        setPhase("typing");
+        setCurrentIndex(value => (value + 1) % phrases.length);
+        setPhase('typing');
         return;
       }
 
       // holding
-      setPhase("deleting");
+      setPhase('deleting');
     }, delay);
 
     return () => clearTimeout(timeout);
@@ -89,18 +86,18 @@ export default function Phrases({ startDelay = 0 }: { startDelay?: number }) {
   // Cursor blink
   useEffect(() => {
     const cursorInterval = setInterval(() => {
-      setShowCursor((prev) => !prev);
+      setShowCursor(prev => !prev);
     }, 500);
     return () => clearInterval(cursorInterval);
   }, []);
 
   return (
-    <div className="relative flex justify-center text-3xl opacity-80 sm:text-4xl lg:text-5xl">
-      <div className="relative">
-        <span className="min-h-1lh">{displayText || "\u200B"}</span>
+    <div className='relative flex justify-center text-3xl opacity-80 sm:text-4xl lg:text-5xl'>
+      <div className='relative'>
+        <span className='min-h-1lh'>{displayText || '\u200B'}</span>
         <span
-          aria-hidden="true"
-          className={`absolute ${showCursor ? "opacity-100" : "opacity-0"} ml-0.5`}
+          aria-hidden='true'
+          className={`absolute ${showCursor ? 'opacity-100' : 'opacity-0'} ml-0.5`}
         >
           |
         </span>

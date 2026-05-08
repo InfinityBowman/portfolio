@@ -1,8 +1,10 @@
 import {
-  lineFragmentShader, lineVertexShader,
-  nodeFragmentShader, nodeVertexShader,
+  lineFragmentShader,
+  lineVertexShader,
+  nodeFragmentShader,
+  nodeVertexShader,
 } from './shaders';
-import type { ConstellationConfig, ConstellationNode  } from './types';
+import type { ConstellationConfig, ConstellationNode } from './types';
 import type { ConnectionResult } from './simulation';
 
 // ---- Minimal matrix math ----
@@ -26,19 +28,38 @@ function perspective(fov: number, aspect: number, near: number, far: number): Ma
 
 function lookAt(eye: Array<number>, center: Array<number>, up: Array<number>): Mat4 {
   const out = createMat4();
-  let fx = center[0] - eye[0], fy = center[1] - eye[1], fz = center[2] - eye[2];
+  let fx = center[0] - eye[0],
+    fy = center[1] - eye[1],
+    fz = center[2] - eye[2];
   let len = 1 / Math.sqrt(fx * fx + fy * fy + fz * fz);
-  fx *= len; fy *= len; fz *= len;
+  fx *= len;
+  fy *= len;
+  fz *= len;
 
-  let sx = fy * up[2] - fz * up[1], sy = fz * up[0] - fx * up[2], sz = fx * up[1] - fy * up[0];
+  let sx = fy * up[2] - fz * up[1],
+    sy = fz * up[0] - fx * up[2],
+    sz = fx * up[1] - fy * up[0];
   len = 1 / Math.sqrt(sx * sx + sy * sy + sz * sz);
-  sx *= len; sy *= len; sz *= len;
+  sx *= len;
+  sy *= len;
+  sz *= len;
 
-  const ux = sy * fz - sz * fy, uy = sz * fx - sx * fz, uz = sx * fy - sy * fx;
+  const ux = sy * fz - sz * fy,
+    uy = sz * fx - sx * fz,
+    uz = sx * fy - sy * fx;
 
-  out[0] = sx; out[1] = ux; out[2] = -fx; out[3] = 0;
-  out[4] = sy; out[5] = uy; out[6] = -fy; out[7] = 0;
-  out[8] = sz; out[9] = uz; out[10] = -fz; out[11] = 0;
+  out[0] = sx;
+  out[1] = ux;
+  out[2] = -fx;
+  out[3] = 0;
+  out[4] = sy;
+  out[5] = uy;
+  out[6] = -fy;
+  out[7] = 0;
+  out[8] = sz;
+  out[9] = uz;
+  out[10] = -fz;
+  out[11] = 0;
   out[12] = -(sx * eye[0] + sy * eye[1] + sz * eye[2]);
   out[13] = -(ux * eye[0] + uy * eye[1] + uz * eye[2]);
   out[14] = -(-fx * eye[0] + -fy * eye[1] + -fz * eye[2]);
@@ -93,7 +114,10 @@ export interface RendererState {
   config: ConstellationConfig;
 }
 
-export function initRenderer(canvas: HTMLCanvasElement, config: ConstellationConfig): RendererState | null {
+export function initRenderer(
+  canvas: HTMLCanvasElement,
+  config: ConstellationConfig,
+): RendererState | null {
   const gl = canvas.getContext('webgl', {
     alpha: false,
     antialias: true,
@@ -121,12 +145,7 @@ export function initRenderer(canvas: HTMLCanvasElement, config: ConstellationCon
   };
 
   const aspect = canvas.width / canvas.height;
-  const projectionMatrix = perspective(
-    (config.cameraFov * Math.PI) / 180,
-    aspect,
-    0.1,
-    100,
-  );
+  const projectionMatrix = perspective((config.cameraFov * Math.PI) / 180, aspect, 0.1, 100);
 
   gl.clearColor(config.bgColor[0], config.bgColor[1], config.bgColor[2], 1.0);
 
@@ -144,12 +163,7 @@ export function initRenderer(canvas: HTMLCanvasElement, config: ConstellationCon
 export function resizeRenderer(state: RendererState, width: number, height: number): void {
   state.gl.viewport(0, 0, width, height);
   const aspect = width / height;
-  state.projectionMatrix = perspective(
-    (state.config.cameraFov * Math.PI) / 180,
-    aspect,
-    0.1,
-    100,
-  );
+  state.projectionMatrix = perspective((state.config.cameraFov * Math.PI) / 180, aspect, 0.1, 100);
 }
 
 export function renderFrame(
@@ -158,7 +172,8 @@ export function renderFrame(
   connections: ConnectionResult,
   time: number,
 ): void {
-  const { gl, nodeProgram, lineProgram, nodeBuffers, lineBuffers, projectionMatrix, config } = state;
+  const { gl, nodeProgram, lineProgram, nodeBuffers, lineBuffers, projectionMatrix, config } =
+    state;
 
   gl.clear(gl.COLOR_BUFFER_BIT);
 
@@ -174,7 +189,12 @@ export function renderFrame(
 
     gl.uniformMatrix4fv(gl.getUniformLocation(lineProgram, 'uProjection'), false, projectionMatrix);
     gl.uniformMatrix4fv(gl.getUniformLocation(lineProgram, 'uModelView'), false, modelView);
-    gl.uniform3f(gl.getUniformLocation(lineProgram, 'uLineColor'), config.lineColor[0], config.lineColor[1], config.lineColor[2]);
+    gl.uniform3f(
+      gl.getUniformLocation(lineProgram, 'uLineColor'),
+      config.lineColor[0],
+      config.lineColor[1],
+      config.lineColor[2],
+    );
     gl.uniform1f(gl.getUniformLocation(lineProgram, 'uFocalDistance'), config.focalDistance);
     gl.uniform1f(gl.getUniformLocation(lineProgram, 'uDofStrength'), config.dofStrength);
 
@@ -205,7 +225,11 @@ export function renderFrame(
   gl.uniform1f(gl.getUniformLocation(nodeProgram, 'uTime'), time);
   gl.uniform1f(gl.getUniformLocation(nodeProgram, 'uPulseMin'), config.pulseMin);
   gl.uniform1f(gl.getUniformLocation(nodeProgram, 'uPulseMax'), config.pulseMax);
-  gl.uniform2f(gl.getUniformLocation(nodeProgram, 'uResolution'), gl.canvas.width, gl.canvas.height);
+  gl.uniform2f(
+    gl.getUniformLocation(nodeProgram, 'uResolution'),
+    gl.canvas.width,
+    gl.canvas.height,
+  );
   gl.uniform1f(gl.getUniformLocation(nodeProgram, 'uFocalDistance'), config.focalDistance);
   gl.uniform1f(gl.getUniformLocation(nodeProgram, 'uDofStrength'), config.dofStrength);
 
@@ -217,10 +241,10 @@ export function renderFrame(
 
   for (let i = 0; i < count; i++) {
     const n = nodes[i];
-    posData[i * 3]     = n.x;
+    posData[i * 3] = n.x;
     posData[i * 3 + 1] = n.y;
     posData[i * 3 + 2] = n.z;
-    colData[i * 3]     = n.colorR;
+    colData[i * 3] = n.colorR;
     colData[i * 3 + 1] = n.colorG;
     colData[i * 3 + 2] = n.colorB;
     sizeData[i] = n.size;

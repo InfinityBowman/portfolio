@@ -14,7 +14,7 @@ export default function Stats() {
       const counters = containerRef.current?.querySelectorAll('.stat-value');
       if (!counters) return;
 
-      counters.forEach((el) => {
+      counters.forEach(el => {
         const target = Number(el.getAttribute('data-value'));
         const obj = { val: 0 };
         gsap.to(obj, {
@@ -37,16 +37,16 @@ export default function Stats() {
 
   return (
     <section ref={containerRef}>
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-8">
-        {STATS.map((stat) => (
-          <div key={stat.label} className="text-center">
-            <div className="text-4xl sm:text-5xl font-bold text-primary mb-1">
-              <span className="stat-value" data-value={stat.value}>
+      <div className='grid grid-cols-2 gap-8 sm:grid-cols-4'>
+        {STATS.map(stat => (
+          <div key={stat.label} className='text-center'>
+            <div className='text-primary mb-1 text-4xl font-bold sm:text-5xl'>
+              <span className='stat-value' data-value={stat.value}>
                 0
               </span>
-              <span className="text-ring">{stat.suffix}</span>
+              <span className='text-ring'>{stat.suffix}</span>
             </div>
-            <div className="text-sm text-muted-foreground">{stat.label}</div>
+            <div className='text-muted-foreground text-sm'>{stat.label}</div>
           </div>
         ))}
       </div>

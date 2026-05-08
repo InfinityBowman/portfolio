@@ -84,7 +84,11 @@ export default function BackgroundCanvas({ opacity }: BackgroundCanvasProps) {
           // Wave effect follows horizontal lines
           const distanceFromLeft = (startX + x * gridSpacing) / (cols * gridSpacing);
           const offset = Math.sin(time - distanceFromLeft * 4) * waveAmplitude;
-          const xPos = Math.round(startX + x * gridSpacing + Math.sin(time - (yPos / displayHeight) * 2) * (waveAmplitude / 2)); // Round for pixel alignment again
+          const xPos = Math.round(
+            startX +
+              x * gridSpacing +
+              Math.sin(time - (yPos / displayHeight) * 2) * (waveAmplitude / 2),
+          ); // Round for pixel alignment again
 
           if (y === 0) {
             ctx.moveTo(xPos, Math.round(yPos + offset));

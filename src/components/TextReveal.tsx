@@ -38,7 +38,7 @@ export default function TextReveal({ text, as: Tag = 'h2', className }: TextReve
   return (
     <Tag ref={containerRef as React.RefObject<never>} className={className}>
       {words.map((word, i) => (
-        <span key={i} className="word inline-block">
+        <span key={i} className='word inline-block'>
           {word}
           {i < words.length - 1 ? ' ' : ''}
         </span>

@@ -56,18 +56,18 @@ export const DEFAULT_CONFIG: ConstellationConfig = {
   noiseScale: 0.25,
   noiseSpeed: 0.12,
   colors: [
-    hexToColor('#a78bfa', 0.28),  // light purple
-    hexToColor('#8b5cf6', 0.22),  // purple
-    hexToColor('#6366f1', 0.18),  // indigo
-    hexToColor('#c084fc', 0.12),  // lavender/pink
-    hexToColor('#f0abfc', 0.08),  // magenta/pink
-    hexToColor('#60a5fa', 0.07),  // blue
-    hexToColor('#e0e7ff', 0.05),  // near-white sparkle
+    hexToColor('#a78bfa', 0.28), // light purple
+    hexToColor('#8b5cf6', 0.22), // purple
+    hexToColor('#6366f1', 0.18), // indigo
+    hexToColor('#c084fc', 0.12), // lavender/pink
+    hexToColor('#f0abfc', 0.08), // magenta/pink
+    hexToColor('#60a5fa', 0.07), // blue
+    hexToColor('#e0e7ff', 0.05), // near-white sparkle
   ],
   focalDistance: 13.0,
   dofStrength: 4.5,
   pulseMin: 0.82,
   pulseMax: 1.0,
-  bgColor: [0.04, 0.015, 0.10],      // deeper dark purple
-  lineColor: [0.65, 0.55, 0.85],     // light lavender
+  bgColor: [0.04, 0.015, 0.1], // deeper dark purple
+  lineColor: [0.65, 0.55, 0.85], // light lavender
 };
