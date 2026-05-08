@@ -35,8 +35,9 @@ export default function Testimonials() {
             key={i}
             className="testimonial-card p-6 rounded-xl border border-border bg-background/60 backdrop-blur-sm text-center"
           >
-            <blockquote className="text-lg text-primary mb-4">
-              &ldquo;{t.quote}&rdquo;
+            <div className="text-6xl leading-none text-muted-foreground/50 font-serif select-none">&ldquo;</div>
+            <blockquote className="text-lg text-primary mb-4 -mt-4">
+              {t.quote}
             </blockquote>
             <div className="text-sm text-muted-foreground">
               <span className="font-medium text-secondary-foreground">{t.name}</span>
