@@ -18,12 +18,15 @@ export default function About() {
 
       if (!slideOverEl?.length) return;
 
+      const isTouch = ScrollTrigger.isTouch;
+
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: containerRef.current,
           start: 'top 80%',
-          end: 'top 30%',
-          scrub: 1,
+          ...(isTouch ?
+            { toggleActions: 'play none none none' }
+          : { end: 'top 30%', scrub: 1 }),
         },
       });
 
@@ -39,8 +42,9 @@ export default function About() {
         scrollTrigger: {
           trigger: containerRef.current,
           start: 'top 60%',
-          end: 'top 30%',
-          scrub: 1,
+          ...(isTouch ?
+            { toggleActions: 'play none none none' }
+          : { end: 'top 30%', scrub: 1 }),
         },
         scale: 0,
         opacity: 0,
@@ -53,6 +57,8 @@ export default function About() {
 
   useGSAP(
     () => {
+      if (ScrollTrigger.isTouch) return;
+
       const revealLineEl = containerRef.current?.querySelectorAll('.reveal-line');
 
       if (!revealLineEl?.length) return;

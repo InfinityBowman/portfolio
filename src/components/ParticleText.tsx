@@ -123,7 +123,8 @@ export default function ParticleText({
     gl.clearColor(0, 0, 0, 0);
 
     let particleCount = 0;
-    const supersample = 2;
+    const isMobile = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    const supersample = isMobile ? 1 : 2;
 
     function sampleTextAndUpload() {
       const computedStyle = window.getComputedStyle(textEl!);
@@ -135,7 +136,7 @@ export default function ParticleText({
       const layoutHeight = Math.floor(containerRect.height);
       if (layoutWidth === 0 || layoutHeight === 0) return;
 
-      const padding = 400;
+      const padding = isMobile ? 100 : 400;
       const width = layoutWidth + padding * 2;
       const height = layoutHeight + padding * 2;
       const dpr = window.devicePixelRatio || 1;
@@ -239,14 +240,21 @@ export default function ParticleText({
 
     let startTime = 0;
     let animationId: number;
+    let lastFrameTime = 0;
+    const frameInterval = 1000 / 60;
 
     const animate = (timestamp: number) => {
       if (!startTime) startTime = timestamp;
-      const elapsed = (timestamp - startTime) / 1000;
 
-      gl.clear(gl.COLOR_BUFFER_BIT);
-      gl.uniform1f(uTime, elapsed);
-      gl.drawArrays(gl.POINTS, 0, particleCount);
+      const delta = timestamp - lastFrameTime;
+      if (delta >= frameInterval) {
+        lastFrameTime = timestamp - (delta % frameInterval);
+        const elapsed = (timestamp - startTime) / 1000;
+
+        gl.clear(gl.COLOR_BUFFER_BIT);
+        gl.uniform1f(uTime, elapsed);
+        gl.drawArrays(gl.POINTS, 0, particleCount);
+      }
 
       animationId = requestAnimationFrame(animate);
     };

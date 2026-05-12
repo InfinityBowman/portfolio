@@ -1,6 +1,6 @@
 import { Outlet, createFileRoute } from '@tanstack/react-router';
 import { ReactLenis } from 'lenis/react';
-import { useLayoutEffect, useState } from 'react';
+import { useEffect, useLayoutEffect, useState } from 'react';
 import { LenisScrollTriggerSync, LenisViewTransitionSync } from '@/lib/lenis-utils';
 import NavMenuToggle from '@/components/nav/NavMenuToggle';
 import NavMenu from '@/components/nav/NavMenu';
@@ -15,6 +15,11 @@ export const Route = createFileRoute('/_portfolio')({
 
 function LayoutComponent() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isTouch, setIsTouch] = useState(false);
+
+  useEffect(() => {
+    setIsTouch('ontouchstart' in window || navigator.maxTouchPoints > 0);
+  }, []);
 
   useLayoutEffect(() => {
     const el = document.documentElement;
@@ -30,6 +35,24 @@ function LayoutComponent() {
     };
   }, []);
 
+  const content = (
+    <>
+      {!isTouch && <LenisScrollTriggerSync />}
+      {!isTouch && <LenisViewTransitionSync />}
+      <NavMenuToggle onToggle={() => setIsMenuOpen(prev => !prev)} isOpen={isMenuOpen} />
+      <NavMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
+      <main className='relative z-10'>
+        <Outlet />
+      </main>
+      <Footer />
+      <BackgroundParticles opacity={0.5} />
+      <BackgroundCanvas opacity={0.1} />
+      {!isTouch && <ScrollProgressIndicator />}
+    </>
+  );
+
+  if (isTouch) return content;
+
   return (
     <ReactLenis
       root
@@ -40,17 +63,7 @@ function LayoutComponent() {
         orientation: 'vertical',
       }}
     >
-      <LenisScrollTriggerSync />
-      <LenisViewTransitionSync />
-      <NavMenuToggle onToggle={() => setIsMenuOpen(prev => !prev)} isOpen={isMenuOpen} />
-      <NavMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
-      <main className='relative z-10'>
-        <Outlet />
-      </main>
-      <Footer />
-      <BackgroundParticles opacity={0.5} />
-      <BackgroundCanvas opacity={0.1} />
-      <ScrollProgressIndicator />
+      {content}
     </ReactLenis>
   );
 }

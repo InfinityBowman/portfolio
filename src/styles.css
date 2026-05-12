@@ -255,16 +255,18 @@ html.lenis body {
     letter-spacing: 0.02em;
   }
 
-  /* Hide scrollbars — only when portfolio layout sets the attribute */
-  html[data-hide-scrollbar],
-  html[data-hide-scrollbar] body {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
+  /* Hide scrollbars on desktop only — mobile gets native scrollbars */
+  @media (min-width: 640px) {
+    html[data-hide-scrollbar],
+    html[data-hide-scrollbar] body {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
 
-  html[data-hide-scrollbar]::-webkit-scrollbar,
-  html[data-hide-scrollbar] body::-webkit-scrollbar {
-    display: none;
+    html[data-hide-scrollbar]::-webkit-scrollbar,
+    html[data-hide-scrollbar] body::-webkit-scrollbar {
+      display: none;
+    }
   }
 
   code[class*='language-'],

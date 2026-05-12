@@ -36,8 +36,20 @@ export default function BackgroundCanvas({ opacity }: BackgroundCanvasProps) {
     const waveSpeed = 0.005;
     let time = 0;
 
-    function drawGrid() {
+    let lastTime = 0;
+    const frameInterval = 1000 / 60;
+
+    function drawGrid(timestamp?: number) {
       if (!canvas || !ctx) return;
+
+      if (timestamp !== undefined) {
+        const delta = timestamp - lastTime;
+        if (delta < frameInterval) {
+          requestAnimationFrame(drawGrid);
+          return;
+        }
+        lastTime = timestamp - (delta % frameInterval);
+      }
 
       const displayWidth = canvas.width / pixelRatio;
       const displayHeight = canvas.height / pixelRatio;
