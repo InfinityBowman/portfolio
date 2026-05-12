@@ -9,6 +9,9 @@ import Contact from '@/components/Contact';
 
 export const Route = createFileRoute('/_portfolio/portfolio')({
   component: HomePage,
+  head: () => ({
+    links: [{ rel: 'canonical', href: 'https://jacobmaynard.dev/portfolio' }],
+  }),
 });
 
 function HomePage() {

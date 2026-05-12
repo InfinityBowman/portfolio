@@ -18,46 +18,35 @@ export default function Projects() {
 
       if (!slideUpEl?.length) return;
 
-      const isTouch = ScrollTrigger.isTouch;
+      if (ScrollTrigger.isTouch) {
+        gsap.timeline({
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: 'top 100%',
+            toggleActions: 'play none none none',
+          },
+        }).from('.slide-up', {
+          opacity: 0,
+          y: 60,
+          ease: 'power1.inOut',
+          stagger: 0.4,
+        });
+        return;
+      }
 
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: 'top 100%',
-          ...(isTouch ?
-            { toggleActions: 'play none none none' }
-          : { end: 'bottom 95%', scrub: 0.5 }),
-        },
-      });
+      slideUpEl.forEach((el) => {
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: el,
+            start: 'top 95%',
+            end: 'top -30%',
+            scrub: 0.5,
+          },
+        });
 
-      tl.from('.slide-up', {
-        opacity: 0,
-        y: 60,
-        ease: 'power1.inOut',
-        stagger: 0.4,
-      });
-    },
-    { scope: containerRef },
-  );
-
-  useGSAP(
-    () => {
-      if (ScrollTrigger.isTouch) return;
-
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: 'top 0%',
-          end: 'bottom 5%',
-          scrub: 0.5,
-        },
-      });
-
-      tl.to('.slide-up', {
-        opacity: 0,
-        y: -50,
-        ease: 'power1.inOut',
-        stagger: 0.4,
+        tl.from(el, { opacity: 0, y: 60, duration: 1, ease: 'none' });
+        tl.to({}, { duration: 4 });
+        tl.to(el, { opacity: 0, y: -50, duration: 1, ease: 'none' });
       });
     },
     { scope: containerRef },
@@ -105,7 +94,7 @@ export default function Projects() {
                   viewTransition
                   className='border-muted text-primary bg-background hover:bg-secondary focus:border-primary inline-flex items-center gap-2 rounded-lg border p-2'
                 >
-                  Read More
+                  Read more about {project.title}
                 </Link>
               )}
             </div>
@@ -114,6 +103,8 @@ export default function Projects() {
                 <video
                   className='h-auto max-h-[400px] rounded-lg border border-white/30 bg-black/20 object-contain sm:max-w-sm md:max-w-lg'
                   src={project.media}
+                  width={project.mediaWidth}
+                  height={project.mediaHeight}
                   autoPlay
                   loop
                   muted
@@ -125,6 +116,8 @@ export default function Projects() {
                 <img
                   className='h-auto max-h-[400px] rounded-lg border border-white/30 bg-black/20 object-contain sm:max-w-xs md:max-w-md lg:max-w-lg'
                   src={project.media}
+                  width={project.mediaWidth}
+                  height={project.mediaHeight}
                   alt={project.title + ' image'}
                   loading='lazy'
                 />
