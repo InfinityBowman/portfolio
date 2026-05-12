@@ -1,4 +1,3 @@
-import { motion } from 'motion/react';
 import { useLenis } from 'lenis/react';
 import ParticleText from '@/components/ParticleText';
 
@@ -22,33 +21,20 @@ export default function ContractingHero() {
     >
       <h1 className='sr-only'>Jacob Maynard - Web Development and AI Solutions</h1>
 
-      <motion.div
-        className='-mb-2 w-full max-w-2xl sm:mb-0 xl:max-w-4xl'
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.3, delay: 0.2 }}
-      >
+      <div className='-mb-2 w-full max-w-2xl sm:mb-0 xl:max-w-4xl animate-fade-in [animation-delay:200ms]'>
         <ParticleText text='Jacob Maynard' />
-      </motion.div>
+      </div>
 
-      <motion.p
-        className='text-muted-foreground max-w-2xl text-lg sm:text-xl'
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 1.0 }}
-      >
+      <p className='text-muted-foreground max-w-2xl text-lg sm:text-xl animate-fade-up [animation-delay:1000ms] opacity-0 [animation-fill-mode:forwards]'>
         I turn your ideas into software that works.
-      </motion.p>
+      </p>
 
-      <motion.button
-        className='bg-ring hover:shadow-glow mt-2 rounded-lg px-8 py-3 font-medium text-white transition-all duration-200 hover:brightness-110'
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 1.3 }}
+      <button
+        className='bg-ring hover:shadow-glow mt-2 rounded-lg px-8 py-3 font-medium text-white transition-all duration-200 hover:brightness-110 animate-fade-up [animation-delay:1300ms] opacity-0 [animation-fill-mode:forwards]'
         onClick={scrollToContact}
       >
         Let's Talk
-      </motion.button>
+      </button>
     </section>
   );
 }
