@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useTheme } from '@/lib/theme';
 
 function hexToGLSL(hex: string): string {
@@ -25,8 +25,14 @@ export default function ParticleText({
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const textRef = useRef<HTMLHeadingElement>(null);
+  const [isTouch, setIsTouch] = useState(false);
 
   useEffect(() => {
+    setIsTouch('ontouchstart' in window || navigator.maxTouchPoints > 0);
+  }, []);
+
+  useEffect(() => {
+    if (isTouch) return;
     const container = containerRef.current;
     const canvas = canvasRef.current;
     const textEl = textRef.current;
@@ -123,8 +129,7 @@ export default function ParticleText({
     gl.clearColor(0, 0, 0, 0);
 
     let particleCount = 0;
-    const isMobile = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-    const supersample = isMobile ? 1 : 2;
+    const supersample = 2;
 
     function sampleTextAndUpload() {
       const computedStyle = window.getComputedStyle(textEl!);
@@ -136,7 +141,7 @@ export default function ParticleText({
       const layoutHeight = Math.floor(containerRect.height);
       if (layoutWidth === 0 || layoutHeight === 0) return;
 
-      const padding = isMobile ? 100 : 400;
+      const padding = 400;
       const width = layoutWidth + padding * 2;
       const height = layoutHeight + padding * 2;
       const dpr = window.devicePixelRatio || 1;
@@ -240,21 +245,14 @@ export default function ParticleText({
 
     let startTime = 0;
     let animationId: number;
-    let lastFrameTime = 0;
-    const frameInterval = 1000 / 60;
 
     const animate = (timestamp: number) => {
       if (!startTime) startTime = timestamp;
+      const elapsed = (timestamp - startTime) / 1000;
 
-      const delta = timestamp - lastFrameTime;
-      if (delta >= frameInterval) {
-        lastFrameTime = timestamp - (delta % frameInterval);
-        const elapsed = (timestamp - startTime) / 1000;
-
-        gl.clear(gl.COLOR_BUFFER_BIT);
-        gl.uniform1f(uTime, elapsed);
-        gl.drawArrays(gl.POINTS, 0, particleCount);
-      }
+      gl.clear(gl.COLOR_BUFFER_BIT);
+      gl.uniform1f(uTime, elapsed);
+      gl.drawArrays(gl.POINTS, 0, particleCount);
 
       animationId = requestAnimationFrame(animate);
     };
@@ -273,14 +271,14 @@ export default function ParticleText({
       gl.deleteBuffer(alphaBuffer);
       gl.deleteBuffer(speedBuffer);
     };
-  }, [text, theme]);
+  }, [text, theme, isTouch]);
 
   return (
     <div ref={containerRef} className='relative w-full overflow-visible'>
-      <canvas ref={canvasRef} className='pointer-events-none absolute' />
+      {!isTouch && <canvas ref={canvasRef} className='pointer-events-none absolute' />}
       <h1
         ref={textRef}
-        className='p-1 text-center text-5xl font-bold text-transparent select-text lg:text-7xl xl:text-8xl'
+        className={`p-1 text-center text-5xl font-bold select-text lg:text-7xl xl:text-8xl ${isTouch ? 'text-primary' : 'text-transparent'}`}
         style={{ fontFamily: 'system-ui, sans-serif' }}
       >
         {text}

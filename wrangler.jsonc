@@ -4,6 +4,9 @@
   "compatibility_date": "2025-09-02",
   "compatibility_flags": ["nodejs_compat"],
   "main": "@tanstack/react-start/server-entry",
+  "assets": {
+    "html_handling": "drop-trailing-slash"
+  },
   "workers_dev": false,
   "preview_urls": false,
   "routes": [{ "pattern": "jacobmaynard.dev", "custom_domain": true }],
