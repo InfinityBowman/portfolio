@@ -26,6 +26,7 @@ export default function ParticleText({
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const textRef = useRef<HTMLHeadingElement>(null);
   const [isTouch, setIsTouch] = useState(false);
+  const [canvasReady, setCanvasReady] = useState(false);
 
   useEffect(() => {
     setIsTouch('ontouchstart' in window || navigator.maxTouchPoints > 0);
@@ -257,7 +258,10 @@ export default function ParticleText({
       animationId = requestAnimationFrame(animate);
     };
 
-    animationId = requestAnimationFrame(animate);
+    animationId = requestAnimationFrame((ts) => {
+      setCanvasReady(true);
+      animate(ts);
+    });
 
     return () => {
       cancelAnimationFrame(animationId);
@@ -278,7 +282,7 @@ export default function ParticleText({
       {!isTouch && <canvas ref={canvasRef} className='pointer-events-none absolute' />}
       <h1
         ref={textRef}
-        className={`p-1 text-center text-5xl font-bold select-text lg:text-7xl xl:text-8xl ${isTouch ? 'text-primary' : 'text-transparent'}`}
+        className={`p-1 text-center text-5xl font-bold select-text lg:text-7xl xl:text-8xl ${canvasReady ? 'text-transparent' : 'text-primary'}`}
         style={{ fontFamily: 'system-ui, sans-serif' }}
       >
         {text}
