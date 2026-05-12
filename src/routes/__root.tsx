@@ -119,7 +119,12 @@ export const Route = createRootRoute({
         href: 'https://fonts.gstatic.com',
         crossOrigin: 'anonymous',
       },
+      {
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap',
+      },
       { rel: 'stylesheet', href: appCss },
+      { rel: 'dns-prefetch', href: 'https://plausible.jacobmaynard.dev' },
       { rel: 'icon', href: '/favicon.ico' },
       { rel: 'manifest', href: '/site.webmanifest' },
       { rel: 'canonical', href: 'https://jacobmaynard.dev' },
