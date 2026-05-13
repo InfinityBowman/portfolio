@@ -2,7 +2,6 @@ import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useRef } from 'react';
-import { Link } from '@tanstack/react-router';
 import SOCIAL_LINKS from '@/lib/socials';
 import { ABOUT } from '@/lib/data';
 import SectionTitle from '@/components/SectionTitle';
@@ -112,15 +111,6 @@ export default function About() {
               {link.icon}
             </a>
           ))}
-          <Link
-            to='/blog'
-            viewTransition
-            className='group border-muted text-primary bg-background hover:bg-secondary focus:border-primary pop-in flex items-center gap-2 rounded-lg border p-1.5 px-2'
-          >
-            <span className='text-secondary-foreground group-hover:text-primary transition-colors'>
-              My Blog
-            </span>
-          </Link>
         </div>
       </div>
     </section>

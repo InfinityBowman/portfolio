@@ -27,11 +27,7 @@ export default function NavMenu({ isOpen, onClose }: NavMenuProps) {
   const navigate = useNavigate();
   const lenis = useLenis();
 
-  const [activeSection, setActiveSection] = useState(
-    location.pathname.startsWith('/blog') ? 'blog'
-    : location.pathname.startsWith('/digest') ? 'digest'
-    : 'hero',
-  );
+  const [activeSection, setActiveSection] = useState('hero');
 
   const homeSections = [
     { href: '/portfolio#hero', label: 'Home', id: 'hero' },
@@ -44,18 +40,12 @@ export default function NavMenu({ isOpen, onClose }: NavMenuProps) {
   ];
 
   const pageLinks = [
-    { to: '/blog', label: 'Blog', id: 'blog' },
-    { to: '/digest', label: 'Digest', id: 'digest' },
     { to: '/', label: 'Work With Me', id: 'hire' },
   ];
 
   // Update active section when route changes
   useEffect(() => {
-    if (location.pathname.startsWith('/blog')) {
-      setActiveSection('blog');
-    } else if (location.pathname.startsWith('/digest')) {
-      setActiveSection('digest');
-    } else if (location.pathname === '/portfolio') {
+    if (location.pathname === '/portfolio') {
       setActiveSection('hero');
     }
   }, [location.pathname]);

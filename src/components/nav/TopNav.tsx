@@ -7,7 +7,6 @@ import ThemeToggle from '@/components/ThemeToggle';
 
 const navLinks = [
   { to: '/portfolio' as const, label: 'Portfolio' },
-  { to: '/digest' as const, label: 'Digest' },
 ];
 
 export default function TopNav() {
