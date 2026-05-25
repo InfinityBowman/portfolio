@@ -56,7 +56,7 @@ function DigestListPage() {
   return (
     <section className='flex min-h-screen flex-col items-center justify-center gap-8 px-4 py-12'>
       <div className='w-full max-w-3xl text-center'>
-        <h2 className='mb-4 text-4xl font-extrabold text-zinc-100 drop-shadow-lg'>Foxfire</h2>
+        <h2 className='mt-12 mb-4 text-4xl font-extrabold text-zinc-100 drop-shadow-lg'>Foxfire</h2>
         <p className='text-muted-foreground mx-auto max-w-xl text-lg'>
           A weekly signal flare from the edges of tech — AI, open source, engineering, and whatever
           else caught fire this week. Curated every Saturday by{' '}

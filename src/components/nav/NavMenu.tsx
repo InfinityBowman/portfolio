@@ -39,7 +39,9 @@ export default function NavMenu({ isOpen, onClose }: NavMenuProps) {
     { href: '/#contact', label: 'Contact', id: 'contact' },
   ];
 
-  const pageLinks: Array<{ to: string; label: string; id: string }> = [];
+  const pageLinks = [
+    { to: '/digest', label: 'Digest', id: 'digest' },
+  ];
 
   // Update active section when route changes
   useEffect(() => {
