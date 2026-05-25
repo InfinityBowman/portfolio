@@ -132,7 +132,7 @@ export const Route = createRootRoute({
     scripts: [
       {
         children:
-          '(function(){var p=location.pathname;if(p==="/portfolio"||p.startsWith("/blog")||p.startsWith("/digest")){document.documentElement.dataset.theme="dark";document.documentElement.dataset.themeLocked="";return}try{var t=localStorage.getItem("theme")}catch(e){}document.documentElement.dataset.theme=t==="dark"||t==="light"?t:matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light"})()',
+          '(function(){var p=location.pathname;if(p==="/"||p==="/portfolio"||p.startsWith("/blog")||p.startsWith("/digest")){document.documentElement.dataset.theme="dark";document.documentElement.dataset.themeLocked="";return}try{var t=localStorage.getItem("theme")}catch(e){}document.documentElement.dataset.theme=t==="dark"||t==="light"?t:matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light"})()',
       },
       {
         type: 'application/ld+json',

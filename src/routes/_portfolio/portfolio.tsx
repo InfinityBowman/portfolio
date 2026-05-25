@@ -1,29 +1,7 @@
-import { createFileRoute } from '@tanstack/react-router';
-import Hero from '@/components/Hero';
-import Skills from '@/components/Skills';
-import Experience from '@/components/Experience';
-import Education from '@/components/Education';
-import Projects from '@/components/Projects';
-import About from '@/components/About';
-import Contact from '@/components/Contact';
+import { createFileRoute, redirect } from '@tanstack/react-router';
 
 export const Route = createFileRoute('/_portfolio/portfolio')({
-  component: HomePage,
-  head: () => ({
-    links: [{ rel: 'canonical', href: 'https://jacobmaynard.dev/portfolio' }],
-  }),
+  beforeLoad: () => {
+    throw redirect({ to: '/' });
+  },
 });
-
-function HomePage() {
-  return (
-    <div className='mx-4 space-y-60 sm:mx-8 sm:mr-16'>
-      <Hero />
-      <About />
-      <Skills />
-      <Experience />
-      <Education />
-      <Projects />
-      <Contact />
-    </div>
-  );
-}

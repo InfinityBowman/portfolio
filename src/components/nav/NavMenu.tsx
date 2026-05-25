@@ -30,22 +30,20 @@ export default function NavMenu({ isOpen, onClose }: NavMenuProps) {
   const [activeSection, setActiveSection] = useState('hero');
 
   const homeSections = [
-    { href: '/portfolio#hero', label: 'Home', id: 'hero' },
-    { href: '/portfolio#about', label: 'About', id: 'about' },
-    { href: '/portfolio#skills', label: 'Skills', id: 'skills' },
-    { href: '/portfolio#experience', label: 'Experience', id: 'experience' },
-    { href: '/portfolio#education', label: 'Education', id: 'education' },
-    { href: '/portfolio#projects', label: 'Projects', id: 'projects' },
-    { href: '/portfolio#contact', label: 'Contact', id: 'contact' },
+    { href: '/#hero', label: 'Home', id: 'hero' },
+    { href: '/#about', label: 'About', id: 'about' },
+    { href: '/#skills', label: 'Skills', id: 'skills' },
+    { href: '/#experience', label: 'Experience', id: 'experience' },
+    { href: '/#education', label: 'Education', id: 'education' },
+    { href: '/#projects', label: 'Projects', id: 'projects' },
+    { href: '/#contact', label: 'Contact', id: 'contact' },
   ];
 
-  const pageLinks = [
-    { to: '/', label: 'Work With Me', id: 'hire' },
-  ];
+  const pageLinks: Array<{ to: string; label: string; id: string }> = [];
 
   // Update active section when route changes
   useEffect(() => {
-    if (location.pathname === '/portfolio') {
+    if (location.pathname === '/') {
       setActiveSection('hero');
     }
   }, [location.pathname]);
@@ -53,7 +51,7 @@ export default function NavMenu({ isOpen, onClose }: NavMenuProps) {
   // Update active section based on scroll position (only on home page)
   useEffect(() => {
     const handleScroll = () => {
-      if (location.pathname !== '/portfolio') return;
+      if (location.pathname !== '/') return;
 
       const sections = homeSections.map(item => item.id);
       const scrollPosition = window.scrollY + 200;
@@ -88,8 +86,8 @@ export default function NavMenu({ isOpen, onClose }: NavMenuProps) {
   const handleSectionClick = (e: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
     e.preventDefault();
 
-    if (location.pathname !== '/portfolio') {
-      navigate({ to: '/portfolio' }).then(() => {
+    if (location.pathname !== '/') {
+      navigate({ to: '/' }).then(() => {
         setTimeout(() => {
           const el = document.getElementById(sectionId);
           if (el) scrollToElement(el);

@@ -38,13 +38,13 @@ export const PROCESS_STEPS = [
     number: 2,
     title: 'Get a plan',
     description:
-      "I'll respond with a clear breakdown of what's needed, how long it'll take, and what it'll cost.",
+      "We'll talk through scope, requirements, and timeline to make sure we're aligned before any work starts.",
   },
   {
     number: 3,
     title: 'I build, you launch',
     description:
-      'I handle the technical work with regular check-ins. You get a working product, ready to go.',
+      'I handle the technical work with regular check-ins and prototypes/mockups when needed. You get a working product, ready to go aligned to your needs.',
   },
 ];
 

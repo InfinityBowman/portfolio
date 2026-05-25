@@ -8,3 +8,4 @@ src/routeTree.gen.ts
 worker-configuration.d.ts
 
 .env
+contracting.md

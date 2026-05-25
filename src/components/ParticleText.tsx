@@ -25,19 +25,18 @@ export default function ParticleText({
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const textRef = useRef<HTMLHeadingElement>(null);
-  const [isTouch, setIsTouch] = useState(false);
-  const [canvasReady, setCanvasReady] = useState(false);
+  const [showFallback, setShowFallback] = useState(false);
 
   useEffect(() => {
-    setIsTouch('ontouchstart' in window || navigator.maxTouchPoints > 0);
-  }, []);
-
-  useEffect(() => {
-    if (isTouch) return;
     const container = containerRef.current;
     const canvas = canvasRef.current;
     const textEl = textRef.current;
     if (!container || !canvas || !textEl) return;
+
+    if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
+      setShowFallback(true);
+      return;
+    }
 
     const gl = canvas.getContext('webgl2', {
       alpha: true,
@@ -258,10 +257,7 @@ export default function ParticleText({
       animationId = requestAnimationFrame(animate);
     };
 
-    animationId = requestAnimationFrame((ts) => {
-      setCanvasReady(true);
-      animate(ts);
-    });
+    animationId = requestAnimationFrame(animate);
 
     return () => {
       cancelAnimationFrame(animationId);
@@ -275,14 +271,14 @@ export default function ParticleText({
       gl.deleteBuffer(alphaBuffer);
       gl.deleteBuffer(speedBuffer);
     };
-  }, [text, theme, isTouch]);
+  }, [text, theme]);
 
   return (
     <div ref={containerRef} className='relative w-full overflow-visible'>
-      {!isTouch && <canvas ref={canvasRef} className='pointer-events-none absolute' />}
+      <canvas ref={canvasRef} className='pointer-events-none absolute' />
       <h1
         ref={textRef}
-        className={`p-1 text-center text-5xl font-bold select-text lg:text-7xl xl:text-8xl ${canvasReady ? 'text-transparent' : 'text-primary'}`}
+        className={`p-1 text-center text-5xl font-bold select-text lg:text-7xl xl:text-8xl ${showFallback ? 'text-primary' : 'text-transparent'}`}
         style={{ fontFamily: 'system-ui, sans-serif' }}
       >
         {text}
