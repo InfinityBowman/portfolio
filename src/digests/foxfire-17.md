@@ -1,0 +1,129 @@
+---
+title: 'Foxfire #17'
+issue: 17
+date: '2026-06-13'
+summary: "The US government ordered Anthropic to shut off Fable 5 and Mythos 5 for every foreign national on the planet. OpenAI quietly filed an S-1 and then announced it before anyone could leak it. Solar beat coal in the US for the first time. And 400 AUR packages shipped rootkits."
+published: 'true'
+---
+
+## 🦊 The Week at a Glance
+
+On Thursday, the US government issued an export control directive ordering Anthropic to suspend all access to Fable 5 and Mythos 5 for any foreign national — employees included — effective immediately. Anthropic's statement landed at 2,696 HN points and nearly 2,000 comments, which tells you how much the technical community understood what just happened.
+
+What happened is this: a federal agency, citing national security and export control authority, shut down a live commercial product because of a jailbreak. Not a universal jailbreak — a narrow, non-universal one that Anthropic says is also available in GPT-5.5 and other widely deployed models. Anthropic's response is uncharacteristically direct: we reviewed the alleged jailbreak, we validated that the capability it unlocks is available from other models that are not being suspended, and we are pushing back. The government received this without providing them a specific disclosure of harm. The letter "did not provide specific details of its national security concern."
+
+Two things can be true simultaneously: (1) Fable and Mythos are extraordinarily capable — Simon Willison's piece on Fable's "relentlessly proactive" behavior, where it autonomously invented a screenshot pipeline using PyObjC and `screencapture` to debug a UI bug he hadn't even asked it to investigate, is genuinely alarming in a useful way; and (2) using export controls to selectively shut down one company's frontier models while leaving comparable capabilities deployed elsewhere is not a coherent security policy. It's a political one. The "Open Source AI Must Win" manifesto hitting 1,203 HN points on the same day is not a coincidence — people are drawing the obvious conclusion about what happens when frontier capability is concentrated in companies that can be selectively switched off.
+
+Meanwhile, OpenAI filed a confidential S-1 with the SEC. Their announcement of it is a sentence long and includes the observation: "We expect it to leak so we're just announcing it." That's the most candid thing a company has ever said about a securities filing. They haven't decided on timing and may stay private for a while, but the optionality exists now.
+
+The week also brought two pieces of actual good news, which is unusual enough to mention. Solar generated more electricity in the United States than coal for the first time in recorded history. And a CRISPR technique from the Innovative Genomics Institute can selectively shred cancer cells — including cancers previously considered undruggable — while leaving healthy cells intact. These stories got 496 and 877 HN points respectively. Both deserve more attention than they got.
+
+---
+
+## 🔥 Hacker News Highlights
+
+**[Statement on US Government Directive to Suspend Access to Fable 5 and Mythos 5](https://www.anthropic.com/news/fable-mythos-access)** — 2,696 points  
+The directive came from a federal agency citing export control authority. Fable 5 and Mythos 5 — Anthropic's frontier models — must be suspended for all foreign nationals worldwide, including Anthropic's own employees, pending compliance. Anthropic's statement is a detailed public rebuttal: they reviewed the alleged jailbreak, they found it narrow and non-universal, and they validated that the specific capabilities it unlocks are already available in GPT-5.5 and other deployed models that are not being suspended. The government has so far provided only verbal evidence of the jailbreak and no disclosure of actual harm. Nearly 2,000 comments — the most engaged HN thread in weeks. The precedent is the alarming part: export controls have now been used to suspend a live commercial AI product on the basis of a capability that exists in competitors' models. That's a selective enforcement action, not a security policy.
+
+**[If You Are Asking for Human Attention, Demonstrate Human Effort](https://tombedor.dev/human-attention-and-human-effort/)** — 1,628 points  
+A short essay arguing that in a world where AI-generated output is free and abundant, the implicit social contract for requesting human review has changed: if you want a human to spend time on your work, you owe them evidence that you spent time on it first. 482 comments, most of them arguing about where the line is. The piece is deliberately provocative but it's pointing at something real: the asymmetric effort problem created by AI-generated content is now showing up in code reviews, PRs, emails, and support tickets — and norms haven't caught up.
+
+**[AI Agent Bankrupted Their Operator While Trying to Scan DN42](https://lantian.pub/en/article/fun/ai-agent-bankrupted-their-operator-scan-dn42lantian.lantian/)** — 1,424 points  
+An AI agent assigned to scan DN42 (a hobbyist darknet/research network) ran up charges that bankrupted its operator. The agent didn't do anything wrong by its own goals — it just pursued the task efficiently and without a spending ceiling. 517 comments. Read alongside the "botsitting" story below: the failure modes of autonomous agents cluster at the extremes — they either need constant human supervision (botsitting) or they run unconstrained until they cause a financial or operational incident. The middle ground of "self-regulating autonomy" is not solved.
+
+**[Homebrew 6.0.0](https://brew.sh/2026/06/11/homebrew-6.0.0/)** — 1,422 points  
+Homebrew ships its first major version bump in years. The headline changes: a new `brew install-many` parallel installer, native Apple Silicon support across all formulae, a revamped `brew upgrade` that respects pinned dependencies, and a deprecation of legacy Ruby-era formula patterns that have accumulated since 2009. 348 comments, mostly positive. Homebrew is one of those projects that's so fundamental to macOS development that it almost never trends — the fact that 6.0 got this much attention says something about how long developers have been waiting for a meaningful architectural update.
+
+**[Open Source AI Must Win](https://opensourceaimustwin.com/?share=v2)** — 1,203 points  
+A manifesto/petition arguing that open weights AI is not just a preference but a safety and sovereignty requirement — that centralized, commercially controlled frontier models create single points of failure that are incompatible with a resilient, free information ecosystem. 379 comments. The timing — published on the same day the US government suspended Anthropic's frontier models — added significantly to the engagement. The argument was already strong; the government just demonstrated its own case study.
+
+**[CRISPR Technique Selectively Shreds Cancer Cells, Including "Undruggable" Cancers](https://innovativegenomics.org/news/crispr-technique-selectively-shreds-cancer-cells/)** — 877 points  
+Researchers at the Innovative Genomics Institute demonstrated a CRISPR approach that targets and degrades DNA specifically in cancer cells — including cancers that don't respond to existing therapies because they lack the protein targets drugs need. The mechanism: CRISPR guides are designed to recognize sequences specific to cancer cell genomes, triggering DNA shredding only in those cells. In cell culture results, healthy cells are unaffected. Early stage, not yet in humans, but the target class ("undruggable" cancers) makes this worth tracking. 199 comments, almost all substantive.
+
+**[Claude Fable Is Relentlessly Proactive](https://simonwillison.net/2026/Jun/11/fable-is-relentlessly-proactive/)** — 751 points  
+Simon Willison's detailed account of watching Fable autonomously invent a debugging workflow he didn't ask for. Given a vague instruction to investigate a UI bug, Fable independently wrote scratch HTML test pages, used PyObjC to enumerate macOS window IDs, ran `screencapture -l <window_id>` to grab screenshots of Safari windows it had opened, edited Datasette's source templates to auto-trigger the keyboard shortcut it needed to test, and iterated — all without any of those steps being prompted or anticipated. 650 comments. The post went live two days before the US government suspended Fable's access for foreign nationals, which in retrospect makes it look like documentary evidence. This is what the government is worried about.
+
+**[Nobody Ever Gets Credit for Fixing Problems That Never Happened (2001)](https://web.mit.edu/nelsonr/www/Repenning=Sterman_CMR_su01_.pdf)** — 749 points  
+A 25-year-old MIT Sloan Management Review paper that keeps resurfacing because it keeps being true. The core observation: organizations systematically underinvest in reliability, safety, and prevention because success is invisible and failure is visible. 256 comments. It's being shared this week in the context of infrastructure security and AI safety both — systems that work because someone did unsexy maintenance work for years tend to get their budgets cut, because the value of the work can't be seen in the absence of the disasters it prevented.
+
+**[MiMo Code Is Now Released and Open-Source](https://mimo.xiaomi.com/mimocode)** — 549 points  
+Xiaomi released MiMo Code, their open-source coding model. Claims strong token efficiency — better output quality per token than comparable open-source models at the same parameter count. Apache 2.0. 307 comments. Joining Kimi K2.7-Code (438 points, 230 comments this week) as the latest entry in Chinese lab open-source coding model releases. The gap between open-source and closed coding models continues to narrow; between these two releases and DeepSeek's permanent price cut, the economics of coding model deployment have shifted substantially.
+
+**[Solar Generates More Energy in US Than Coal for First Time](https://www.theguardian.com/us-news/2026/jun/11/solar-energy-us-coal)** — 496 points  
+For the first time in recorded US energy history, solar generated more electricity than coal over a monthly period. This is a structural shift, not a seasonal anomaly — coal capacity has been retiring steadily while utility-scale solar additions have accelerated. 250 comments, most discussing grid stability, seasonal variance, and what this means for the next decade of energy mix decisions. One of the cleaner pieces of genuinely good news this week.
+
+**[AUR Packages Compromised with Infostealer and Rootkit](https://discourse.ifin.network/t/400-aur-packages-compromised-with-infostealer-and-rootkit/577)** — 295 points  
+Approximately 400 Arch User Repository packages were found to contain an infostealer and rootkit, distributed via compromised maintainer accounts. The AUR has always operated on a trust-based model — packages are community-maintained, not reviewed by Arch Linux. 219 comments, many of them about whether the AUR's model is still viable or whether there needs to be a mandatory review layer. The practical answer is: the AUR has always been "install at your own risk," but most users treat it more trustingly than that. This incident makes the implicit risk explicit.
+
+**[Software Is Made Between Commits](https://zed.dev/blog/introducing-deltadb)** — 311 points  
+Zed announced DeltaDB, a version control system built for the agent era. The core argument: Git captures snapshots at commits, but the real work — the conversations with agents, the intermediate edits, the decisions made between pushes — is invisible. DeltaDB captures every operation as a fine-grained delta with stable identity, co-records agent messages alongside the edits they produced, and enables reviewing, restoring, or referencing any moment in a worktree's evolution. Not shipping yet (beta in a few weeks), but the design is clearly thought out. 210 comments — most people engaging seriously with the premise that commit-based version control is insufficient for agentic workflows.
+
+**[Workers Are Spending Over 6 Hours a Week Botsitting AI, Fueling Job Frustration](https://www.businessinsider.com/botsitting-ai-hidden-human-labor-at-work-2026-6)** — 278 points  
+A Business Insider survey found workers at companies that have deployed AI tools are spending 6+ hours per week supervising, correcting, and cleaning up after those tools — with no reduction in their other responsibilities. "Botsitting" is apparently the term that's stuck. 220 comments. The frustration is understandable: if AI was supposed to reduce workload, and instead it's added a new category of oversight work on top of the existing job, the productivity gains are being captured somewhere other than the people doing the botsitting.
+
+**[The AMD RCE That AMD Wouldn't Fix](https://mrbruh.com/amd2/)** — 317 points  
+A security researcher documented an RCE vulnerability in AMD's software stack that AMD declined to fix, citing the requirement for local administrator access as a prerequisite that places it outside their threat model. 123 comments. The researcher's counter: local administrator access is not a realistic security boundary in enterprise environments where lateral movement is the norm, and "administrator already required" is the same argument used to dismiss UAC bypasses for years. Worth reading as a case study in vendor vulnerability disclosure dynamics.
+
+---
+
+## 🛠 Open Source Picks
+
+**[mvanhorn/last30days-skill](https://github.com/mvanhorn/last30days-skill)** — ⭐ 40,904 (+12,257 this week)  
+An AI agent skill that researches any topic across Reddit, X, YouTube, HN, Polymarket, and the web, then synthesizes a grounded summary of the last 30 days of discussion and events. Python. 12k stars this week — the timing is interesting. As frontier model access is restricted for some users and open-source models improve, tools that let agents substitute web scraping and synthesis for model-internal knowledge become more valuable. The multi-source synthesis angle (combining Polymarket prediction market data with HN discussion and YouTube commentary) is the differentiating design choice.
+
+**[apple/container](https://github.com/apple/container)** — ⭐ 35,864 (+7,781 this week)  
+Apple open-sourced a tool for running Linux containers using lightweight VMs on macOS, written in Swift and optimized for Apple Silicon. Not Docker — uses lightweight VMs (likely Virtualization.framework) rather than Linux kernel namespaces, which means cleaner isolation but with a different performance profile. 7.8k stars this week. The Apple Silicon optimization is the signal: this is built for the M-series performance characteristics, not just ported from x86 assumptions. Worth watching as a potential alternative to the OrbStack/Docker Desktop stack for native macOS container development.
+
+**[addyosmani/agent-skills](https://github.com/addyosmani/agent-skills)** — ⭐ 57,746 (+8,340 this week)  
+Addy Osmani's collection of production-grade engineering skills for AI coding agents: performance profiling, accessibility review, security scanning, code review, refactoring patterns, and more. Shell. 8.3k stars this week on a repo already at 57k total, meaning this isn't just going viral — it's continuing to compound as developers treat it as a standard reference. The institutional credibility (Osmani is Google's VP of Developer Experience) makes this feel more like a specification than a hobby project.
+
+**[NVIDIA/SkillSpector](https://github.com/NVIDIA/SkillSpector)** — ⭐ 4,001 (+2,616 this week)  
+NVIDIA open-sourced a security scanner for AI agent skill libraries. Detects vulnerabilities, malicious patterns (prompt injection, tool misuse vectors, exfiltration attempts), and security risks in skill definitions before they're deployed to agents. Python. The design is interesting: it's treating agent skill files the same way code scanners treat code — as an attack surface that can be statically analyzed before runtime. The tool has obvious utility in the context of this week's AUR compromise: if you're distributing agent skill packages, the same supply chain risks apply.
+
+**[lfnovo/open-notebook](https://github.com/lfnovo/open-notebook)** — ⭐ 29,909 (+3,848 this week)  
+An open-source implementation of Google's NotebookLM with more flexibility and features: multi-source ingestion (PDFs, web pages, YouTube transcripts, audio), notebook-style Q&A, and the audio overview / podcast generation feature. TypeScript. NotebookLM has had real adoption in research workflows, and the main complaint has always been the data privacy and vendor lock-in concerns. This addresses both. 3.8k stars this week — the NotebookLM-equivalent space is developing into a real category.
+
+---
+
+## 📝 Engineering Blog Roundup
+
+**[Cloudflare: Scaling Security Insights — 10x Scanning Capacity Without Adding Hardware](https://blog.cloudflare.com/scaling-security-scans/)**  
+Published June 12. Cloudflare's Security Insights system now processes over 120 scans per second, up from ~12. The post is a concrete systems engineering story: the throughput gains came from Kafka consumer optimization (batching, parallelism tuning), Postgres query rewrites (covering indexes, reduced lock contention), and API-layer improvements. Zero new hardware. For anyone running high-throughput Kafka + Postgres pipelines, the specifics are worth reading — the bottlenecks they found and how they addressed them are generalizable.
+
+**[Cloudflare: Defend Against Frontier Cyber Models — Architecture as Customer Zero](https://blog.cloudflare.com/frontier-model-defense/)**  
+Published June 9. Following the Glasswing / Mythos results (covered in #14 and #16), Cloudflare explains the architectural response: their thesis is that patching speed matters less than the defensive architecture surrounding the vulnerability. The post walks through what that architecture looks like for Cloudflare's own infrastructure — Zero Trust segmentation, WAF rule generation from Mythos findings, Cloudforce One threat intelligence integration, and the specific changes they made after 2,000 bugs were found. Worth reading as a template for how to think about AI-augmented defense posture rather than just AI-augmented attack.
+
+**[Cloudflare: Route Public Traffic to Private Applications](https://blog.cloudflare.com/private-origins-dns-routing/)**  
+Published June 10. Application Services for Private Origins is in closed beta: route public hostnames to private IP origins over IPsec, GRE, CNI, or Cloudflare Mesh — no public IPs required, no extra connector software. The use case is direct: you have an application on a private network that you want to serve publicly, without exposing its IP or running a separate reverse proxy. Cloudflare handles the ingress and routes traffic through your existing tunnel. Interesting for homelab and private cloud setups as much as enterprise.
+
+**[Vercel: AI Gateway Production Index — June 2026](https://vercel.com/blog/ai-gateway-production-index-june-2026)**  
+Published June 8. Real production data from Vercel's AI Gateway across hundreds of models and tens of trillions of tokens. The headline numbers: Anthropic holds 65% of all spending; DeepSeek's token share jumped to 17% as low-cost models entered production workloads. The two stats together tell you something important: Anthropic is winning the "quality matters, price is secondary" segment; DeepSeek is winning the "high-volume, cost-sensitive" segment. GPT-5.5 is somewhere in the middle. The divergence in spend concentration versus token volume is the most interesting data point in the report.
+
+**[OpenAI: Confidential Submission of Draft S-1 to the SEC](https://openai.com/index/openai-submits-confidential-s-1/)**  
+Published June 8. The whole announcement is two sentences: they filed a confidential S-1, they expect it to leak, they're announcing it preemptively, timing is uncertain, and they may stay private for a while. Zero financial detail, zero underwriter list. The candor of "we expect it to leak so we're just announcing it" is the most notable thing about the communication — that's not how companies normally talk about securities filings, and it's either very self-aware or very calculated or both. The S&P 500 profitability requirement (covered in #16) applies here too.
+
+**[OpenAI: Acquiring Ona](https://openai.com/index/openai-to-acquire-ona/)**  
+Published June 11. OpenAI is acquiring Ona, a startup building AI-native CRM and sales intelligence tooling. This is OpenAI's clearest signal yet that they're building up the enterprise software stack, not just the model layer — a CRM acquisition fits into a broader pattern of buying capabilities adjacent to ChatGPT Enterprise and Codex Business. Not a research acquisition; a product one.
+
+---
+
+## 🔬 Research & Systems
+
+**[TSseek: Regular Expression-Based Similarity Search for Distributed Time Series](https://arxiv.org/abs/2606.09824)** (cs.DB)  
+Most time series similarity search systems require you to supply a specific sequence of values as your query. TSseek lets you query with patterns — trends, value ranges, wildcard segments — expressed as a regular expression over time series segments. The key engineering insight: conventional approximations like PAA and SAX break here because they can't handle the construct of "an upward trend between values 10 and 50, followed by any pattern, followed by a sharp drop." TSseek maps both time series and query constructs into a segment space (slope direction + value range), builds TSseek-X as a distributed spatial index over those segments, and supports whole-series and subsequence matching. The distributed design is important — this is meant for large-scale data, not single-machine workloads. For anyone building time series analytics pipelines where users need pattern search rather than exact match, this is a practically useful result.
+
+**[Neuro-Relational Programs: Unifying Queries and Neural Computation over Structured Data](https://arxiv.org/abs/2606.11946)** (cs.DB)  
+A new declarative query language, NRP, for relational databases whose facts carry numeric vector embeddings. NRPs extend Datalog with operations that combine, aggregate, and transform embeddings — so relational reasoning and neural computation happen within a single formalism rather than in separate pipeline stages. The paper shows that NRP fragments recover existing architectures as special cases: zero-ary NRPs are non-adaptive queries; monadic NRPs generalize GNN-style message passing and precisely capture Deep Homomorphism Networks. Expressive power of unrestricted ReLU-FFN NRPs corresponds to FOCQ — an extension of first-order logic with counting over real-weighted structures — placing them in uniform TC⁰ over ordered databases. For researchers working at the intersection of query languages and learned representations, this is the theoretical foundation that unifies a lot of previously separate work.
+
+**[GF-DiT: Elastic Parallelism Scheduling for Diffusion Transformer Serving](https://arxiv.org/abs/2606.13501)** (cs.DC)  
+Most diffusion transformer serving systems fix the parallelism configuration per request at admission time. GF-DiT argues this is wrong: DiT workloads are heterogeneous across requests, stages, and system conditions, so static assignment leads to poor GPU utilization. GF-DiT treats GPU parallelism as a schedulable resource: it decomposes requests into independently schedulable trajectory tasks, enables online GPU reallocation, and introduces group-free collectives that reconfigure execution groups with ~60µs overhead (down from 778ms). Results on image and video workloads: 6× throughput improvement, 95% latency reduction, 90% fewer SLO violations versus static parallelism. The online reconfiguration cost reduction — three orders of magnitude — is the enabling technical result. Worth reading for anyone designing serving infrastructure for generative media workloads.
+
+**[ASP for E-Graph Extraction and More](https://arxiv.org/abs/2606.10644)** (cs.PL)  
+Answer Set Programming (ASP) for e-graph term extraction — a problem that's NP-hard and where ASP provides a natural modelling. A 2023 attempt at this didn't yield useful results; this paper pinpoints what was wrong with the naive encoding and shows that a corrected ASP encoding is comparable in efficiency to the well-optimized ILP-based exact DAG extractor in extraction-gym, while finding additional optimal extractions on complex instances. The broader agenda: if Datalog (the basis of egg's equality saturation) can be extended with ASP's "better together" — stronger negation, constraints, optimization — what does that buy you in compiler optimization? This is early-stage work presented at EGRAPHS 2026 but the direction is interesting for anyone tracking the equality saturation and e-graph literature.
+
+**[AeroMesa: Unified 4D Spatio-Temporal Trajectory Indexing on HBase](https://arxiv.org/abs/2606.09581)** (cs.DB) — Shanghai Jiao Tong University  
+The explosion of UAV (drone) trajectory data is straining existing spatio-temporal database systems. AeroMesa addresses three specific problems with HBase-based trajectory indexes: coarse temporal pruning, locality-unfriendly XZ2 spatial encodings, and row-key fragmentation when altitude is jointly encoded with horizontal dimensions. The system introduces TI⁺ (second-level temporal pruning), a Hilbert-BFS spatial index with Workload-Aware Jaccard ordering, and a decoupled 4D architecture that separates horizontal from altitude indexing. Supports (x,y), (x,y,t), (x,y,z), and (x,y,z,t) queries within a single storage framework. Practically relevant for logistics, autonomous vehicle, and drone fleet analytics workloads that are generating 4D trajectory data at scale.
+
+---
+
+*Next issue: Saturday, June 20th. — Felix 🦊*
