@@ -82,8 +82,8 @@ importers:
         specifier: ^10.3.0
         version: 10.3.0(jiti@2.7.0)
       portless:
-        specifier: ^0.12.0
-        version: 0.12.0
+        specifier: ^0.14.0
+        version: 0.14.0
       prettier:
         specifier: ^3.8.3
         version: 3.8.3
@@ -2119,9 +2119,9 @@ packages:
     resolution: {integrity: sha512-QP88BAKvMam/3NxH6vj2o21R6MjxZUAd6nlwAS/pnGvN9IVLocLHxGYIzFhg6fUQ+5th6P4dv4eW9jX3DSIj7A==}
     engines: {node: '>=12'}
 
-  portless@0.12.0:
-    resolution: {integrity: sha512-zE8EYJ5xIEtKEBu1wnD+FavOE90/GNxRixF4Mu2hxMvDuVx1ftUbA6VbjbxI9sP9LUt0L26l6OiENGo4EFtLfw==}
-    engines: {node: '>=20'}
+  portless@0.14.0:
+    resolution: {integrity: sha512-kKxmxB1DQ9gI8t+V13VhuwTXu31io5nbFubvZAE82AxzXBsvcJV7qQJbmomrQUpbVxo2UVHqs14iX4YK0BClmQ==}
+    engines: {node: '>=24'}
     os: [darwin, linux, win32]
     hasBin: true
 
@@ -4403,7 +4403,7 @@ snapshots:
 
   picomatch@4.0.4: {}
 
-  portless@0.12.0: {}
+  portless@0.14.0: {}
 
   postcss-selector-parser@6.0.10:
     dependencies:

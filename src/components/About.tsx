@@ -13,19 +13,18 @@ export default function About() {
 
   useGSAP(
     () => {
+      if (ScrollTrigger.isTouch) return;
+
       const slideOverEl = containerRef.current?.querySelectorAll('.slide-over');
 
       if (!slideOverEl?.length) return;
-
-      const isTouch = ScrollTrigger.isTouch;
 
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: containerRef.current,
           start: 'top 80%',
-          ...(isTouch ?
-            { toggleActions: 'play none none none' }
-          : { end: 'top 30%', scrub: 1 }),
+          end: 'top 30%',
+          scrub: 1,
         },
       });
 
@@ -41,9 +40,8 @@ export default function About() {
         scrollTrigger: {
           trigger: containerRef.current,
           start: 'top 60%',
-          ...(isTouch ?
-            { toggleActions: 'play none none none' }
-          : { end: 'top 30%', scrub: 1 }),
+          end: 'top 30%',
+          scrub: 1,
         },
         scale: 0,
         opacity: 0,
@@ -71,8 +69,8 @@ export default function About() {
         },
       });
 
-      tl.to('.reveal-line', {
-        x: 0,
+      tl.from('.reveal-line', {
+        xPercent: -100,
         ease: 'power2.out',
       });
     },
@@ -85,7 +83,7 @@ export default function About() {
 
       <div className='space-y-6 sm:space-y-10'>
         <div className='mx-2 overflow-hidden'>
-          <hr className='text-secondary-foreground/70 reveal-line -translate-x-full transform' />
+          <hr className='text-secondary-foreground/70 reveal-line' />
         </div>
         <div className='grid flex-wrap gap-x-16 gap-y-6 sm:gap-y-9 md:grid-cols-12'>
           <h3 className='slide-over text-4xl whitespace-nowrap sm:text-5xl md:col-span-5'>

@@ -12,19 +12,18 @@ export default function Skills() {
 
   useGSAP(
     () => {
+      if (ScrollTrigger.isTouch) return;
+
       const slideUpEl = containerRef.current?.querySelectorAll('.slide-up');
 
       if (!slideUpEl?.length) return;
-
-      const isTouch = ScrollTrigger.isTouch;
 
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: containerRef.current,
           start: 'top 90%',
-          ...(isTouch ?
-            { toggleActions: 'play none none none' }
-          : { end: 'bottom 80%', scrub: 0.5 }),
+          end: 'bottom 80%',
+          scrub: 0.5,
         },
       });
 

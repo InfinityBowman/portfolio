@@ -14,25 +14,11 @@ export default function Projects() {
 
   useGSAP(
     () => {
+      if (ScrollTrigger.isTouch) return;
+
       const slideUpEl = containerRef.current?.querySelectorAll('.slide-up');
 
       if (!slideUpEl?.length) return;
-
-      if (ScrollTrigger.isTouch) {
-        gsap.timeline({
-          scrollTrigger: {
-            trigger: containerRef.current,
-            start: 'top 100%',
-            toggleActions: 'play none none none',
-          },
-        }).from('.slide-up', {
-          opacity: 0,
-          y: 60,
-          ease: 'power1.inOut',
-          stagger: 0.4,
-        });
-        return;
-      }
 
       slideUpEl.forEach((el) => {
         const tl = gsap.timeline({

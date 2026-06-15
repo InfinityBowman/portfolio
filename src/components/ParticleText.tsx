@@ -33,16 +33,14 @@ export default function ParticleText({
     const textEl = textRef.current;
     if (!container || !canvas || !textEl) return;
 
-    if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
-      setShowFallback(true);
-      return;
-    }
-
     const gl = canvas.getContext('webgl2', {
       alpha: true,
       premultipliedAlpha: false,
     });
-    if (!gl) return;
+    if (!gl) {
+      setShowFallback(true);
+      return;
+    }
 
     const colors = THEME_COLORS[theme];
     const vsSource = `#version 300 es
