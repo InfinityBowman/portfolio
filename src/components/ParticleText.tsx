@@ -33,6 +33,11 @@ export default function ParticleText({
     const textEl = textRef.current;
     if (!container || !canvas || !textEl) return;
 
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      setShowFallback(true);
+      return;
+    }
+
     const gl = canvas.getContext('webgl2', {
       alpha: true,
       premultipliedAlpha: false,

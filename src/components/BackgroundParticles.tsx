@@ -14,6 +14,7 @@ export default function BackgroundParticles({ opacity }: BackgroundParticlesProp
     const ctx = canvas.getContext('2d', { alpha: true });
     if (!ctx) return;
 
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const particles: Array<Particle> = [];
 
     // Track device pixel ratio for high-DPI screens
@@ -124,7 +125,9 @@ export default function BackgroundParticles({ opacity }: BackgroundParticlesProp
     }
 
     resizeCanvas();
-    window.addEventListener('resize', resizeCanvas);
+    if (!prefersReducedMotion) {
+      window.addEventListener('resize', resizeCanvas);
+    }
     initParticles();
 
     // Connect nearby particles with lines
@@ -214,6 +217,16 @@ export default function BackgroundParticles({ opacity }: BackgroundParticlesProp
       }
 
       requestAnimationFrame(animate);
+    }
+
+    if (prefersReducedMotion) {
+      // Reduced motion: draw a single static frame, no animation loop.
+      const displayWidth = canvas.width / pixelRatio;
+      const displayHeight = canvas.height / pixelRatio;
+      ctx.clearRect(0, 0, displayWidth, displayHeight);
+      for (const particle of particles) particle.draw();
+      connectParticles();
+      return;
     }
 
     // Start animation loop

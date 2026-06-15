@@ -14,6 +14,8 @@ export default function BackgroundCanvas({ opacity }: BackgroundCanvasProps) {
     const ctx = canvas.getContext('2d', { alpha: true });
     if (!ctx) return;
 
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
     // Track device pixel ratio for high-DPI screens
     const pixelRatio = window.devicePixelRatio || 1;
 
@@ -28,7 +30,9 @@ export default function BackgroundCanvas({ opacity }: BackgroundCanvasProps) {
     }
 
     resizeCanvas();
-    window.addEventListener('resize', resizeCanvas);
+    if (!prefersReducedMotion) {
+      window.addEventListener('resize', resizeCanvas);
+    }
 
     // Grid configuration
     const gridSpacing = 30;
@@ -114,17 +118,24 @@ export default function BackgroundCanvas({ opacity }: BackgroundCanvasProps) {
       // Update time for animation
       time += waveSpeed;
 
-      // Continue animation
-      requestAnimationFrame(drawGrid);
+      // Continue animation (skip when reduced motion — render a single static frame)
+      if (!prefersReducedMotion) {
+        requestAnimationFrame(drawGrid);
+      }
     }
 
-    // Start the animation
-    const animationId = requestAnimationFrame(drawGrid);
+    // Start the animation (reduced motion: draw one static frame with no loop)
+    let animationId: number | undefined;
+    if (prefersReducedMotion) {
+      drawGrid();
+    } else {
+      animationId = requestAnimationFrame(drawGrid);
+    }
 
     // Cleanup
     return () => {
       window.removeEventListener('resize', resizeCanvas);
-      cancelAnimationFrame(animationId);
+      if (animationId !== undefined) cancelAnimationFrame(animationId);
     };
   }, []);
 
