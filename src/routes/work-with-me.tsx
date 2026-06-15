@@ -43,8 +43,16 @@ function WorkWithMePage() {
     setIsTouch('ontouchstart' in window || navigator.maxTouchPoints > 0);
   }, []);
 
-  const content = (
-    <>
+  return (
+    <ReactLenis
+      root
+      options={{
+        lerp: 0.1,
+        duration: 1.4,
+        smoothWheel: true,
+        orientation: 'vertical',
+      }}
+    >
       {!isTouch && <LenisScrollTriggerSync />}
       {!isTouch && <LenisViewTransitionSync />}
       <TopNav />
@@ -78,22 +86,6 @@ function WorkWithMePage() {
         </div>
       </main>
       <Footer />
-    </>
-  );
-
-  if (isTouch) return content;
-
-  return (
-    <ReactLenis
-      root
-      options={{
-        lerp: 0.1,
-        duration: 1.4,
-        smoothWheel: true,
-        orientation: 'vertical',
-      }}
-    >
-      {content}
     </ReactLenis>
   );
 }

@@ -35,8 +35,16 @@ function LayoutComponent() {
     };
   }, []);
 
-  const content = (
-    <>
+  return (
+    <ReactLenis
+      root
+      options={{
+        lerp: 0.1,
+        duration: 1.4,
+        smoothWheel: true,
+        orientation: 'vertical',
+      }}
+    >
       {!isTouch && <LenisScrollTriggerSync />}
       {!isTouch && <LenisViewTransitionSync />}
       <NavMenuToggle onToggle={() => setIsMenuOpen(prev => !prev)} isOpen={isMenuOpen} />
@@ -48,22 +56,6 @@ function LayoutComponent() {
       <BackgroundParticles opacity={0.5} />
       <BackgroundCanvas opacity={0.1} />
       {!isTouch && <ScrollProgressIndicator />}
-    </>
-  );
-
-  if (isTouch) return content;
-
-  return (
-    <ReactLenis
-      root
-      options={{
-        lerp: 0.1,
-        duration: 1.4,
-        smoothWheel: true,
-        orientation: 'vertical',
-      }}
-    >
-      {content}
     </ReactLenis>
   );
 }
