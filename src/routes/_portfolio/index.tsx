@@ -34,7 +34,7 @@ export const Route = createFileRoute('/_portfolio/')({
 
 function HomePage() {
   return (
-    <div className='mx-4 space-y-60 sm:mx-8 sm:mr-16'>
+    <div className='mx-4 space-y-32 sm:mx-8 sm:mr-16 sm:space-y-60'>
       <Hero />
       <About />
       <Skills />

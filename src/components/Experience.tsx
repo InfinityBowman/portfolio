@@ -70,7 +70,7 @@ export default function Experience() {
   );
 
   return (
-    <section id='experience' ref={containerRef} className='min-h-screen'>
+    <section id='experience' ref={containerRef} className='lg:min-h-screen'>
       <SectionTitle title='My Experience' />
 
       <div className='space-y-12'>

@@ -59,7 +59,7 @@ export default function Skills() {
   );
 
   return (
-    <section id='skills' ref={containerRef} className='min-h-screen'>
+    <section id='skills' ref={containerRef} className='lg:min-h-screen'>
       <SectionTitle title='My Stack' />
 
       <div className='space-y-20'>

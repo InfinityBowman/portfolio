@@ -39,7 +39,7 @@ export default function Projects() {
   );
 
   return (
-    <section id='projects' ref={containerRef} className='mb-10 min-h-screen'>
+    <section id='projects' ref={containerRef} className='mb-10 lg:min-h-screen'>
       <SectionTitle title='My Projects' />
 
       <div className='space-y-8'>
