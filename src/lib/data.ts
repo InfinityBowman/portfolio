@@ -312,6 +312,17 @@ interface Project {
 
 export const MY_PROJECTS: Array<Project> = [
   {
+    title: 'CoRATES',
+    description:
+      'CoRATES is a Collaborative Research Appraisal Tool for Evidence Synthesis. It is a real-time, collaborative web application for conducting systematic reviews and meta-analyses, enabling multiple researchers to concurrently appraise studies with conflict-free synchronization. The platform is designed as a local-first PWA on Cloudflare Workers, using Durable Objects and Yjs (CRDTs) for real-time collaboration, with D1 and R2 for persistent storage. It features full authentication and billing flows (OAuth, magic links, optional 2FA, admin impersonation, Stripe), as well as a custom MCP server to improve agent-driven development workflows.',
+    media: '/projects/corates.png',
+    mediaWidth: 2360,
+    mediaHeight: 1586,
+    link: 'https://corates.org',
+    isVideo: false,
+    readMore: '/blog/corates',
+  },
+  {
     title: 'PaleoWaifu',
     description:
       'A prehistoric animal waifu gacha game. Collect 101 creatures spanning the Cambrian through the Pleistocene, trade with other players, and build your ultimate paleontology collection. Features gacha pulls with a full pity system, rate-up banners, an encyclopedia with real paleontology data, a trading marketplace, daily rewards, and a Discord bot with slash commands and an XP leveling system. Built with TanStack Start, React 19, Tailwind CSS v4, shadcn/ui, Drizzle ORM, Cloudflare D1, and deployed on Cloudflare Workers.',
@@ -335,17 +346,6 @@ export const MY_PROJECTS: Array<Project> = [
     isVideo: false,
   },
   {
-    title: 'Civic Data Warehouse',
-    description:
-      'An ETL data pipeline for civic data built with Apache Airflow, PostgreSQL, and LocalStack (S3). Uses Astronomer CLI for local development with Docker Compose orchestrating Airflow, Postgres, and LocalStack containers. Designed to ingest, transform, and warehouse civic datasets for analysis and visualization.',
-    media: '/projects/civic-data-warehouse.png',
-    mediaWidth: 2490,
-    mediaHeight: 1770,
-    refUrl: 'https://github.com/InfinityBowman/civic-data-warehouse',
-    source: 'Github',
-    isVideo: false,
-  },
-  {
     title: 'Urban STL Analytics',
     description:
       'HackSLU Hackathon Grand Prize Winner. A unified urban data analytics platform for the City of St. Louis with an AI agent that can control the entire interface. Users ask a question about St. Louis and the agent toggles map overlays, filters datasets, builds charts, and performs RAG over the data to answer it. Combines 311 complaints, crime data, transit equity, vacancy triage, food access, census demographics, and ARPA fund expenditures into a fullscreen Map Explorer with seven toggleable Mapbox GL layers, cross-dataset analysis, custom vacancy triage scoring, transit equity algorithms, and a ChartBuilder. Built with TanStack Start, React 19, Mapbox GL JS, Recharts, and deployed on Cloudflare Workers.',
@@ -354,17 +354,6 @@ export const MY_PROJECTS: Array<Project> = [
     mediaHeight: 1852,
     link: 'https://jacobmaynard.dev/urbanstl',
     refUrl: 'https://github.com/InfinityBowman/urban-stl-analytics',
-    source: 'Github',
-    isVideo: false,
-  },
-  {
-    title: 'RepoHub',
-    description:
-      'A macOS desktop app for managing local development projects. Scans your repos directory, auto-detects project types (Node.js, Python, Rust, Go, Java, Swift, monorepos), and lets you run, monitor, and navigate everything from one place. Features inline terminals with auto-detected commands, monorepo support with per-package terminals, dependency health auditing, GitHub PR integration, git status tracking, and port monitoring. Built with Electron, React 19, TypeScript, Vite, Tailwind CSS v4, Zustand, node-pty, and xterm.js.',
-    media: '/projects/repohub.png',
-    mediaWidth: 2384,
-    mediaHeight: 1586,
-    refUrl: 'https://github.com/InfinityBowman/repohub',
     source: 'Github',
     isVideo: false,
   },
@@ -380,17 +369,6 @@ export const MY_PROJECTS: Array<Project> = [
     isVideo: false,
   },
   {
-    title: 'CoRATES',
-    description:
-      'CoRATES is a Collaborative Research Appraisal Tool for Evidence Synthesis. It is a real-time, collaborative web application for conducting systematic reviews and meta-analyses, enabling multiple researchers to concurrently appraise studies with conflict-free synchronization. The platform is designed as a local-first PWA on Cloudflare Workers, using Durable Objects and Yjs (CRDTs) for real-time collaboration, with D1 and R2 for persistent storage. It features full authentication and billing flows (OAuth, magic links, optional 2FA, admin impersonation, Stripe), as well as a custom MCP server to improve agent-driven development workflows.',
-    media: '/projects/corates.png',
-    mediaWidth: 2360,
-    mediaHeight: 1586,
-    link: 'https://corates.org',
-    isVideo: false,
-    readMore: '/blog/corates',
-  },
-  {
     title: "Where's Religion?",
     description:
       'A digital humanities platform for ethnographers and cultural studies researchers, built in partnership with the Saint Louis University Center of Lived Religion. As tech lead, I guided a team of three undergraduate capstone students through a full-stack rebuild of both the web and React Native mobile apps. The Next.js web app on Netlify moved to TanStack Start on Cloudflare Workers, the mobile app was upgraded from Expo 53 to Expo Router 54, and both were put behind a new Hono API on AWS with Postgres and Drizzle. Firebase auth was swapped for Better Auth across both platforms, and the backend runs on blue/green Docker deployments behind Nginx and a Cloudflare proxy. RERUM, which had been the primary backend, was pulled out and is now used purely as an external publish layer to expose data explicitly marked as publicly queryable. First Contentful Paint dropped from over 10 seconds to under 1.',
@@ -404,29 +382,6 @@ export const MY_PROJECTS: Array<Project> = [
     readMore: '/blog/wheres-religion',
   },
   {
-    title: 'BeThere Landing Page',
-    description:
-      'Landing page created for my senior capstone React Native mobile app project. Built with React, Emotion.js, and Motion/Framer Motion. I wanted to see what the CSS in JS was about, and it is neat but I do prefer Tailwind due to its nice coupling of components and CSS.',
-    media: '/projects/bethere-landing.png',
-    mediaWidth: 2536,
-    mediaHeight: 1834,
-    link: 'https://bethere.jacobmaynard.dev',
-    refUrl: 'https://github.com/InfinityBowman/bethere-landing',
-    source: 'Github',
-    isVideo: false,
-  },
-  {
-    title: 'BeThere Photo Sharing App',
-    description:
-      'A real-time cross-platform photo sharing app built in React Native with Expo, Zustand, Auth0, Axios, and React Native Maps. It features a camera, photo feed, friends system, reporting, liking, content filtering, and more. It used a .NET web server hosted on AWS EC2 with photos stored in S3. This was my senior capstone project.',
-    media: '/projects/albums.mp4',
-    mediaWidth: 390,
-    mediaHeight: 844,
-    refUrl: 'https://bethere.jacobmaynard.dev',
-    source: 'Landing Page',
-    isVideo: true,
-  },
-  {
     title: 'This Website',
     description:
       'My portfolio website made with React, TailwindCSS, GSAP, Motion/Framer Motion, Lenis (smooth scrolling), Vite, and TypeScript.',
@@ -435,39 +390,6 @@ export const MY_PROJECTS: Array<Project> = [
     mediaHeight: 1746,
     refUrl: 'https://github.com/InfinityBowman/new-portfolio',
     source: 'Github',
-    isVideo: false,
-  },
-  {
-    title: 'League Dashboard',
-    description:
-      "Dashboard of visualizations built purely with D3.js utilizing a Node.js server with Express and Axios to fetch live summoner data from the Riot API. This was my first experience with D3 and I've continued using it and improving at it.",
-    media: '/projects/league-dashboard.jpg',
-    mediaWidth: 2362,
-    mediaHeight: 1666,
-    refUrl: 'https://github.com/InfinityBowman/LeagueOfLegendsDashboard',
-    source: 'Github',
-    isVideo: false,
-  },
-  {
-    title: 'Markdown Notes App',
-    description:
-      'Notes app made in Electron + Vite with React and Typescript. Accesses filesystem to create and autosave notes. Supports markdown editing. Uses Jotai for state management and TailwindCSS, Tailwind Merge for styling. This was my first time trying out Electron. It\u2019s pretty cool but I definitely also want to try out Tauri.',
-    media: '/projects/notes-plus.jpg',
-    mediaWidth: 1876,
-    mediaHeight: 1436,
-    refUrl: 'https://github.com/InfinityBowman/notes-app',
-    source: 'Github',
-    isVideo: false,
-  },
-  {
-    title: 'MoonBlight',
-    description:
-      "Video game made in Unity with C#. A 2D bullet hell conceptualized, designed, and created within 48 Hours for the University of Utah's March 2022 Game Jam. Worked with a large team of programmers, designers, and artists to create a neat little game.",
-    media: '/projects/moon-blight.jpg',
-    mediaWidth: 794,
-    mediaHeight: 554,
-    refUrl: 'https://monkeybarrelgames.itch.io/moonblight',
-    source: 'Itch.io',
     isVideo: false,
   },
 ];

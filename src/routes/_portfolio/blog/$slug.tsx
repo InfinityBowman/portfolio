@@ -1,5 +1,6 @@
 import { Link, createFileRoute, notFound } from '@tanstack/react-router';
 import { useEffect } from 'react';
+import { useLenis } from 'lenis/react';
 import 'prismjs/themes/prism-tomorrow.css';
 import Prism from 'prismjs';
 import { FaArrowLeft } from 'react-icons/fa';
@@ -78,6 +79,11 @@ export const Route = createFileRoute('/_portfolio/blog/$slug')({
 
 function BlogPostPage() {
   const post = Route.useLoaderData();
+  const lenis = useLenis();
+
+  useEffect(() => {
+    lenis?.scrollTo(0, { immediate: true });
+  }, [lenis, post.slug]);
 
   useEffect(() => {
     Prism.highlightAll();
