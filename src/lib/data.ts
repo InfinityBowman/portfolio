@@ -219,16 +219,15 @@ export interface ExperienceItem {
 export const MY_EXPERIENCE: Array<ExperienceItem> = [
   {
     company: 'Applied Research Associates',
-    title: 'Software Engineer Intern',
+    title: 'Software Engineer',
     duration: 'May 2024 - Present',
     description:
-      'ARA is an international research and engineering firm providing solutions to complex problems in defense, space, security, and critical infrastructure. Full-time onsite during summers in Rapid City, SD and part-time remote during the academic year.',
+      'ARA is an international research and engineering firm providing solutions to complex problems in defense, space, security, and critical infrastructure. Full-time onsite during summers in Rapid City, SD and remote during the academic year.',
     highlights: [
       'Built real-time data visualizations rendering 1M+ points at 120fps in WebGL2/WebGPU for U.S. Air Force mission planning',
       'Optimized multi-GB proprietary data parsing 60x with custom atof routines and cache-conscious layout; cut memory from 2GB+ to 130MB',
       'Optimized radar detection simulation pipeline 40x (40s to <1s) through algorithmic restructuring and OpenMP parallelization',
-      'Engineered zero-copy shared-memory IPC across WebView2 windows from C++/C#, replacing JSON-over-COM to eliminate a 200MB transfer ceiling',
-      'Invited to continue part-time remotely during the academic year based on performance and impact during the summer internships',
+      'Engineered zero-copy shared-memory IPC across WebView2 windows from C++/C#, replacing JSON-over-COM to eliminate transfer ceiling',
       '"Jacob is a high-achieving, goal-oriented individual, and he is a pleasure to work with." - Project Lead Feedback',
     ],
     tech: [

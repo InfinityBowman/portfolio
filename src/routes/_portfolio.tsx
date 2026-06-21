@@ -8,6 +8,7 @@ import Footer from '@/components/Footer';
 import BackgroundParticles from '@/components/BackgroundParticles';
 import BackgroundCanvas from '@/components/BackgroundGrid';
 import ScrollProgressIndicator from '@/components/ScrollProgressIndicator';
+import { syncThemeColor } from '@/lib/theme';
 
 export const Route = createFileRoute('/_portfolio')({
   component: LayoutComponent,
@@ -26,12 +27,14 @@ function LayoutComponent() {
     el.dataset.theme = 'dark';
     el.dataset.themeLocked = '';
     el.dataset.hideScrollbar = '';
+    syncThemeColor();
     return () => {
       delete el.dataset.themeLocked;
       delete el.dataset.hideScrollbar;
       const saved = localStorage.getItem('theme') as 'light' | 'dark' | null;
       el.dataset.theme =
         saved ?? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      syncThemeColor();
     };
   }, []);
 

@@ -29,10 +29,34 @@ function getSystemTheme(): Theme {
   return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 }
 
+/**
+ * Sync the <meta name="theme-color"> to the page's actual background so iOS
+ * Safari paints the status-bar safe area to match instead of defaulting to
+ * white.
+ */
+export function syncThemeColor() {
+  if (typeof document === 'undefined') return;
+  const color = getComputedStyle(document.body).backgroundColor;
+  if (!color) return;
+  // Drop the SSR media-scoped fallbacks
+  document.querySelectorAll('meta[name="theme-color"][media]').forEach(el => el.remove());
+  let meta = document.querySelector<HTMLMetaElement>('meta[name="theme-color"]:not([media])');
+  if (!meta) {
+    meta = document.createElement('meta');
+    meta.name = 'theme-color';
+    document.head.appendChild(meta);
+  }
+  meta.content = color;
+}
+
 function applyTheme(theme: Theme) {
   const el = document.documentElement;
-  if (el.dataset.themeLocked !== undefined) return;
+  if (el.dataset.themeLocked !== undefined) {
+    syncThemeColor();
+    return;
+  }
   el.dataset.theme = theme;
+  syncThemeColor();
 }
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
