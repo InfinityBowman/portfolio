@@ -218,9 +218,16 @@ export interface ExperienceItem {
 
 export const MY_EXPERIENCE: Array<ExperienceItem> = [
   {
+    company: 'Noise',
+    title: 'Software Engineer 2',
+    duration: 'July 2026 - Present',
+    description:
+      'Noise is a UGC platform that connects brands with thousands of creators to produce social content at scale across TikTok, YouTube, and Instagram, with view verification and pay-per-performance pricing.',
+  },
+  {
     company: 'Applied Research Associates',
-    title: 'Software Engineer',
-    duration: 'May 2024 - Present',
+    title: 'Junior Software Engineer',
+    duration: 'May 2024 - July 2026',
     description:
       'ARA is an international research and engineering firm providing solutions to complex problems in defense, space, security, and critical infrastructure. Full-time onsite during summers in Rapid City, SD and remote during the academic year.',
     highlights: [
